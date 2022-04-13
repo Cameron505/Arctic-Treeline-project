@@ -1,0 +1,463 @@
+---
+title: "FTICR_Field_Treeline_Polar_CKM"
+output: html_document
+---
+
+## Read in Libraries and set working directory
+```{r, echo=FALSE }
+library(ftmsRanalysis)
+library(dplyr)
+library(tidyr)
+library(purrr)
+library(rbokeh)
+library(ggplot2)
+library(devtools)
+cbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
+
+```
+
+## e_data (Expression Data)
+```{r}
+dat_edata <- read.csv(file="Field_Polar_Edata.csv", header=TRUE, sep=",")
+```
+
+## f_data (Sample Data)
+```{r}
+dat_fdata <- read.csv(file="Field_Polar_Fdata.csv", header=TRUE, sep=",")
+dat_fdata$ID <- gsub("-",".",dat_fdata$ID)
+
+```
+
+## e_meta (Molecular Identification Data)
+```{r }
+dat_emeta <- read.csv(file="Field_Polar_Emeta.csv", header=TRUE, sep=",")
+
+```
+
+## Constructing a peakData object
+```{r}
+peakObj <- as.peakData(dat_edata, dat_fdata, dat_emeta,edata_cname="Mass", fdata_cname="ID", mass_cname="Mass", c_cname="C", h_cname="H", o_cname="O", n_cname="N", s_cname="S", p_cname="P", isotopic_cname = "C13", isotopic_notation = "1")
+peakObjA<-peakObj
+
+```
+
+# Preprocessing
+
+## Transforming abundance values
+```{r}
+peakObj <- edata_transform(peakObj, data_scale="log2")
+
+plot(peakObj)
+```
+
+## Calculating meta-data
+```{r}
+peakObj <- compound_calcs(peakObj)
+```
+## Elemental Composition Breakdown
+```{r}
+peakObj <- assign_elemental_composition(peakObj)
+
+table(peakObj$e_meta[,getElCompColName(peakObj)])
+```
+## Compound Class Breakdown using Boundary Set 2 (Bailey 2017)
+```{r}
+peakObj <- assign_class(peakObj, boundary_set = "bs2")
+table(peakObj$e_meta[, getBS2ColName(peakObj)])
+```
+
+There are three sets of class boundary definitions that may be used (for the `boundary_set` parameter) corresponding to the following publications:
+
+* `bs1` - [Kim, S., et al (2003). Analytical Chemistry.](https://dx.doi.org/10.1021/ac034415p){target="_blank"}
+* `bs2` - [Bailey, V. et al (2017). Soil Biology and Biochemistry.](https://dx.doi.org/10.1016/j.soilbio.2016.11.025){target="_blank"}
+* `bs3` - [Rivas-Ubach, A., et al (2018). Analytical chemistry.](https://dx.doi.org/10.1021/acs.analchem.8b00529){target="_blank"}
+
+## Filtering
+
+## Filter data without formula
+```{r}
+peakObj <- applyFilt(formula_filter(peakObj), peakObj)
+summary(peakObj)
+```
+
+## Combinung emeta, fdata, and edata to calculate the sample means
+```{r}
+# combine
+alldata <- tidyr::gather(peakObj$e_data, key="ID", value="Intensity", -Mass) %>%
+  dplyr::full_join(peakObj$e_meta, by="Mass") %>%
+  dplyr::full_join(peakObj$f_data, by="ID") %>%
+  dplyr::filter(Intensity > 0 & !is.na(Intensity))
+
+Sample.KeyValues <- alldata %>%
+  dplyr::group_by(ID, Site) %>%
+  dplyr::summarise(MeanNOSC = mean(NOSC),
+                   MeanDBE = mean(DBE),
+                   MeanDBE_O = mean(DBE_O), 
+                   MeanAI = mean(AI),
+                   MeanHtoC = mean(HtoC_ratio), 
+                   MeanOtoC = mean(OtoC_ratio), 
+                   MeanNtoC = mean(NtoC_ratio),
+                   MeanNtoP = mean(NtoP_ratio),
+                   MeanNtoP = mean(NtoP_ratio, na.rm=TRUE),
+                   MeanPtoC = mean(PtoC_ratio),
+                   MeanGFE = mean(GFE))
+
+View(Sample.KeyValues)
+
+Sample.KeyValues2 <- alldata %>%
+  dplyr::group_by(ID, Site, Class, Year) %>%
+  dplyr::summarise(MeanNOSC = mean(NOSC),
+                   MeanDBE = mean(DBE),
+                   MeanDBE_O = mean(DBE_O), 
+                   MeanAI = mean(AI),
+                   MeanHtoC = mean(HtoC_ratio), 
+                   MeanOtoC = mean(OtoC_ratio), 
+                   MeanNtoC = mean(NtoC_ratio),
+                   MeanNtoP = mean(NtoP_ratio),
+                   MeanNtoP = mean(NtoP_ratio, na.rm=TRUE),
+                   MeanPtoC = mean(PtoC_ratio),
+                   MeanGFE = mean(GFE))
+
+
+Sample.KeyValuesT <- alldata %>%
+  dplyr::group_by(ID, Season) %>%
+  dplyr::summarise(MeanNOSC = mean(NOSC),
+                   MeanDBE = mean(DBE),
+                   MeanDBE_O = mean(DBE_O), 
+                   MeanAI = mean(AI),
+                   MeanHtoC = mean(HtoC_ratio), 
+                   MeanOtoC = mean(OtoC_ratio), 
+                   MeanNtoC = mean(NtoC_ratio),
+                   MeanNtoP = mean(NtoP_ratio),
+                   MeanNtoP = mean(NtoP_ratio, na.rm=TRUE),
+                   MeanPtoC = mean(PtoC_ratio),
+                   MeanGFE = mean(GFE))
+
+
+Sample.KeyValuesA <- alldata %>%
+  dplyr::group_by(ID, Season, Site) %>%
+  dplyr::summarise(MeanNOSC = mean(NOSC),
+                   MeanDBE = mean(DBE),
+                   MeanDBE_O = mean(DBE_O), 
+                   MeanAI = mean(AI),
+                   MeanHtoC = mean(HtoC_ratio), 
+                   MeanOtoC = mean(OtoC_ratio), 
+                   MeanNtoC = mean(NtoC_ratio),
+                   MeanNtoP = mean(NtoP_ratio),
+                   MeanNtoP = mean(NtoP_ratio, na.rm=TRUE),
+                   MeanPtoC = mean(PtoC_ratio),
+                   MeanGFE = mean(GFE))
+```
+## Data Exploration
+```{r}
+ NtoC <-ggplot(data=Sample.KeyValues, aes(x=Site, y=MeanNtoC, fill=Site))+
+  geom_boxplot()+
+  theme_bw()
+NtoC
+ NOSC <-ggplot(data=Sample.KeyValues, aes(x=Site, y=MeanNOSC, fill=Site))+
+  geom_boxplot()+
+  theme_bw()
+NOSC
+DBE <-ggplot(data=Sample.KeyValues, aes(x=Site, y=MeanDBE, fill=Site))+
+  geom_boxplot()+
+  theme_bw()
+DBE
+DBE_O <-ggplot(data=Sample.KeyValues, aes(x=Site, y=MeanDBE_O, fill=Site))+
+  geom_boxplot()+
+  theme_bw()
+DBE_O
+AI <-ggplot(data=Sample.KeyValues, aes(x=Site, y=MeanAI, fill=Site))+
+  geom_boxplot()+
+  theme_bw()
+AI
+HtoC <-ggplot(data=Sample.KeyValues, aes(x=Site, y=MeanHtoC, fill=Site))+
+  geom_boxplot()+
+  theme_bw()
+HtoC
+OtoC <-ggplot(data=Sample.KeyValues, aes(x=Site, y=MeanOtoC, fill=Site))+
+  geom_boxplot()+
+  theme_bw()
+OtoC
+NtoP <-ggplot(data=Sample.KeyValues, aes(x=Site, y=MeanNtoP, fill=Site))+
+  geom_boxplot()+
+  theme_bw()
+NtoP
+PtoC <-ggplot(data=Sample.KeyValues, aes(x=Site, y=MeanPtoC, fill=Site))+
+  geom_boxplot()+
+  theme_bw()
+PtoC
+GFE <-ggplot(data=Sample.KeyValues, aes(x=Site, y=MeanGFE, fill=Site))+
+  geom_boxplot()+
+  theme_bw()
+GFE
+
+
+
+
+
+
+```
+## Data Exploration2
+```{r}
+Sample.KeyValues2$Site<-as.factor(Sample.KeyValues2$Site)
+Sample.KeyValues2$Year<-as.factor(Sample.KeyValues2$Year)
+ NtoC <-ggplot(data=Sample.KeyValues2, aes(x=Year, y=MeanNtoC, fill=Site))+
+  geom_boxplot()+
+  theme_bw()
+NtoC
+ NOSC <-ggplot(data=Sample.KeyValues2, aes(x=Year, y=MeanNOSC, fill=Site))+
+  geom_boxplot()+
+  theme_bw()
+NOSC
+DBE <-ggplot(data=Sample.KeyValues2, aes(x=Year, y=MeanDBE, fill=Site))+
+  geom_boxplot()+
+  theme_bw()
+DBE
+DBE_O <-ggplot(data=Sample.KeyValues2, aes(x=Year, y=MeanDBE_O, fill=Site))+
+  geom_boxplot()+
+  theme_bw()
+DBE_O
+AI <-ggplot(data=Sample.KeyValues2, aes(x=Year, y=MeanAI, fill=Site))+
+  geom_boxplot()+
+  theme_bw()
+AI
+HtoC <-ggplot(data=Sample.KeyValues2, aes(x=Year, y=MeanHtoC, fill=Site))+
+  geom_boxplot()+
+  theme_bw()
+HtoC
+OtoC <-ggplot(data=Sample.KeyValues2, aes(x=Year, y=MeanOtoC, fill=Site))+
+  geom_boxplot()+
+  theme_bw()
+OtoC
+NtoP <-ggplot(data=Sample.KeyValues2, aes(x=Year, y=MeanNtoP, fill=Site))+
+  geom_boxplot()+
+  theme_bw()
+NtoP
+PtoC <-ggplot(data=Sample.KeyValues2, aes(x=Year, y=MeanPtoC, fill=Site))+
+  geom_boxplot()+
+  theme_bw()
+PtoC
+GFE <-ggplot(data=Sample.KeyValues2, aes(x=Year, y=MeanGFE, fill=Site))+
+  geom_boxplot()+
+  theme_bw()
+GFE
+
+
+
+
+
+
+```
+## Data Exploration3
+```{r}
+
+ NtoC <-ggplot(data=Sample.KeyValuesT, aes(x=Site, y=MeanNtoC, fill=Class))+
+  geom_boxplot()+
+  theme_bw()
+NtoC
+ NOSC <-ggplot(data=Sample.KeyValuesT, aes(x=Site, y=MeanNOSC, fill=Site))+
+  geom_boxplot()+
+  theme_bw()
+NOSC
+DBE <-ggplot(data=Sample.KeyValuesT, aes(x=Site, y=MeanDBE, fill=Site))+
+  geom_boxplot()+
+  theme_bw()
+DBE
+DBE_O <-ggplot(data=Sample.KeyValuesT, aes(x=Site, y=MeanDBE_O, fill=Site))+
+  geom_boxplot()+
+  theme_bw()
+DBE_O
+AI <-ggplot(data=Sample.KeyValuesT, aes(x=Site, y=MeanAI, fill=Site))+
+  geom_boxplot()+
+  theme_bw()
+AI
+HtoC <-ggplot(data=Sample.KeyValuesT, aes(x=Site, y=MeanHtoC, fill=Site))+
+  geom_boxplot()+
+  theme_bw()
+HtoC
+OtoC <-ggplot(data=Sample.KeyValuesT, aes(x=Site, y=MeanOtoC, fill=Site))+
+  geom_boxplot()+
+  theme_bw()
+OtoC
+NtoP <-ggplot(data=Sample.KeyValuesT, aes(x=Site, y=MeanNtoP, fill=Site))+
+  geom_boxplot()+
+  theme_bw()
+NtoP
+PtoC <-ggplot(data=Sample.KeyValuesT, aes(x=Site, y=MeanPtoC, fill=Site))+
+  geom_boxplot()+
+  theme_bw()
+PtoC
+GFE <-ggplot(data=Sample.KeyValuesT, aes(x=Site, y=MeanGFE, fill=Site))+
+  geom_boxplot()+
+  theme_bw()
+GFE
+
+
+
+
+
+
+```
+## Data Exploration4
+```{r}
+
+ NtoC <-ggplot(data=Sample.KeyValuesA, aes(x=Season, y=MeanNtoC, fill=Site))+
+   scale_fill_manual(values=cbPalette)+
+  geom_boxplot()+
+  theme_bw()
+NtoC
+ NOSC <-ggplot(data=Sample.KeyValuesA, aes(x=Season, y=MeanNOSC, fill=Site))+
+  geom_boxplot()+
+   scale_fill_manual(values=cbPalette)+
+  theme_bw()+
+   theme(legend.direction = 'vertical', 
+        legend.key = element_rect(size=2),
+        legend.key.size = unit(3, 'lines'),
+        panel.grid.major = element_blank(), 
+        legend.title=element_text(size=40,colour='black'),
+        panel.grid.minor = element_blank(),
+        legend.text=element_text(size=35),
+        axis.title.y= element_text(size=40, colour='black'),
+        axis.text.y = element_text(size=40, colour='black'),
+        axis.ticks = element_line(colour = "black", size=2),
+        axis.ticks.length = unit(0.3, "cm"),
+        axis.title.x=element_text(size=40, colour='black'),
+        axis.text.x = element_text(size=40, colour='black'),
+        panel.border = element_rect(colour = "black", fill=NA, size=2),
+        plot.title = element_text( size=40, face="bold.italic"),
+        plot.margin=unit(c(1,1,1,1), "cm"))
+NOSC
+DBE <-ggplot(data=Sample.KeyValuesA, aes(x=Season, y=MeanDBE, fill=Site))+
+  geom_boxplot()+
+  scale_fill_manual(values=cbPalette)+
+  theme_bw()
+DBE
+DBE_O <-ggplot(data=Sample.KeyValuesA, aes(x=Season, y=MeanDBE_O, fill=Site))+
+  geom_boxplot()+
+  scale_fill_manual(values=cbPalette)+
+  theme_bw()
+DBE_O
+AI <-ggplot(data=Sample.KeyValuesA, aes(x=Season, y=MeanAI, fill=Site))+
+  geom_boxplot()+
+  scale_fill_manual(values=cbPalette)+
+  theme_bw()
+AI
+HtoC <-ggplot(data=Sample.KeyValuesA, aes(x=Season, y=MeanHtoC, fill=Site))+
+  geom_boxplot()+
+  scale_fill_manual(values=cbPalette)+
+  theme_bw()
+HtoC
+OtoC <-ggplot(data=Sample.KeyValuesA, aes(x=Season, y=MeanOtoC, fill=Site))+
+  geom_boxplot()+
+  scale_fill_manual(values=cbPalette)+
+  theme_bw()
+OtoC
+NtoP <-ggplot(data=Sample.KeyValuesA, aes(x=Season, y=MeanNtoP, fill=Site))+
+  geom_boxplot()+
+  scale_fill_manual(values=cbPalette)+
+  theme_bw()
+NtoP
+PtoC <-ggplot(data=Sample.KeyValuesA, aes(x=Season, y=MeanPtoC, fill=Site))+
+  geom_boxplot()+
+  scale_fill_manual(values=cbPalette)+
+  theme_bw()
+PtoC
+GFE <-ggplot(data=Sample.KeyValuesA, aes(x=Season, y=MeanGFE, fill=Site))+
+  geom_boxplot()+
+  scale_fill_manual(values=cbPalette)+
+  theme_bw()+
+  theme(legend.direction = 'vertical', 
+        legend.key = element_rect(size=2),
+        legend.key.size = unit(3, 'lines'),
+        panel.grid.major = element_blank(), 
+        legend.title=element_text(size=40,colour='black'),
+        panel.grid.minor = element_blank(),
+        legend.text=element_text(size=35),
+        axis.title.y= element_text(size=40, colour='black'),
+        axis.text.y = element_text(size=40, colour='black'),
+        axis.ticks = element_line(colour = "black", size=2),
+        axis.ticks.length = unit(0.3, "cm"),
+        axis.title.x=element_text(size=40, colour='black'),
+        axis.text.x = element_text(size=40, colour='black'),
+        panel.border = element_rect(colour = "black", fill=NA, size=2),
+        plot.title = element_text( size=40, face="bold.italic"),
+        plot.margin=unit(c(1,1,1,1), "cm"))
+GFE
+
+
+ggsave('GFE.png', plot=GFE, width= 20, height= 12)
+ggsave('NOSC.png', plot=NOSC, width= 20, height= 12)
+
+
+
+```
+## Calculating PCA values from peak data and getting the data back into a numeric form. Combining data with sample means calculated in KeyValues.
+```{r}
+pca<-getPrincipalCoordinates(peakObjA)
+attr(pca,"R^2")
+
+d <- pca
+ID <- rownames(d)
+rownames(d) <- NULL
+data <- cbind(ID,d)
+data<- as.data.frame(data)
+
+PCA2<- merge(Sample.KeyValuesA, data,by.x="ID", by.y="ID", sort = TRUE)
+
+PCA2[, c(4:17)] <- sapply(PCA2[, c(4:17)], as.numeric)
+
+```
+
+##Plotting Stat Ellipises on PCA plot
+```{r}
+PCA2$Site<-as.factor(PCA2$Site)
+PCA2$Season<-as.factor(PCA2$Season)
+PCA1<-ggplot(PCA2, aes(x=Axis.1, y=Axis.2, color=Site))+
+  geom_point(lwd=4)+
+  stat_ellipse(aes(x=Axis.1,y=Axis.2, level=0.95))+
+  scale_colour_manual(values=cbPalette)+
+  theme_bw()+
+  theme(legend.direction = 'vertical', 
+        legend.key = element_rect(size=2),
+        legend.key.size = unit(3, 'lines'),
+        panel.grid.major = element_blank(), 
+        legend.title=element_text(size=40,colour='black'),
+        panel.grid.minor = element_blank(),
+        legend.text=element_text(size=35),
+        axis.title.y= element_text(size=40, colour='black'),
+        axis.text.y = element_text(size=40, colour='black'),
+        axis.ticks = element_line(colour = "black", size=2),
+        axis.ticks.length = unit(0.3, "cm"),
+        axis.title.x=element_text(size=40, colour='black'),
+        axis.text.x = element_text(size=40, colour='black'),
+        panel.border = element_rect(colour = "black", fill=NA, size=2),
+        plot.title = element_text( size=40, face="bold.italic"),
+        plot.margin=unit(c(1,1,1,1), "cm"))+
+  ggtitle("15T FTICR_nonPolar_Treeline_Site difference")
+ggsave('PCA_Treeline_Sites NonPolar.png', plot=PCA1, width= 20, height= 12)
+```
+
+## Calculating PCA values from peak data and getting the data back into a numeric form. Combining data with sample means calculated in KeyValues.
+```{r}
+pca<-getPrincipalCoordinates(peakObjA)
+attr(pca,"R^2")
+
+d <- pca
+ID <- rownames(d)
+rownames(d) <- NULL
+data <- cbind(ID,d)
+data<- as.data.frame(data)
+
+PCA3<- merge(Sample.KeyValues2, data,by.x="ID", by.y="ID", sort = TRUE)
+
+PCA3[, c(4:17)] <- sapply(PCA3[, c(4:17)], as.numeric)
+
+```
+##Plotting Stat Ellipises on PCA plot
+```{r}
+PCA3$Year<-as.factor(PCA3$Year)
+ggplot(PCA3, aes(x=Axis.1, y=Axis.2, color=Year))+
+  geom_point()+
+  stat_ellipse(aes(x=Axis.1,y=Axis.2, level=0.95))+
+  theme_bw()
+```
