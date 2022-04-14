@@ -1,13 +1,12 @@
 ## FTICR-MS WORKFLOW
 ## USE THIS SCRIPT TO PROCESS FTICR-MS DATA
-## KAIZAD F. PATEL
-## OCT-06-2020, modified APR-13-2022
 
 ##############################
 ##############################
 
 ## SOURCE THE FUNCTION FILES FIRST, AND THEN RUN THE SCRIPT
 ## DON'T RUN THE PROCESSING SCRIPT MULTIPLE TIMES. ONCE IS ENOUGH.
+## -KFP/ 2022
 
 ##############################
 ##############################
