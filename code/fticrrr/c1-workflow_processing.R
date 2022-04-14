@@ -22,7 +22,7 @@ TREATMENTS = dplyr::quos(Site, Year, Season)
 
 #
 # 2. load packages and source the functions --------------------------------------------------------
-library(tidyverse)
+source("code/0-packages.R")
 
 source("code/fticrrr/a-functions_processing.R")
 
