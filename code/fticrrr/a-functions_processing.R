@@ -1,5 +1,18 @@
+# FTICRRR: fticr results in R
+# functions for data processing
+
+################################################## #
+################################################## #
+
+## This script contains functions for FTICR data processing,
+## Source these functions in the workflow script
+## -KFP/2022
+
+################################################## #
+################################################## #
 
 
+#
 # 1. PROCESSING FUNCTIONS -------------------------------------------------
 ## LEVEL I FUNCTIONS -------------------------------------------------------
 ## for metadata file
