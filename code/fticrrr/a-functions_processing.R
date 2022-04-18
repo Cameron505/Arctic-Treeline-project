@@ -132,7 +132,7 @@ make_fticr_data = function(report, TREATMENTS){
     left_join(mass_to_formula, by = "Mass") %>% 
     dplyr::select(formula, CoreID, presence)
   
-  data_long_key = data_presence %>% left_join(corekey, by = "CoreID")
+  data_long_key = data_presence %>% left_join(COREKEY, by = "CoreID")
   
   data_long_key_repfiltered = apply_replication_filter(data_long_key, TREATMENTS)
   
