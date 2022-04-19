@@ -144,6 +144,46 @@ pca_hydric = fit_pca_function(relabund_cores %>% filter(Site == "Hydric"))
     NULL
 )
 
+# Mesic only
+pca_Mesic = fit_pca_function(relabund_cores %>% filter(Site == "Mesic"))
+
+(gg_pca_Mesic = 
+    ggbiplot(pca_Mesic$pca_int, obs.scale = 1, var.scale = 1,
+             groups = as.character(pca_Mesic$grp$Season), 
+             ellipse = TRUE, circle = FALSE, var.axes = TRUE, alpha = 0) +
+    geom_point(size=3,stroke=1, alpha = 0.5,
+               aes(shape = as.character(pca_Mesic$grp$Year),
+                   color = groups))+
+    #scale_shape_manual(values = c(21, 22, 19), name = "", guide = "none")+
+    xlim(-4,4)+
+    ylim(-3.5,3.5)+
+    labs(shape="",
+         title = "Mesic samples",
+         subtitle = "separation by Season")+
+    theme_kp()+
+    NULL
+)
+
+# Xeric only
+pca_Xeric = fit_pca_function(relabund_cores %>% filter(Site == "Xeric"))
+
+(gg_pca_Xeric = 
+    ggbiplot(pca_Xeric$pca_int, obs.scale = 1, var.scale = 1,
+             groups = as.character(pca_Xeric$grp$Season), 
+             ellipse = TRUE, circle = FALSE, var.axes = TRUE, alpha = 0) +
+    geom_point(size=3,stroke=1, alpha = 0.5,
+               aes(shape = as.character(pca_Xeric$grp$Year),
+                   color = groups))+
+    #scale_shape_manual(values = c(21, 22, 19), name = "", guide = "none")+
+    xlim(-4,4)+
+    ylim(-3.5,3.5)+
+    labs(shape="",
+         title = "Xeric samples",
+         subtitle = "separation by Season")+
+    theme_kp()+
+    NULL
+)
+
 
 #
 ## 4b. PERMANOVA ----
