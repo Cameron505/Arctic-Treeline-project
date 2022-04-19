@@ -106,8 +106,8 @@ make_fticr_meta = function(report){
   meta_clean = 
     fticr_report %>% 
     # select only the relevant columns for the formula assignments
-    dplyr::select(Mass, C, H, O, N, S, P, El_comp, Class) %>% 
-    rename(EMSL_class = Class)
+    dplyr::select(Mass, C, H, O, N, S, P, El_comp, class) %>% 
+    rename(EMSL_class = class)
   
   meta_indices = compute_indices(meta_clean)
   meta_formula = compute_mol_formula(meta_clean)
