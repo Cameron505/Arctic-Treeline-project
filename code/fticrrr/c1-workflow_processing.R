@@ -37,10 +37,10 @@ source("code/fticrrr/a-functions_processing.R")
 ## import the FTICR report and the corekey/sample info
 
 report_polar = read.csv(REPORT)
-corekey_polar = read.csv(COREKEY)
+corekey_polar = read.csv(COREKEYpolar)
 
 report_nonpolar = read.csv(REPORT2)
-corekey_nonpolar = read.csv(COREKEY2)
+corekey_nonpolar = read.csv(COREKEYNonpolar)
 #
 # 4. process the data -----------------------------------------------------
 
