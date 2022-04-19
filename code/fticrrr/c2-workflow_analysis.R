@@ -88,6 +88,69 @@ gg_vk_spring2018 =
   theme_kp()
 
 #
+# unique peaks, by site ----
+fticr_unique_site = 
+  fticr_hcoc %>% 
+  distinct(formula, Site, HC, OC) %>% 
+  group_by(formula) %>% 
+  dplyr::mutate(n = n())
+
+
+(gg_site_unique =
+  fticr_unique_site %>% filter(n == 1) %>% 
+    gg_vankrev(aes(x = OC, y = HC, color = Site))+
+    stat_ellipse(level = 0.90, show.legend = FALSE)+
+    facet_wrap(~Site)+
+    labs(title = "Unique peaks at each Site")+
+    theme_kp()
+)
+
+(gg_site_common = 
+    fticr_unique_site %>% filter(n == 3) %>% 
+    gg_vankrev(aes(x = OC, y = HC))+
+    stat_ellipse(level = 0.90, show.legend = FALSE)+
+    labs(title = "Peaks common to all sites")+
+    theme_kp()
+)
+
+# overlay unique peaks onto common peaks
+(gg_site_common_unique = 
+    fticr_unique_site %>% filter(n == 3) %>% 
+    gg_vankrev(aes(x = OC, y = HC))+
+    geom_point(data = fticr_unique_site %>% filter(n == 1),
+               aes(color = Site), alpha = 0.7)+
+    facet_wrap(~Site)+
+    labs(title = "Unique peaks at each Site",
+         subtitle = "black/grey = peaks common to all")+
+    theme_kp()
+)
+
+## summarize unique peaks
+fticr_unique_site_summary = 
+  fticr_unique_site %>% 
+  filter(n == 1) %>% 
+  left_join(fticr_meta %>% dplyr::select(formula, Class)) %>% 
+  group_by(Site, Class) %>% 
+  dplyr::summarise(counts = n())
+
+#
+# unique peaks, spring 2018 ----
+# comparing peaks lost/gained for spring vs. latespring
+
+unique_peaks_2018 = 
+  fticr_spring2018 %>% 
+  group_by(formula, Site) %>% 
+  dplyr::mutate(n = n())
+
+unique_peaks_2018 %>% 
+  filter(n == 1) %>% 
+  gg_vankrev(aes(x = OC, y = HC, color = Season))+
+  facet_wrap(~Site)+  
+  stat_ellipse(level = 0.90, show.legend = FALSE)+
+  theme_kp()
+
+
+#
 # 3. relative abundance ---------------------------------------------------
 ## 3a. calculations ----
 
