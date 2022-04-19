@@ -33,6 +33,10 @@ fticr_meta  = read.csv("data/processed/fticr_polar_meta.csv")
 fticr_data_longform = read.csv("data/processed/fticr_polar_data_longform.csv")
 fticr_data_trt = read.csv("data/processed/fticr_polar_trt.csv")
 
+## SET the treatment variables
+## this will work with multiple variables too. just add all the variable names in the parentheses.
+TREATMENTS = dplyr::quos(Site, Year, Season)
+
 
 #
 # 2. van krevelen plots ---------------------------------------------------
@@ -64,9 +68,26 @@ gg_vk_all =
   facet_grid(Season~Year)+
   theme_kp()
 
+gg_vk_all_site = 
+  gg_vankrev(fticr_hcoc, aes(x = OC, y = HC, color = as.character(Year)))+
+  stat_ellipse(level = 0.90, show.legend = FALSE)+
+  facet_grid(~Site)+
+  theme_kp()
 
 #
+# spring-late spring, hydric-mesic ----
+fticr_spring2018 = 
+  fticr_hcoc %>% 
+  filter(Site %in% c("Hydric", "Mesic") & Season %in% c("Spring", "LateSpring") & Year == 2018)
 
+gg_vk_spring2018 = 
+  fticr_spring2018 %>% 
+  gg_vankrev(aes(x = OC, y = HC, color = Season))+
+  stat_ellipse(level = 0.90, show.legend = FALSE)+
+  facet_wrap(~Site)+
+  theme_kp()
+
+#
 # 3. relative abundance ---------------------------------------------------
 ## 3a. calculations ----
 
