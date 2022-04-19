@@ -18,9 +18,12 @@
 source("code/0-packages.R")
 
 # source the functions
-source("code/fticrrr/b-functions_relabund.R")
-source("code/fticrrr/c-functions_vankrevelen.R")
-source("code/fticrrr/d-functions_statistics.R")
+source("code/fticrrr/b-functions_analysis.R")
+
+
+#source("code/fticrrr/b-functions_relabund.R")
+#source("code/fticrrr/c-functions_vankrevelen.R")
+#source("code/fticrrr/d-functions_statistics.R")
 
 
 #
