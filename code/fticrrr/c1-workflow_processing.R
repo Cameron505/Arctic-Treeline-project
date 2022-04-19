@@ -55,18 +55,26 @@ fticr_meta_nonpolar = make_fticr_meta(report_nonpolar)$meta2
 # *_longform: molecules on a presence/absence bases, including all reps analyzed
 # use *_longform file for statistical analyses, relative abundances
 
-COREKEY<-read.csv(COREKEYpolar)
-fticr_data_longform_polar = make_fticr_data(report_polar, TREATMENTS)$data_long_key_repfiltered
+corekey_polar <- read.csv(COREKEYpolar)
+fticr_data_longform_polar = make_fticr_data(report_polar, corekey_polar, TREATMENTS)$data_long_key_repfiltered
 
-COREKEY<-read.csv(COREKEYNonpolar)
-fticr_data_longform_nonpolar = make_fticr_data(report_nonpolar, TREATMENTS)$data_long_key_repfiltered
+corekey_nonpolar <- read.csv(COREKEYNonpolar)
+fticr_data_longform_nonpolar = make_fticr_data(report_nonpolar, corekey_nonpolar, TREATMENTS)$data_long_key_repfiltered
 
 # *_trt: summary of the longform file, by treatment. replicates are removed
 # use *_trt file for Van Krevelen graphs
-fticr_data_trt_polar = make_fticr_data(report_polar, TREATMENTS)$data_long_trt
+fticr_data_trt_polar = make_fticr_data(report_polar, corekey_polar, TREATMENTS)$data_long_trt
 
-fticr_data_trt_nonpolar = make_fticr_data(report_nonpolar, TREATMENTS)$data_long_trt
+fticr_data_trt_nonpolar = make_fticr_data(report_nonpolar, corekey_nonpolar, TREATMENTS)$data_long_trt
 #
+
+
+#
+# 4b. combine polar and nonpolar ------------------------------------------
+
+
+
+
 # 5. export processed data ------------------------------------------------
 fticr_meta_polar %>% write.csv("data/processed/fticr_polar_meta.csv", row.names = FALSE)
 fticr_data_longform_polar %>% write.csv("data/processed/fticr_polar_data_longform.csv", row.names = FALSE)
