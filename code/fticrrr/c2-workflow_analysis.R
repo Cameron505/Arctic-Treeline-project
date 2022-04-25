@@ -86,6 +86,20 @@ gg_vk_spring2018 =
   stat_ellipse(level = 0.90, show.legend = FALSE)+
   facet_wrap(~Site)+
   theme_kp()
+# spring-late spring, hydric-mesic ---- Unique peaks
+fticr_spring2018_Unique = 
+  fticr_hcoc %>% 
+  filter(Site %in% c("Hydric", "Mesic") & Season %in% c("Spring", "LateSpring") & Year == 2018) %>%
+  distinct(formula, Site, HC, OC,Season) %>% 
+  group_by(formula) %>% 
+  dplyr::mutate(n = n())
+
+gg_vk_spring2018_Unique = 
+  fticr_spring2018_Unique %>% 
+  gg_vankrev(aes(x = OC, y = HC, color = Season))+
+  stat_ellipse(level = 0.90, show.legend = FALSE)+
+  facet_wrap(~Site)+
+  theme_kp()
 
 #
 # unique peaks, by site ----
@@ -96,25 +110,25 @@ fticr_unique_site =
   dplyr::mutate(n = n())
 
 
-(gg_site_unique =
+gg_site_unique =
   fticr_unique_site %>% filter(n == 1) %>% 
     gg_vankrev(aes(x = OC, y = HC, color = Site))+
     stat_ellipse(level = 0.90, show.legend = FALSE)+
     facet_wrap(~Site)+
     labs(title = "Unique peaks at each Site")+
     theme_kp()
-)
 
-(gg_site_common = 
+
+gg_site_common = 
     fticr_unique_site %>% filter(n == 3) %>% 
     gg_vankrev(aes(x = OC, y = HC))+
     stat_ellipse(level = 0.90, show.legend = FALSE)+
     labs(title = "Peaks common to all sites")+
     theme_kp()
-)
+
 
 # overlay unique peaks onto common peaks
-(gg_site_common_unique = 
+gg_site_common_unique = 
     fticr_unique_site %>% filter(n == 3) %>% 
     gg_vankrev(aes(x = OC, y = HC))+
     geom_point(data = fticr_unique_site %>% filter(n == 1),
@@ -123,7 +137,7 @@ fticr_unique_site =
     labs(title = "Unique peaks at each Site",
          subtitle = "black/grey = peaks common to all")+
     theme_kp()
-)
+
 
 ## summarize unique peaks
 fticr_unique_site_summary = 
@@ -188,7 +202,7 @@ relabund_trt %>%
 ## 4a. PCA ----
 
 # all samples
-pca_all = fit_pca_function(relabund_cores)
+pca_hydric = fit_pca_function(relabund_cores)
 
 (gg_pca_by_site = 
   ggbiplot(pca_all$pca_int, obs.scale = 1, var.scale = 1,
@@ -267,6 +281,41 @@ pca_Xeric = fit_pca_function(relabund_cores %>% filter(Site == "Xeric"))
     theme_kp()+
     NULL
 )
+
+# spring vs late spring mesic hydric
+pca_Mesic_SpringLateSpring = fit_pca_function(relabund_cores %>% filter(Site %in% ("Mesic") & Season %in% c("Spring", "LateSpring") & Year == 2018))
+gg_pca_Mesic_Spring_Latespring = 
+    ggbiplot(pca_Mesic_SpringLateSpring$pca_int, obs.scale = 1, var.scale = 1,
+             groups = as.character(pca_Mesic_SpringLateSpring$grp$Season), 
+             ellipse = TRUE, circle = FALSE, var.axes = TRUE, alpha = 0) +
+    geom_point(size=3,stroke=1, alpha = 0.5,
+               aes(shape = as.character(pca_Mesic_SpringLateSpring$grp$Year),
+                   color = groups))+
+    #scale_shape_manual(values = c(21, 22, 19), name = "", guide = "none")+
+    xlim(-4,4)+
+    ylim(-3.5,3.5)+
+    labs(shape="",
+         title = "Mesic samples",
+         subtitle = "separation by Season")+
+    theme_kp()+
+    NULL
+
+pca_Hydric_SpringLateSpring = fit_pca_function(relabund_cores %>% filter(Site %in% ("Hydric") & Season %in% c("Spring", "LateSpring") & Year == 2018))
+gg_pca_Hydric_Spring_Latespring = 
+  ggbiplot(pca_Hydric_SpringLateSpring$pca_int, obs.scale = 1, var.scale = 1,
+           groups = as.character(pca_Hydric_SpringLateSpring$grp$Season), 
+           ellipse = TRUE, circle = FALSE, var.axes = TRUE, alpha = 0) +
+  geom_point(size=3,stroke=1, alpha = 0.5,
+             aes(shape = as.character(pca_Hydric_SpringLateSpring$grp$Year),
+                 color = groups))+
+  #scale_shape_manual(values = c(21, 22, 19), name = "", guide = "none")+
+  xlim(-4,4)+
+  ylim(-3.5,3.5)+
+  labs(shape="",
+       title = "Hydric samples",
+       subtitle = "separation by Season")+
+  theme_kp()+
+  NULL
 
 
 #
