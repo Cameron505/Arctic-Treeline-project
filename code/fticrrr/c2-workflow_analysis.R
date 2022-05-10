@@ -6,7 +6,7 @@
 
 ## SOURCE THE FUNCTION FILES FIRST, AND THEN RUN THE SCRIPT
 ## IMPORT THE PROCESSED FILES AND THEN RUN THEM THROUGH THIS SCRIPT.
-## -KFP/ 2022
+## -KFP/CKM 2022
 
 ##############################
 ##############################
@@ -148,6 +148,53 @@ fticr_unique_site_summary =
   dplyr::summarise(counts = n())
 
 #
+# unique peaks, by site and year ----
+fticr_unique_site_Year = 
+  fticr_hcoc %>% 
+  distinct(formula, Site,Year, HC, OC) %>% 
+  group_by(formula) %>% 
+  dplyr::mutate(Year= as.character(Year)) %>%
+  dplyr::mutate(n = n())
+
+
+gg_siteYear_unique =
+  fticr_unique_site_Year %>% filter(n == 1) %>% 
+  gg_vankrev(aes(x = OC, y = HC, color = Year))+
+  stat_ellipse(level = 0.90, show.legend = FALSE)+
+  facet_wrap(~Site)+
+  labs(title = "Unique peaks at each Site colored by year")+
+  theme_kp()
+
+
+gg_site_common = 
+  fticr_unique_site_Year %>% filter(n == 3) %>% 
+  gg_vankrev(aes(x = OC, y = HC))+
+  stat_ellipse(level = 0.90, show.legend = FALSE)+
+  labs(title = "Peaks common to all sites")+
+  theme_kp()
+
+
+# overlay unique peaks onto common peaks
+gg_siteYear_common_unique = 
+  fticr_unique_site_Year %>% filter(n == 3) %>% 
+  gg_vankrev(aes(x = OC, y = HC))+
+  geom_point(data = fticr_unique_site %>% filter(n == 1),
+             aes(color = Year), alpha = 0.7)+
+  facet_wrap(~Site)+
+  labs(title = "Unique peaks at each Site colored by year",
+       subtitle = "black/grey = peaks common to all")+
+  theme_kp()
+
+
+## summarize unique peaks
+fticr_unique_siteYear_summary = 
+  fticr_unique_site_Year %>% 
+  filter(n == 1) %>% 
+  left_join(fticr_meta %>% dplyr::select(formula, Class)) %>% 
+  group_by(Site, Class, Year) %>% 
+  dplyr::summarise(counts = n())
+
+#
 # unique peaks, spring 2018 ----
 # comparing peaks lost/gained for spring vs. latespring
 
@@ -202,7 +249,7 @@ relabund_trt %>%
 ## 4a. PCA ----
 
 # all samples
-pca_hydric = fit_pca_function(relabund_cores)
+pca_all = fit_pca_function(relabund_cores)
 
 (gg_pca_by_site = 
   ggbiplot(pca_all$pca_int, obs.scale = 1, var.scale = 1,
@@ -281,6 +328,67 @@ pca_Xeric = fit_pca_function(relabund_cores %>% filter(Site == "Xeric"))
     theme_kp()+
     NULL
 )
+# Sites separated by year
+# Hydric only
+pca_hydric = fit_pca_function(relabund_cores %>% filter(Site == "Hydric"))
+
+(gg_pca_hydric = 
+    ggbiplot(pca_hydric$pca_int, obs.scale = 1, var.scale = 1,
+             groups = as.character(pca_hydric$grp$Year), 
+             ellipse = TRUE, circle = FALSE, var.axes = TRUE, alpha = 0) +
+    geom_point(size=3,stroke=1, alpha = 0.5,
+               aes(shape = as.character(pca_hydric$grp$Season),
+                   color = groups))+
+    #scale_shape_manual(values = c(21, 22, 19), name = "", guide = "none")+
+    xlim(-4,4)+
+    ylim(-3.5,3.5)+
+    labs(shape="",
+         title = "Hydric samples",
+         subtitle = "separation by Year")+
+    theme_kp()+
+    NULL
+)
+
+# Mesic only
+pca_Mesic = fit_pca_function(relabund_cores %>% filter(Site == "Mesic"))
+
+(gg_pca_Mesic = 
+    ggbiplot(pca_Mesic$pca_int, obs.scale = 1, var.scale = 1,
+             groups = as.character(pca_Mesic$grp$Year), 
+             ellipse = TRUE, circle = FALSE, var.axes = TRUE, alpha = 0) +
+    geom_point(size=3,stroke=1, alpha = 0.5,
+               aes(shape = as.character(pca_Mesic$grp$Season),
+                   color = groups))+
+    #scale_shape_manual(values = c(21, 22, 19), name = "", guide = "none")+
+    xlim(-4,4)+
+    ylim(-3.5,3.5)+
+    labs(shape="",
+         title = "Mesic samples",
+         subtitle = "separation by Year")+
+    theme_kp()+
+    NULL
+)
+
+# Xeric only
+pca_Xeric = fit_pca_function(relabund_cores %>% filter(Site == "Xeric"))
+
+(gg_pca_Xeric = 
+    ggbiplot(pca_Xeric$pca_int, obs.scale = 1, var.scale = 1,
+             groups = as.character(pca_Xeric$grp$Year), 
+             ellipse = TRUE, circle = FALSE, var.axes = TRUE, alpha = 0) +
+    geom_point(size=3,stroke=1, alpha = 0.5,
+               aes(shape = as.character(pca_Xeric$grp$Season),
+                   color = groups))+
+    #scale_shape_manual(values = c(21, 22, 19), name = "", guide = "none")+
+    xlim(-4,4)+
+    ylim(-3.5,3.5)+
+    labs(shape="",
+         title = "Xeric samples",
+         subtitle = "separation by Year")+
+    theme_kp()+
+    NULL
+)
+
 
 # spring vs late spring mesic hydric
 pca_Mesic_SpringLateSpring = fit_pca_function(relabund_cores %>% filter(Site %in% ("Mesic") & Season %in% c("Spring", "LateSpring") & Year == 2018))
