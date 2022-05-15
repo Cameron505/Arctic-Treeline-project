@@ -29,13 +29,13 @@ source("code/fticrrr/b-functions_analysis.R")
 #
 # 1. load files -----------------------------------------------------------
 
-fticr_meta  = read.csv("data/processed/fticr_polar_meta.csv")
-fticr_data_longform = read.csv("data/processed/fticr_polar_data_longform.csv")
-fticr_data_trt = read.csv("data/processed/fticr_polar_trt.csv")
+fticr_meta  = read.csv("data/processed/fticr_meta_combined.csv")
+fticr_data_longform = read.csv("data/processed/fticr_data_longform_combined.csv")
+fticr_data_trt = read.csv("data/processed/fticr_data_trt_combined.csv")
 
 ## SET the treatment variables
 ## this will work with multiple variables too. just add all the variable names in the parentheses.
-TREATMENTS = dplyr::quos(Site, Year, Season)
+TREATMENTS = dplyr::quos(Site, Year, Season, Polar)
 
 
 #
@@ -62,16 +62,26 @@ fticr_hcoc =
   fticr_data_trt %>% 
   left_join(dplyr::select(fticr_meta, formula, HC, OC), by = "formula")
 
+gg_vk_polar_nonpolar = 
+  (fticr_hcoc %>%
+  distinct(formula, HC, OC, Polar) %>% 
+  gg_vankrev(aes(x = OC, y = HC, color = Polar))+
+  stat_ellipse(level = 0.90, show.legend = FALSE)+
+  theme(legend.position = c(0.8, 0.8)) +
+  NULL) %>% 
+  # include marginal density plots
+  ggExtra::ggMarginal(groupColour = TRUE, groupFill = TRUE, alpha = 0.1)
+
 gg_vk_all = 
   gg_vankrev(fticr_hcoc, aes(x = OC, y = HC, color = Site))+
   stat_ellipse(level = 0.90, show.legend = FALSE)+
-  facet_grid(Season~Year)+
+  facet_grid(Season ~ Polar + Year)+
   theme_kp()
 
 gg_vk_all_site = 
   gg_vankrev(fticr_hcoc, aes(x = OC, y = HC, color = as.character(Year)))+
   stat_ellipse(level = 0.90, show.legend = FALSE)+
-  facet_grid(~Site)+
+  facet_grid(Polar ~ Site)+
   theme_kp()
 
 #
@@ -246,14 +256,58 @@ relabund_trt %>%
 #
 
 # 4. statistics -----------------------------------------------------------
-## 4a. PCA ----
+## 4a. PERMANOVA ----
+
+# you need to convert the rel-abundance file into wide form
+
+relabund_wide = 
+  relabund_cores %>% 
+  ungroup() %>% 
+  filter(Polar == "polar") %>% 
+  mutate(Class = factor(Class, 
+                        levels = c("aliphatic", "unsaturated/lignin", 
+                                   "aromatic", "condensed aromatic"))) %>% 
+  dplyr::select(-c(abund, total)) %>% 
+  spread(Class, relabund) %>% 
+  replace(is.na(.), 0)
+
+# adonis function for PERMANOVA
+permanova_fticr_all = 
+  adonis(relabund_wide %>% dplyr::select(aliphatic:`condensed aromatic`) ~ Site * Year * Season, 
+         data = relabund_wide) 
+
+# Site, Site:Year were significant (p < 0.05)
+# Site accounted for 72 % of total variation among samples (R2= 0.72)
+
+#
+## 4b. PCA ----
 
 # all samples
 pca_all = fit_pca_function(relabund_cores)
+pca_polar = fit_pca_function(relabund_cores %>% filter(Polar == "polar")) 
+pca_nonpolar = fit_pca_function(relabund_cores %>% filter(Polar == "nonpolar"))
+
+(gg_pca_polar_nonpolar = 
+    ggbiplot(pca_all$pca_int, obs.scale = 1, var.scale = 1,
+             groups = as.character(pca_all$grp$Polar), 
+             ellipse = TRUE, circle = FALSE, var.axes = TRUE, alpha = 0) +
+    geom_point(size=3,stroke=1, alpha = 0.5,
+               aes(#shape = groups,
+                 color = groups))+
+    #scale_shape_manual(values = c(21, 22, 19), name = "", guide = "none")+
+    xlim(-4,4)+
+    ylim(-3.5,3.5)+
+    labs(shape="",
+         title = "all samples",
+         subtitle = "polar vs. nonpolar")+
+    theme_kp()+
+    NULL
+)
+
 
 (gg_pca_by_site = 
-  ggbiplot(pca_all$pca_int, obs.scale = 1, var.scale = 1,
-           groups = as.character(pca_all$grp$Site), 
+  ggbiplot(pca_polar$pca_int, obs.scale = 1, var.scale = 1,
+           groups = as.character(pca_polar$grp$Site), 
            ellipse = TRUE, circle = FALSE, var.axes = TRUE, alpha = 0) +
   geom_point(size=3,stroke=1, alpha = 0.5,
              aes(#shape = groups,
@@ -268,15 +322,51 @@ pca_all = fit_pca_function(relabund_cores)
   NULL
 )
 
+(gg_pca_by_year = 
+    ggbiplot(pca_polar$pca_int, obs.scale = 1, var.scale = 1,
+             groups = as.character(pca_polar$grp$Year), 
+             ellipse = TRUE, circle = FALSE, var.axes = TRUE, alpha = 0) +
+    geom_point(size=3,stroke=1, alpha = 1,
+               aes(
+                 #shape = as.character(pca_polar$grp$Site),
+                 color = groups))+
+    #scale_shape_manual(values = c(21, 22, 19), name = "", guide = "none")+
+    xlim(-4,4)+
+    ylim(-3.5,3.5)+
+    labs(shape="",
+         title = "all samples",
+         subtitle = "separation by Site")+
+    theme_kp()+
+    NULL
+)
+
+
+(gg_pca_by_season = 
+    ggbiplot(pca_polar$pca_int, obs.scale = 1, var.scale = 1,
+             groups = as.character(pca_polar$grp$Season), 
+             ellipse = TRUE, circle = FALSE, var.axes = TRUE, alpha = 0) +
+    geom_point(size=3,stroke=1, alpha = 0.5,
+               aes(#shape = groups,
+                 color = groups))+
+    #scale_shape_manual(values = c(21, 22, 19), name = "", guide = "none")+
+    xlim(-4,4)+
+    ylim(-3.5,3.5)+
+    labs(shape="",
+         title = "all samples",
+         subtitle = "separation by Site")+
+    theme_kp()+
+    NULL
+)
+
 
 # Hydric only
-pca_hydric = fit_pca_function(relabund_cores %>% filter(Site == "Hydric"))
+pca_hydric = fit_pca_function(relabund_cores %>% filter(Polar == "nonpolar" & Site == "Hydric"))
 
 (gg_pca_hydric = 
     ggbiplot(pca_hydric$pca_int, obs.scale = 1, var.scale = 1,
              groups = as.character(pca_hydric$grp$Season), 
              ellipse = TRUE, circle = FALSE, var.axes = TRUE, alpha = 0) +
-    geom_point(size=3,stroke=1, alpha = 0.5,
+    geom_point(size=3,stroke=1, alpha = 1,
                aes(shape = as.character(pca_hydric$grp$Year),
                  color = groups))+
     #scale_shape_manual(values = c(21, 22, 19), name = "", guide = "none")+
@@ -290,13 +380,13 @@ pca_hydric = fit_pca_function(relabund_cores %>% filter(Site == "Hydric"))
 )
 
 # Mesic only
-pca_Mesic = fit_pca_function(relabund_cores %>% filter(Site == "Mesic"))
+pca_Mesic = fit_pca_function(relabund_cores %>% filter(Polar == "nonpolar" & Site == "Mesic"))
 
 (gg_pca_Mesic = 
     ggbiplot(pca_Mesic$pca_int, obs.scale = 1, var.scale = 1,
              groups = as.character(pca_Mesic$grp$Season), 
              ellipse = TRUE, circle = FALSE, var.axes = TRUE, alpha = 0) +
-    geom_point(size=3,stroke=1, alpha = 0.5,
+    geom_point(size=3,stroke=1, alpha = 1,
                aes(shape = as.character(pca_Mesic$grp$Year),
                    color = groups))+
     #scale_shape_manual(values = c(21, 22, 19), name = "", guide = "none")+
@@ -310,13 +400,13 @@ pca_Mesic = fit_pca_function(relabund_cores %>% filter(Site == "Mesic"))
 )
 
 # Xeric only
-pca_Xeric = fit_pca_function(relabund_cores %>% filter(Site == "Xeric"))
+pca_Xeric = fit_pca_function(relabund_cores %>% filter(Polar == "nonpolar" & Site == "Xeric"))
 
 (gg_pca_Xeric = 
     ggbiplot(pca_Xeric$pca_int, obs.scale = 1, var.scale = 1,
              groups = as.character(pca_Xeric$grp$Season), 
              ellipse = TRUE, circle = FALSE, var.axes = TRUE, alpha = 0) +
-    geom_point(size=3,stroke=1, alpha = 0.5,
+    geom_point(size=3,stroke=1, alpha = 1,
                aes(shape = as.character(pca_Xeric$grp$Year),
                    color = groups))+
     #scale_shape_manual(values = c(21, 22, 19), name = "", guide = "none")+
@@ -328,6 +418,7 @@ pca_Xeric = fit_pca_function(relabund_cores %>% filter(Site == "Xeric"))
     theme_kp()+
     NULL
 )
+
 # Sites separated by year
 # Hydric only
 pca_hydric = fit_pca_function(relabund_cores %>% filter(Site == "Hydric"))
@@ -427,24 +518,3 @@ gg_pca_Hydric_Spring_Latespring =
 
 
 #
-## 4b. PERMANOVA ----
-
-# you need to convert the rel-abundance file into wide form
-
-relabund_wide = 
-  relabund_cores %>% 
-  ungroup() %>% 
-  mutate(Class = factor(Class, 
-                        levels = c("aliphatic", "unsaturated/lignin", 
-                                   "aromatic", "condensed aromatic"))) %>% 
-  dplyr::select(-c(abund, total)) %>% 
-  spread(Class, relabund) %>% 
-  replace(is.na(.), 0)
-
-# adonis function for PERMANOVA
-permanova_fticr_all = 
-  adonis(relabund_wide %>% dplyr::select(aliphatic:`condensed aromatic`) ~ Site * Year * Season, 
-         data = relabund_wide) 
-
-# Site, Site:Year were significant (p < 0.05)
-# Site accounted for 72 % of total variation among samples (R2= 0.72)
