@@ -32,3 +32,5 @@ theme_kp <- function() {  # this for all the elements common across plots
           strip.text.y = element_text(size=12, face="bold", angle = 270) #facet labels
     )
 }
+
+theme_set(theme_kp())
