@@ -26,7 +26,7 @@ length2= function (x, na.rm=FALSE) {
 kotz.monthly.air.temp <- summaryBy(data=kotz.daily.air.temp, TAVG~YEAR+MONTH, FUN=c(length2, mean), na.rm=TRUE)
 
 ##HYDRIC MET STATION DATA##
-hydric.met.station <- read.csv("Hydric Met Station.csv")
+hydric.met.station <- read.csv("data/Temp/Hydric Met Station.csv")
 
 #read date as such
 hydric.met.station$Date <- as.Date(hydric.met.station$Date)
@@ -69,7 +69,7 @@ summary(hydric.winter.model)
 
 
 ##MESIC MET STATION DATA##
-mesic.met.station <- read.csv("Mesic Met Station.csv")
+mesic.met.station <- read.csv("data/Temp/Mesic Met Station.csv")
 
 #read date as such
 mesic.met.station$Date <- as.Date(mesic.met.station$Date)
@@ -112,7 +112,7 @@ summary(mesic.winter.model)
 
 
 ##XERIC MET STATION DATA##
-xeric.met.station <- read.csv("Xeric Met Station.csv")
+xeric.met.station <- read.csv("data/Temp/Xeric Met Station.csv")
 
 #read date as such
 xeric.met.station$Date <- as.Date(xeric.met.station$Date)
