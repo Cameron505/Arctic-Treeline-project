@@ -2,6 +2,30 @@ library(doBy)
 library(lubridate)
 library(ggplot2)
 library(ggpubr)
+library(tidyverse)
+library(reshape2)
+
+cbPalette <- c("#88CCEE", "#CC6677", "#DDCC77", "#117733", "#332288", "#AA4499", "#44AA99", "#999933", "#882255", "#661100", "#6699CC", "#888888")
+theme_CKM <- function() {  # this for all the elements common across plots
+  theme_bw() %+replace%
+    theme(legend.text = element_text(size = 12),
+          legend.key.size = unit(1.5, 'lines'),
+          legend.background = element_rect(colour = NA),
+          panel.border = element_rect(color="black",size=1.5, fill = NA),
+          
+          plot.title = element_text(hjust = 0, size = 14),
+          axis.text = element_text(size = 14, color = "black"),
+          axis.title = element_text(size = 14, face = "bold", color = "black"),
+          
+          # formatting for facets
+          panel.background = element_blank(),
+          strip.background = element_rect(colour="white", fill="white"), #facet formatting
+          panel.spacing.x = unit(1.5, "lines"), #facet spacing for x axis
+          panel.spacing.y = unit(1.5, "lines"), #facet spacing for x axis
+          strip.text.x = element_text(size=12, face="bold"), #facet labels
+          strip.text.y = element_text(size=12, face="bold", angle = 270) #facet labels
+    )
+}
 
 theme_set(theme_pubr())
 
@@ -164,5 +188,35 @@ kotz.monthly.air.temp$Hydric.Soil <- ifelse(kotz.monthly.air.temp$TAVG.mean>=5, 
                                            predict(hydric.winter.model, kotz.monthly.air.temp))
   
   
+#plots of three sites temperatures
+
+EZ<- melt(kotz.monthly.air.temp, id.vars=c("YEAR","MONTH","TAVG.length2"))
+
+EZ2<- EZ%>%
+  mutate(decade = floor(YEAR/10)*10) %>%
+  group_by(MONTH, decade, variable)%>%
+  rename()
+  summarize(mean_value = mean(value, na.rm = TRUE),
+            se = sqrt(var(value, na.rm = TRUE) / sum(!is.na(value)))) %>%
+  ungroup()
+
+EZ2$decade<- as.character(EZ2$decade)
+EZ3 = EZ2 %>%
+  filter(variable== "Xeric.Soil" | variable== "Mesic.Soil" |variable== "Hydric.Soil")
+
+ggplot(EZ3, aes(x=MONTH, y=mean_value, fill=decade))+
+  geom_bar(stat='identity',position='dodge')+
+  ylab("Estimated Soil Temperature at 10 cm Depth (deg C)")+
+  xlab("Month")+
+  ggtitle("")+
+  scale_fill_manual(values=cbPalette)+
+  facet_wrap(~variable, ncol=1)+
+  theme_CKM()
 
 
+DF<- read.csv("DF.csv")
+DF$time<- as.character(DF$time)
+DF$abs<- as.character(DF$abs)
+DF$conc<- as.character(DF$conc)
+ggplot(DF, aes(x=time, y=abs, color= conc))+
+  geom_line()

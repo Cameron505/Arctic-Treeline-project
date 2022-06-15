@@ -26,6 +26,6 @@ Hydric.Monthly<- hydric.met.station %>%
   mutate(Date= as.Date(Date, format = "%Y-%m-%d"))%>%
   mutate(Year= year(Date),Month= month(Date))%>%
   group_by(Year, Month) %>%
-  mutate(Mean= mean(Control_10), SS= length2(Control_10))%>%
+  summarize(Mean= mean(Control_10), SS= length2(Control_10))%>%
   subset(SS>27) %>%
   ungroup()
