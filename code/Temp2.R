@@ -1,7 +1,7 @@
 
 
 #read in
-kotz.daily.air.temp <- read.csv("data/Temp/kotz.daily.air.temp.1900.2019.csv") 
+kotz.daily.air.temp <- read.csv("data/Temp/kotz.daily.air.temp.1900.2022.csv") 
 
 
 #calculate sample size
