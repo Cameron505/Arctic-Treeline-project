@@ -37,21 +37,31 @@ list(
   
   # data files
   #tar_target()
-  tar_target(PoreWater_data_read,"Data/Respiration_Antecedent_temp.csv", format="file"),
+  tar_target(PoreWater_data_read,"Data/PoreWater.csv", format="file"),
   tar_target(PoreWater_data, read.csv(PoreWater_data_read)),
-  tar_target(PoreWater_processed, process_respiration(PoreWater_data)),
-  tar_target(Extract_data_read,"Data/Respiration_Antecedent_temp.csv", format="file"),
+  tar_target(PoreWater_processed, process_PoreWater(PoreWater_data)),
+  tar_target(PoreWater_processed_Seasonal, process_PoreWater_Seasonal(PoreWater_data)),
+  
+  tar_target(PoreWater_data_read_Lysim,"Data/Lysim.csv", format="file"),
+  tar_target(PoreWater_data_Lysim, read.csv(PoreWater_data_read_Lysim)),
+  tar_target(PoreWater_processed_Lysim, process_Lysim_Destruct(PoreWater_data_Lysim)),
+  
+  tar_target(Extract_data_read,"Data/Extractions.csv", format="file"),
   tar_target(Extract_data, read.csv(Extract_data_read)),
-  tar_target(Extract_processed, process_respiration(Extract_data)),
-  tar_target(Resin_data_read,"Data/Respiration_Antecedent_temp.csv", format="file"),
-  tar_target(Resin_data, read.csv(Resin_data_read)),
-  tar_target(Resin_processed, process_respiration(Resin_data)),
+  tar_target(Extract_processed, process_Extract(Extract_data)),
+  tar_target(Extract_processed_Seasonal, process_Extract_Seasonal(Extract_data)),
+  
+  #tar_target(Resin_data_read,"Data/Resin.csv", format="file"),
+  #tar_target(Resin_data, read.csv(Resin_data_read)),
+  #tar_target(Resin_processed, process_respiration(Resin_data)),
   
   
   # analysis - graphs
-  tar_target(gg_PoreWater, plot_respiration(PoreWater_processed)),
-  tar_target(gg_Extract, plot_nutrients(Extract_processed)),
-  tar_target(gg_Resin, plot_MicrobialBiomass(Resin_processed)),
+  tar_target(gg_aggie_Extract_Snowfence_Control, plot_Extract_Snowfence(Extract_processed)),
+  tar_target(gg_aggie_PoreWater_Snowfence_Control, plot_PoreWater_Snowfence(PoreWater_processed)),
+  tar_target(gg_aggie_PoreWater_Lysim, plot_PoreWater_Lysim(PoreWater_processed_Lysim)),
+  tar_target(gg_aggie_PoreWater_Seasonal, plot_PoreWater_Seasonal(PoreWater_processed_Seasonal)),
+  tar_target(gg_Extract_Seasonal, plot_Extract_Seasonal(Extract_processed_Seasonal)),
 
   
   # combined data

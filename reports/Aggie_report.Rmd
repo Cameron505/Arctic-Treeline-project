@@ -1,0 +1,122 @@
+---
+title: "Antecedent temperature experiment"
+output: 
+  github_document:
+  html_preview: True
+---
+
+```{r setup, include=FALSE, echo=FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      message = FALSE,
+                      warning = FALSE
+                      )
+```
+
+## sample summary
+
+<details>
+  <summary>click to open</summary>
+
+```{r analyte-completion, eval= TRUE}
+```
+
+</details>
+
+---
+
+##   Snowfence Vs. Control
+
+<details>
+  <summary>click to open</summary>
+  
+ #### Extracts:
+  
+  <details>
+  <summary>click to open</summary>
+  
+```{r , fig.height=6, fig.width=6, results='hide', out.width="100%"}
+tar_read(gg_aggie_Extract_Snowfence_Control)
+```
+
+</details>
+
+
+
+ #### Pore water:
+ 
+  <details>
+  <summary>click to open</summary>
+  
+ 
+
+```{r , fig.height=6, fig.width=6, results='hide', out.width="100%"}
+tar_read(gg_aggie_PoreWater_Snowfence_Control)
+```
+
+</details>
+
+</details>
+
+
+---
+
+## Seasonal Extracts and pore water
+<details>
+  <summary>click to open</summary>
+  
+ #### Extracts:
+ Due to soil plot concerns only ancillary plots were harvested multiple times per year.
+  
+  <details>
+  <summary>click to open</summary>
+  
+```{r , fig.height=6, fig.width=6, results='hide', out.width="100%"}
+tar_read(gg_Extract_Seasonal)
+```
+
+</details>
+
+
+
+ #### Pore water:
+ 
+  <details>
+  <summary>click to open</summary>
+  
+ 
+
+```{r , fig.height=6, fig.width=6, results='hide', out.width="100%"}
+tar_read(gg_aggie_PoreWater_Seasonal)
+```
+
+</details>
+
+</details>
+
+---
+
+## Destructive lysimeter test
+<details>
+  <summary>click to open</summary>
+
+
+```{r , fig.height=6, fig.width=6, results='hide'}
+tar_read(gg_aggie_PoreWater_Lysim)
+```
+
+</details>
+
+---
+
+## Session Info 
+
+<details>
+  <summary> Session Info </summary>
+
+Date run: `r Sys.Date()`
+
+```{r}
+sessionInfo()
+```
+
+</details>
