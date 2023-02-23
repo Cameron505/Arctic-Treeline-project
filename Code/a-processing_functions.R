@@ -41,6 +41,20 @@ process_Extract =function(Extract_data){
     mutate(MONTH=as.factor(MONTH))
 }
 
+process_Extract_H2O =function(Extract_data){
+  
+  processed_Extract = Extract_data %>%
+    mutate(DATE=as.Date(Date, format= "%m/%d/%Y"),
+           YEAR=year(DATE),
+           MONTH=month(DATE)) %>%
+    mutate_at(c('NH4.H2O', 'NO3.H2O','PO4.H2O','TFPA.H2O','TRS.H2O'), as.numeric) %>%
+    filter(treatment==c("Snowfence","Control"))
+  
+  processed_Extract = processed_Extract %>%
+    mutate(MONTH=as.factor(MONTH))
+}
+
+
 process_Resin =function(Resin_data){
   
   processed_Resin = Resin_data %>%
@@ -67,6 +81,18 @@ process_Extract_Seasonal =function(Extract_data){
            YEAR=year(DATE),
            MONTH=month(DATE)) %>%
     mutate_at(c('NH4', 'NO3','PO4','TFPA','phenolics','TRS','MBC','MBN','Mic.PO4'), as.numeric) %>%
+    filter(treatment==c("Ancillary"))
+  
+}
+
+
+process_Extract_Seasonal_H2O =function(Extract_data){
+  
+  processed_Extract_Seasonal = Extract_data %>%
+    mutate(DATE=as.Date(Date, format= "%m/%d/%Y"),
+           YEAR=year(DATE),
+           MONTH=month(DATE)) %>%
+    mutate_at(c('NH4.H2O', 'NO3.H2O','PO4.H2O','TFPA.H2O','TRS.H2O'), as.numeric) %>%
     filter(treatment==c("Ancillary"))
   
 }

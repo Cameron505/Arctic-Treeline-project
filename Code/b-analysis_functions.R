@@ -122,6 +122,81 @@ plot_Extract_Snowfence = function(Extract_processed){
   
 }
 
+plot_Extract_Snowfence_H2O = function(Extract_Processed_H2O){
+  
+  gg_NH4_Extract =
+    Extract_Processed_H2O %>%
+    ggplot(aes(x=MONTH, y=NH4.H2O, fill=treatment))+
+    stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
+    stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
+    facet_wrap(~YEAR+Site)+
+    theme_light()+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    xlab("Month")+
+    ggtitle("Water Extracted NH4")
+  
+  
+  gg_NO3_Extract =
+    Extract_Processed_H2O %>%
+    ggplot(aes(x=MONTH, y=NO3.H2O, fill=treatment))+
+    stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
+    stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
+    facet_wrap(~YEAR+Site)+
+    theme_light()+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    xlab("Month")+
+    ggtitle("Water Extracted NO3")
+  
+  gg_PO4_Extract =
+    Extract_Processed_H2O %>%
+    ggplot(aes(x=MONTH, y=PO4.H2O, fill=treatment))+
+    stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
+    stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
+    facet_wrap(~YEAR+Site)+
+    theme_light()+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    xlab("Month")+
+    ggtitle("Water Extracted PO4")
+  
+  gg_TRS_Extract =
+    Extract_Processed_H2O %>%
+    ggplot(aes(x=MONTH, y=TRS.H2O, fill=treatment))+
+    stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
+    stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
+    facet_wrap(~YEAR+Site)+
+    theme_light()+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    xlab("Month")+
+    ggtitle("Water Extracted TRS")
+  
+  
+  gg_TFPA_Extract =
+    Extract_Processed_H2O %>%
+    ggplot(aes(x=MONTH, y=TFPA.H2O, fill=treatment))+
+    stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
+    stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
+    facet_wrap(~YEAR+Site)+
+    theme_light()+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    xlab("Month")+
+    ggtitle("Water Extracted TFPA")
+  
+  
+  
+  list("Snowfence Vs. Control H2O NH4"= gg_NH4_Extract,
+       "Snowfence Vs. Control H2O NO3"= gg_NO3_Extract,
+       "Snowfence Vs. Control H2O PO4"= gg_PO4_Extract,
+       "Snowfence Vs. Control H2O TFPA"= gg_TFPA_Extract,
+       "Snowfence Vs. Control H2O TRS"= gg_TRS_Extract
+  )
+  
+}
+
 plot_Extract_Seasonal = function(Extract_processed_Seasonal){
   
   gg_NH4_Extract =
@@ -251,6 +326,84 @@ plot_Extract_Seasonal = function(Extract_processed_Seasonal){
        "Seasonal MBC"= gg_MBC_Extract,
        "Seasonal MBN"= gg_MBN_Extract,
        "Seasonal MBP"= gg_MBP_Extract
+  )
+  
+}
+
+plot_Extract_Seasonal_H2O = function(Extract_processed_Seasonal_H2O){
+  
+  gg_NH4_Extract =
+    Extract_processed_Seasonal_H2O %>%
+    ggplot(aes(x=DATE, y=NH4.H2O, color=Site))+
+    stat_summary(fun="mean",geom = "line",size = 2) +
+    stat_summary(fun="mean",geom = "point",size = 2) +
+    stat_summary(fun.data = mean_se, geom = "errorbar")+
+    facet_wrap(~YEAR, scale="free")+
+    theme_light()+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    xlab("Month")+
+    ggtitle("Water extracted NH4")
+  
+  
+  gg_NO3_Extract =
+    Extract_processed_Seasonal_H2O %>%
+    ggplot(aes(x=DATE, y=NO3.H2O, color=Site))+
+    stat_summary(fun="mean",geom = "line",size = 2) +
+    stat_summary(fun="mean",geom = "point",size = 2) +
+    stat_summary(fun.data = mean_se, geom = "errorbar")+
+    facet_wrap(~YEAR, scale="free")+
+    theme_light()+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    xlab("Month")+
+    ggtitle("Water extracted NO3")
+  
+  gg_PO4_Extract =
+    Extract_processed_Seasonal_H2O %>%
+    ggplot(aes(x=DATE, y=PO4.H2O, color=Site))+
+    stat_summary(fun="mean",geom = "line",size = 2) +
+    stat_summary(fun="mean",geom = "point",size = 2) +
+    stat_summary(fun.data = mean_se, geom = "errorbar")+
+    facet_wrap(~YEAR, scale="free")+
+    theme_light()+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    xlab("Month")+
+    ggtitle("Water extracted PO4")
+  
+  gg_TRS_Extract =
+    Extract_processed_Seasonal_H2O %>%
+    ggplot(aes(x=DATE, y=TRS.H2O, color=Site))+
+    stat_summary(fun="mean",geom = "line",size = 2) +
+    stat_summary(fun="mean",geom = "point",size = 2) +
+    stat_summary(fun.data = mean_se, geom = "errorbar")+
+    facet_wrap(~YEAR, scale="free")+
+    theme_light()+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    xlab("Month")+
+    ggtitle("Water extracted TRS")
+  
+  gg_TFPA_Extract =
+    Extract_processed_Seasonal_H2O %>%
+    ggplot(aes(x=DATE, y=TFPA.H2O, color=Site))+
+    stat_summary(fun="mean",geom = "line",size = 2) +
+    stat_summary(fun="mean",geom = "point",size = 2) +
+    stat_summary(fun.data = mean_se, geom = "errorbar")+
+    facet_wrap(~YEAR, scale="free")+
+    theme_light()+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    xlab("Month")+
+    ggtitle("Water extracted TFPA")
+  
+  
+  list("Seasonal_H2O NH4"= gg_NH4_Extract,
+       "Seasonal_H2O NO3"= gg_NO3_Extract,
+       "Seasonal_H2O PO4"= gg_PO4_Extract,
+       "Seasonal_H2O TFPA"= gg_TFPA_Extract,
+       "Seasonal_H2O TRS"= gg_TRS_Extract
   )
   
 }

@@ -20,12 +20,25 @@ click to open
 
 #### Extracts:
 
+K2SO4
+
 <details>
 <summary>
 click to open
 </summary>
 
 <img src="Aggie_report_files/figure-gfm/unnamed-chunk-1-1.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-1-2.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-1-3.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-1-4.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-1-5.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-1-6.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-1-7.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-1-8.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-1-9.png" width="100%" />
+
+</details>
+
+H2O:
+
+<details>
+<summary>
+click to open
+</summary>
+
+<img src="Aggie_report_files/figure-gfm/unnamed-chunk-2-1.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-2-2.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-2-3.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-2-4.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-2-5.png" width="100%" />
 
 </details>
 
@@ -36,7 +49,7 @@ click to open
 click to open
 </summary>
 
-<img src="Aggie_report_files/figure-gfm/unnamed-chunk-2-1.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-2-2.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-2-3.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-2-4.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-2-5.png" width="100%" />
+<img src="Aggie_report_files/figure-gfm/unnamed-chunk-3-1.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-3-2.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-3-3.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-3-4.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-3-5.png" width="100%" />
 
 </details>
 </details>
@@ -53,14 +66,25 @@ click to open
 #### Extracts:
 
 Due to soil plot concerns only ancillary plots were harvested multiple
-times per year.
+times per year. K2SO4:
 
 <details>
 <summary>
 click to open
 </summary>
 
-<img src="Aggie_report_files/figure-gfm/unnamed-chunk-3-1.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-3-2.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-3-3.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-3-4.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-3-5.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-3-6.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-3-7.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-3-8.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-3-9.png" width="100%" />
+<img src="Aggie_report_files/figure-gfm/unnamed-chunk-4-1.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-4-2.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-4-3.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-4-4.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-4-5.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-4-6.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-4-7.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-4-8.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-4-9.png" width="100%" />
+
+</details>
+
+H2O:
+
+<details>
+<summary>
+click to open
+</summary>
+
+<img src="Aggie_report_files/figure-gfm/unnamed-chunk-5-1.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-5-2.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-5-3.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-5-4.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-5-5.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-5-6.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-5-7.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-5-8.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-5-9.png" width="100%" />
 
 </details>
 
@@ -71,7 +95,7 @@ click to open
 click to open
 </summary>
 
-<img src="Aggie_report_files/figure-gfm/unnamed-chunk-4-1.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-4-2.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-4-3.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-4-4.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-4-5.png" width="100%" />
+<img src="Aggie_report_files/figure-gfm/unnamed-chunk-6-1.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-6-2.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-6-3.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-6-4.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-6-5.png" width="100%" />
 
 </details>
 </details>
@@ -85,7 +109,7 @@ click to open
 click to open
 </summary>
 
-![](Aggie_report_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-5-2.png)<!-- -->
+![](Aggie_report_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-7-2.png)<!-- -->
 
 </details>
 
@@ -98,7 +122,7 @@ click to open
 Session Info
 </summary>
 
-Date run: 2023-02-22
+Date run: 2023-02-23
 
     ## R version 4.2.2 (2022-10-31 ucrt)
     ## Platform: x86_64-w64-mingw32/x64 (64-bit)

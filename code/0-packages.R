@@ -9,7 +9,7 @@ library(lubridate)
 
 
 # custom ggplot theme
-cbPalette2 <- c("#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
+cbPalette2 <- c("#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black")
 theme_kp <- function() {  # this for all the elements common across plots
   theme_bw() %+replace%
     theme(legend.position = "top",

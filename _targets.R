@@ -50,6 +50,8 @@ list(
   tar_target(Extract_data, read.csv(Extract_data_read)),
   tar_target(Extract_processed, process_Extract(Extract_data)),
   tar_target(Extract_processed_Seasonal, process_Extract_Seasonal(Extract_data)),
+  tar_target(Extract_processed_H2O, process_Extract_H2O(Extract_data)),
+  tar_target(Extract_processed_Seasonal_H2O, process_Extract_Seasonal_H2O(Extract_data)),
   
   #tar_target(Resin_data_read,"Data/Resin.csv", format="file"),
   #tar_target(Resin_data, read.csv(Resin_data_read)),
@@ -58,10 +60,12 @@ list(
   
   # analysis - graphs
   tar_target(gg_aggie_Extract_Snowfence_Control, plot_Extract_Snowfence(Extract_processed)),
+  tar_target(gg_aggie_Extract_Snowfence_Control_H2O, plot_Extract_Snowfence_H2O(Extract_processed_H2O)),
   tar_target(gg_aggie_PoreWater_Snowfence_Control, plot_PoreWater_Snowfence(PoreWater_processed)),
   tar_target(gg_aggie_PoreWater_Lysim, plot_PoreWater_Lysim(PoreWater_processed_Lysim)),
   tar_target(gg_aggie_PoreWater_Seasonal, plot_PoreWater_Seasonal(PoreWater_processed_Seasonal)),
   tar_target(gg_Extract_Seasonal, plot_Extract_Seasonal(Extract_processed_Seasonal)),
+  tar_target(gg_Extract_Seasonal_H2O, plot_Extract_Seasonal(Extract_processed_Seasonal)),
 
   
   # combined data

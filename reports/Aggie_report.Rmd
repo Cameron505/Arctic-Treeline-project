@@ -31,11 +31,24 @@ knitr::opts_chunk$set(echo = FALSE,
   
  #### Extracts:
   
+  K2SO4 
+  
   <details>
   <summary>click to open</summary>
   
 ```{r , fig.height=6, fig.width=6, results='hide', out.width="100%"}
 tar_read(gg_aggie_Extract_Snowfence_Control)
+```
+
+</details>
+
+H2O: 
+
+  <details>
+  <summary>click to open</summary>
+  
+```{r , fig.height=6, fig.width=6, results='hide', out.width="100%"}
+tar_read(gg_aggie_Extract_Snowfence_Control_H2O)
 ```
 
 </details>
@@ -66,12 +79,24 @@ tar_read(gg_aggie_PoreWater_Snowfence_Control)
   
  #### Extracts:
  Due to soil plot concerns only ancillary plots were harvested multiple times per year.
+  K2SO4:
   
   <details>
   <summary>click to open</summary>
   
 ```{r , fig.height=6, fig.width=6, results='hide', out.width="100%"}
 tar_read(gg_Extract_Seasonal)
+```
+
+</details>
+
+H2O:
+
+<details>
+  <summary>click to open</summary>
+  
+```{r , fig.height=6, fig.width=6, results='hide', out.width="100%"}
+tar_read(gg_Extract_Seasonal_H2O)
 ```
 
 </details>
