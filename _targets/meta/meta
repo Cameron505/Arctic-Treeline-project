@@ -1,39 +1,61 @@
 name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
 cbPalette2|object|ff69c39f443898b5|||||||||||||||
-Extract_data|stem|624553463936c47a|330c5b1d770bc735|407d817feed0f118|-1550774751||t19412.8412249725s|2c1b23353bc46216|91766|rds|local|vector|||0.03||
-Extract_data_read|stem|09170420d6ed5611|ada7949148f5f9e7|ef46db3751d8e999|-586673012|Data/Extractions.csv|t19412.8394743922s|72ebd54a31ad3bdf|158800|file|local|vector|||0||
-Extract_processed|stem|9f5c1c48c7dd964e|3ccda02d18e30f93|c20ec1a3f58cfd4d|785736967||t19412.8412265206s|5d50cb5b7f5d20b7|41604|rds|local|vector|||0.06|NAs introduced by coercion. NAs introduced by coercion|
-Extract_processed_H2O|stem|c5a89de4fa969374|76ea409c7a039b43|d96f3692799a47d6|-1818398785||t19412.8412281103s|99288a602b4386f4|42148|rds|local|vector|||0.03|NAs introduced by coercion|
-Extract_processed_Seasonal|stem|a35c4db314fe267f|11d4330733ad66c2|5280d2904d2d643a|-1251391133||t19412.8412270761s|2628e9e36e11dc29|43100|rds|local|vector|||0.03|NAs introduced by coercion. NAs introduced by coercion|
-Extract_processed_Seasonal_H2O|stem|18bcf0514e08a873|b925c052cbfea8df|4836a80d7f4da4e5|-2075541822||t19412.8412275807s|fa55e1d30fba2fc1|43581|rds|local|vector|||0.03|NAs introduced by coercion|
-gg_aggie_Extract_Snowfence_Control|stem|dc737228c7535260|f412bc0968370bc5|ca455e10ff8d2c6b|1005296864||t19412.8412351044s|bd0e1ceef7e31efa|1341841|rds|local|vector|||0.36|1m22mUsing size aesthetic for lines was deprecated in ggplot2 3.4.0.36mℹ39m Please use linewidth instead.|
-gg_aggie_Extract_Snowfence_Control_H2O|stem|49dc33a9719f17f9|8eb766d7c220639d|dfb509ab6c1f6a16|-2088647863||t19412.8412394608s|4a22f48561a5201f|804511|rds|local|vector|||0.21||
+Extract_data|stem|eda828540b64b767|330c5b1d770bc735|5f006d3c68398375|-1550774751||t19415.6800050357s|8d01d10f5241b591|49730|rds|local|vector|||0.05||
+Extract_data_read|stem|26b52124041eed3c|ada7949148f5f9e7|ef46db3751d8e999|-586673012|Data/Extractions.csv|t19415.679785358s|be1d07c5bfa454bc|108618|file|local|vector|||0||
+Extract_processed|stem|1f7c3e15fffde344|3ccda02d18e30f93|ca3e8af920f40abb|785736967||t19415.6800076978s|134623d0ce014036|23055|rds|local|vector|||0.06|NAs introduced by coercion. NAs introduced by coercion|
+Extract_processed_all|stem|82acd77351b2bb1e|cfb412414e770253|77fd790c9bd38e5c|2031324930||t19415.6924941811s|de30301cd0c0313a|44819|rds|local|vector|||0.03|NAs introduced by coercion. NAs introduced by coercion|
+Extract_processed_all_H2O|stem|71eb20c81027fa51|5a8ae3cf6f01716c|598e9cf690885037|379904035||t19415.6924932234s|50337b9ba84e5f9b|45959|rds|local|vector|||0.03|NAs introduced by coercion|
+Extract_processed_H2O|stem|0a3453a55be6b950|76ea409c7a039b43|1226787a7b0a9037|-1818398785||t19415.6800096163s|d47e13503e7c7c2c|23698|rds|local|vector|||0.03|NAs introduced by coercion|
+Extract_processed_lysim|stem|3fb0cc003130d251|bc21cf591b1c32d2|80b7db780fa5981a|477763430||t19415.6999552771s|faf653fcbbe15328|2445|rds|local|vector|||0.06|NAs introduced by coercion. NAs introduced by coercion. NAs introduced by coercion|
+Extract_processed_Seasonal|stem|30de8314f6a649a3|11d4330733ad66c2|2b62b20796c12e46|-1251391133||t19415.6800083874s|bff49479df11847c|23536|rds|local|vector|||0.03|NAs introduced by coercion. NAs introduced by coercion|
+Extract_processed_Seasonal_H2O|stem|917e578f6d353fea|b925c052cbfea8df|4ac88b73713bb117|-2075541822||t19415.6800089698s|07b07ba0ddeb2cda|24000|rds|local|vector|||0.03|NAs introduced by coercion|
+gg_aggie_Extract_Snowfence_Control|stem|4097cd713f65766c|f412bc0968370bc5|0c1b47ce0038c5c3|1005296864||t19415.6800167463s|cdd3ebfb626bd7ab|811218|rds|local|vector|||0.37|1m22mUsing size aesthetic for lines was deprecated in ggplot2 3.4.0.36mℹ39m Please use linewidth instead.|
+gg_aggie_Extract_Snowfence_Control_H2O|stem|b32edb77d1decc93|8eb766d7c220639d|0811c407ec8e60c9|-2088647863||t19415.6800338222s|284d69b34c0cd188|504890|rds|local|vector|||0.22||
+gg_aggie_PoreWater_all|stem|7dc050047027a398|36ab481c4d52efe3|a91ebcc5659c49af|-1721725602||t19415.6925002055s|be04f1c22c6b7261|1264769|rds|local|vector|||0.25|1m22mUsing size aesthetic for lines was deprecated in ggplot2 3.4.0.36mℹ39m Please use linewidth instead.|
 gg_aggie_PoreWater_Lysim|stem|581aca780e91f682|edced9c5b9a65be0|e484045b493d021e|-871950839||t19411.7737751762s|b9d3c9c1b16238e0|187285|rds|local|vector|||0.16|1m22mUsing size aesthetic for lines was deprecated in ggplot2 3.4.0.36mℹ39m Please use linewidth instead.|
 gg_aggie_PoreWater_Seasonal|stem|08bfe7aa2a7aab26|7fd3533eb2ff79ef|b2ae2b4081ea5145|2145608582||t19412.7995016982s|58b5aea20233b3ab|1264779|rds|local|vector|||0.25|1m22mUsing size aesthetic for lines was deprecated in ggplot2 3.4.0.36mℹ39m Please use linewidth instead.|
 gg_aggie_PoreWater_Snowfence_Control|stem|3ccb4f6032330418|11aa4d53abf3770f|1a401deeab84e999|-1957749862||t19412.7995053939s|96632c9f356cfd41|936867|rds|local|vector|||0.12||
-gg_Extract_Seasonal|stem|b8d03da019a71d7c|2f0509d693760f64|ee00586ce5a953ac|423898810||t19412.7995177314s|6404ca87b854b5a2|1388220|rds|local|vector|||0.33||
-gg_Extract_Seasonal_H2O|stem|b8d03da019a71d7c|2f0509d693760f64|ee00586ce5a953ac|-608167118||t19412.7995226439s|6404ca87b854b5a2|1388220|rds|local|vector|||0.2||
+gg_Extract_all|stem|0d7bbf5b573501d9|2ca0735015e07a33|24b2f220cf90054a|1884533364||t19415.7053977311s|6e0a46e2788b516f|1426374|rds|local|vector|||0.22||
+gg_Extract_all_H2O|stem|0d7bbf5b573501d9|2ca0735015e07a33|24b2f220cf90054a|1967568377||t19415.7053903681s|6e0a46e2788b516f|1426374|rds|local|vector|||0.39|1m22mUsing size aesthetic for lines was deprecated in ggplot2 3.4.0.36mℹ39m Please use linewidth instead.|
+gg_Extract_lysim|stem|e205177137ca4c1d|2db63df9e72a8c6e|71f485479bab72b2|-520152490||t19415.6999647958s|4b6e52d15fa2290e|233569|rds|local|vector|||0.57|1m22mUsing size aesthetic for lines was deprecated in ggplot2 3.4.0.36mℹ39m Please use linewidth instead.|
+gg_Extract_Seasonal|stem|55391a7900e02675|2f0509d693760f64|f3f93f5e470c2bc0|423898810||t19415.6800239823s|fd19562dafe97ae0|827155|rds|local|vector|||0.36||
+gg_Extract_Seasonal_H2O|stem|55391a7900e02675|2f0509d693760f64|f3f93f5e470c2bc0|-608167118||t19415.6800294685s|fd19562dafe97ae0|827155|rds|local|vector|||0.23||
+gg_resin|stem|f9060bac21063a1c|81cec8bbdc458e22|95661f644cd9eb8b|-1180256919||t19415.7252555403s|c6e73965e90c6dc5|203681|rds|local|vector|||0.14|1m22mUsing size aesthetic for lines was deprecated in ggplot2 3.4.0.36mℹ39m Please use linewidth instead.|
+plot_Extract_all|function|1252e1ea5d72aefa|||||||||||||||
+plot_Extract_all_H2O|function|2ce6734f5494e7b0|||||||||||||||
+plot_Extract_lysim|function|1b9d1c1ed1db83c7|||||||||||||||
 plot_Extract_Seasonal|function|0bd7de871f9bc78c|||||||||||||||
 plot_Extract_Seasonal_H2O|function|9b05a4528de3979e|||||||||||||||
 plot_Extract_Snowfence|function|b329db2bc7f06287|||||||||||||||
 plot_Extract_Snowfence_H2O|function|80def7662dad67cd|||||||||||||||
+plot_PoreWater_all|function|d2fc4f38c473ec6b|||||||||||||||
 plot_PoreWater_Lysim|function|5a310908f2ab3272|||||||||||||||
 plot_PoreWater_Seasonal|function|697ebd056f88f48a|||||||||||||||
 plot_PoreWater_Snowfence|function|97a01384265d4262|||||||||||||||
+plot_resin|function|795947017b41b4b1|||||||||||||||
 PoreWater_data|stem|35588105f0a35538|1b994d2731bfdf53|beccc6c3a639b8aa|2068494712||t19411.7691575255s|b79e6c89b04e8ed1|83575|rds|local|vector|||0.02||
 PoreWater_data_Lysim|stem|151c155a0c67623c|c88699d5551553eb|aff9b893a6b77600|664979748||t19410.9398340897s|6172eed8233ae039|10912|rds|local|vector|||0||
 PoreWater_data_read|stem|58d98a1c7b886188|b1fce3dbbea9e6d8|ef46db3751d8e999|-825541549|Data/PoreWater.csv|t19411.768920802s|85f72085e32aec53|269466|file|local|vector|||0||
 PoreWater_data_read_Lysim|stem|6f2307b7fbda56cf|bc20ea3014e933ed|ef46db3751d8e999|-990820465|Data/Lysim.csv|t19410.9384964981s|3e7bf0180f1ee5c0|31014|file|local|vector|||0||
-PoreWater_processed|stem|7d5567259657d316|f323cf428d89449d|d9211ea299e722be|-381584331||t19412.7994934518s|bc39f8867a5bc3fc|50644|rds|local|vector|||0.04|NAs introduced by coercion. NAs introduced by coercion|
+PoreWater_processed|stem|7d5567259657d316|f323cf428d89449d|1010781560d5fab3|-381584331||t19415.6800067218s|bc39f8867a5bc3fc|50644|rds|local|vector|||0.08|NAs introduced by coercion. NAs introduced by coercion|
+PoreWater_processed_all|stem|122dac292ac05117|2d0b43687e36de24|1cfd5bf36f41b1ad|-1193740813||t19415.6924922499s|b3549941a12132a9|71274|rds|local|vector|||0.06|NAs introduced by coercion. NAs introduced by coercion|
 PoreWater_processed_Lysim|stem|40f1884afe3a68cf|ca2e3615d54b46d2|71592c889ab01249|-1474338050||t19412.7994920193s|0d86c7e4ed2da036|15814|rds|local|vector|||0.07||
 PoreWater_processed_Seasonal|stem|122dac292ac05117|bcdf47bdce0ae6dc|48434ed001c10eeb|-587293901||t19412.7994927938s|b3549941a12132a9|71274|rds|local|vector|||0.05|NAs introduced by coercion. NAs introduced by coercion|
 process_Extract|function|9b0380ccf0ea1055|||||||||||||||
+process_Extract_all|function|0f93ea4d9307749b|||||||||||||||
+process_Extract_all_H2O|function|0c9994bc5883e2e3|||||||||||||||
 process_Extract_H2O|function|5498a775134597d3|||||||||||||||
+process_Extract_lysim|function|7edac8c5a04a3c7c|||||||||||||||
 process_Extract_Seasonal|function|a093310059b2f1fa|||||||||||||||
 process_Extract_Seasonal_H2O|function|627ac34fcc6eeb1d|||||||||||||||
 process_Lysim_Destruct|function|bf9ec2eb47b0f3ee|||||||||||||||
-process_PoreWater|function|33364ba16983ebdb|||||||||||||||
+process_PoreWater|function|7c8bb73cb95f402c|||||||||||||||
+process_PoreWater_all|function|3db7acf2e90471ab|||||||||||||||
 process_PoreWater_Seasonal|function|51c380b53d74a0ac|||||||||||||||
+process_resin|function|d5e423e467c7e857|||||||||||||||
 process_Resin|function|a1af27b3a0bc406f|||||||||||||||
-report|stem|36345f44f81831c6|a89535d73cc6f376|176873ab76e4c746|-237041703|reports/Aggie_report.md*reports/Aggie_report.Rmd*reports/Aggie_report_files|t19412.8420448228s|aeaefcb56280e540|754910|file|local|vector|||69.71||
+report|stem|7cb662544b902966|435b6aea85fc12e8|8f9e91ff617ea1f8|-237041703|reports/Aggie_report.md*reports/Aggie_report.Rmd*reports/Aggie_report_files|t19415.8053982944s|0ef696f5a562b1f4|1530902|file|local|vector|||112.71||
+Resin_data|stem|886924913dc08ae4|81922cd386115565|1d1e40b6a9992b86|736601963||t19415.711139994s|e7dde162f7b6b33e|9677|rds|local|vector|||0||
+Resin_data_read|stem|c64d9ecc4895f473|e10d3fd426b3ece2|ef46db3751d8e999|-1045475728|Data/Resin.csv|t19415.7983353265s|f5e3140a1bebcacc|38395|file|local|vector|||0||
+Resin_processed|stem|3669bcdd58e6b37d|7831cfc8de3e0329|a58b9c11c615cc24|1865690580||t19415.7123849229s|0e3f61f73abb3eac|9855|rds|local|vector|||0.01||
 theme_kp|function|5982ad535dc86aea|||||||||||||||

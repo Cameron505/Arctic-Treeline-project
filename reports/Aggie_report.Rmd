@@ -17,7 +17,7 @@ knitr::opts_chunk$set(echo = FALSE,
 <details>
   <summary>click to open</summary>
 
-```{r analyte-completion, eval= TRUE}
+```{r setup, include=FALSE, echo=FALSE}
 ```
 
 </details>
@@ -73,7 +73,7 @@ tar_read(gg_aggie_PoreWater_Snowfence_Control)
 
 ---
 
-## Seasonal Extracts and pore water
+## Seasonal Extracts and pore water (Ancillary plots)
 <details>
   <summary>click to open</summary>
   
@@ -120,7 +120,81 @@ tar_read(gg_aggie_PoreWater_Seasonal)
 
 ---
 
+
+## All Extracts and pore water (Ancillary, Control, Snowfence plots)
+
+<details>
+  <summary>click to open</summary>
+  
+ #### Extracts:
+ Due to soil plot concerns only ancillary plots were harvested multiple times per year.
+  K2SO4:
+  
+  <details>
+  <summary>click to open</summary>
+  
+```{r , fig.height=6, fig.width=6, results='hide', out.width="100%"}
+tar_read(gg_Extract_all)
+```
+
+</details>
+
+H2O:
+
+<details>
+
+  <summary>click to open</summary>
+  
+```{r , fig.height=6, fig.width=6, results='hide', out.width="100%"}
+tar_read(gg_Extract_all_H2O)
+```
+
+</details>
+
+
+
+ #### Pore water:
+ 
+  <details>
+  
+  <summary>click to open</summary>
+  
+ 
+
+```{r , fig.height=6, fig.width=6, results='hide', out.width="100%"}
+tar_read(gg_aggie_PoreWater_all)
+```
+
+</details>
+
+</details>
+
+---
+
+## Resin strip extract plots
+
+<details>
+  <summary>click to open</summary>
+  
+  Resin strips were extracted in 2M KCl
+  
+```{r , fig.height=6, fig.width=6, results='hide', out.width="100%"}
+tar_read(gg_resin)
+```
+
+
+</details>
+
+---
+
+
 ## Destructive lysimeter test
+
+<details>
+  <summary>click to open</summary>
+
+#### Pore water:
+
 <details>
   <summary>click to open</summary>
 
@@ -128,6 +202,20 @@ tar_read(gg_aggie_PoreWater_Seasonal)
 ```{r , fig.height=6, fig.width=6, results='hide'}
 tar_read(gg_aggie_PoreWater_Lysim)
 ```
+
+</details>
+
+#### Extractions
+
+<details>
+  <summary>click to open</summary>
+
+
+```{r , fig.height=6, fig.width=6, results='hide'}
+tar_read(gg_Extract_lysim)
+```
+
+</details>
 
 </details>
 

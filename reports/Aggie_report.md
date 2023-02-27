@@ -56,7 +56,7 @@ click to open
 
 ------------------------------------------------------------------------
 
-## Seasonal Extracts and pore water
+## Seasonal Extracts and pore water (Ancillary plots)
 
 <details>
 <summary>
@@ -102,6 +102,67 @@ click to open
 
 ------------------------------------------------------------------------
 
+## All Extracts and pore water (Ancillary, Control, Snowfence plots)
+
+<details>
+<summary>
+click to open
+</summary>
+
+#### Extracts:
+
+Due to soil plot concerns only ancillary plots were harvested multiple
+times per year. K2SO4:
+
+<details>
+<summary>
+click to open
+</summary>
+
+<img src="Aggie_report_files/figure-gfm/unnamed-chunk-7-1.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-7-2.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-7-3.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-7-4.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-7-5.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-7-6.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-7-7.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-7-8.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-7-9.png" width="100%" />
+
+</details>
+
+H2O:
+
+<details>
+<summary>
+click to open
+</summary>
+
+<img src="Aggie_report_files/figure-gfm/unnamed-chunk-8-1.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-8-2.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-8-3.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-8-4.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-8-5.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-8-6.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-8-7.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-8-8.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-8-9.png" width="100%" />
+
+</details>
+
+#### Pore water:
+
+<details>
+<summary>
+click to open
+</summary>
+
+<img src="Aggie_report_files/figure-gfm/unnamed-chunk-9-1.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-9-2.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-9-3.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-9-4.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-9-5.png" width="100%" />
+
+</details>
+</details>
+
+------------------------------------------------------------------------
+
+## Resin strip extract plots
+
+<details>
+<summary>
+click to open
+</summary>
+
+Resin strips were extracted in 2M KCl
+
+<img src="Aggie_report_files/figure-gfm/unnamed-chunk-10-1.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-10-2.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-10-3.png" width="100%" />
+
+</details>
+
+------------------------------------------------------------------------
+
 ## Destructive lysimeter test
 
 <details>
@@ -109,8 +170,27 @@ click to open
 click to open
 </summary>
 
-![](Aggie_report_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-7-2.png)<!-- -->
+#### Pore water:
 
+<details>
+<summary>
+click to open
+</summary>
+
+![](Aggie_report_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-11-2.png)<!-- -->
+
+</details>
+
+#### Extractions
+
+<details>
+<summary>
+click to open
+</summary>
+
+![](Aggie_report_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-12-2.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-12-3.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-12-4.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-12-5.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-12-6.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-12-7.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-12-8.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-12-9.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-12-10.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-12-11.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-12-12.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-12-13.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-12-14.png)<!-- -->
+
+</details>
 </details>
 
 ------------------------------------------------------------------------
@@ -122,7 +202,7 @@ click to open
 Session Info
 </summary>
 
-Date run: 2023-02-24
+Date run: 2023-02-27
 
     ## R version 4.2.2 (2022-10-31 ucrt)
     ## Platform: x86_64-w64-mingw32/x64 (64-bit)

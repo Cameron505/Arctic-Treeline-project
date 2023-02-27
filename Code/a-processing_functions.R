@@ -7,7 +7,8 @@ process_PoreWater =function(PoreWater_data){
            YEAR=year(DATE),
            MONTH=month(DATE)) %>%
     mutate_at(c('NH4', 'NO3','PO4','TFPA','TRS'), as.numeric) %>%
-    filter(treatment %in% c("Snowfence","Control"))
+    filter(treatment %in% c("Snowfence","Control"))%>%
+    drop_na(YEAR)
 }
 
 process_Lysim_Destruct =function(PoreWater_data){
@@ -97,4 +98,57 @@ process_Extract_Seasonal_H2O =function(Extract_data){
   
 }
 
+process_PoreWater_all =function(PoreWater_data){
+  
+  processed_PoreWater_all = PoreWater_data %>%
+    mutate(DATE=as.Date(Date, format= "%m/%d/%Y"),
+           YEAR=year(DATE),
+           MONTH=month(DATE)) %>%
+    mutate_at(c('NH4', 'NO3','PO4','TFPA','TRS'), as.numeric) %>%
+    filter(treatment %in% c("Snowfence","Control","Ancillary"))
+}
 
+process_Extract_all =function(Extract_data){
+  
+  processed_Extract_all = Extract_data %>%
+    mutate(DATE=as.Date(Date, format= "%m/%d/%Y"),
+           YEAR=year(DATE),
+           MONTH=month(DATE)) %>%
+    mutate_at(c('NH4', 'NO3','PO4','TFPA','phenolics','TRS','MBC','MBN','Mic.PO4'), as.numeric) %>%
+    filter(treatment %in% c("Snowfence","Control","Ancillary"))
+  
+}
+
+
+process_Extract_all_H2O =function(Extract_data){
+  
+  processed_Extract_all = Extract_data %>%
+    mutate(DATE=as.Date(Date, format= "%m/%d/%Y"),
+           YEAR=year(DATE),
+           MONTH=month(DATE)) %>%
+    mutate_at(c('NH4.H2O', 'NO3.H2O','PO4.H2O','TFPA.H2O','TRS.H2O'), as.numeric) %>%
+    filter(treatment %in% c("Snowfence","Control","Ancillary"))
+  
+}
+
+process_Extract_lysim =function(Extract_data){
+  
+  processed_Extract_lysim = Extract_data %>%
+    mutate(DATE=as.Date(Date, format= "%m/%d/%Y"),
+           YEAR=year(DATE),
+           MONTH=month(DATE)) %>%
+    mutate_at(c('NH4', 'NO3','PO4','TFPA','phenolics','TRS','MBC','MBN','Mic.PO4','NH4.H2O', 'NO3.H2O','PO4.H2O','TFPA.H2O','TRS.H2O'), as.numeric) %>%
+    filter(treatment %in% c("Lysim","Lysim 2","Lysim 3","Lysim 4"))
+  
+}
+
+process_resin =function(Resin_data){
+  
+  processed_resin = Resin_data %>%
+    mutate(DATE=as.Date(Date, format= "%m/%d/%Y"),
+           YEAR=year(DATE),
+           MONTH=month(DATE)) %>%
+    mutate_at(c('Ammonium', 'Nitrate','Phosphate'), as.numeric)
+    
+  
+}

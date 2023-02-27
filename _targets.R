@@ -41,6 +41,7 @@ list(
   tar_target(PoreWater_data, read.csv(PoreWater_data_read)),
   tar_target(PoreWater_processed, process_PoreWater(PoreWater_data)),
   tar_target(PoreWater_processed_Seasonal, process_PoreWater_Seasonal(PoreWater_data)),
+  tar_target(PoreWater_processed_all, process_PoreWater_all(PoreWater_data)),
   
   tar_target(PoreWater_data_read_Lysim,"Data/Lysim.csv", format="file"),
   tar_target(PoreWater_data_Lysim, read.csv(PoreWater_data_read_Lysim)),
@@ -50,12 +51,16 @@ list(
   tar_target(Extract_data, read.csv(Extract_data_read)),
   tar_target(Extract_processed, process_Extract(Extract_data)),
   tar_target(Extract_processed_Seasonal, process_Extract_Seasonal(Extract_data)),
+  tar_target(Extract_processed_all, process_Extract_all(Extract_data)),
   tar_target(Extract_processed_H2O, process_Extract_H2O(Extract_data)),
   tar_target(Extract_processed_Seasonal_H2O, process_Extract_Seasonal_H2O(Extract_data)),
+  tar_target(Extract_processed_all_H2O, process_Extract_all_H2O(Extract_data)),
+  tar_target(Extract_processed_lysim, process_Extract_lysim(Extract_data)),
   
-  #tar_target(Resin_data_read,"Data/Resin.csv", format="file"),
-  #tar_target(Resin_data, read.csv(Resin_data_read)),
-  #tar_target(Resin_processed, process_respiration(Resin_data)),
+  
+  tar_target(Resin_data_read,"Data/Resin.csv", format="file"),
+  tar_target(Resin_data, read.csv(Resin_data_read)),
+  tar_target(Resin_processed, process_resin(Resin_data)),
   
   
   # analysis - graphs
@@ -67,6 +72,11 @@ list(
   tar_target(gg_Extract_Seasonal, plot_Extract_Seasonal(Extract_processed_Seasonal)),
   tar_target(gg_Extract_Seasonal_H2O, plot_Extract_Seasonal(Extract_processed_Seasonal)),
 
+  tar_target(gg_aggie_PoreWater_all, plot_PoreWater_all(PoreWater_processed_all)),
+  tar_target(gg_Extract_all, plot_Extract_all(Extract_processed_all)),
+  tar_target(gg_Extract_all_H2O, plot_Extract_all(Extract_processed_all)),
+  tar_target(gg_Extract_lysim, plot_Extract_lysim(Extract_processed_lysim)),
+  tar_target(gg_resin, plot_resin(Resin_processed)),
   
   # combined data
  
