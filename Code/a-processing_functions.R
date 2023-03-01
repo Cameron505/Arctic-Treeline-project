@@ -18,8 +18,9 @@ process_Lysim_Destruct =function(PoreWater_data){
            YEAR=year(DATE),
            MONTH=month(DATE)) %>%
     mutate_at(c('NH4', 'NO3','PO4','TFPA','TRS'), as.numeric) %>%
-    mutate( NH4_2= NH4/14.0067,
-            NO3_2= NO3/14.0067,
+    mutate( NH4_2= NH4*14.0067,
+            NO3_2= NO3*14.0067,
+            PO4_2= PO4*30.973762,
             NC= NH4_2+NO3_2+TFPA)%>%
     filter(YEAR %in% "2017")
 

@@ -202,10 +202,10 @@ plot_Extract_Seasonal = function(Extract_processed_Seasonal){
   gg_NH4_Extract =
     Extract_processed_Seasonal %>%
     ggplot(aes(x=DATE, y=NH4, color=Site))+
-    stat_summary(fun="mean",geom = "line",size = 2) +
+    stat_summary(fun="mean",geom = "line",size = 1) +
     stat_summary(fun="mean",geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR, scale="free")+
+    facet_wrap(~YEAR, scale="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -216,10 +216,10 @@ plot_Extract_Seasonal = function(Extract_processed_Seasonal){
   gg_NO3_Extract =
     Extract_processed_Seasonal %>%
     ggplot(aes(x=DATE, y=NO3, color=Site))+
-    stat_summary(fun="mean",geom = "line",size = 2) +
+    stat_summary(fun="mean",geom = "line",size = 1) +
     stat_summary(fun="mean",geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR, scale="free")+
+    facet_wrap(~YEAR, scale="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -229,10 +229,10 @@ plot_Extract_Seasonal = function(Extract_processed_Seasonal){
   gg_PO4_Extract =
     Extract_processed_Seasonal %>%
     ggplot(aes(x=DATE, y=PO4, color=Site))+
-    stat_summary(fun="mean",geom = "line",size = 2) +
+    stat_summary(fun="mean",geom = "line",size = 1) +
     stat_summary(fun="mean",geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR, scale="free")+
+    facet_wrap(~YEAR, scale="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -242,10 +242,10 @@ plot_Extract_Seasonal = function(Extract_processed_Seasonal){
   gg_TRS_Extract =
     Extract_processed_Seasonal %>%
     ggplot(aes(x=DATE, y=TRS, color=Site))+
-    stat_summary(fun="mean",geom = "line",size = 2) +
+    stat_summary(fun="mean",geom = "line",size = 1) +
     stat_summary(fun="mean",geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR, scale="free")+
+    facet_wrap(~YEAR, scale="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -255,10 +255,10 @@ plot_Extract_Seasonal = function(Extract_processed_Seasonal){
   gg_phenolics_Extract =
     Extract_processed_Seasonal %>%
     ggplot(aes(x=DATE, y=phenolics, color=Site))+
-    stat_summary(fun="mean",geom = "line",size = 2) +
+    stat_summary(fun="mean",geom = "line",size = 1) +
     stat_summary(fun="mean",geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR, scale="free")+
+    facet_wrap(~YEAR, scale="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -268,10 +268,10 @@ plot_Extract_Seasonal = function(Extract_processed_Seasonal){
   gg_TFPA_Extract =
     Extract_processed_Seasonal %>%
     ggplot(aes(x=DATE, y=TFPA, color=Site))+
-    stat_summary(fun="mean",geom = "line",size = 2) +
+    stat_summary(fun="mean",geom = "line",size = 1) +
     stat_summary(fun="mean",geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR, scale="free")+
+    facet_wrap(~YEAR, scale="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -281,10 +281,10 @@ plot_Extract_Seasonal = function(Extract_processed_Seasonal){
   gg_MBC_Extract =
     Extract_processed_Seasonal %>%
     ggplot(aes(x=DATE, y=MBC, color=Site))+
-    stat_summary(fun="mean",geom = "line",size = 2) +
+    stat_summary(fun="mean",geom = "line",size = 1) +
     stat_summary(fun="mean",geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR, scale="free")+
+    facet_wrap(~YEAR, scale="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -294,10 +294,10 @@ plot_Extract_Seasonal = function(Extract_processed_Seasonal){
   gg_MBN_Extract =
     Extract_processed_Seasonal %>%
     ggplot(aes(x=DATE, y=MBN, color=Site))+
-    stat_summary(fun="mean",geom = "line",size = 2) +
+    stat_summary(fun="mean",geom = "line",size = 1) +
     stat_summary(fun="mean",geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR, scale="free")+
+    facet_wrap(~YEAR, scale="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -307,10 +307,10 @@ plot_Extract_Seasonal = function(Extract_processed_Seasonal){
   gg_MBP_Extract =
     Extract_processed_Seasonal %>%
     ggplot(aes(x=DATE, y=Mic.PO4, color=Site))+
-    stat_summary(fun="mean",geom = "line",size = 2) +
+    stat_summary(fun="mean",geom = "line",size = 1) +
     stat_summary(fun="mean",geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR, scale="free")+
+    facet_wrap(~YEAR, scale="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -335,10 +335,10 @@ plot_Extract_Seasonal_H2O = function(Extract_processed_Seasonal_H2O){
   gg_NH4_Extract =
     Extract_processed_Seasonal_H2O %>%
     ggplot(aes(x=DATE, y=NH4.H2O, color=Site))+
-    stat_summary(fun="mean",geom = "line",size = 2) +
+    stat_summary(fun="mean",geom = "line",size = 1) +
     stat_summary(fun="mean",geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR, scale="free")+
+    facet_wrap(~YEAR, scale="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -349,10 +349,10 @@ plot_Extract_Seasonal_H2O = function(Extract_processed_Seasonal_H2O){
   gg_NO3_Extract =
     Extract_processed_Seasonal_H2O %>%
     ggplot(aes(x=DATE, y=NO3.H2O, color=Site))+
-    stat_summary(fun="mean",geom = "line",size = 2) +
+    stat_summary(fun="mean",geom = "line",size = 1) +
     stat_summary(fun="mean",geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR, scale="free")+
+    facet_wrap(~YEAR, scale="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -362,10 +362,10 @@ plot_Extract_Seasonal_H2O = function(Extract_processed_Seasonal_H2O){
   gg_PO4_Extract =
     Extract_processed_Seasonal_H2O %>%
     ggplot(aes(x=DATE, y=PO4.H2O, color=Site))+
-    stat_summary(fun="mean",geom = "line",size = 2) +
+    stat_summary(fun="mean",geom = "line",size = 1) +
     stat_summary(fun="mean",geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR, scale="free")+
+    facet_wrap(~YEAR, scale="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -375,10 +375,10 @@ plot_Extract_Seasonal_H2O = function(Extract_processed_Seasonal_H2O){
   gg_TRS_Extract =
     Extract_processed_Seasonal_H2O %>%
     ggplot(aes(x=DATE, y=TRS.H2O, color=Site))+
-    stat_summary(fun="mean",geom = "line",size = 2) +
+    stat_summary(fun="mean",geom = "line",size = 1) +
     stat_summary(fun="mean",geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR, scale="free")+
+    facet_wrap(~YEAR, scale="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -388,10 +388,10 @@ plot_Extract_Seasonal_H2O = function(Extract_processed_Seasonal_H2O){
   gg_TFPA_Extract =
     Extract_processed_Seasonal_H2O %>%
     ggplot(aes(x=DATE, y=TFPA.H2O, color=Site))+
-    stat_summary(fun="mean",geom = "line",size = 2) +
+    stat_summary(fun="mean",geom = "line",size = 1) +
     stat_summary(fun="mean",geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR, scale="free")+
+    facet_wrap(~YEAR, scale="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -416,7 +416,7 @@ plot_PoreWater_Snowfence = function(PoreWater_processed){
     ggplot(aes(x=DATE, y=NH4, color=treatment))+
     stat_summary(geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR + Site, scales="free")+
+    facet_wrap(~YEAR + Site, scales="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -428,7 +428,7 @@ plot_PoreWater_Snowfence = function(PoreWater_processed){
     ggplot(aes(x=DATE, y=NO3, color=treatment))+
     stat_summary(geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR + Site, scales="free")+
+    facet_wrap(~YEAR + Site, scales="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -440,7 +440,7 @@ plot_PoreWater_Snowfence = function(PoreWater_processed){
     ggplot(aes(x=DATE, y=PO4, color=treatment))+
     stat_summary(geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR + Site, scales="free")+
+    facet_wrap(~YEAR + Site, scales="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -452,7 +452,7 @@ plot_PoreWater_Snowfence = function(PoreWater_processed){
     ggplot(aes(x=DATE, y=TRS, color=treatment))+
     stat_summary(geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR + Site, scales="free")+
+    facet_wrap(~YEAR + Site, scales="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -464,7 +464,7 @@ plot_PoreWater_Snowfence = function(PoreWater_processed){
     ggplot(aes(x=DATE, y=TFPA, color=treatment))+
     stat_summary(geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR + Site, scales="free")+
+    facet_wrap(~YEAR + Site, scales="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -481,7 +481,7 @@ plot_PoreWater_Snowfence = function(PoreWater_processed){
 }
 
 plot_PoreWater_Lysim = function(PoreWater_processed_Lysim){
-  
+
   gg_N_PoreWater =
     PoreWater_processed_Lysim %>%
     filter(Site!="")%>%
@@ -491,20 +491,23 @@ plot_PoreWater_Lysim = function(PoreWater_processed_Lysim){
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
+    ylab(expression(paste( "Respiration (",mu,"M Labile N)")))+
     xlab("Date")+
-    ggtitle("NH4 + NO3 + TFPA")
+    ggtitle("Ammonium + Nitrate + TFPA")
   
   gg_PO4_PoreWater =
     PoreWater_processed_Lysim %>%
     filter(Site!="")%>%
-    ggplot(aes(x=DATE, y=PO4, color=treatment))+
+    ggplot(aes(x=DATE, y=PO4_2, color=treatment))+
     stat_summary(geom = "line",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
+    labs(x = "Date", 
+         y = bquote('Phosphate ('*mu*'M '*PO[4]^"3-"~-P*')'))+
     xlab("Date")+
-    ggtitle("PO4")
+    ggtitle("Phosphate")
   
   list("Lysim_N"= gg_N_PoreWater,
        "Lysim_PO4"= gg_PO4_PoreWater
@@ -520,7 +523,7 @@ plot_PoreWater_Seasonal = function(PoreWater_processed_Seasonal){
     ggplot(aes(x=DATE, y=NH4, color=treatment))+
     stat_summary(geom = "line",size = 1) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR + Site, scales="free")+
+    facet_wrap(~YEAR + Site, scales="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -532,7 +535,7 @@ plot_PoreWater_Seasonal = function(PoreWater_processed_Seasonal){
     ggplot(aes(x=DATE, y=NO3, color=treatment))+
     stat_summary(geom = "line",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR + Site, scales="free")+
+    facet_wrap(~YEAR + Site, scales="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -544,7 +547,7 @@ plot_PoreWater_Seasonal = function(PoreWater_processed_Seasonal){
     ggplot(aes(x=DATE, y=PO4, color=treatment))+
     stat_summary(geom = "line",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR + Site, scales="free")+
+    facet_wrap(~YEAR + Site, scales="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -556,7 +559,7 @@ plot_PoreWater_Seasonal = function(PoreWater_processed_Seasonal){
     ggplot(aes(x=DATE, y=TRS, color=treatment))+
     stat_summary(geom = "line",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR + Site, scales="free")+
+    facet_wrap(~YEAR + Site, scales="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -568,7 +571,7 @@ plot_PoreWater_Seasonal = function(PoreWater_processed_Seasonal){
     ggplot(aes(x=DATE, y=TFPA, color=treatment))+
     stat_summary(geom = "line",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR + Site, scales="free")+
+    facet_wrap(~YEAR + Site, scales="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -593,7 +596,7 @@ plot_PoreWater_all = function(PoreWater_processed_all){
     ggplot(aes(x=DATE, y=NH4, color=treatment))+
     stat_summary(geom = "line",size = 1) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR + Site, scales="free")+
+    facet_wrap(~YEAR + Site, scales="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -605,7 +608,7 @@ plot_PoreWater_all = function(PoreWater_processed_all){
     ggplot(aes(x=DATE, y=NO3, color=treatment))+
     stat_summary(geom = "line",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR + Site, scales="free")+
+    facet_wrap(~YEAR + Site, scales="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -617,7 +620,7 @@ plot_PoreWater_all = function(PoreWater_processed_all){
     ggplot(aes(x=DATE, y=PO4, color=treatment))+
     stat_summary(geom = "line",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR + Site, scales="free")+
+    facet_wrap(~YEAR + Site, scales="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -629,7 +632,7 @@ plot_PoreWater_all = function(PoreWater_processed_all){
     ggplot(aes(x=DATE, y=TRS, color=treatment))+
     stat_summary(geom = "line",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR + Site, scales="free")+
+    facet_wrap(~YEAR + Site, scales="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -641,7 +644,7 @@ plot_PoreWater_all = function(PoreWater_processed_all){
     ggplot(aes(x=DATE, y=TFPA, color=treatment))+
     stat_summary(geom = "line",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR + Site, scales="free")+
+    facet_wrap(~YEAR + Site, scales="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -662,10 +665,10 @@ plot_Extract_all = function(Extract_processed_all){
   gg_NH4_Extract =
     Extract_processed_all %>%
     ggplot(aes(x=DATE, y=NH4, color=Site, shape=treatment))+
-    stat_summary(fun="mean",geom = "line",size = 2) +
+    stat_summary(fun="mean",geom = "line",size = 1) +
     stat_summary(fun="mean",geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR, scale="free")+
+    facet_wrap(~YEAR, scale="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -676,10 +679,10 @@ plot_Extract_all = function(Extract_processed_all){
   gg_NO3_Extract =
     Extract_processed_all %>%
     ggplot(aes(x=DATE, y=NO3, color=Site, shape=treatment))+
-    stat_summary(fun="mean",geom = "line",size = 2) +
+    stat_summary(fun="mean",geom = "line",size = 1) +
     stat_summary(fun="mean",geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR, scale="free")+
+    facet_wrap(~YEAR, scale="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -689,10 +692,10 @@ plot_Extract_all = function(Extract_processed_all){
   gg_PO4_Extract =
     Extract_processed_all %>%
     ggplot(aes(x=DATE, y=PO4, color=Site, shape=treatment))+
-    stat_summary(fun="mean",geom = "line",size = 2) +
+    stat_summary(fun="mean",geom = "line",size = 1) +
     stat_summary(fun="mean",geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR, scale="free")+
+    facet_wrap(~YEAR, scale="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -702,10 +705,10 @@ plot_Extract_all = function(Extract_processed_all){
   gg_TRS_Extract =
     Extract_processed_all %>%
     ggplot(aes(x=DATE, y=TRS, color=Site, shape=treatment))+
-    stat_summary(fun="mean",geom = "line",size = 2) +
+    stat_summary(fun="mean",geom = "line",size = 1) +
     stat_summary(fun="mean",geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR, scale="free")+
+    facet_wrap(~YEAR, scale="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -715,10 +718,10 @@ plot_Extract_all = function(Extract_processed_all){
   gg_phenolics_Extract =
     Extract_processed_all %>%
     ggplot(aes(x=DATE, y=phenolics, color=Site, shape=treatment))+
-    stat_summary(fun="mean",geom = "line",size = 2) +
+    stat_summary(fun="mean",geom = "line",size = 1) +
     stat_summary(fun="mean",geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR, scale="free")+
+    facet_wrap(~YEAR, scale="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -728,10 +731,10 @@ plot_Extract_all = function(Extract_processed_all){
   gg_TFPA_Extract =
     Extract_processed_all %>%
     ggplot(aes(x=DATE, y=TFPA, color=Site, shape=treatment))+
-    stat_summary(fun="mean",geom = "line",size = 2) +
+    stat_summary(fun="mean",geom = "line",size = 1) +
     stat_summary(fun="mean",geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR, scale="free")+
+    facet_wrap(~YEAR, scale="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -741,10 +744,10 @@ plot_Extract_all = function(Extract_processed_all){
   gg_MBC_Extract =
     Extract_processed_all %>%
     ggplot(aes(x=DATE, y=MBC, color=Site, shape=treatment))+
-    stat_summary(fun="mean",geom = "line",size = 2) +
+    stat_summary(fun="mean",geom = "line",size = 1) +
     stat_summary(fun="mean",geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR, scale="free")+
+    facet_wrap(~YEAR, scale="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -754,10 +757,10 @@ plot_Extract_all = function(Extract_processed_all){
   gg_MBN_Extract =
     Extract_processed_all %>%
     ggplot(aes(x=DATE, y=MBN, color=Site, shape=treatment))+
-    stat_summary(fun="mean",geom = "line",size = 2) +
+    stat_summary(fun="mean",geom = "line",size = 1) +
     stat_summary(fun="mean",geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR, scale="free")+
+    facet_wrap(~YEAR, scale="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -767,10 +770,10 @@ plot_Extract_all = function(Extract_processed_all){
   gg_MBP_Extract =
     Extract_processed_all %>%
     ggplot(aes(x=DATE, y=Mic.PO4, color=Site, shape=treatment))+
-    stat_summary(fun="mean",geom = "line",size = 2) +
+    stat_summary(fun="mean",geom = "line",size = 1) +
     stat_summary(fun="mean",geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR, scale="free")+
+    facet_wrap(~YEAR, scale="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -795,10 +798,10 @@ plot_Extract_all_H2O = function(Extract_processed_all_H2O){
   gg_NH4_Extract =
     Extract_processed_all_H2O %>%
     ggplot(aes(x=DATE, y=NH4.H2O, color=Site, shape=treatment))+
-    stat_summary(fun="mean",geom = "line",size = 2) +
+    stat_summary(fun="mean",geom = "line",size = 1) +
     stat_summary(fun="mean",geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR, scale="free")+
+    facet_wrap(~YEAR, scale="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -809,10 +812,10 @@ plot_Extract_all_H2O = function(Extract_processed_all_H2O){
   gg_NO3_Extract =
     Extract_processed_all_H2O %>%
     ggplot(aes(x=DATE, y=NO3.H2O, color=Site, shape=treatment))+
-    stat_summary(fun="mean",geom = "line",size = 2) +
+    stat_summary(fun="mean",geom = "line",size = 1) +
     stat_summary(fun="mean",geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR, scale="free")+
+    facet_wrap(~YEAR, scale="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -822,10 +825,10 @@ plot_Extract_all_H2O = function(Extract_processed_all_H2O){
   gg_PO4_Extract =
     Extract_processed_all_H2O %>%
     ggplot(aes(x=DATE, y=PO4.H2O, color=Site, shape=treatment))+
-    stat_summary(fun="mean",geom = "line",size = 2) +
+    stat_summary(fun="mean",geom = "line",size = 1) +
     stat_summary(fun="mean",geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR, scale="free")+
+    facet_wrap(~YEAR, scale="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -835,10 +838,10 @@ plot_Extract_all_H2O = function(Extract_processed_all_H2O){
   gg_TRS_Extract =
     Extract_processed_all_H2O %>%
     ggplot(aes(x=DATE, y=TRS.H2O, color=Site, shape=treatment))+
-    stat_summary(fun="mean",geom = "line",size = 2) +
+    stat_summary(fun="mean",geom = "line",size = 1) +
     stat_summary(fun="mean",geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR, scale="free")+
+    facet_wrap(~YEAR, scale="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -848,10 +851,10 @@ plot_Extract_all_H2O = function(Extract_processed_all_H2O){
   gg_TFPA_Extract =
     Extract_processed_all_H2O %>%
     ggplot(aes(x=DATE, y=TFPA.H2O, color=Site, shape=treatment))+
-    stat_summary(fun="mean",geom = "line",size = 2) +
+    stat_summary(fun="mean",geom = "line",size = 1) +
     stat_summary(fun="mean",geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR, scale="free")+
+    facet_wrap(~YEAR, scale="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -873,10 +876,10 @@ plot_Extract_lysim = function(Extract_processed_lysim){
   gg_NH4_Extract =
     Extract_processed_lysim %>%
     ggplot(aes(x=DATE, y=NH4, color=Site))+
-    stat_summary(fun="mean",geom = "line",size = 2) +
+    stat_summary(fun="mean",geom = "line",size = 1) +
     stat_summary(fun="mean",geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR, scale="free")+
+    facet_wrap(~YEAR, scale="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -887,10 +890,10 @@ plot_Extract_lysim = function(Extract_processed_lysim){
   gg_NO3_Extract =
     Extract_processed_lysim %>%
     ggplot(aes(x=DATE, y=NO3, color=Site))+
-    stat_summary(fun="mean",geom = "line",size = 2) +
+    stat_summary(fun="mean",geom = "line",size = 1) +
     stat_summary(fun="mean",geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR, scale="free")+
+    facet_wrap(~YEAR, scale="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -900,10 +903,10 @@ plot_Extract_lysim = function(Extract_processed_lysim){
   gg_PO4_Extract =
     Extract_processed_lysim %>%
     ggplot(aes(x=DATE, y=PO4, color=Site))+
-    stat_summary(fun="mean",geom = "line",size = 2) +
+    stat_summary(fun="mean",geom = "line",size = 1) +
     stat_summary(fun="mean",geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR, scale="free")+
+    facet_wrap(~YEAR, scale="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -913,10 +916,10 @@ plot_Extract_lysim = function(Extract_processed_lysim){
   gg_TRS_Extract =
     Extract_processed_lysim %>%
     ggplot(aes(x=DATE, y=TRS, color=Site))+
-    stat_summary(fun="mean",geom = "line",size = 2) +
+    stat_summary(fun="mean",geom = "line",size = 1) +
     stat_summary(fun="mean",geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR, scale="free")+
+    facet_wrap(~YEAR, scale="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -926,10 +929,10 @@ plot_Extract_lysim = function(Extract_processed_lysim){
   gg_phenolics_Extract =
     Extract_processed_lysim %>%
     ggplot(aes(x=DATE, y=phenolics, color=Site))+
-    stat_summary(fun="mean",geom = "line",size = 2) +
+    stat_summary(fun="mean",geom = "line",size = 1) +
     stat_summary(fun="mean",geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR, scale="free")+
+    facet_wrap(~YEAR, scale="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -939,10 +942,10 @@ plot_Extract_lysim = function(Extract_processed_lysim){
   gg_TFPA_Extract =
     Extract_processed_lysim %>%
     ggplot(aes(x=DATE, y=TFPA, color=Site))+
-    stat_summary(fun="mean",geom = "line",size = 2) +
+    stat_summary(fun="mean",geom = "line",size = 1) +
     stat_summary(fun="mean",geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR, scale="free")+
+    facet_wrap(~YEAR, scale="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -952,10 +955,10 @@ plot_Extract_lysim = function(Extract_processed_lysim){
   gg_MBC_Extract =
     Extract_processed_lysim %>%
     ggplot(aes(x=DATE, y=MBC, color=Site))+
-    stat_summary(fun="mean",geom = "line",size = 2) +
+    stat_summary(fun="mean",geom = "line",size = 1) +
     stat_summary(fun="mean",geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR, scale="free")+
+    facet_wrap(~YEAR, scale="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -965,10 +968,10 @@ plot_Extract_lysim = function(Extract_processed_lysim){
   gg_MBN_Extract =
     Extract_processed_lysim %>%
     ggplot(aes(x=DATE, y=MBN, color=Site))+
-    stat_summary(fun="mean",geom = "line",size = 2) +
+    stat_summary(fun="mean",geom = "line",size = 1) +
     stat_summary(fun="mean",geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR, scale="free")+
+    facet_wrap(~YEAR, scale="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -978,10 +981,10 @@ plot_Extract_lysim = function(Extract_processed_lysim){
   gg_MBP_Extract =
     Extract_processed_lysim %>%
     ggplot(aes(x=DATE, y=Mic.PO4, color=Site))+
-    stat_summary(fun="mean",geom = "line",size = 2) +
+    stat_summary(fun="mean",geom = "line",size = 1) +
     stat_summary(fun="mean",geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR, scale="free")+
+    facet_wrap(~YEAR, scale="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -992,10 +995,10 @@ plot_Extract_lysim = function(Extract_processed_lysim){
   gg_NH4_Extract_H2O =
     Extract_processed_lysim %>%
     ggplot(aes(x=DATE, y=NH4.H2O, color=Site))+
-    stat_summary(fun="mean",geom = "line",size = 2) +
+    stat_summary(fun="mean",geom = "line",size = 1) +
     stat_summary(fun="mean",geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR, scale="free")+
+    facet_wrap(~YEAR, scale="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -1006,10 +1009,10 @@ plot_Extract_lysim = function(Extract_processed_lysim){
   gg_NO3_Extract_H2O =
     Extract_processed_lysim %>%
     ggplot(aes(x=DATE, y=NO3.H2O, color=Site))+
-    stat_summary(fun="mean",geom = "line",size = 2) +
+    stat_summary(fun="mean",geom = "line",size = 1) +
     stat_summary(fun="mean",geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR, scale="free")+
+    facet_wrap(~YEAR, scale="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -1019,10 +1022,10 @@ plot_Extract_lysim = function(Extract_processed_lysim){
   gg_PO4_Extract_H2O =
     Extract_processed_lysim %>%
     ggplot(aes(x=DATE, y=PO4.H2O, color=Site))+
-    stat_summary(fun="mean",geom = "line",size = 2) +
+    stat_summary(fun="mean",geom = "line",size = 1) +
     stat_summary(fun="mean",geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR, scale="free")+
+    facet_wrap(~YEAR, scale="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -1032,10 +1035,10 @@ plot_Extract_lysim = function(Extract_processed_lysim){
   gg_TRS_Extract_H2O =
     Extract_processed_lysim %>%
     ggplot(aes(x=DATE, y=TRS.H2O, color=Site))+
-    stat_summary(fun="mean",geom = "line",size = 2) +
+    stat_summary(fun="mean",geom = "line",size = 1) +
     stat_summary(fun="mean",geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR, scale="free")+
+    facet_wrap(~YEAR, scale="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -1045,10 +1048,10 @@ plot_Extract_lysim = function(Extract_processed_lysim){
   gg_TFPA_Extract_H2O =
     Extract_processed_lysim %>%
     ggplot(aes(x=DATE, y=TFPA.H2O, color=Site))+
-    stat_summary(fun="mean",geom = "line",size = 2) +
+    stat_summary(fun="mean",geom = "line",size = 1) +
     stat_summary(fun="mean",geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR, scale="free")+
+    facet_wrap(~YEAR, scale="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -1079,10 +1082,11 @@ plot_resin = function(Resin_processed){
   
   gg_NH4_Extract =
     Resin_processed %>%
-    ggplot(aes(x=Purpose, y=Ammonium, fill=Site))+
+    mutate(Purpose2=factor(Purpose2, levels= c("OW-GS","OW","GS")))%>%
+    ggplot(aes(x=Purpose2, y=Ammonium, fill=Site))+
     stat_summary(fun="mean",geom = "bar",size = 2, position= 'dodge') +
     stat_summary(fun.data = mean_se, geom = "errorbar", position= 'dodge')+
-    facet_wrap(~YEAR, scale="free")+
+    facet_wrap(~YEAR, scale="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -1092,10 +1096,11 @@ plot_resin = function(Resin_processed){
   
   gg_NO3_Extract =
     Resin_processed %>%
-    ggplot(aes(x=Purpose, y=Nitrate, fill=Site))+
+    mutate(Purpose2=factor(Purpose2, levels= c("OW-GS","OW","GS")))%>%
+    ggplot(aes(x=Purpose2, y=Nitrate, fill=Site))+
     stat_summary(fun="mean",geom = "bar",size = 2, position= 'dodge') +
     stat_summary(fun.data = mean_se, geom = "errorbar", position= 'dodge')+
-    facet_wrap(~YEAR, scale="free")+
+    facet_wrap(~YEAR, scale="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -1104,10 +1109,11 @@ plot_resin = function(Resin_processed){
   
   gg_PO4_Extract =
     Resin_processed %>%
-    ggplot(aes(x=Purpose, y=Phosphate, fill=Site))+
+    mutate(Purpose2=factor(Purpose2, levels= c("OW-GS","OW","GS")))%>%
+    ggplot(aes(x=Purpose2, y=Phosphate, fill=Site))+
     stat_summary(fun="mean",geom = "bar",size = 2, position= 'dodge') +
     stat_summary(fun.data = mean_se, geom = "errorbar", position= 'dodge')+
-    facet_wrap(~YEAR, scale="free")+
+    facet_wrap(~YEAR, scale="free_x")+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
