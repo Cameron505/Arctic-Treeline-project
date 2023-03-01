@@ -436,271 +436,6 @@ plot_Extract_Seasonal_H2O = function(Extract_processed_Seasonal_H2O){
   
 }
 
-plot_PoreWater_Snowfence = function(PoreWater_processed){
-
-  gg_NH4_PoreWater =
-    PoreWater_processed %>%
-    filter(Site!="")%>%
-    ggplot(aes(x=DATE, y=NH4, color=treatment))+
-    stat_summary(geom = "point",size = 2) +
-    stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR + Site, scales="free_x")+
-    theme_light()+
-    scale_colour_manual(values=cbPalette2)+
-    scale_fill_manual(values=cbPalette2)+
-    labs(x = "Date", 
-         y = bquote('Ammonium ('*mu*'g '*NH[4]^"+"~-N~mL^-1 ~ Soil ~ Solution*')'))+
-    ggtitle("Ammonium")
-  gg_NO3_PoreWater =
-    PoreWater_processed %>%
-    filter(Site!="")%>%
-    ggplot(aes(x=DATE, y=NO3, color=treatment))+
-    stat_summary(geom = "point",size = 2) +
-    stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR + Site, scales="free_x")+
-    theme_light()+
-    scale_colour_manual(values=cbPalette2)+
-    scale_fill_manual(values=cbPalette2)+
-    labs(x = "Date", 
-         y = bquote('Nitrate ('*mu*'g '*NO[3]^"-"~-N~mL^-1 ~ Soil ~ Solution*')'))+
-    ggtitle("Nitrate")
-  gg_PO4_PoreWater =
-    PoreWater_processed %>%
-    filter(Site!="")%>%
-    ggplot(aes(x=DATE, y=PO4, color=treatment))+
-    stat_summary(geom = "point",size = 2) +
-    stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR + Site, scales="free_x")+
-    theme_light()+
-    scale_colour_manual(values=cbPalette2)+
-    scale_fill_manual(values=cbPalette2)+
-    labs(x = "Date", 
-         y = bquote('Phosphate ('*mu*'g '*PO[4]^"3-"~-P~mL^-1 ~ Soil ~ Solution*')'))+
-    ggtitle("Phosphate")
-  gg_TRS_PoreWater =
-    PoreWater_processed %>%
-    filter(Site!="")%>%
-    ggplot(aes(x=DATE, y=TRS, color=treatment))+
-    stat_summary(geom = "point",size = 2) +
-    stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR + Site, scales="free_x")+
-    theme_light()+
-    scale_colour_manual(values=cbPalette2)+
-    scale_fill_manual(values=cbPalette2)+
-    labs(x = "Date", 
-         y = bquote('Total reducing sugars-glucose equiv. ('*mu*'g' ~mL^-1 ~ Soil ~ Solution*')'))+
-    ggtitle("TRS")
-  gg_TFPA_PoreWater =
-    PoreWater_processed %>%
-    filter(Site!="")%>%
-    ggplot(aes(x=DATE, y=TFPA, color=treatment))+
-    stat_summary(geom = "point",size = 2) +
-    stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR + Site, scales="free_x")+
-    theme_light()+
-    scale_colour_manual(values=cbPalette2)+
-    scale_fill_manual(values=cbPalette2)+
-    labs(x = "Date", 
-         y = bquote('Total free primary amines-Leucine equiv. (nMol' ~mL^-1 ~ Soil ~ Solution*')'))+
-    ggtitle("TFPA")
-  
-  list("Snowfence Vs. Control PoreWater_NH4"= gg_NH4_PoreWater,
-       "Snowfence Vs. Control PoreWater_NO3"= gg_NO3_PoreWater,
-       "Snowfence Vs. Control PoreWater_PO4"= gg_PO4_PoreWater,
-       "Snowfence Vs. Control PoreWater_TFPA"= gg_TFPA_PoreWater,
-       #"Snowfence Vs. Control PoreWater_Phenolics"= gg_phenolics_PoreWater,
-       "Snowfence Vs. Control PoreWater_TRS"= gg_TRS_PoreWater
-  )
-}
-
-plot_PoreWater_Lysim = function(PoreWater_processed_Lysim){
-
-  gg_N_PoreWater =
-    PoreWater_processed_Lysim %>%
-    filter(Site!="")%>%
-    ggplot(aes(x=DATE, y=NC, color=treatment))+
-    stat_summary(geom = "line",size = 2) +
-    stat_summary(fun.data = mean_se, geom = "errorbar")+
-    theme_light()+
-    scale_colour_manual(values=cbPalette2)+
-    scale_fill_manual(values=cbPalette2)+
-    ylab(expression(paste( "Ammonium + Nitrate + TFPA (",mu,"M Labile N)")))+
-    xlab("Date")+
-    ggtitle("Ammonium + Nitrate + TFPA")
-  
-  gg_PO4_PoreWater =
-    PoreWater_processed_Lysim %>%
-    filter(Site!="")%>%
-    ggplot(aes(x=DATE, y=PO4_2, color=treatment))+
-    stat_summary(geom = "line",size = 2) +
-    stat_summary(fun.data = mean_se, geom = "errorbar")+
-    theme_light()+
-    scale_colour_manual(values=cbPalette2)+
-    scale_fill_manual(values=cbPalette2)+
-    labs(x = "Date", 
-         y = bquote('Phosphate ('*mu*'M '*PO[4]^"3-"~-P*')'))+
-    xlab("Date")+
-    ggtitle("Phosphate")
-  
-  list("Lysim_N"= gg_N_PoreWater,
-       "Lysim_PO4"= gg_PO4_PoreWater
-       
-  )
-}
-
-plot_PoreWater_Seasonal = function(PoreWater_processed_Seasonal){
-  
-  gg_NH4_PoreWater =
-    PoreWater_processed_Seasonal %>%
-    filter(Site!="")%>%
-    ggplot(aes(x=DATE, y=NH4, color=treatment))+
-    stat_summary(geom = "line",size = 1) +
-    stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR + Site, scales="free_x")+
-    theme_light()+
-    scale_colour_manual(values=cbPalette2)+
-    scale_fill_manual(values=cbPalette2)+
-    labs(x = "Date", 
-         y = bquote('Ammonium ('*mu*'g '*NH[4]^"+"~-N~mL^-1 ~ Soil ~ Solution*')'))+
-    ggtitle("Ammonium")
-  gg_NO3_PoreWater =
-    PoreWater_processed_Seasonal %>%
-    filter(Site!="")%>%
-    ggplot(aes(x=DATE, y=NO3, color=treatment))+
-    stat_summary(geom = "line",size = 2) +
-    stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR + Site, scales="free_x")+
-    theme_light()+
-    scale_colour_manual(values=cbPalette2)+
-    scale_fill_manual(values=cbPalette2)+
-    labs(x = "Date", 
-         y = bquote('Nitrate ('*mu*'g '*NO[3]^"-"~-N~mL^-1 ~ Soil ~ Solution*')'))+
-    ggtitle("Nitrate")
-  gg_PO4_PoreWater =
-    PoreWater_processed_Seasonal %>%
-    filter(Site!="")%>%
-    ggplot(aes(x=DATE, y=PO4, color=treatment))+
-    stat_summary(geom = "line",size = 2) +
-    stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR + Site, scales="free_x")+
-    theme_light()+
-    scale_colour_manual(values=cbPalette2)+
-    scale_fill_manual(values=cbPalette2)+
-    labs(x = "Date", 
-         y = bquote('Phosphate ('*mu*'g '*PO[4]^"3-"~-P~mL^-1 ~ Soil ~ Solution*')'))+
-    ggtitle("Phosphate")
-  gg_TRS_PoreWater =
-    PoreWater_processed_Seasonal %>%
-    filter(Site!="")%>%
-    ggplot(aes(x=DATE, y=TRS, color=treatment))+
-    stat_summary(geom = "line",size = 2) +
-    stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR + Site, scales="free_x")+
-    theme_light()+
-    scale_colour_manual(values=cbPalette2)+
-    scale_fill_manual(values=cbPalette2)+
-    labs(x = "Date", 
-         y = bquote('Total reducing sugars-glucose equiv. ('*mu*'g' ~mL^-1 ~ Soil ~ Solution*')'))+
-    ggtitle("TRS")
-  gg_TFPA_PoreWater =
-    PoreWater_processed_Seasonal %>%
-    filter(Site!="")%>%
-    ggplot(aes(x=DATE, y=TFPA, color=treatment))+
-    stat_summary(geom = "line",size = 2) +
-    stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR + Site, scales="free_x")+
-    theme_light()+
-    scale_colour_manual(values=cbPalette2)+
-    scale_fill_manual(values=cbPalette2)+
-    labs(x = "Date", 
-         y = bquote('Total free primary amines-Leucine equiv. (nMol' ~mL^-1 ~ Soil ~ Solution*')'))+
-    ggtitle("TFPA")
-  
-  list("Seasonal PoreWater_NH4"= gg_NH4_PoreWater,
-       "Seasonal PoreWater_NO3"= gg_NO3_PoreWater,
-       "Seasonal PoreWater_PO4"= gg_PO4_PoreWater,
-       "Seasonal PoreWater_TFPA"= gg_TFPA_PoreWater,
-       "Seasonal PoreWater_TRS"= gg_TRS_PoreWater
-  )
-}
-
-plot_PoreWater_all = function(PoreWater_processed_all){
-  
-  gg_NH4_PoreWater =
-    PoreWater_processed_all %>%
-    filter(Site!="")%>%
-    ggplot(aes(x=DATE, y=NH4, color=treatment))+
-    stat_summary(geom = "line",size = 1) +
-    stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR + Site, scales="free_x")+
-    theme_light()+
-    scale_colour_manual(values=cbPalette2)+
-    scale_fill_manual(values=cbPalette2)+
-    labs(x = "Date", 
-         y = bquote('Ammonium ('*mu*'g '*NH[4]^"+"~-N~mL^-1 ~ Soil ~ Solution*')'))+
-    ggtitle("Ammonium")
-  gg_NO3_PoreWater =
-    PoreWater_processed_all %>%
-    filter(Site!="")%>%
-    ggplot(aes(x=DATE, y=NO3, color=treatment))+
-    stat_summary(geom = "line",size = 2) +
-    stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR + Site, scales="free_x")+
-    theme_light()+
-    scale_colour_manual(values=cbPalette2)+
-    scale_fill_manual(values=cbPalette2)+
-    labs(x = "Date", 
-         y = bquote('Nitrate ('*mu*'g '*NO[3]^"-"~-N~mL^-1 ~ Soil ~ Solution*')'))+
-    ggtitle("Nitrate")
-  gg_PO4_PoreWater =
-    PoreWater_processed_all %>%
-    filter(Site!="")%>%
-    ggplot(aes(x=DATE, y=PO4, color=treatment))+
-    stat_summary(geom = "line",size = 2) +
-    stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR + Site, scales="free_x")+
-    theme_light()+
-    scale_colour_manual(values=cbPalette2)+
-    scale_fill_manual(values=cbPalette2)+
-    labs(x = "Date", 
-         y = bquote('Phosphate ('*mu*'g '*PO[4]^"3-"~-P~mL^-1 ~ Soil ~ Solution*')'))+
-    ggtitle("Phosphate")
-  gg_TRS_PoreWater =
-    PoreWater_processed_all %>%
-    filter(Site!="")%>%
-    ggplot(aes(x=DATE, y=TRS, color=treatment))+
-    stat_summary(geom = "line",size = 2) +
-    stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR + Site, scales="free_x")+
-    theme_light()+
-    scale_colour_manual(values=cbPalette2)+
-    scale_fill_manual(values=cbPalette2)+
-    labs(x = "Date", 
-         y = bquote('Total reducing sugars-glucose equiv. ('*mu*'g' ~mL^-1 ~ Soil ~ Solution*')'))+
-    ggtitle("TRS")
-  gg_TFPA_PoreWater =
-    PoreWater_processed_all %>%
-    filter(Site!="")%>%
-    ggplot(aes(x=DATE, y=TFPA, color=treatment))+
-    stat_summary(geom = "line",size = 2) +
-    stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR + Site, scales="free_x")+
-    theme_light()+
-    scale_colour_manual(values=cbPalette2)+
-    scale_fill_manual(values=cbPalette2)+
-    labs(x = "Date", 
-         y = bquote('Total free primary amines-Leucine equiv. (nMol' ~mL^-1 ~ Soil ~ Solution*')'))+
-    ggtitle("TFPA")
-  
-  list("all PoreWater_NH4"= gg_NH4_PoreWater,
-       "all PoreWater_NO3"= gg_NO3_PoreWater,
-       "all PoreWater_PO4"= gg_PO4_PoreWater,
-       "all PoreWater_TFPA"= gg_TFPA_PoreWater,
-       #"all PoreWater_Phenolics"= gg_phenolics_PoreWater,
-       "all PoreWater_TRS"= gg_TRS_PoreWater
-  )
-}
-
 plot_Extract_all = function(Extract_processed_all){
   
   gg_NH4_Extract =
@@ -926,6 +661,111 @@ plot_Extract_all_H2O = function(Extract_processed_all_H2O){
   
 }
 
+plot_Extract_Fert_H2O = function(Extract_data){
+  
+  gg_NH4_Extract =
+    Extract_data %>%
+    mutate_at(c('NH4.H2O', 'NO3.H2O','PO4.H2O','TFPA.H2O','TRS.H2O'), as.numeric) %>%
+    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"))%>%
+    mutate(treatment=factor(treatment, levels=c("Ancillary","Control","Snowfence","fertilized")),DATE=as.Date(Date, format= "%m/%d/%Y"),
+           YEAR=year(DATE),
+           MONTH=month(DATE)) %>%
+    ggplot(aes(x=DATE, y=NH4.H2O, color=treatment))+
+    stat_summary(fun="mean",geom = "point",size = 2) +
+    stat_summary(fun.data = mean_se, geom = "errorbar")+
+    facet_wrap(~YEAR+Site, scales="free_x")+
+    theme_light()+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    labs(x = "Date", 
+         y = bquote('Ammonium ('*mu*'g '*NH[4]^"+"~-N~g^-1 ~ dry ~ soil*')'))+
+    ggtitle("Water Extracted Ammonium")
+  
+  
+  gg_NO3_Extract =
+    Extract_data %>%
+    mutate_at(c('NH4.H2O', 'NO3.H2O','PO4.H2O','TFPA.H2O','TRS.H2O'), as.numeric) %>%
+    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"))%>%
+    mutate(treatment=factor(treatment, levels=c("Ancillary","Control","Snowfence","fertilized")),DATE=as.Date(Date, format= "%m/%d/%Y"),
+           YEAR=year(DATE),
+           MONTH=month(DATE)) %>%
+    ggplot(aes(x=DATE, y=NO3.H2O, color=treatment))+
+    stat_summary(fun="mean",geom = "point",size = 2) +
+    stat_summary(fun.data = mean_se, geom = "errorbar")+
+    facet_wrap(~YEAR+Site, scales="free_x")+
+    theme_light()+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    labs(x = "Date", 
+         y = bquote('Nitrate ('*mu*'g '*NO[3]^"-"~-N~g^-1 ~ dry ~ soil*')'))+
+    ggtitle("Water Extracted Nitrate")
+  
+  gg_PO4_Extract =
+    Extract_data %>%
+    mutate_at(c('NH4.H2O', 'NO3.H2O','PO4.H2O','TFPA.H2O','TRS.H2O'), as.numeric) %>%
+    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"))%>%
+    mutate(treatment=factor(treatment, levels=c("Ancillary","Control","Snowfence","fertilized")),DATE=as.Date(Date, format= "%m/%d/%Y"),
+           YEAR=year(DATE),
+           MONTH=month(DATE)) %>%
+    ggplot(aes(x=DATE, y=PO4.H2O, color=treatment))+
+    stat_summary(fun="mean",geom = "point",size = 2) +
+    stat_summary(fun.data = mean_se, geom = "errorbar")+
+    facet_wrap(~YEAR+Site, scales="free_x")+
+    theme_light()+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    labs(x = "Date", 
+         y = bquote('Phosphate ('*mu*'g '*PO[4]^"3-"~-P~g^-1 ~ dry ~ soil*')'))+
+    ggtitle("Water Extracted Phosphate")
+  
+  gg_TRS_Extract =
+    Extract_data %>%
+    mutate_at(c('NH4.H2O', 'NO3.H2O','PO4.H2O','TFPA.H2O','TRS.H2O'), as.numeric) %>%
+    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"))%>%
+    mutate(treatment=factor(treatment, levels=c("Ancillary","Control","Snowfence","fertilized")),DATE=as.Date(Date, format= "%m/%d/%Y"),
+           YEAR=year(DATE),
+           MONTH=month(DATE)) %>%
+    ggplot(aes(x=DATE, y=TRS.H2O, color=treatment))+
+    stat_summary(fun="mean",geom = "point",size = 2) +
+    stat_summary(fun.data = mean_se, geom = "errorbar")+
+    facet_wrap(~YEAR+Site, scales="free_x")+
+    theme_light()+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    labs(x = "Date", 
+         y = bquote('Total reducing sugars-glucose equiv. ('*mu*'g' ~g^-1 ~ dry ~ soil*')'))+
+    ggtitle("Water Extracted TRS")
+  
+  
+  gg_TFPA_Extract =
+    Extract_data %>%
+    mutate_at(c('NH4.H2O', 'NO3.H2O','PO4.H2O','TFPA.H2O','TRS.H2O'), as.numeric) %>%
+    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"))%>%
+    mutate(treatment=factor(treatment, levels=c("Ancillary","Control","Snowfence","fertilized")),DATE=as.Date(Date, format= "%m/%d/%Y"),
+           YEAR=year(DATE),
+           MONTH=month(DATE)) %>%
+    ggplot(aes(x=DATE, y=TFPA.H2O, color=treatment))+
+    stat_summary(fun="mean",geom = "point",size = 2) +
+    stat_summary(fun.data = mean_se, geom = "errorbar")+
+    facet_wrap(~YEAR+Site, scales="free_x")+
+    theme_light()+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    labs(x = "Date", 
+         y = bquote('Total free primary amines-Leucine equiv. (nMol' ~g^-1 ~ dry ~ soil*')'))+
+    ggtitle("Water Extracted TFPA")
+  
+  
+  
+  list("Fert H2O NH4"= gg_NH4_Extract,
+       "Fert H2O NO3"= gg_NO3_Extract,
+       "Fert H2O PO4"= gg_PO4_Extract,
+       "Fert H2O TFPA"= gg_TFPA_Extract,
+       "Fert H2O TRS"= gg_TRS_Extract
+  )
+  
+}
+
 plot_Extract_lysim = function(Extract_processed_lysim){
   
   gg_NH4_Extract =
@@ -1127,7 +967,7 @@ plot_Extract_lysim = function(Extract_processed_lysim){
          y = bquote('Total free primary amines-Leucine equiv. (nMol' ~g^-1 ~ dry ~ soil*')'))+
     ggtitle("Water extracted TFPA")
   
-
+  
   
   list("lysim NH4"= gg_NH4_Extract,
        "lysim NO3"= gg_NO3_Extract,
@@ -1146,6 +986,549 @@ plot_Extract_lysim = function(Extract_processed_lysim){
   )
   
 }
+
+plot_Extract_Fert = function(Extract_data){
+  
+  gg_NH4_Extract =
+    Extract_data %>%
+    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"))%>%
+    mutate(treatment=factor(treatment, levels=c("Ancillary","Control","Snowfence","fertilized")),
+           DATE=as.Date(Date, format= "%m/%d/%Y"),
+           YEAR=year(DATE),
+           MONTH=month(DATE)) %>%
+    mutate_at(c('NH4', 'NO3','PO4','TFPA','phenolics','TRS','MBC','MBN','Mic.PO4'), as.numeric) %>%
+    ggplot(aes(x=DATE, y=NH4, color=treatment))+
+    stat_summary(fun="mean",geom = "point",size = 2) +
+    stat_summary(fun.data = mean_se, geom = "errorbar")+
+    facet_wrap(~YEAR+Site, scales="free_x")+
+    theme_light()+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    labs(x = "Date", 
+         y = bquote('Ammonium ('*mu*'g '*NH[4]^"+"~-N~g^-1 ~ dry ~ soil*')'))+
+    ggtitle("Ammonium")
+  
+  
+  gg_NO3_Extract =
+    Extract_data %>%
+    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"))%>%
+    mutate(treatment=factor(treatment, levels=c("Ancillary","Control","Snowfence","fertilized")),DATE=as.Date(Date, format= "%m/%d/%Y"),
+           YEAR=year(DATE),
+           MONTH=month(DATE)) %>%
+    mutate_at(c('NH4', 'NO3','PO4','TFPA','phenolics','TRS','MBC','MBN','Mic.PO4'), as.numeric) %>%
+    ggplot(aes(x=DATE, y=NO3, color=treatment))+
+    stat_summary(fun="mean",geom = "point",size = 2) +
+    stat_summary(fun.data = mean_se, geom = "errorbar")+
+    facet_wrap(~YEAR+Site, scales="free_x")+
+    theme_light()+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    labs(x = "Date", 
+         y = bquote('Nitrate ('*mu*'g '*NO[3]^"-"~-N~g^-1 ~ dry ~ soil*')'))+
+    ggtitle("Nitrate")
+  
+  gg_PO4_Extract =
+    Extract_data %>%
+    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"))%>%
+    mutate(treatment=factor(treatment, levels=c("Ancillary","Control","Snowfence","fertilized")),DATE=as.Date(Date, format= "%m/%d/%Y"),
+           YEAR=year(DATE),
+           MONTH=month(DATE)) %>%
+    mutate_at(c('NH4', 'NO3','PO4','TFPA','phenolics','TRS','MBC','MBN','Mic.PO4'), as.numeric) %>%
+    ggplot(aes(x=DATE, y=PO4, color=treatment))+
+    stat_summary(fun="mean",geom = "point",size = 2) +
+    stat_summary(fun.data = mean_se, geom = "errorbar")+
+    facet_wrap(~YEAR+Site, scales="free_x")+
+    theme_light()+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    labs(x = "Date", 
+         y = bquote('Phosphate ('*mu*'g '*PO[4]^"3-"~-P~g^-1 ~ dry ~ soil*')'))+
+    ggtitle("Phosphate")
+  
+  gg_TRS_Extract =
+    Extract_data %>%
+    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"))%>%
+    mutate(treatment=factor(treatment, levels=c("Ancillary","Control","Snowfence","fertilized")),DATE=as.Date(Date, format= "%m/%d/%Y"),
+           YEAR=year(DATE),
+           MONTH=month(DATE)) %>%
+    mutate_at(c('NH4', 'NO3','PO4','TFPA','phenolics','TRS','MBC','MBN','Mic.PO4'), as.numeric) %>%
+    ggplot(aes(x=DATE, y=TRS, color=treatment))+
+    stat_summary(fun="mean",geom = "point",size = 2) +
+    stat_summary(fun.data = mean_se, geom = "errorbar")+
+    facet_wrap(~YEAR+Site, scales="free_x")+
+    theme_light()+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    labs(x = "Date", 
+         y = bquote('Total reducing sugars-glucose equiv. ('*mu*'g' ~g^-1 ~ dry ~ soil*')'))+
+    ggtitle("TRS")
+  
+  gg_phenolics_Extract =
+    Extract_data %>%
+    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"))%>%
+    mutate(treatment=factor(treatment, levels=c("Ancillary","Control","Snowfence","fertilized")),DATE=as.Date(Date, format= "%m/%d/%Y"),
+           YEAR=year(DATE),
+           MONTH=month(DATE)) %>%
+    mutate_at(c('NH4', 'NO3','PO4','TFPA','phenolics','TRS','MBC','MBN','Mic.PO4'), as.numeric) %>%
+    ggplot(aes(x=DATE, y=phenolics, color=treatment))+
+    stat_summary(fun="mean",geom = "point",size = 2) +
+    stat_summary(fun.data = mean_se, geom = "errorbar")+
+    facet_wrap(~YEAR+Site, scales="free_x")+
+    theme_light()+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    labs(x = "Date", 
+         y = bquote('Phenolics-gallic acid equiv. ('*mu*'g' ~g^-1 ~ dry ~ soil*')'))+
+    ggtitle("phenolics")
+  
+  gg_TFPA_Extract =
+    Extract_data %>%
+    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"))%>%
+    mutate(treatment=factor(treatment, levels=c("Ancillary","Control","Snowfence","fertilized")),DATE=as.Date(Date, format= "%m/%d/%Y"),
+           YEAR=year(DATE),
+           MONTH=month(DATE)) %>%
+    mutate_at(c('NH4', 'NO3','PO4','TFPA','phenolics','TRS','MBC','MBN','Mic.PO4'), as.numeric) %>%
+    ggplot(aes(x=DATE, y=TFPA, color=treatment))+
+    stat_summary(fun="mean",geom = "point",size = 2) +
+    stat_summary(fun.data = mean_se, geom = "errorbar")+
+    facet_wrap(~YEAR+Site, scales="free_x")+
+    theme_light()+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    labs(x = "Date", 
+         y = bquote('Total free primary amines-Leucine equiv. (nMol' ~g^-1 ~ dry ~ soil*')'))+
+    ggtitle("TFPA")
+  
+  gg_MBC_Extract =
+    Extract_data %>%
+    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"))%>%
+    mutate(treatment=factor(treatment, levels=c("Ancillary","Control","Snowfence","fertilized")),DATE=as.Date(Date, format= "%m/%d/%Y"),
+           YEAR=year(DATE),
+           MONTH=month(DATE)) %>%
+    mutate_at(c('NH4', 'NO3','PO4','TFPA','phenolics','TRS','MBC','MBN','Mic.PO4'), as.numeric) %>%
+    ggplot(aes(x=DATE, y=MBC, color=treatment))+
+    stat_summary(fun="mean",geom = "point",size = 2) +
+    stat_summary(fun.data = mean_se, geom = "errorbar")+
+    facet_wrap(~YEAR+Site, scales="free_x")+
+    theme_light()+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    labs(x = "Date", 
+         y = bquote('Microbial biomass ('*mu*'g C'~g^-1 ~ dry ~ soil*')'))+
+    ggtitle("MBC")
+  
+  gg_MBN_Extract =
+    Extract_data %>%
+    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"))%>%
+    mutate(treatment=factor(treatment, levels=c("Ancillary","Control","Snowfence","fertilized")),DATE=as.Date(Date, format= "%m/%d/%Y"),
+           YEAR=year(DATE),
+           MONTH=month(DATE)) %>%
+    mutate_at(c('NH4', 'NO3','PO4','TFPA','phenolics','TRS','MBC','MBN','Mic.PO4'), as.numeric) %>%
+    ggplot(aes(x=DATE, y=MBN, color=treatment))+
+    stat_summary(fun="mean",geom = "point",size = 2) +
+    stat_summary(fun.data = mean_se, geom = "errorbar")+
+    facet_wrap(~YEAR+Site, scales="free_x")+
+    theme_light()+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    labs(x = "Date", 
+         y = bquote('Microbial biomass ('*mu*'g N'~g^-1 ~ dry ~ soil*')'))+
+    ggtitle("MBN")
+  
+  gg_MBP_Extract =
+    Extract_data %>%
+    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"))%>%
+    mutate(treatment=factor(treatment, levels=c("Ancillary","Control","Snowfence","fertilized")),DATE=as.Date(Date, format= "%m/%d/%Y"),
+           YEAR=year(DATE),
+           MONTH=month(DATE)) %>%
+    mutate_at(c('NH4', 'NO3','PO4','TFPA','phenolics','TRS','MBC','MBN','Mic.PO4'), as.numeric) %>%
+    ggplot(aes(x=DATE, y=Mic.PO4, color=treatment))+
+    stat_summary(fun="mean",geom = "point",size = 2) +
+    stat_summary(fun.data = mean_se, geom = "errorbar")+
+    facet_wrap(~YEAR+Site, scales="free_x")+
+    theme_light()+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    labs(x = "Date", 
+         y = bquote('Microbial biomass ('*mu*'g P'~g^-1 ~ dry ~ soil*')'))+
+    ggtitle("MBP")
+  
+  list("Fert NH4"= gg_NH4_Extract,
+       "Fert NO3"= gg_NO3_Extract,
+       "Fert PO4"= gg_PO4_Extract,
+       "Fert TFPA"= gg_TFPA_Extract,
+       "Fert Phenolics"= gg_phenolics_Extract,
+       "Fert TRS"= gg_TRS_Extract,
+       "Fert MBC"= gg_MBC_Extract,
+       "Fert MBN"= gg_MBN_Extract,
+       "Fert MBP"= gg_MBP_Extract
+  )
+  
+}
+
+plot_PoreWater_Fert = function(PoreWater_data){
+  
+  gg_NH4_PoreWater =
+    PoreWater_data %>%
+    mutate_at(c('NH4', 'NO3','PO4','TFPA','TRS'), as.numeric) %>%
+    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"))%>%
+    mutate(treatment=factor(treatment, levels=c("Ancillary","Control","Snowfence","fertilized")),DATE=as.Date(Date, format= "%m/%d/%Y"),
+           YEAR=year(DATE),
+           MONTH=month(DATE)) %>%
+    ggplot(aes(x=DATE, y=NH4, color=treatment))+
+    stat_summary(geom = "point",size = 2) +
+    stat_summary(fun.data = mean_se, geom = "errorbar")+
+    facet_wrap(~YEAR + Site, scales="free")+
+    theme_light()+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    labs(x = "Date", 
+         y = bquote('Ammonium ('*mu*'g '*NH[4]^"+"~-N~mL^-1 ~ Soil ~ Solution*')'))+
+    ggtitle("Ammonium")
+  gg_NO3_PoreWater =
+    PoreWater_data %>%
+    mutate_at(c('NH4', 'NO3','PO4','TFPA','TRS'), as.numeric) %>%
+    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"))%>%
+    mutate(treatment=factor(treatment, levels=c("Ancillary","Control","Snowfence","fertilized")),DATE=as.Date(Date, format= "%m/%d/%Y"),
+           YEAR=year(DATE),
+           MONTH=month(DATE)) %>%
+    ggplot(aes(x=DATE, y=NO3, color=treatment))+
+    stat_summary(geom = "point",size = 2) +
+    stat_summary(fun.data = mean_se, geom = "errorbar")+
+    facet_wrap(~YEAR + Site, scales="free")+
+    theme_light()+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    labs(x = "Date", 
+         y = bquote('Nitrate ('*mu*'g '*NO[3]^"-"~-N~mL^-1 ~ Soil ~ Solution*')'))+
+    ggtitle("Nitrate")
+  gg_PO4_PoreWater =
+    PoreWater_data %>%
+    mutate_at(c('NH4', 'NO3','PO4','TFPA','TRS'), as.numeric) %>%
+    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"))%>%
+    mutate(treatment=factor(treatment, levels=c("Ancillary","Control","Snowfence","fertilized")),DATE=as.Date(Date, format= "%m/%d/%Y"),
+           YEAR=year(DATE),
+           MONTH=month(DATE)) %>%
+    ggplot(aes(x=DATE, y=PO4, color=treatment))+
+    stat_summary(geom = "point",size = 2) +
+    stat_summary(fun.data = mean_se, geom = "errorbar")+
+    facet_wrap(~YEAR + Site, scales="free")+
+    theme_light()+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    labs(x = "Date", 
+         y = bquote('Phosphate ('*mu*'g '*PO[4]^"3-"~-P~mL^-1 ~ Soil ~ Solution*')'))+
+    ggtitle("Phosphate")
+  gg_TRS_PoreWater =
+    PoreWater_data %>%
+    mutate_at(c('NH4', 'NO3','PO4','TFPA','TRS'), as.numeric) %>%
+    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"))%>%
+    mutate(treatment=factor(treatment, levels=c("Ancillary","Control","Snowfence","fertilized")),DATE=as.Date(Date, format= "%m/%d/%Y"),
+           YEAR=year(DATE),
+           MONTH=month(DATE)) %>%
+    ggplot(aes(x=DATE, y=TRS, color=treatment))+
+    stat_summary(geom = "point",size = 2) +
+    stat_summary(fun.data = mean_se, geom = "errorbar")+
+    facet_wrap(~YEAR + Site, scales="free")+
+    theme_light()+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    labs(x = "Date", 
+         y = bquote('Total reducing sugars-glucose equiv. ('*mu*'g' ~mL^-1 ~ Soil ~ Solution*')'))+
+    ggtitle("TRS")
+  gg_TFPA_PoreWater =
+    PoreWater_data %>%
+    mutate_at(c('NH4', 'NO3','PO4','TFPA','TRS'), as.numeric) %>%
+    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"))%>%
+    mutate(treatment=factor(treatment, levels=c("Ancillary","Control","Snowfence","fertilized")),DATE=as.Date(Date, format= "%m/%d/%Y"),
+           YEAR=year(DATE),
+           MONTH=month(DATE)) %>%
+    ggplot(aes(x=DATE, y=TFPA, color=treatment))+
+    stat_summary(geom = "point",size = 2) +
+    stat_summary(fun.data = mean_se, geom = "errorbar")+
+    facet_wrap(~YEAR + Site, scales="free")+
+    theme_light()+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    labs(x = "Date", 
+         y = bquote('Total free primary amines-Leucine equiv. (nMol' ~mL^-1 ~ Soil ~ Solution*')'))+
+    ggtitle("TFPA")
+  
+  list("Fert PoreWater_NH4"= gg_NH4_PoreWater,
+       "Fert PoreWater_NO3"= gg_NO3_PoreWater,
+       "Fert PoreWater_PO4"= gg_PO4_PoreWater,
+       "Fert PoreWater_TFPA"= gg_TFPA_PoreWater,
+       #"Fert PoreWater_Phenolics"= gg_phenolics_PoreWater,
+       "Fert PoreWater_TRS"= gg_TRS_PoreWater
+  )
+}
+
+plot_PoreWater_Snowfence = function(PoreWater_processed){
+
+  gg_NH4_PoreWater =
+    PoreWater_processed %>%
+    filter(Site!="")%>%
+    ggplot(aes(x=DATE, y=NH4, color=treatment))+
+    stat_summary(geom = "point",size = 2) +
+    stat_summary(fun.data = mean_se, geom = "errorbar")+
+    facet_wrap(~YEAR + Site, scales="free_x")+
+    theme_light()+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    labs(x = "Date", 
+         y = bquote('Ammonium ('*mu*'g '*NH[4]^"+"~-N~mL^-1 ~ Soil ~ Solution*')'))+
+    ggtitle("Ammonium")
+  gg_NO3_PoreWater =
+    PoreWater_processed %>%
+    filter(Site!="")%>%
+    ggplot(aes(x=DATE, y=NO3, color=treatment))+
+    stat_summary(geom = "point",size = 2) +
+    stat_summary(fun.data = mean_se, geom = "errorbar")+
+    facet_wrap(~YEAR + Site, scales="free_x")+
+    theme_light()+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    labs(x = "Date", 
+         y = bquote('Nitrate ('*mu*'g '*NO[3]^"-"~-N~mL^-1 ~ Soil ~ Solution*')'))+
+    ggtitle("Nitrate")
+  gg_PO4_PoreWater =
+    PoreWater_processed %>%
+    filter(Site!="")%>%
+    ggplot(aes(x=DATE, y=PO4, color=treatment))+
+    stat_summary(geom = "point",size = 2) +
+    stat_summary(fun.data = mean_se, geom = "errorbar")+
+    facet_wrap(~YEAR + Site, scales="free_x")+
+    theme_light()+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    labs(x = "Date", 
+         y = bquote('Phosphate ('*mu*'g '*PO[4]^"3-"~-P~mL^-1 ~ Soil ~ Solution*')'))+
+    ggtitle("Phosphate")
+  gg_TRS_PoreWater =
+    PoreWater_processed %>%
+    filter(Site!="")%>%
+    ggplot(aes(x=DATE, y=TRS, color=treatment))+
+    stat_summary(geom = "point",size = 2) +
+    stat_summary(fun.data = mean_se, geom = "errorbar")+
+    facet_wrap(~YEAR + Site, scales="free_x")+
+    theme_light()+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    labs(x = "Date", 
+         y = bquote('Total reducing sugars-glucose equiv. ('*mu*'g' ~mL^-1 ~ Soil ~ Solution*')'))+
+    ggtitle("TRS")
+  gg_TFPA_PoreWater =
+    PoreWater_processed %>%
+    filter(Site!="")%>%
+    ggplot(aes(x=DATE, y=TFPA, color=treatment))+
+    stat_summary(geom = "point",size = 2) +
+    stat_summary(fun.data = mean_se, geom = "errorbar")+
+    facet_wrap(~YEAR + Site, scales="free_x")+
+    theme_light()+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    labs(x = "Date", 
+         y = bquote('Total free primary amines-Leucine equiv. (nMol' ~mL^-1 ~ Soil ~ Solution*')'))+
+    ggtitle("TFPA")
+  
+  list("Snowfence Vs. Control PoreWater_NH4"= gg_NH4_PoreWater,
+       "Snowfence Vs. Control PoreWater_NO3"= gg_NO3_PoreWater,
+       "Snowfence Vs. Control PoreWater_PO4"= gg_PO4_PoreWater,
+       "Snowfence Vs. Control PoreWater_TFPA"= gg_TFPA_PoreWater,
+       #"Snowfence Vs. Control PoreWater_Phenolics"= gg_phenolics_PoreWater,
+       "Snowfence Vs. Control PoreWater_TRS"= gg_TRS_PoreWater
+  )
+}
+
+plot_PoreWater_Lysim = function(PoreWater_processed_Lysim){
+
+  gg_N_PoreWater =
+    PoreWater_processed_Lysim %>%
+    filter(Site!="")%>%
+    ggplot(aes(x=DATE, y=NC, color=treatment))+
+    stat_summary(geom = "line",size = 2) +
+    stat_summary(fun.data = mean_se, geom = "errorbar")+
+    theme_light()+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    ylab(expression(paste( "Ammonium + Nitrate + TFPA (",mu,"M Labile N)")))+
+    xlab("Date")+
+    ggtitle("Ammonium + Nitrate + TFPA")
+  
+  gg_PO4_PoreWater =
+    PoreWater_processed_Lysim %>%
+    filter(Site!="")%>%
+    ggplot(aes(x=DATE, y=PO4_2, color=treatment))+
+    stat_summary(geom = "line",size = 2) +
+    stat_summary(fun.data = mean_se, geom = "errorbar")+
+    theme_light()+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    labs(x = "Date", 
+         y = bquote('Phosphate ('*mu*'M '*PO[4]^"3-"~-P*')'))+
+    xlab("Date")+
+    ggtitle("Phosphate")
+  
+  list("Lysim_N"= gg_N_PoreWater,
+       "Lysim_PO4"= gg_PO4_PoreWater
+       
+  )
+}
+
+plot_PoreWater_Seasonal = function(PoreWater_processed_Seasonal){
+  
+  gg_NH4_PoreWater =
+    PoreWater_processed_Seasonal %>%
+    filter(Site!="")%>%
+    ggplot(aes(x=DATE, y=NH4, color=treatment))+
+    stat_summary(geom = "point",size = 1) +
+    stat_summary(fun.data = mean_se, geom = "errorbar")+
+    facet_wrap(~YEAR + Site, scales="free_x")+
+    theme_light()+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    labs(x = "Date", 
+         y = bquote('Ammonium ('*mu*'g '*NH[4]^"+"~-N~mL^-1 ~ Soil ~ Solution*')'))+
+    ggtitle("Ammonium")
+  gg_NO3_PoreWater =
+    PoreWater_processed_Seasonal %>%
+    filter(Site!="")%>%
+    ggplot(aes(x=DATE, y=NO3, color=treatment))+
+    stat_summary(geom = "point",size = 2) +
+    stat_summary(fun.data = mean_se, geom = "errorbar")+
+    facet_wrap(~YEAR + Site, scales="free_x")+
+    theme_light()+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    labs(x = "Date", 
+         y = bquote('Nitrate ('*mu*'g '*NO[3]^"-"~-N~mL^-1 ~ Soil ~ Solution*')'))+
+    ggtitle("Nitrate")
+  gg_PO4_PoreWater =
+    PoreWater_processed_Seasonal %>%
+    filter(Site!="")%>%
+    ggplot(aes(x=DATE, y=PO4, color=treatment))+
+    stat_summary(geom = "point",size = 2) +
+    stat_summary(fun.data = mean_se, geom = "errorbar")+
+    facet_wrap(~YEAR + Site, scales="free_x")+
+    theme_light()+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    labs(x = "Date", 
+         y = bquote('Phosphate ('*mu*'g '*PO[4]^"3-"~-P~mL^-1 ~ Soil ~ Solution*')'))+
+    ggtitle("Phosphate")
+  gg_TRS_PoreWater =
+    PoreWater_processed_Seasonal %>%
+    filter(Site!="")%>%
+    ggplot(aes(x=DATE, y=TRS, color=treatment))+
+    stat_summary(geom = "point",size = 2) +
+    stat_summary(fun.data = mean_se, geom = "errorbar")+
+    facet_wrap(~YEAR + Site, scales="free_x")+
+    theme_light()+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    labs(x = "Date", 
+         y = bquote('Total reducing sugars-glucose equiv. ('*mu*'g' ~mL^-1 ~ Soil ~ Solution*')'))+
+    ggtitle("TRS")
+  gg_TFPA_PoreWater =
+    PoreWater_processed_Seasonal %>%
+    filter(Site!="")%>%
+    ggplot(aes(x=DATE, y=TFPA, color=treatment))+
+    stat_summary(geom = "point",size = 2) +
+    stat_summary(fun.data = mean_se, geom = "errorbar")+
+    facet_wrap(~YEAR + Site, scales="free_x")+
+    theme_light()+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    labs(x = "Date", 
+         y = bquote('Total free primary amines-Leucine equiv. (nMol' ~mL^-1 ~ Soil ~ Solution*')'))+
+    ggtitle("TFPA")
+  
+  list("Seasonal PoreWater_NH4"= gg_NH4_PoreWater,
+       "Seasonal PoreWater_NO3"= gg_NO3_PoreWater,
+       "Seasonal PoreWater_PO4"= gg_PO4_PoreWater,
+       "Seasonal PoreWater_TFPA"= gg_TFPA_PoreWater,
+       "Seasonal PoreWater_TRS"= gg_TRS_PoreWater
+  )
+}
+
+plot_PoreWater_all = function(PoreWater_processed_all){
+  
+  gg_NH4_PoreWater =
+    PoreWater_processed_all %>%
+    filter(Site!="")%>%
+    ggplot(aes(x=DATE, y=NH4, color=treatment))+
+    stat_summary(geom = "point",size = 1) +
+    stat_summary(fun.data = mean_se, geom = "errorbar")+
+    facet_wrap(~YEAR + Site, scales="free_x")+
+    theme_light()+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    labs(x = "Date", 
+         y = bquote('Ammonium ('*mu*'g '*NH[4]^"+"~-N~mL^-1 ~ Soil ~ Solution*')'))+
+    ggtitle("Ammonium")
+  gg_NO3_PoreWater =
+    PoreWater_processed_all %>%
+    filter(Site!="")%>%
+    ggplot(aes(x=DATE, y=NO3, color=treatment))+
+    stat_summary(geom = "point",size = 2) +
+    stat_summary(fun.data = mean_se, geom = "errorbar")+
+    facet_wrap(~YEAR + Site, scales="free_x")+
+    theme_light()+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    labs(x = "Date", 
+         y = bquote('Nitrate ('*mu*'g '*NO[3]^"-"~-N~mL^-1 ~ Soil ~ Solution*')'))+
+    ggtitle("Nitrate")
+  gg_PO4_PoreWater =
+    PoreWater_processed_all %>%
+    filter(Site!="")%>%
+    ggplot(aes(x=DATE, y=PO4, color=treatment))+
+    stat_summary(geom = "point",size = 2) +
+    stat_summary(fun.data = mean_se, geom = "errorbar")+
+    facet_wrap(~YEAR + Site, scales="free_x")+
+    theme_light()+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    labs(x = "Date", 
+         y = bquote('Phosphate ('*mu*'g '*PO[4]^"3-"~-P~mL^-1 ~ Soil ~ Solution*')'))+
+    ggtitle("Phosphate")
+  gg_TRS_PoreWater =
+    PoreWater_processed_all %>%
+    filter(Site!="")%>%
+    ggplot(aes(x=DATE, y=TRS, color=treatment))+
+    stat_summary(geom = "point",size = 2) +
+    stat_summary(fun.data = mean_se, geom = "errorbar")+
+    facet_wrap(~YEAR + Site, scales="free_x")+
+    theme_light()+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    labs(x = "Date", 
+         y = bquote('Total reducing sugars-glucose equiv. ('*mu*'g' ~mL^-1 ~ Soil ~ Solution*')'))+
+    ggtitle("TRS")
+  gg_TFPA_PoreWater =
+    PoreWater_processed_all %>%
+    filter(Site!="")%>%
+    ggplot(aes(x=DATE, y=TFPA, color=treatment))+
+    stat_summary(geom = "point",size = 2) +
+    stat_summary(fun.data = mean_se, geom = "errorbar")+
+    facet_wrap(~YEAR + Site, scales="free_x")+
+    theme_light()+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    labs(x = "Date", 
+         y = bquote('Total free primary amines-Leucine equiv. (nMol' ~mL^-1 ~ Soil ~ Solution*')'))+
+    ggtitle("TFPA")
+  
+  list("all PoreWater_NH4"= gg_NH4_PoreWater,
+       "all PoreWater_NO3"= gg_NO3_PoreWater,
+       "all PoreWater_PO4"= gg_PO4_PoreWater,
+       "all PoreWater_TFPA"= gg_TFPA_PoreWater,
+       #"all PoreWater_Phenolics"= gg_phenolics_PoreWater,
+       "all PoreWater_TRS"= gg_TRS_PoreWater
+  )
+}
+
+
 
 plot_resin_Snowfence = function(Resin_processed){
   
@@ -1371,386 +1754,9 @@ plot_resin = function(Resin_processed){
   
 }
 
-plot_Extract_Fert = function(Extract_data){
-  
-  gg_NH4_Extract =
-    Extract_data %>%
-    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"))%>%
-    mutate(treatment=factor(treatment, levels=c("Ancillary","Control","Snowfence","fertilized")),
-      DATE=as.Date(Date, format= "%m/%d/%Y"),
-           YEAR=year(DATE),
-           MONTH=month(DATE)) %>%
-    mutate_at(c('NH4', 'NO3','PO4','TFPA','phenolics','TRS','MBC','MBN','Mic.PO4'), as.numeric) %>%
-    ggplot(aes(x=DATE, y=NH4, color=treatment))+
-    stat_summary(fun="mean",geom = "point",size = 2) +
-    stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR+Site, scales="free_x")+
-    theme_light()+
-    scale_colour_manual(values=cbPalette2)+
-    scale_fill_manual(values=cbPalette2)+
-    labs(x = "Date", 
-         y = bquote('Ammonium ('*mu*'g '*NH[4]^"+"~-N~g^-1 ~ dry ~ soil*')'))+
-    ggtitle("Ammonium")
-  
-  
-  gg_NO3_Extract =
-    Extract_data %>%
-    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"))%>%
-    mutate(treatment=factor(treatment, levels=c("Ancillary","Control","Snowfence","fertilized")),DATE=as.Date(Date, format= "%m/%d/%Y"),
-           YEAR=year(DATE),
-           MONTH=month(DATE)) %>%
-    mutate_at(c('NH4', 'NO3','PO4','TFPA','phenolics','TRS','MBC','MBN','Mic.PO4'), as.numeric) %>%
-    ggplot(aes(x=DATE, y=NO3, color=treatment))+
-    stat_summary(fun="mean",geom = "point",size = 2) +
-    stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR+Site, scales="free_x")+
-    theme_light()+
-    scale_colour_manual(values=cbPalette2)+
-    scale_fill_manual(values=cbPalette2)+
-    labs(x = "Date", 
-         y = bquote('Nitrate ('*mu*'g '*NO[3]^"-"~-N~g^-1 ~ dry ~ soil*')'))+
-    ggtitle("Nitrate")
-  
-  gg_PO4_Extract =
-    Extract_data %>%
-    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"))%>%
-    mutate(treatment=factor(treatment, levels=c("Ancillary","Control","Snowfence","fertilized")),DATE=as.Date(Date, format= "%m/%d/%Y"),
-           YEAR=year(DATE),
-           MONTH=month(DATE)) %>%
-    mutate_at(c('NH4', 'NO3','PO4','TFPA','phenolics','TRS','MBC','MBN','Mic.PO4'), as.numeric) %>%
-    ggplot(aes(x=DATE, y=PO4, color=treatment))+
-    stat_summary(fun="mean",geom = "point",size = 2) +
-    stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR+Site, scales="free_x")+
-    theme_light()+
-    scale_colour_manual(values=cbPalette2)+
-    scale_fill_manual(values=cbPalette2)+
-    labs(x = "Date", 
-         y = bquote('Phosphate ('*mu*'g '*PO[4]^"3-"~-P~g^-1 ~ dry ~ soil*')'))+
-    ggtitle("Phosphate")
-  
-  gg_TRS_Extract =
-    Extract_data %>%
-    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"))%>%
-    mutate(treatment=factor(treatment, levels=c("Ancillary","Control","Snowfence","fertilized")),DATE=as.Date(Date, format= "%m/%d/%Y"),
-           YEAR=year(DATE),
-           MONTH=month(DATE)) %>%
-    mutate_at(c('NH4', 'NO3','PO4','TFPA','phenolics','TRS','MBC','MBN','Mic.PO4'), as.numeric) %>%
-    ggplot(aes(x=DATE, y=TRS, color=treatment))+
-    stat_summary(fun="mean",geom = "point",size = 2) +
-    stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR+Site, scales="free_x")+
-    theme_light()+
-    scale_colour_manual(values=cbPalette2)+
-    scale_fill_manual(values=cbPalette2)+
-    labs(x = "Date", 
-         y = bquote('Total reducing sugars-glucose equiv. ('*mu*'g' ~g^-1 ~ dry ~ soil*')'))+
-    ggtitle("TRS")
-  
-  gg_phenolics_Extract =
-    Extract_data %>%
-    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"))%>%
-    mutate(treatment=factor(treatment, levels=c("Ancillary","Control","Snowfence","fertilized")),DATE=as.Date(Date, format= "%m/%d/%Y"),
-           YEAR=year(DATE),
-           MONTH=month(DATE)) %>%
-    mutate_at(c('NH4', 'NO3','PO4','TFPA','phenolics','TRS','MBC','MBN','Mic.PO4'), as.numeric) %>%
-    ggplot(aes(x=DATE, y=phenolics, color=treatment))+
-    stat_summary(fun="mean",geom = "point",size = 2) +
-    stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR+Site, scales="free_x")+
-    theme_light()+
-    scale_colour_manual(values=cbPalette2)+
-    scale_fill_manual(values=cbPalette2)+
-    labs(x = "Date", 
-         y = bquote('Phenolics-gallic acid equiv. ('*mu*'g' ~g^-1 ~ dry ~ soil*')'))+
-    ggtitle("phenolics")
-  
-  gg_TFPA_Extract =
-    Extract_data %>%
-    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"))%>%
-    mutate(treatment=factor(treatment, levels=c("Ancillary","Control","Snowfence","fertilized")),DATE=as.Date(Date, format= "%m/%d/%Y"),
-           YEAR=year(DATE),
-           MONTH=month(DATE)) %>%
-    mutate_at(c('NH4', 'NO3','PO4','TFPA','phenolics','TRS','MBC','MBN','Mic.PO4'), as.numeric) %>%
-    ggplot(aes(x=DATE, y=TFPA, color=treatment))+
-    stat_summary(fun="mean",geom = "point",size = 2) +
-    stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR+Site, scales="free_x")+
-    theme_light()+
-    scale_colour_manual(values=cbPalette2)+
-    scale_fill_manual(values=cbPalette2)+
-    labs(x = "Date", 
-         y = bquote('Total free primary amines-Leucine equiv. (nMol' ~g^-1 ~ dry ~ soil*')'))+
-    ggtitle("TFPA")
-  
-  gg_MBC_Extract =
-    Extract_data %>%
-    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"))%>%
-    mutate(treatment=factor(treatment, levels=c("Ancillary","Control","Snowfence","fertilized")),DATE=as.Date(Date, format= "%m/%d/%Y"),
-           YEAR=year(DATE),
-           MONTH=month(DATE)) %>%
-    mutate_at(c('NH4', 'NO3','PO4','TFPA','phenolics','TRS','MBC','MBN','Mic.PO4'), as.numeric) %>%
-    ggplot(aes(x=DATE, y=MBC, color=treatment))+
-    stat_summary(fun="mean",geom = "point",size = 2) +
-    stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR+Site, scales="free_x")+
-    theme_light()+
-    scale_colour_manual(values=cbPalette2)+
-    scale_fill_manual(values=cbPalette2)+
-    labs(x = "Date", 
-         y = bquote('Microbial biomass ('*mu*'g C'~g^-1 ~ dry ~ soil*')'))+
-    ggtitle("MBC")
-  
-  gg_MBN_Extract =
-    Extract_data %>%
-    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"))%>%
-    mutate(treatment=factor(treatment, levels=c("Ancillary","Control","Snowfence","fertilized")),DATE=as.Date(Date, format= "%m/%d/%Y"),
-           YEAR=year(DATE),
-           MONTH=month(DATE)) %>%
-    mutate_at(c('NH4', 'NO3','PO4','TFPA','phenolics','TRS','MBC','MBN','Mic.PO4'), as.numeric) %>%
-    ggplot(aes(x=DATE, y=MBN, color=treatment))+
-    stat_summary(fun="mean",geom = "point",size = 2) +
-    stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR+Site, scales="free_x")+
-    theme_light()+
-    scale_colour_manual(values=cbPalette2)+
-    scale_fill_manual(values=cbPalette2)+
-    labs(x = "Date", 
-         y = bquote('Microbial biomass ('*mu*'g N'~g^-1 ~ dry ~ soil*')'))+
-    ggtitle("MBN")
-  
-  gg_MBP_Extract =
-    Extract_data %>%
-    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"))%>%
-    mutate(treatment=factor(treatment, levels=c("Ancillary","Control","Snowfence","fertilized")),DATE=as.Date(Date, format= "%m/%d/%Y"),
-           YEAR=year(DATE),
-           MONTH=month(DATE)) %>%
-    mutate_at(c('NH4', 'NO3','PO4','TFPA','phenolics','TRS','MBC','MBN','Mic.PO4'), as.numeric) %>%
-    ggplot(aes(x=DATE, y=Mic.PO4, color=treatment))+
-    stat_summary(fun="mean",geom = "point",size = 2) +
-    stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR+Site, scales="free_x")+
-    theme_light()+
-    scale_colour_manual(values=cbPalette2)+
-    scale_fill_manual(values=cbPalette2)+
-    labs(x = "Date", 
-         y = bquote('Microbial biomass ('*mu*'g P'~g^-1 ~ dry ~ soil*')'))+
-    ggtitle("MBP")
-  
-  list("Fert NH4"= gg_NH4_Extract,
-       "Fert NO3"= gg_NO3_Extract,
-       "Fert PO4"= gg_PO4_Extract,
-       "Fert TFPA"= gg_TFPA_Extract,
-       "Fert Phenolics"= gg_phenolics_Extract,
-       "Fert TRS"= gg_TRS_Extract,
-       "Fert MBC"= gg_MBC_Extract,
-       "Fert MBN"= gg_MBN_Extract,
-       "Fert MBP"= gg_MBP_Extract
-  )
-  
-}
 
-plot_PoreWater_Fert = function(PoreWater_data){
-  
-  gg_NH4_PoreWater =
-    PoreWater_data %>%
-    mutate_at(c('NH4', 'NO3','PO4','TFPA','TRS'), as.numeric) %>%
-    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"))%>%
-    mutate(treatment=factor(treatment, levels=c("Ancillary","Control","Snowfence","fertilized")),DATE=as.Date(Date, format= "%m/%d/%Y"),
-           YEAR=year(DATE),
-           MONTH=month(DATE)) %>%
-    ggplot(aes(x=DATE, y=NH4, color=treatment))+
-    stat_summary(geom = "point",size = 2) +
-    stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR + Site, scales="free_x")+
-    theme_light()+
-    scale_colour_manual(values=cbPalette2)+
-    scale_fill_manual(values=cbPalette2)+
-    labs(x = "Date", 
-         y = bquote('Ammonium ('*mu*'g '*NH[4]^"+"~-N~mL^-1 ~ Soil ~ Solution*')'))+
-    ggtitle("Ammonium")
-  gg_NO3_PoreWater =
-    PoreWater_data %>%
-    mutate_at(c('NH4', 'NO3','PO4','TFPA','TRS'), as.numeric) %>%
-    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"))%>%
-    mutate(treatment=factor(treatment, levels=c("Ancillary","Control","Snowfence","fertilized")),DATE=as.Date(Date, format= "%m/%d/%Y"),
-           YEAR=year(DATE),
-           MONTH=month(DATE)) %>%
-    ggplot(aes(x=DATE, y=NO3, color=treatment))+
-    stat_summary(geom = "point",size = 2) +
-    stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR + Site, scales="free_x")+
-    theme_light()+
-    scale_colour_manual(values=cbPalette2)+
-    scale_fill_manual(values=cbPalette2)+
-    labs(x = "Date", 
-         y = bquote('Nitrate ('*mu*'g '*NO[3]^"-"~-N~mL^-1 ~ Soil ~ Solution*')'))+
-    ggtitle("Nitrate")
-  gg_PO4_PoreWater =
-    PoreWater_data %>%
-    mutate_at(c('NH4', 'NO3','PO4','TFPA','TRS'), as.numeric) %>%
-    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"))%>%
-    mutate(treatment=factor(treatment, levels=c("Ancillary","Control","Snowfence","fertilized")),DATE=as.Date(Date, format= "%m/%d/%Y"),
-           YEAR=year(DATE),
-           MONTH=month(DATE)) %>%
-    ggplot(aes(x=DATE, y=PO4, color=treatment))+
-    stat_summary(geom = "point",size = 2) +
-    stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR + Site, scales="free_x")+
-    theme_light()+
-    scale_colour_manual(values=cbPalette2)+
-    scale_fill_manual(values=cbPalette2)+
-    labs(x = "Date", 
-         y = bquote('Phosphate ('*mu*'g '*PO[4]^"3-"~-P~mL^-1 ~ Soil ~ Solution*')'))+
-    ggtitle("Phosphate")
-  gg_TRS_PoreWater =
-    PoreWater_data %>%
-    mutate_at(c('NH4', 'NO3','PO4','TFPA','TRS'), as.numeric) %>%
-    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"))%>%
-    mutate(treatment=factor(treatment, levels=c("Ancillary","Control","Snowfence","fertilized")),DATE=as.Date(Date, format= "%m/%d/%Y"),
-           YEAR=year(DATE),
-           MONTH=month(DATE)) %>%
-    ggplot(aes(x=DATE, y=TRS, color=treatment))+
-    stat_summary(geom = "point",size = 2) +
-    stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR + Site, scales="free_x")+
-    theme_light()+
-    scale_colour_manual(values=cbPalette2)+
-    scale_fill_manual(values=cbPalette2)+
-    labs(x = "Date", 
-         y = bquote('Total reducing sugars-glucose equiv. ('*mu*'g' ~mL^-1 ~ Soil ~ Solution*')'))+
-    ggtitle("TRS")
-  gg_TFPA_PoreWater =
-    PoreWater_data %>%
-    mutate_at(c('NH4', 'NO3','PO4','TFPA','TRS'), as.numeric) %>%
-    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"))%>%
-    mutate(treatment=factor(treatment, levels=c("Ancillary","Control","Snowfence","fertilized")),DATE=as.Date(Date, format= "%m/%d/%Y"),
-           YEAR=year(DATE),
-           MONTH=month(DATE)) %>%
-    ggplot(aes(x=DATE, y=TFPA, color=treatment))+
-    stat_summary(geom = "point",size = 2) +
-    stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR + Site, scales="free_x")+
-    theme_light()+
-    scale_colour_manual(values=cbPalette2)+
-    scale_fill_manual(values=cbPalette2)+
-    labs(x = "Date", 
-         y = bquote('Total free primary amines-Leucine equiv. (nMol' ~mL^-1 ~ Soil ~ Solution*')'))+
-    ggtitle("TFPA")
-  
-  list("Fert PoreWater_NH4"= gg_NH4_PoreWater,
-       "Fert PoreWater_NO3"= gg_NO3_PoreWater,
-       "Fert PoreWater_PO4"= gg_PO4_PoreWater,
-       "Fert PoreWater_TFPA"= gg_TFPA_PoreWater,
-       #"Fert PoreWater_Phenolics"= gg_phenolics_PoreWater,
-       "Fert PoreWater_TRS"= gg_TRS_PoreWater
-  )
-}
 
-plot_Extract_Fert_H2O = function(Extract_data){
-  
-  gg_NH4_Extract =
-    Extract_data %>%
-    mutate_at(c('NH4.H2O', 'NO3.H2O','PO4.H2O','TFPA.H2O','TRS.H2O'), as.numeric) %>%
-    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"))%>%
-    mutate(treatment=factor(treatment, levels=c("Ancillary","Control","Snowfence","fertilized")),DATE=as.Date(Date, format= "%m/%d/%Y"),
-           YEAR=year(DATE),
-           MONTH=month(DATE)) %>%
-    ggplot(aes(x=DATE, y=NH4.H2O, color=treatment))+
-    stat_summary(fun="mean",geom = "point",size = 2) +
-    stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR+Site, scales="free_x")+
-    theme_light()+
-    scale_colour_manual(values=cbPalette2)+
-    scale_fill_manual(values=cbPalette2)+
-    labs(x = "Date", 
-         y = bquote('Ammonium ('*mu*'g '*NH[4]^"+"~-N~g^-1 ~ dry ~ soil*')'))+
-    ggtitle("Water Extracted Ammonium")
-  
-  
-  gg_NO3_Extract =
-    Extract_data %>%
-    mutate_at(c('NH4.H2O', 'NO3.H2O','PO4.H2O','TFPA.H2O','TRS.H2O'), as.numeric) %>%
-    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"))%>%
-    mutate(treatment=factor(treatment, levels=c("Ancillary","Control","Snowfence","fertilized")),DATE=as.Date(Date, format= "%m/%d/%Y"),
-           YEAR=year(DATE),
-           MONTH=month(DATE)) %>%
-    ggplot(aes(x=DATE, y=NO3.H2O, color=treatment))+
-    stat_summary(fun="mean",geom = "point",size = 2) +
-    stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR+Site, scales="free_x")+
-    theme_light()+
-    scale_colour_manual(values=cbPalette2)+
-    scale_fill_manual(values=cbPalette2)+
-    labs(x = "Date", 
-         y = bquote('Nitrate ('*mu*'g '*NO[3]^"-"~-N~g^-1 ~ dry ~ soil*')'))+
-    ggtitle("Water Extracted Nitrate")
-  
-  gg_PO4_Extract =
-    Extract_data %>%
-    mutate_at(c('NH4.H2O', 'NO3.H2O','PO4.H2O','TFPA.H2O','TRS.H2O'), as.numeric) %>%
-    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"))%>%
-    mutate(treatment=factor(treatment, levels=c("Ancillary","Control","Snowfence","fertilized")),DATE=as.Date(Date, format= "%m/%d/%Y"),
-           YEAR=year(DATE),
-           MONTH=month(DATE)) %>%
-    ggplot(aes(x=DATE, y=PO4.H2O, color=treatment))+
-    stat_summary(fun="mean",geom = "point",size = 2) +
-    stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR+Site, scales="free_x")+
-    theme_light()+
-    scale_colour_manual(values=cbPalette2)+
-    scale_fill_manual(values=cbPalette2)+
-    labs(x = "Date", 
-         y = bquote('Phosphate ('*mu*'g '*PO[4]^"3-"~-P~g^-1 ~ dry ~ soil*')'))+
-    ggtitle("Water Extracted Phosphate")
-  
-  gg_TRS_Extract =
-    Extract_data %>%
-    mutate_at(c('NH4.H2O', 'NO3.H2O','PO4.H2O','TFPA.H2O','TRS.H2O'), as.numeric) %>%
-    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"))%>%
-    mutate(treatment=factor(treatment, levels=c("Ancillary","Control","Snowfence","fertilized")),DATE=as.Date(Date, format= "%m/%d/%Y"),
-           YEAR=year(DATE),
-           MONTH=month(DATE)) %>%
-    ggplot(aes(x=DATE, y=TRS.H2O, color=treatment))+
-    stat_summary(fun="mean",geom = "point",size = 2) +
-    stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR+Site, scales="free_x")+
-    theme_light()+
-    scale_colour_manual(values=cbPalette2)+
-    scale_fill_manual(values=cbPalette2)+
-    labs(x = "Date", 
-         y = bquote('Total reducing sugars-glucose equiv. ('*mu*'g' ~g^-1 ~ dry ~ soil*')'))+
-    ggtitle("Water Extracted TRS")
-  
-  
-  gg_TFPA_Extract =
-    Extract_data %>%
-    mutate_at(c('NH4.H2O', 'NO3.H2O','PO4.H2O','TFPA.H2O','TRS.H2O'), as.numeric) %>%
-    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"))%>%
-    mutate(treatment=factor(treatment, levels=c("Ancillary","Control","Snowfence","fertilized")),DATE=as.Date(Date, format= "%m/%d/%Y"),
-           YEAR=year(DATE),
-           MONTH=month(DATE)) %>%
-    ggplot(aes(x=DATE, y=TFPA.H2O, color=treatment))+
-    stat_summary(fun="mean",geom = "point",size = 2) +
-    stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~YEAR+Site, scales="free_x")+
-    theme_light()+
-    scale_colour_manual(values=cbPalette2)+
-    scale_fill_manual(values=cbPalette2)+
-    labs(x = "Date", 
-         y = bquote('Total free primary amines-Leucine equiv. (nMol' ~g^-1 ~ dry ~ soil*')'))+
-    ggtitle("Water Extracted TFPA")
-  
-  
-  
-  list("Fert H2O NH4"= gg_NH4_Extract,
-       "Fert H2O NO3"= gg_NO3_Extract,
-       "Fert H2O PO4"= gg_PO4_Extract,
-       "Fert H2O TFPA"= gg_TFPA_Extract,
-       "Fert H2O TRS"= gg_TRS_Extract
-  )
-  
-}
+
 
 plot_resin_Fert= function(Resin_processed){
   

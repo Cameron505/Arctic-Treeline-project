@@ -17,6 +17,10 @@ knitr::opts_chunk$set(echo = FALSE,
 <details>
   <summary>click to open</summary>
 
+Soils were collected around trees on treelines in the western brooks range Alaska varying in soil moisture. Three sites were chosen: Tussock tundra (Mesic), Wet Sedge (Hydric), and Dryas-lichen tundra (Xeric). 8 similar trees were chosen per treatment based on their DBH and proximity to the treeline. Snow fences were constructed as a treatment to build larger snow packs around the given trees in winter and compared against a control group where nothing was done besides sampling. In order to reduce impact on these tree-plots 8 Ancillary trees were also chosen based on the same DBH, proximity to treeline parameters and used for seasonal sampling.   
+  A previous project conducted at these sites fertilized soils around similar trees. These soils were also sampled to identify long term effects of fertilization. 
+  Soils were collected from control and snowfence trees in march and late may/early June (Just after thaw) along with resin strips (Except in 2020). Soil pore water was taken regularly during the growing season (2017-2019). During 2019 collection frequencies reduced due to staffing and were disrupted due to COVID in 2020 with an inability to visit the field sites. 
+
 ```{r setup, include=FALSE, echo=FALSE}
 ```
 
@@ -306,6 +310,387 @@ tar_read(gg_Extract_lysim)
 
 </details>
 
+</details>
+
+---
+
+## FTICR analysis
+
+<details>
+  <summary>click to open</summary>
+
+Homogenized soil samples collected in the field in early(end of may begining of June) and late spring (Late june or early July) from 2017, 2018 and 2019 were sent to EMSL for FTICR analysis. 
+
+```{r setup_script}
+
+source("code/0-packages.R")
+source("code/fticrrr/b-functions_analysis.R")
+
+# 1. load files -----------------------------------------------------------
+
+fticr_meta  = read.csv("data/processed/fticr_meta_combined.csv")
+fticr_data_longform = read.csv("data/processed/fticr_data_longform_combined.csv")
+fticr_data_trt = read.csv("data/processed/fticr_data_trt_combined.csv")
+
+## SET the treatment variables
+## this will work with multiple variables too. just add all the variable names in the parentheses.
+TREATMENTS = dplyr::quos(Site, Year, Season, Polar)
+
+options(ggplot2.discrete.color = PNWColors::pnw_palette("Bay", 3))
+```
+
+```{r}
+reorder_seasons = function(dat){
+  dat %>% mutate(Season = factor(Season, levels = c("Spring", "LateSpring", "Fall")))
+}
+
+reorder_sites = function(dat){
+  dat %>% mutate(Site = factor(Site, levels = c("Xeric", "Mesic", "Hydric")))
+  
+}
+
+```
+
+
+
+
+#### 1. FTICR domains 
+
+<details>
+  <summary>click to open</summary>
+
+
+```{r, domains, fig.height=5, fig.width=5}
+#gg_vk_domains = 
+  gg_vankrev(fticr_meta, aes(x = OC, y = HC, color = Class))+
+  scale_color_manual(values = PNWColors::pnw_palette("Sunset2"))+
+  theme_kp()
+
+#gg_vk_domains_nosc = 
+  gg_vankrev(fticr_meta, aes(x = OC, y = HC, color = as.numeric(NOSC)))+
+  scale_color_gradientn(colors = PNWColors::pnw_palette("Bay"))+
+  theme_kp()
+```
+
+
+
+```{r}
+fticr_hcoc = 
+  fticr_data_trt %>% 
+  reorder_seasons() %>% reorder_sites() %>% 
+  left_join(dplyr::select(fticr_meta, formula, HC, OC), by = "formula")
+```
+
+```{r}
+relabund_cores = 
+  fticr_data_longform %>% 
+  compute_relabund_cores(fticr_meta, TREATMENTS) %>% 
+  reorder_seasons() %>% reorder_sites()
+```
+
+</details>
+
+#### 2. Comparing polar vs. non-polar extracts
+
+<details>
+  <summary>click to open</summary>
+
+```{r vk_polar_nonpolar, fig.height=5, fig.width=5}
+#gg_vk_polar_nonpolar = 
+  (fticr_hcoc %>%
+  distinct(formula, HC, OC, Polar) %>% 
+  gg_vankrev(aes(x = OC, y = HC, color = Polar))+
+  stat_ellipse(level = 0.90, show.legend = FALSE)+
+  theme(legend.position = c(0.8, 0.8)) +
+  NULL) %>% 
+  # include marginal density plots
+  ggExtra::ggMarginal(groupColour = TRUE, groupFill = TRUE, alpha = 0.1)
+```
+
+```{r pca_polar_nonpolar}
+pca_all = fit_pca_function(relabund_cores)
+
+(gg_pca_polar_nonpolar = 
+    ggbiplot(pca_all$pca_int, obs.scale = 1, var.scale = 1,
+             groups = as.character(pca_all$grp$Polar), 
+             ellipse = TRUE, circle = FALSE, var.axes = TRUE, alpha = 0) +
+    geom_point(size=3,stroke=1, alpha = 0.5,
+               aes(#shape = groups,
+                 color = groups))+
+    #scale_shape_manual(values = c(21, 22, 19), name = "", guide = "none")+
+    xlim(-4,4)+
+    ylim(-3.5,3.5)+
+    labs(shape="",
+         title = "all samples",
+         subtitle = "polar vs. nonpolar")+
+    theme_kp()+
+    NULL
+)
+```
+
+
+
+Non-polar extracts were strongly dominated by low-O aliphatic molecules and skewed the overall trends when we combined results from polar and non-polar extracts. 
+We therefore analyze the two extract types separately, and focus primarily on the polar (water) extracts.
+
+
+</details>
+
+
+#### 3. Polar extracts
+
+<details>
+  <summary>click to open</summary>
+  
+  
+  
+```{r}
+fticr_hcoc_polar = fticr_hcoc %>% filter(Polar == "polar") 
+relabund_cores_polar = relabund_cores %>% filter(Polar == "polar") 
+```
+
+###### 3.1. PERMANOVA
+
+<details>
+  <summary>click to open</summary>
+  
+```{r PERMANOVA_polar}
+
+# you need to convert the rel-abundance file into wide form
+
+relabund_wide = 
+  relabund_cores_polar %>% 
+  ungroup() %>% 
+  mutate(Class = factor(Class, 
+                        levels = c("aliphatic", "unsaturated/lignin", 
+                                   "aromatic", "condensed aromatic"))) %>% 
+  dplyr::select(-c(abund, total)) %>% 
+  spread(Class, relabund) %>% 
+  replace(is.na(.), 0)
+
+# adonis function for PERMANOVA
+permanova_fticr_all = 
+  adonis(relabund_wide %>% dplyr::select(aliphatic:`condensed aromatic`) ~ (Site + Year + Season)^2, 
+         data = relabund_wide) 
+
+knitr::kable(permanova_fticr_all$aov.tab)
+
+```
+
+
+
+Site, Site:Year were significant (p < 0.05)
+
+Site accounted for 71 % of total variation among samples (R2= 0.71)
+
+</details>
+
+###### 3.2. PCA
+
+<details>
+  <summary>click to open</summary>
+  
+```{r}
+
+pca_polar = fit_pca_function(relabund_cores %>% filter(Polar == "polar"))
+
+```
+
+
+```{r gg_pca_site}
+
+(gg_pca_by_site = 
+  ggbiplot(pca_polar$pca_int, obs.scale = 1, var.scale = 1,
+           groups = as.character(pca_polar$grp$Site), 
+           ellipse = TRUE, circle = FALSE, var.axes = TRUE, alpha = 0) +
+  geom_point(size=3,stroke=1, alpha = 1,
+             aes(#shape = groups,
+                 color = groups))+
+  #scale_shape_manual(values = c(21, 22, 19), name = "", guide = "none")+
+  xlim(-4,4)+
+  ylim(-3.5,3.5)+
+  labs(shape="",
+       title = "all samples",
+       subtitle = "separation by Site")+
+  theme_kp()+
+  NULL
+)
+
+```
+
+
+
+There was a strong separation among the three Site/soil types. Hydric and Xeric soils were strongly dominated by aliphatic (simple) molecules, whereas Mesic soils were dominated by lignin-like, aromatic, and condensed aromatic (complex) molecules.
+
+
+```{r gg_pca_polar}
+(gg_pca_by_year = 
+    ggbiplot(pca_polar$pca_int, obs.scale = 1, var.scale = 1,
+             groups = as.character(pca_polar$grp$Year), 
+             ellipse = TRUE, circle = FALSE, var.axes = TRUE, alpha = 0) +
+    geom_point(size=3,stroke=1, alpha = 1,
+               aes(
+                 #shape = as.character(pca_polar$grp$Site),
+                 color = groups))+
+    #scale_shape_manual(values = c(21, 22, 19), name = "", guide = "none")+
+    xlim(-4,4)+
+    ylim(-3.5,3.5)+
+    labs(shape="",
+         title = "all samples",
+         subtitle = "separation by Site")+
+    theme_kp()+
+    NULL
+)
+
+
+(gg_pca_by_season = 
+    ggbiplot(pca_polar$pca_int, obs.scale = 1, var.scale = 1,
+             groups = as.character(pca_polar$grp$Season), 
+             ellipse = TRUE, circle = FALSE, var.axes = TRUE, alpha = 0) +
+    geom_point(size=3,stroke=1, alpha = 1,
+               aes(#shape = groups,
+                 color = groups))+
+    #scale_shape_manual(values = c(21, 22, 19), name = "", guide = "none")+
+    xlim(-4,4)+
+    ylim(-3.5,3.5)+
+    labs(shape="",
+         title = "all samples",
+         subtitle = "separation by Site")+
+    theme_kp()+
+    NULL
+)
+
+```
+
+
+Hydric Only
+
+```{r gg_pca_hydric}
+
+# Hydric only
+pca_hydric = fit_pca_function(relabund_cores %>% filter(Polar == "nonpolar" & Site == "Hydric"))
+
+(gg_pca_hydric = 
+    ggbiplot(pca_hydric$pca_int, obs.scale = 1, var.scale = 1,
+             groups = as.character(pca_hydric$grp$Season), 
+             ellipse = TRUE, circle = FALSE, var.axes = TRUE, alpha = 0) +
+    geom_point(size=3,stroke=1, alpha = 1,
+               aes(shape = as.character(pca_hydric$grp$Year),
+                 color = groups))+
+    #scale_shape_manual(values = c(21, 22, 19), name = "", guide = "none")+
+    xlim(-4,4)+
+    ylim(-3.5,3.5)+
+    labs(shape="",
+         title = "Hydric samples",
+         subtitle = "separation by Season")+
+    theme_kp()+
+    NULL
+)
+
+```
+
+</details>
+
+###### 3.3. Van Krevelen 
+
+<details>
+  <summary>click to open</summary>
+
+####### 3.3.1. All treatments
+
+<details>
+  <summary>click to open</summary>
+
+```{r vk_all, fig.height=7, fig.width=7}
+
+#gg_vk_all = 
+  gg_vankrev(fticr_hcoc_polar, aes(x = OC, y = HC, color = Site))+
+  stat_ellipse(level = 0.90, show.legend = FALSE)+
+  facet_grid(Season ~ Polar + Year)+
+  NULL
+
+```
+
+```{r vk_site, fig.height=5, fig.width=12}
+
+#gg_vk_all_site = 
+  gg_vankrev(fticr_hcoc_polar, aes(x = OC, y = HC, color = as.character(Year)))+
+  stat_ellipse(level = 0.90, show.legend = FALSE)+
+  facet_grid(. ~ Site)+
+  NULL
+
+```
+
+</details>
+
+####### 3.3.2. Unique peaks by site
+
+<details>
+  <summary>click to open</summary>
+
+```{r vk_unique_site, fig.height=5, fig.width=12}
+
+fticr_unique_site = 
+  fticr_hcoc %>% 
+  distinct(formula, Site, HC, OC) %>% 
+  group_by(formula) %>% 
+  dplyr::mutate(n = n())
+
+# overlay unique peaks onto common peaks
+#gg_site_common_unique = 
+    fticr_unique_site %>% filter(n == 3) %>% 
+    gg_vankrev(aes(x = OC, y = HC))+
+    geom_point(data = fticr_unique_site %>% filter(n == 1),
+               aes(color = Site), alpha = 0.7)+
+    facet_wrap(~Site)+
+    labs(title = "Unique peaks at each Site",
+         subtitle = "black/grey = peaks common to all")+
+    NULL
+
+```
+
+Summary of unique peaks
+```{r}
+
+## summarize unique peaks
+#fticr_unique_site_summary = 
+  fticr_unique_site %>% 
+  filter(n == 1) %>% 
+  left_join(fticr_meta %>% dplyr::select(formula, Class)) %>% 
+  group_by(Site, Class) %>% 
+  dplyr::summarise(counts = n()) %>% 
+  pivot_wider(names_from = "Site", values_from = "counts") %>% 
+  knitr::kable()
+
+```
+
+</details>
+
+####### 3.3.3. Seasonality
+
+<details>
+  <summary>click to open</summary>
+
+```{r}
+fticr_hcoc_polar_mesic_hydric = 
+  fticr_hcoc_polar %>% 
+  filter(Site %in% c("Mesic", "Hydric"))
+```
+
+```{r vk_season, fig.width=8, fig.height=6}
+
+fticr_hcoc_polar_mesic_hydric %>% 
+  gg_vankrev(aes(x = OC, y = HC, color = Season))+
+  facet_grid(Site ~ Year)
+```
+
+</details>
+
+</details>
+
+</details>
+
+  
 </details>
 
 ---

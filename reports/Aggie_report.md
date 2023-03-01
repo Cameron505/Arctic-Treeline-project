@@ -7,6 +7,26 @@ Antecedent temperature experiment
 <summary>
 click to open
 </summary>
+
+Soils were collected around trees on treelines in the western brooks
+range Alaska varying in soil moisture. Three sites were chosen: Tussock
+tundra (Mesic), Wet Sedge (Hydric), and Dryas-lichen tundra (Xeric). 8
+similar trees were chosen per treatment based on their DBH and proximity
+to the treeline. Snow fences were constructed as a treatment to build
+larger snow packs around the given trees in winter and compared against
+a control group where nothing was done besides sampling. In order to
+reduce impact on these tree-plots 8 Ancillary trees were also chosen
+based on the same DBH, proximity to treeline parameters and used for
+seasonal sampling.  
+A previous project conducted at these sites fertilized soils around
+similar trees. These soils were also sampled to identify long term
+effects of fertilization. Soils were collected from control and
+snowfence trees in march and late may/early June (Just after thaw) along
+with resin strips (Except in 2020). Soil pore water was taken regularly
+during the growing season (2017-2019). During 2019 collection
+frequencies reduced due to staffing and were disrupted due to COVID in
+2020 with an inability to visit the field sites.
+
 </details>
 
 ------------------------------------------------------------------------
@@ -272,6 +292,155 @@ click to open
 
 ------------------------------------------------------------------------
 
+## FTICR analysis
+
+<details>
+<summary>
+click to open
+</summary>
+
+Homogenized soil samples collected in the field in early(end of may
+begining of June) and late spring (Late june or early July) from 2017,
+2018 and 2019 were sent to EMSL for FTICR analysis.
+
+#### 1. FTICR domains
+
+<details>
+<summary>
+click to open
+</summary>
+
+![](Aggie_report_files/figure-gfm/domains-1.png)<!-- -->![](Aggie_report_files/figure-gfm/domains-2.png)<!-- -->
+
+</details>
+
+#### 2. Comparing polar vs. non-polar extracts
+
+<details>
+<summary>
+click to open
+</summary>
+
+![](Aggie_report_files/figure-gfm/vk_polar_nonpolar-1.png)<!-- -->
+
+![](Aggie_report_files/figure-gfm/pca_polar_nonpolar-1.png)<!-- -->
+
+Non-polar extracts were strongly dominated by low-O aliphatic molecules
+and skewed the overall trends when we combined results from polar and
+non-polar extracts. We therefore analyze the two extract types
+separately, and focus primarily on the polar (water) extracts.
+
+</details>
+
+#### 3. Polar extracts
+
+<details>
+<summary>
+click to open
+</summary>
+
+###### 3.1. PERMANOVA
+
+<details>
+<summary>
+click to open
+</summary>
+
+|             |  Df | SumsOfSqs |   MeanSqs |     F.Model |        R2 | Pr(\>F) |
+|:------------|----:|----------:|----------:|------------:|----------:|--------:|
+| Site        |   2 | 0.2048378 | 0.1024189 | 109.2342208 | 0.7080634 |   0.001 |
+| Year        |   1 | 0.0011243 | 0.0011243 |   1.1990670 | 0.0038862 |   0.278 |
+| Season      |   2 | 0.0013712 | 0.0006856 |   0.7312319 | 0.0047399 |   0.509 |
+| Site:Year   |   2 | 0.0278093 | 0.0139047 |  14.8299373 | 0.0961286 |   0.001 |
+| Site:Season |   3 | 0.0083759 | 0.0027920 |   2.9777402 | 0.0289529 |   0.044 |
+| Year:Season |   1 | 0.0007694 | 0.0007694 |   0.8205613 | 0.0026595 |   0.359 |
+| Residuals   |  48 | 0.0450052 | 0.0009376 |          NA | 0.1555696 |      NA |
+| Total       |  59 | 0.2892930 |        NA |          NA | 1.0000000 |      NA |
+
+Site, Site:Year were significant (p \< 0.05)
+
+Site accounted for 71 % of total variation among samples (R2= 0.71)
+
+</details>
+
+###### 3.2. PCA
+
+<details>
+<summary>
+click to open
+</summary>
+
+![](Aggie_report_files/figure-gfm/gg_pca_site-1.png)<!-- -->
+
+There was a strong separation among the three Site/soil types. Hydric
+and Xeric soils were strongly dominated by aliphatic (simple) molecules,
+whereas Mesic soils were dominated by lignin-like, aromatic, and
+condensed aromatic (complex) molecules.
+
+![](Aggie_report_files/figure-gfm/gg_pca_polar-1.png)<!-- -->![](Aggie_report_files/figure-gfm/gg_pca_polar-2.png)<!-- -->
+
+Hydric Only
+
+![](Aggie_report_files/figure-gfm/gg_pca_hydric-1.png)<!-- -->
+
+</details>
+
+###### 3.3. Van Krevelen
+
+<details>
+<summary>
+click to open
+</summary>
+
+####### 3.3.1. All treatments
+
+<details>
+<summary>
+click to open
+</summary>
+
+![](Aggie_report_files/figure-gfm/vk_all-1.png)<!-- -->
+
+![](Aggie_report_files/figure-gfm/vk_site-1.png)<!-- -->
+
+</details>
+
+####### 3.3.2. Unique peaks by site
+
+<details>
+<summary>
+click to open
+</summary>
+
+![](Aggie_report_files/figure-gfm/vk_unique_site-1.png)<!-- -->
+
+Summary of unique peaks
+
+| Class              | Xeric | Mesic | Hydric |
+|:-------------------|------:|------:|-------:|
+| aliphatic          |   172 |   483 |    294 |
+| aromatic           |    32 |   135 |     22 |
+| condensed aromatic |    10 |    65 |     17 |
+| unsaturated/lignin |   122 |   703 |     47 |
+
+</details>
+
+####### 3.3.3. Seasonality
+
+<details>
+<summary>
+click to open
+</summary>
+
+![](Aggie_report_files/figure-gfm/vk_season-1.png)<!-- -->
+
+</details>
+</details>
+</details>
+</details>
+
+------------------------------------------------------------------------
+
 ## Session Info
 
 <details>
@@ -316,20 +485,23 @@ Date run: 2023-03-01
     ## [22] rmarkdown_2.19      pkgconfig_2.0.3     htmltools_0.5.4    
     ## [25] parallelly_1.34.0   highr_0.10          dbplyr_2.2.1       
     ## [28] fastmap_1.1.0       rlang_1.0.6         readxl_1.4.1       
-    ## [31] rstudioapi_0.14     farver_2.1.1        generics_0.1.3     
-    ## [34] jsonlite_1.8.4      googlesheets4_1.0.1 magrittr_2.0.3     
-    ## [37] Matrix_1.5-1        Rcpp_1.0.9          munsell_0.5.0      
-    ## [40] fansi_1.0.3         lifecycle_1.0.3     furrr_0.3.1        
-    ## [43] stringi_1.7.8       yaml_2.3.6          MASS_7.3-58.1      
-    ## [46] parallel_4.2.2      listenv_0.9.0       crayon_1.5.2       
-    ## [49] haven_2.5.1         splines_4.2.2       hms_1.1.2          
-    ## [52] knitr_1.41          ps_1.7.2            pillar_1.8.1       
-    ## [55] igraph_1.3.5        base64url_1.4       codetools_0.2-18   
-    ## [58] reprex_2.0.2        glue_1.6.2          evaluate_0.19      
-    ## [61] data.table_1.14.6   modelr_0.1.10       vctrs_0.5.1        
-    ## [64] tzdb_0.3.0          cellranger_1.1.0    gtable_0.3.1       
-    ## [67] future_1.30.0       assertthat_0.2.1    xfun_0.36          
-    ## [70] broom_1.0.2         googledrive_2.0.0   gargle_1.2.1       
-    ## [73] cluster_2.1.4       globals_0.16.2      ellipsis_0.3.2
+    ## [31] rstudioapi_0.14     shiny_1.7.4         farver_2.1.1       
+    ## [34] generics_0.1.3      jsonlite_1.8.4      googlesheets4_1.0.1
+    ## [37] magrittr_2.0.3      Matrix_1.5-1        Rcpp_1.0.9         
+    ## [40] munsell_0.5.0       fansi_1.0.3         lifecycle_1.0.3    
+    ## [43] furrr_0.3.1         stringi_1.7.8       yaml_2.3.6         
+    ## [46] MASS_7.3-58.1       promises_1.2.0.1    parallel_4.2.2     
+    ## [49] listenv_0.9.0       crayon_1.5.2        miniUI_0.1.1.1     
+    ## [52] haven_2.5.1         splines_4.2.2       hms_1.1.2          
+    ## [55] knitr_1.41          ps_1.7.2            pillar_1.8.1       
+    ## [58] igraph_1.3.5        PNWColors_0.1.0     base64url_1.4      
+    ## [61] codetools_0.2-18    reprex_2.0.2        glue_1.6.2         
+    ## [64] evaluate_0.19       data.table_1.14.6   modelr_0.1.10      
+    ## [67] httpuv_1.6.7        vctrs_0.5.1         tzdb_0.3.0         
+    ## [70] cellranger_1.1.0    gtable_0.3.1        future_1.30.0      
+    ## [73] assertthat_0.2.1    ggExtra_0.10.0      xfun_0.36          
+    ## [76] mime_0.12           xtable_1.8-4        broom_1.0.2        
+    ## [79] later_1.3.0         googledrive_2.0.0   gargle_1.2.1       
+    ## [82] cluster_2.1.4       globals_0.16.2      ellipsis_0.3.2
 
 </details>
