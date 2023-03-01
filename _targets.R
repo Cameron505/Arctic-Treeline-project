@@ -70,13 +70,22 @@ list(
   tar_target(gg_aggie_PoreWater_Lysim, plot_PoreWater_Lysim(PoreWater_processed_Lysim)),
   tar_target(gg_aggie_PoreWater_Seasonal, plot_PoreWater_Seasonal(PoreWater_processed_Seasonal)),
   tar_target(gg_Extract_Seasonal, plot_Extract_Seasonal(Extract_processed_Seasonal)),
-  tar_target(gg_Extract_Seasonal_H2O, plot_Extract_Seasonal(Extract_processed_Seasonal)),
+  tar_target(gg_Extract_Seasonal_H2O, plot_Extract_Seasonal_H2O(Extract_processed_Seasonal_H2O)),
 
   tar_target(gg_aggie_PoreWater_all, plot_PoreWater_all(PoreWater_processed_all)),
   tar_target(gg_Extract_all, plot_Extract_all(Extract_processed_all)),
-  tar_target(gg_Extract_all_H2O, plot_Extract_all(Extract_processed_all)),
+  tar_target(gg_Extract_all_H2O, plot_Extract_all_H2O(Extract_processed_all_H2O)),
   tar_target(gg_Extract_lysim, plot_Extract_lysim(Extract_processed_lysim)),
   tar_target(gg_resin, plot_resin(Resin_processed)),
+  tar_target(gg_resin_Snowfence, plot_resin_Snowfence(Resin_processed)),
+  tar_target(gg_resin_Ancillary, plot_resin_Ancillary(Resin_processed)),
+  
+  tar_target(gg_Extract_Fert, plot_Extract_Fert(Extract_data)),
+  tar_target(gg_Porewater_Fert, plot_PoreWater_Fert(PoreWater_data)),
+  tar_target(gg_Extract_H2O_Fert, plot_Extract_Fert_H2O(Extract_data)),
+  tar_target(gg_Resin_Fert, plot_resin_Fert(Resin_processed)),
+  
+  
   
   # combined data
  

@@ -42,7 +42,7 @@ tar_read(gg_aggie_Extract_Snowfence_Control)
 
 </details>
 
-H2O: 
+#### H2O: 
 
   <details>
   <summary>click to open</summary>
@@ -68,6 +68,20 @@ tar_read(gg_aggie_PoreWater_Snowfence_Control)
 
 </details>
 
+ #### Resin strip:
+ 
+  <details>
+  <summary>click to open</summary>
+  
+ 
+
+```{r , fig.height=6, fig.width=6, results='hide', out.width="100%"}
+tar_read(gg_resin_Snowfence)
+```
+
+</details>
+
+
 </details>
 
 
@@ -90,7 +104,7 @@ tar_read(gg_Extract_Seasonal)
 
 </details>
 
-H2O:
+#### H2O:
 
 <details>
   <summary>click to open</summary>
@@ -116,12 +130,24 @@ tar_read(gg_aggie_PoreWater_Seasonal)
 
 </details>
 
+ #### Resin strip:
+ 
+  <details>
+  <summary>click to open</summary>
+  
+ 
+
+```{r , fig.height=6, fig.width=6, results='hide', out.width="100%"}
+tar_read(gg_resin_Ancillary)
+```
+</details>
+
 </details>
 
 ---
 
 
-## All Extracts and pore water (Ancillary, Control, Snowfence plots)
+## Treeline project Extracts and pore water (Ancillary, Control, Snowfence plots)
 
 <details>
   <summary>click to open</summary>
@@ -139,7 +165,7 @@ tar_read(gg_Extract_all)
 
 </details>
 
-H2O:
+ #### H2O:
 
 <details>
 
@@ -167,11 +193,7 @@ tar_read(gg_aggie_PoreWater_all)
 
 </details>
 
-</details>
-
----
-
-## Resin strip extract plots
+ #### Resin strip:
 
 <details>
   <summary>click to open</summary>
@@ -185,8 +207,75 @@ tar_read(gg_resin)
 
 </details>
 
+
+</details>
+
 ---
 
+## All Extracts and pore water (Ancillary, Control, Snowfence, and fertilized plots)
+
+<details>
+  <summary>click to open</summary>
+  
+ #### Extracts:
+ Due to soil plot concerns only ancillary plots were harvested multiple times per year.
+  K2SO4:
+  
+  <details>
+  <summary>click to open</summary>
+  
+```{r , fig.height=6, fig.width=6, results='hide', out.width="100%"}
+tar_read(gg_Extract_Fert)
+```
+
+</details>
+
+ #### H2O:
+
+<details>
+
+  <summary>click to open</summary>
+  
+```{r , fig.height=6, fig.width=6, results='hide', out.width="100%"}
+tar_read(gg_Extract_H2O_Fert)
+```
+
+</details>
+
+
+
+ #### Pore water:
+ 
+  <details>
+  
+  <summary>click to open</summary>
+  
+ 
+
+```{r , fig.height=6, fig.width=6, results='hide', out.width="100%"}
+tar_read(gg_Porewater_Fert)
+```
+
+</details>
+
+ #### Resin strip:
+
+<details>
+  <summary>click to open</summary>
+  
+  Resin strips were extracted in 2M KCl
+  
+```{r , fig.height=6, fig.width=6, results='hide', out.width="100%"}
+tar_read(gg_Resin_Fert)
+```
+
+
+</details>
+
+
+</details>
+
+---
 
 ## Destructive lysimeter test
 
