@@ -1,4 +1,4 @@
-Antecedent temperature experiment
+Aggie treeline field experiment data
 ================
 
 ## sample summary
@@ -300,7 +300,7 @@ click to open
 </summary>
 
 Homogenized soil samples collected in the field in early(end of may
-begining of June) and late spring (Late june or early July) from 2017,
+begining of June) and late spring (Late June or early July) from 2017,
 2018 and 2019 were sent to EMSL for FTICR analysis.
 
 #### 1. FTICR domains
@@ -310,7 +310,7 @@ begining of June) and late spring (Late june or early July) from 2017,
 click to open
 </summary>
 
-![](Aggie_report_files/figure-gfm/unnamed-chunk-20-1.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-20-2.png)<!-- -->
+![](Aggie_report_files/figure-gfm/unnamed-chunk-19-1.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-19-2.png)<!-- -->
 
 </details>
 
@@ -321,34 +321,7 @@ click to open
 click to open
 </summary>
 
-    ## $vk_polar_nonpolar
-    ## TableGrob (13 x 10) "layout": 21 grobs
-    ##     z         cells          name                                         grob
-    ## 1   0 ( 2-13, 1- 9)    background               rect[plot.background..rect.69]
-    ## 2   5 ( 7- 7, 4- 4)        spacer                               zeroGrob[NULL]
-    ## 3   7 ( 8- 8, 4- 4)        axis-l           absoluteGrob[GRID.absoluteGrob.41]
-    ## 4   3 ( 9- 9, 4- 4)        spacer                               zeroGrob[NULL]
-    ## 5   6 ( 7- 7, 5- 5)        axis-t                               zeroGrob[NULL]
-    ## 6   1 ( 8- 8, 5- 5)         panel                      gTree[panel-1.gTree.31]
-    ## 7   9 ( 9- 9, 5- 5)        axis-b           absoluteGrob[GRID.absoluteGrob.36]
-    ## 8   4 ( 7- 7, 6- 6)        spacer                               zeroGrob[NULL]
-    ## 9   8 ( 8- 8, 6- 6)        axis-r                               zeroGrob[NULL]
-    ## 10  2 ( 9- 9, 6- 6)        spacer                               zeroGrob[NULL]
-    ## 11 10 ( 6- 6, 5- 5)        xlab-t                               zeroGrob[NULL]
-    ## 12 11 (10-10, 5- 5)        xlab-b titleGrob[axis.title.x.bottom..titleGrob.44]
-    ## 13 12 ( 8- 8, 3- 3)        ylab-l   titleGrob[axis.title.y.left..titleGrob.47]
-    ## 14 13 ( 8- 8, 7- 7)        ylab-r                               zeroGrob[NULL]
-    ## 15 14 ( 8- 8, 5- 5)     guide-box                            gtable[guide-box]
-    ## 16 15 ( 5- 5, 5- 5)      subtitle         zeroGrob[plot.subtitle..zeroGrob.65]
-    ## 17 16 ( 4- 4, 5- 5)         title            zeroGrob[plot.title..zeroGrob.64]
-    ## 18 17 (11-11, 5- 5)       caption          zeroGrob[plot.caption..zeroGrob.67]
-    ## 19 18 ( 3- 3, 2- 2)           tag              zeroGrob[plot.tag..zeroGrob.66]
-    ## 20 19 ( 1- 1, 5- 5)   topMargPlot                               gtable[layout]
-    ## 21 20 ( 8- 8,10-10) rightMargPlot                               gtable[layout]
-    ## 
-    ## $pca_polar_nonpolar
-
-![](Aggie_report_files/figure-gfm/unnamed-chunk-21-1.png)<!-- -->
+![](Aggie_report_files/figure-gfm/unnamed-chunk-20-1.png)<!-- -->
 
 Non-polar extracts were strongly dominated by low-O aliphatic molecules
 and skewed the overall trends when we combined results from polar and
@@ -395,18 +368,18 @@ Site accounted for 71 % of total variation among samples (R2= 0.71)
 click to open
 </summary>
 
-![](Aggie_report_files/figure-gfm/unnamed-chunk-23-1.png)<!-- -->
+![](Aggie_report_files/figure-gfm/unnamed-chunk-22-1.png)<!-- -->
 
 There was a strong separation among the three Site/soil types. Hydric
 and Xeric soils were strongly dominated by aliphatic (simple) molecules,
 whereas Mesic soils were dominated by lignin-like, aromatic, and
 condensed aromatic (complex) molecules.
 
-![](Aggie_report_files/figure-gfm/unnamed-chunk-24-1.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-24-2.png)<!-- -->
+![](Aggie_report_files/figure-gfm/unnamed-chunk-23-1.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-23-2.png)<!-- -->
 
 Hydric Only
 
-![](Aggie_report_files/figure-gfm/unnamed-chunk-25-1.png)<!-- -->
+![](Aggie_report_files/figure-gfm/unnamed-chunk-24-1.png)<!-- -->
 
 </details>
 
@@ -416,31 +389,32 @@ Hydric Only
 <summary>
 click to open
 </summary>
-
-####### 3.3.1. All treatments
-
+3.3.1. All treatments
 <details>
 <summary>
 click to open
 </summary>
 
-![](Aggie_report_files/figure-gfm/unnamed-chunk-26-1.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-26-2.png)<!-- -->
+![](Aggie_report_files/figure-gfm/unnamed-chunk-25-1.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-25-2.png)<!-- -->
 
 </details>
-
-####### 3.3.2. Unique peaks by site
-
+3.3.2. Unique peaks by site
 <details>
 <summary>
 click to open
 </summary>
 
-![](Aggie_report_files/figure-gfm/unnamed-chunk-27-1.png)<!-- -->
+![](Aggie_report_files/figure-gfm/unnamed-chunk-26-1.png)<!-- -->
+
+| Class              | Xeric | Mesic | Hydric |
+|:-------------------|------:|------:|-------:|
+| aliphatic          |   172 |   483 |    294 |
+| aromatic           |    32 |   135 |     22 |
+| condensed aromatic |    10 |    65 |     17 |
+| unsaturated/lignin |   122 |   703 |     47 |
 
 </details>
-
-####### 3.3.3. Seasonality Mesic and Hydric
-
+3.3.3. Seasonality Mesic and Hydric
 <details>
 <summary>
 click to open

@@ -1853,6 +1853,7 @@ plot_polarVnonPolar= function(fticr_hcoc,relabund_cores){
     # include marginal density plots
     ggExtra::ggMarginal(groupColour = TRUE, groupFill = TRUE, alpha = 0.1)
   
+  
   pca_all = fit_pca_function(relabund_cores)
   
   gg_pca_polar_nonpolar = 
@@ -1974,14 +1975,12 @@ plot_vk_polar= function(fticr_hcoc_polar){
   gg_vk_all = 
     gg_vankrev(fticr_hcoc_polar, aes(x = OC, y = HC, color = Site))+
     stat_ellipse(level = 0.90, show.legend = FALSE)+
-    facet_grid(Season ~ Polar + Year)+
-    NULL
+    facet_grid(Season ~ Polar + Year)
   
   gg_vk_all_site = 
     gg_vankrev(fticr_hcoc_polar, aes(x = OC, y = HC, color = as.character(Year)))+
     stat_ellipse(level = 0.90, show.legend = FALSE)+
-    facet_grid(. ~ Site)+
-    NULL
+    facet_grid(. ~ Site)
   
   list("gg_vk_all_polar"= gg_vk_all,
        "gg_vk_site_polar"= gg_vk_all_site
@@ -2005,21 +2004,40 @@ plot_unique= function(fticr_hcoc, fticr_meta){
                aes(color = Site), alpha = 0.7)+
     facet_wrap(~Site)+
     labs(title = "Unique peaks at each Site",
-         subtitle = "black/grey = peaks common to all")+
-    NULL
-  fticr_unique_site_summary = 
-    fticr_unique_site %>% 
+         subtitle = "black/grey = peaks common to all")
+  
+    UniqueT = fticr_unique_site %>% 
     filter(n == 1) %>% 
     left_join(fticr_meta %>% dplyr::select(formula, Class)) %>% 
     group_by(Site, Class) %>% 
     dplyr::summarise(counts = n()) %>% 
-    pivot_wider(names_from = "Site", values_from = "counts") %>% 
+    pivot_wider(names_from = "Site", values_from = "counts") %>%
+    knitr::kable()
+
+    
+  list("site_common_unique"= gg_site_common_unique,
+       "PERMANOVA table"= UniqueT
+  )
+  
+}
+
+plot_unique2= function(fticr_hcoc, fticr_meta){
+  
+  fticr_unique_site = 
+    fticr_hcoc %>% 
+    distinct(formula, Site, HC, OC) %>% 
+    group_by(formula) %>% 
+    dplyr::mutate(n = n())
+  
+  
+  fticr_unique_site %>% 
+    filter(n == 1) %>% 
+    left_join(fticr_meta %>% dplyr::select(formula, Class)) %>% 
+    group_by(Site, Class) %>% 
+    dplyr::summarise(counts = n()) %>% 
+    pivot_wider(names_from = "Site", values_from = "counts") %>%
     knitr::kable()
   
-  
-  list("site_common_unique"= gg_site_common_unique,
-       "fticr_unique_site_summary"= fticr_unique_site_summary
-  )
   
 }
 
@@ -2027,7 +2045,7 @@ plot_seasonal_Mesic_Hydric_polar= function(fticr_hcoc_polar){
   
   fticr_hcoc_polar_mesic_hydric = 
     fticr_hcoc_polar %>% 
-    filter(Site %in% c("Mesic", "Hydric"))
+    filter(Site %in% c("Mesic", "Hydric","Xeric"))
   
   gg_seasonal= fticr_hcoc_polar_mesic_hydric %>% 
     gg_vankrev(aes(x = OC, y = HC, color = Season))+

@@ -111,6 +111,7 @@ list(
   tar_target(gg_pca_hydric, plot_pca_hydric(pca_hydric)),
   tar_target(gg_vk_polar, plot_vk_polar(fticr_hcoc_polar)),
   tar_target(gg_unique, plot_unique(fticr_hcoc,fticr_meta)),
+  tar_target(gg_unique2, plot_unique2(fticr_hcoc,fticr_meta)),
   tar_target(gg_seasonal, plot_seasonal_Mesic_Hydric_polar(fticr_hcoc_polar)),
   
   # combined data

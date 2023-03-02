@@ -1,5 +1,5 @@
 ---
-title: "Antecedent temperature experiment"
+title: "Aggie treeline field experiment data"
 output: 
   github_document:
   html_preview: True
@@ -319,44 +319,7 @@ tar_read(gg_Extract_lysim)
 <details>
   <summary>click to open</summary>
 
-Homogenized soil samples collected in the field in early(end of may begining of June) and late spring (Late june or early July) from 2017, 2018 and 2019 were sent to EMSL for FTICR analysis. 
-
-
-
-
-
-```{r setup_script}
-
-source("code/0-packages.R")
-source("code/fticrrr/b-functions_analysis.R")
-
-# 1. load files -----------------------------------------------------------
-
-fticr_meta  = read.csv("data/processed/fticr_meta_combined.csv")
-fticr_data_longform = read.csv("data/processed/fticr_data_longform_combined.csv")
-fticr_data_trt = read.csv("data/processed/fticr_data_trt_combined.csv")
-
-## SET the treatment variables
-## this will work with multiple variables too. just add all the variable names in the parentheses.
-TREATMENTS = dplyr::quos(Site, Year, Season, Polar)
-
-options(ggplot2.discrete.color = PNWColors::pnw_palette("Bay", 3))
-```
-
-```{r}
-reorder_seasons = function(dat){
-  dat %>% mutate(Season = factor(Season, levels = c("Spring", "LateSpring", "Fall")))
-}
-
-reorder_sites = function(dat){
-  dat %>% mutate(Site = factor(Site, levels = c("Xeric", "Mesic", "Hydric")))
-  
-}
-
-```
-
-
-
+Homogenized soil samples collected in the field in early(end of may begining of June) and late spring (Late June or early July) from 2017, 2018 and 2019 were sent to EMSL for FTICR analysis. 
 
 #### 1. FTICR domains 
 
@@ -381,7 +344,7 @@ tar_read(gg_fticr_Domains)
   <summary>click to open</summary>
 
 
-```{r , fig.height=6, fig.width=6, results='hide'}
+```{r , fig.height=6, fig.width=6}
 tar_read(gg_polarVnonpolar)
 ```
 
@@ -414,6 +377,9 @@ Site accounted for 71 % of total variation among samples (R2= 0.71)
 
 </details>
 
+
+
+
 ###### 3.2. PCA
 
 <details>
@@ -445,8 +411,9 @@ tar_read(gg_pca_hydric)
 <details>
   <summary>click to open</summary>
 
-####### 3.3.1. All treatments
 
+
+3.3.1. All treatments
 <details>
   <summary>click to open</summary>
 
@@ -454,11 +421,11 @@ tar_read(gg_pca_hydric)
 tar_read(gg_vk_polar)
 ```
 
-
 </details>
 
-####### 3.3.2. Unique peaks by site
 
+
+3.3.2. Unique peaks by site
 <details>
   <summary>click to open</summary>
 
@@ -466,10 +433,15 @@ tar_read(gg_vk_polar)
 tar_read(gg_unique)
 ```
 
+```{r , fig.height=6, fig.width=6}
+tar_read(gg_unique2)
+```
+
 </details>
 
-####### 3.3.3. Seasonality Mesic and Hydric
 
+
+3.3.3. Seasonality Mesic and Hydric
 <details>
   <summary>click to open</summary>
 
