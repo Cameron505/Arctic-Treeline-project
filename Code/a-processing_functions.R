@@ -153,3 +153,53 @@ process_resin =function(Resin_data){
     
   
 }
+
+
+process_fticr_hcoc =function(fticr_data_trt,fticr_meta){
+  
+  TREATMENTS = dplyr::quos(Site, Year, Season, Polar)
+  
+  fticr_hcoc = 
+    fticr_data_trt %>% 
+    reorder_seasons() %>% reorder_sites() %>% 
+    left_join(dplyr::select(fticr_meta, formula, HC, OC), by = "formula")
+  
+}
+
+process_fticr_relabund_cores =function(fticr_data_longform,fticr_meta){
+  
+  TREATMENTS = dplyr::quos(Site, Year, Season, Polar)
+  
+  relabund_cores = 
+    fticr_data_longform %>% 
+    compute_relabund_cores(fticr_meta, TREATMENTS) %>% 
+    reorder_seasons() %>% reorder_sites()
+  
+}
+
+
+process_fticr_hcoc_polar =function(fticr_hcoc){
+  
+  fticr_hcoc_polar = fticr_hcoc %>% filter(Polar == "polar") 
+  
+}
+
+process_fticr_relabund_cores_polar =function(relabund_cores){
+  
+  relabund_cores_polar = relabund_cores %>% filter(Polar == "polar")
+  
+}
+
+process_pca_polar =function(relabund_cores){
+  
+  pca_polar = fit_pca_function(relabund_cores %>% filter(Polar == "polar"))
+  
+}
+
+process_pca_hydric =function(relabund_cores){
+  
+  pca_hydric = fit_pca_function(relabund_cores %>% filter(Polar == "nonpolar" & Site == "Hydric"))
+  
+}
+
+

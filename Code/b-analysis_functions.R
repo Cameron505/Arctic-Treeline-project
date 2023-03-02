@@ -1754,10 +1754,6 @@ plot_resin = function(Resin_processed){
   
 }
 
-
-
-
-
 plot_resin_Fert= function(Resin_processed){
   
   
@@ -1823,6 +1819,245 @@ plot_resin_Fert= function(Resin_processed){
 }
 
 
+
+plot_fticr_Domains= function(fticr_meta,fticr_data_longform,fticr_data_trt){
+  
+  TREATMENTS = dplyr::quos(Site, Year, Season, Polar)
+  
+  gg_vk_domains = 
+    gg_vankrev(fticr_meta, aes(x = OC, y = HC, color = Class))+
+    scale_color_manual(values = PNWColors::pnw_palette("Sunset2"))+
+    theme_kp()
+  
+  gg_vk_domains_nosc = 
+  gg_vankrev(fticr_meta, aes(x = OC, y = HC, color = as.numeric(NOSC)))+
+    scale_color_gradientn(colors = PNWColors::pnw_palette("Bay"))+
+    theme_kp()
+  
+  
+  list("vk domains"= gg_vk_domains,
+       "vk domains nosc"= gg_vk_domains_nosc
+  )
+  
+}
+
+plot_polarVnonPolar= function(fticr_hcoc,relabund_cores){
+  
+  gg_vk_polar_nonpolar = 
+    (fticr_hcoc %>%
+       distinct(formula, HC, OC, Polar) %>% 
+       gg_vankrev(aes(x = OC, y = HC, color = Polar))+
+       stat_ellipse(level = 0.90, show.legend = FALSE)+
+       theme(legend.position = c(0.8, 0.8)) +
+       NULL) %>% 
+    # include marginal density plots
+    ggExtra::ggMarginal(groupColour = TRUE, groupFill = TRUE, alpha = 0.1)
+  
+  pca_all = fit_pca_function(relabund_cores)
+  
+  gg_pca_polar_nonpolar = 
+      ggbiplot(pca_all$pca_int, obs.scale = 1, var.scale = 1,
+               groups = as.character(pca_all$grp$Polar), 
+               ellipse = TRUE, circle = FALSE, var.axes = TRUE, alpha = 0) +
+      geom_point(size=3,stroke=1, alpha = 0.5,
+                 aes(#shape = groups,
+                   color = groups))+
+      #scale_shape_manual(values = c(21, 22, 19), name = "", guide = "none")+
+      xlim(-4,4)+
+      ylim(-3.5,3.5)+
+      labs(shape="",
+           title = "all samples",
+           subtitle = "polar vs. nonpolar")+
+      theme_kp()+
+      NULL
+  
+  
+  list("vk_polar_nonpolar"= gg_vk_polar_nonpolar,
+       "pca_polar_nonpolar"= gg_pca_polar_nonpolar
+  )
+  
+}
+
+
+plot_pca_by_site= function(pca_polar){
+  
+  gg_pca_by_site = 
+    ggbiplot(pca_polar$pca_int, obs.scale = 1, var.scale = 1,
+             groups = as.character(pca_polar$grp$Site), 
+             ellipse = TRUE, circle = FALSE, var.axes = TRUE, alpha = 0) +
+    geom_point(size=3,stroke=1, alpha = 1,
+               aes(#shape = groups,
+                 color = groups))+
+    #scale_shape_manual(values = c(21, 22, 19), name = "", guide = "none")+
+    xlim(-4,4)+
+    ylim(-3.5,3.5)+
+    labs(shape="",
+         title = "all samples",
+         subtitle = "separation by Site")+
+    theme_kp()+
+    NULL
+  
+  
+  list("pca_by_site"= gg_pca_by_site
+  )
+  
+}
+
+plot_pca_polar= function(pca_polar){
+  
+  gg_pca_by_year = 
+    ggbiplot(pca_polar$pca_int, obs.scale = 1, var.scale = 1,
+             groups = as.character(pca_polar$grp$Year), 
+             ellipse = TRUE, circle = FALSE, var.axes = TRUE, alpha = 0) +
+    geom_point(size=3,stroke=1, alpha = 1,
+               aes(
+                 #shape = as.character(pca_polar$grp$Site),
+                 color = groups))+
+    #scale_shape_manual(values = c(21, 22, 19), name = "", guide = "none")+
+    xlim(-4,4)+
+    ylim(-3.5,3.5)+
+    labs(shape="",
+         title = "all samples",
+         subtitle = "separation by Site")+
+    theme_kp()+
+    NULL
+ 
+  gg_pca_by_season = 
+    ggbiplot(pca_polar$pca_int, obs.scale = 1, var.scale = 1,
+             groups = as.character(pca_polar$grp$Season), 
+             ellipse = TRUE, circle = FALSE, var.axes = TRUE, alpha = 0) +
+    geom_point(size=3,stroke=1, alpha = 1,
+               aes(#shape = groups,
+                 color = groups))+
+    #scale_shape_manual(values = c(21, 22, 19), name = "", guide = "none")+
+    xlim(-4,4)+
+    ylim(-3.5,3.5)+
+    labs(shape="",
+         title = "all samples",
+         subtitle = "separation by Site")+
+    theme_kp()+
+    NULL
+  
+  
+  list("pca_by_year"= gg_pca_by_year,
+       "pca_by_season"= gg_pca_by_season
+  )
+  
+}
+
+plot_pca_hydric= function(pca_hydric){
+  
+  gg_pca_hydric = 
+    ggbiplot(pca_hydric$pca_int, obs.scale = 1, var.scale = 1,
+             groups = as.character(pca_hydric$grp$Season), 
+             ellipse = TRUE, circle = FALSE, var.axes = TRUE, alpha = 0) +
+    geom_point(size=3,stroke=1, alpha = 1,
+               aes(shape = as.character(pca_hydric$grp$Year),
+                   color = groups))+
+    #scale_shape_manual(values = c(21, 22, 19), name = "", guide = "none")+
+    xlim(-4,4)+
+    ylim(-3.5,3.5)+
+    labs(shape="",
+         title = "Hydric samples",
+         subtitle = "separation by Season")+
+    theme_kp()+
+    NULL
+  
+  
+  list("pca_hydric"= gg_pca_hydric
+  )
+  
+}
+
+plot_vk_polar= function(fticr_hcoc_polar){
+  
+  gg_vk_all = 
+    gg_vankrev(fticr_hcoc_polar, aes(x = OC, y = HC, color = Site))+
+    stat_ellipse(level = 0.90, show.legend = FALSE)+
+    facet_grid(Season ~ Polar + Year)+
+    NULL
+  
+  gg_vk_all_site = 
+    gg_vankrev(fticr_hcoc_polar, aes(x = OC, y = HC, color = as.character(Year)))+
+    stat_ellipse(level = 0.90, show.legend = FALSE)+
+    facet_grid(. ~ Site)+
+    NULL
+  
+  list("gg_vk_all_polar"= gg_vk_all,
+       "gg_vk_site_polar"= gg_vk_all_site
+  )
+  
+}
+
+plot_unique= function(fticr_hcoc, fticr_meta){
+  
+  fticr_unique_site = 
+    fticr_hcoc %>% 
+    distinct(formula, Site, HC, OC) %>% 
+    group_by(formula) %>% 
+    dplyr::mutate(n = n())
+  
+  # overlay unique peaks onto common peaks
+  gg_site_common_unique = 
+  fticr_unique_site %>% filter(n == 3) %>% 
+    gg_vankrev(aes(x = OC, y = HC))+
+    geom_point(data = fticr_unique_site %>% filter(n == 1),
+               aes(color = Site), alpha = 0.7)+
+    facet_wrap(~Site)+
+    labs(title = "Unique peaks at each Site",
+         subtitle = "black/grey = peaks common to all")+
+    NULL
+  fticr_unique_site_summary = 
+    fticr_unique_site %>% 
+    filter(n == 1) %>% 
+    left_join(fticr_meta %>% dplyr::select(formula, Class)) %>% 
+    group_by(Site, Class) %>% 
+    dplyr::summarise(counts = n()) %>% 
+    pivot_wider(names_from = "Site", values_from = "counts") %>% 
+    knitr::kable()
+  
+  
+  list("site_common_unique"= gg_site_common_unique,
+       "fticr_unique_site_summary"= fticr_unique_site_summary
+  )
+  
+}
+
+plot_seasonal_Mesic_Hydric_polar= function(fticr_hcoc_polar){
+  
+  fticr_hcoc_polar_mesic_hydric = 
+    fticr_hcoc_polar %>% 
+    filter(Site %in% c("Mesic", "Hydric"))
+  
+  gg_seasonal= fticr_hcoc_polar_mesic_hydric %>% 
+    gg_vankrev(aes(x = OC, y = HC, color = Season))+
+    facet_grid(Site ~ Year)
+  
+  list("seasonal"= gg_seasonal
+  )
+  
+}
+
+plot_permanova_polar= function( relabund_cores_polar){
+  relabund_wide = 
+    relabund_cores_polar %>% 
+    ungroup() %>% 
+    mutate(Class = factor(Class, 
+                          levels = c("aliphatic", "unsaturated/lignin", 
+                                     "aromatic", "condensed aromatic"))) %>% 
+    dplyr::select(-c(abund, total)) %>% 
+    spread(Class, relabund) %>% 
+    replace(is.na(.), 0)
+  
+  # adonis function for PERMANOVA
+  permanova_fticr_all = 
+    adonis(relabund_wide %>% dplyr::select(aliphatic:`condensed aromatic`) ~ (Site + Year + Season)^2, 
+           data = relabund_wide) 
+  
+ knitr::kable(permanova_fticr_all$aov.tab)
+  
+  
+}
 
 
 

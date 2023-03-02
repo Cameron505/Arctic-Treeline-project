@@ -9,6 +9,15 @@ library(lubridate)
 
 
 # custom ggplot theme
+options(ggplot2.discrete.color = PNWColors::pnw_palette("Bay", 3))
+reorder_seasons = function(dat){
+  dat %>% mutate(Season = factor(Season, levels = c("Spring", "LateSpring", "Fall")))
+}
+
+reorder_sites = function(dat){
+  dat %>% mutate(Site = factor(Site, levels = c("Xeric", "Mesic", "Hydric")))
+  
+}
 cbPalette2 <- c("#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black")
 theme_kp <- function() {  # this for all the elements common across plots
   theme_bw() %+replace%

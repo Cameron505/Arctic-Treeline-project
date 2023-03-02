@@ -310,7 +310,7 @@ begining of June) and late spring (Late june or early July) from 2017,
 click to open
 </summary>
 
-![](Aggie_report_files/figure-gfm/domains-1.png)<!-- -->![](Aggie_report_files/figure-gfm/domains-2.png)<!-- -->
+![](Aggie_report_files/figure-gfm/unnamed-chunk-20-1.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-20-2.png)<!-- -->
 
 </details>
 
@@ -321,9 +321,34 @@ click to open
 click to open
 </summary>
 
-![](Aggie_report_files/figure-gfm/vk_polar_nonpolar-1.png)<!-- -->
+    ## $vk_polar_nonpolar
+    ## TableGrob (13 x 10) "layout": 21 grobs
+    ##     z         cells          name                                         grob
+    ## 1   0 ( 2-13, 1- 9)    background               rect[plot.background..rect.69]
+    ## 2   5 ( 7- 7, 4- 4)        spacer                               zeroGrob[NULL]
+    ## 3   7 ( 8- 8, 4- 4)        axis-l           absoluteGrob[GRID.absoluteGrob.41]
+    ## 4   3 ( 9- 9, 4- 4)        spacer                               zeroGrob[NULL]
+    ## 5   6 ( 7- 7, 5- 5)        axis-t                               zeroGrob[NULL]
+    ## 6   1 ( 8- 8, 5- 5)         panel                      gTree[panel-1.gTree.31]
+    ## 7   9 ( 9- 9, 5- 5)        axis-b           absoluteGrob[GRID.absoluteGrob.36]
+    ## 8   4 ( 7- 7, 6- 6)        spacer                               zeroGrob[NULL]
+    ## 9   8 ( 8- 8, 6- 6)        axis-r                               zeroGrob[NULL]
+    ## 10  2 ( 9- 9, 6- 6)        spacer                               zeroGrob[NULL]
+    ## 11 10 ( 6- 6, 5- 5)        xlab-t                               zeroGrob[NULL]
+    ## 12 11 (10-10, 5- 5)        xlab-b titleGrob[axis.title.x.bottom..titleGrob.44]
+    ## 13 12 ( 8- 8, 3- 3)        ylab-l   titleGrob[axis.title.y.left..titleGrob.47]
+    ## 14 13 ( 8- 8, 7- 7)        ylab-r                               zeroGrob[NULL]
+    ## 15 14 ( 8- 8, 5- 5)     guide-box                            gtable[guide-box]
+    ## 16 15 ( 5- 5, 5- 5)      subtitle         zeroGrob[plot.subtitle..zeroGrob.65]
+    ## 17 16 ( 4- 4, 5- 5)         title            zeroGrob[plot.title..zeroGrob.64]
+    ## 18 17 (11-11, 5- 5)       caption          zeroGrob[plot.caption..zeroGrob.67]
+    ## 19 18 ( 3- 3, 2- 2)           tag              zeroGrob[plot.tag..zeroGrob.66]
+    ## 20 19 ( 1- 1, 5- 5)   topMargPlot                               gtable[layout]
+    ## 21 20 ( 8- 8,10-10) rightMargPlot                               gtable[layout]
+    ## 
+    ## $pca_polar_nonpolar
 
-![](Aggie_report_files/figure-gfm/pca_polar_nonpolar-1.png)<!-- -->
+![](Aggie_report_files/figure-gfm/unnamed-chunk-21-1.png)<!-- -->
 
 Non-polar extracts were strongly dominated by low-O aliphatic molecules
 and skewed the overall trends when we combined results from polar and
@@ -349,11 +374,11 @@ click to open
 |             |  Df | SumsOfSqs |   MeanSqs |     F.Model |        R2 | Pr(\>F) |
 |:------------|----:|----------:|----------:|------------:|----------:|--------:|
 | Site        |   2 | 0.2048378 | 0.1024189 | 109.2342208 | 0.7080634 |   0.001 |
-| Year        |   1 | 0.0011243 | 0.0011243 |   1.1990670 | 0.0038862 |   0.278 |
-| Season      |   2 | 0.0013712 | 0.0006856 |   0.7312319 | 0.0047399 |   0.509 |
+| Year        |   1 | 0.0011243 | 0.0011243 |   1.1990670 | 0.0038862 |   0.274 |
+| Season      |   2 | 0.0013712 | 0.0006856 |   0.7312319 | 0.0047399 |   0.493 |
 | Site:Year   |   2 | 0.0278093 | 0.0139047 |  14.8299373 | 0.0961286 |   0.001 |
-| Site:Season |   3 | 0.0083759 | 0.0027920 |   2.9777402 | 0.0289529 |   0.044 |
-| Year:Season |   1 | 0.0007694 | 0.0007694 |   0.8205613 | 0.0026595 |   0.359 |
+| Site:Season |   3 | 0.0083759 | 0.0027920 |   2.9777402 | 0.0289529 |   0.034 |
+| Year:Season |   1 | 0.0007694 | 0.0007694 |   0.8205613 | 0.0026595 |   0.388 |
 | Residuals   |  48 | 0.0450052 | 0.0009376 |          NA | 0.1555696 |      NA |
 | Total       |  59 | 0.2892930 |        NA |          NA | 1.0000000 |      NA |
 
@@ -370,18 +395,18 @@ Site accounted for 71 % of total variation among samples (R2= 0.71)
 click to open
 </summary>
 
-![](Aggie_report_files/figure-gfm/gg_pca_site-1.png)<!-- -->
+![](Aggie_report_files/figure-gfm/unnamed-chunk-23-1.png)<!-- -->
 
 There was a strong separation among the three Site/soil types. Hydric
 and Xeric soils were strongly dominated by aliphatic (simple) molecules,
 whereas Mesic soils were dominated by lignin-like, aromatic, and
 condensed aromatic (complex) molecules.
 
-![](Aggie_report_files/figure-gfm/gg_pca_polar-1.png)<!-- -->![](Aggie_report_files/figure-gfm/gg_pca_polar-2.png)<!-- -->
+![](Aggie_report_files/figure-gfm/unnamed-chunk-24-1.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-24-2.png)<!-- -->
 
 Hydric Only
 
-![](Aggie_report_files/figure-gfm/gg_pca_hydric-1.png)<!-- -->
+![](Aggie_report_files/figure-gfm/unnamed-chunk-25-1.png)<!-- -->
 
 </details>
 
@@ -399,9 +424,7 @@ click to open
 click to open
 </summary>
 
-![](Aggie_report_files/figure-gfm/vk_all-1.png)<!-- -->
-
-![](Aggie_report_files/figure-gfm/vk_site-1.png)<!-- -->
+![](Aggie_report_files/figure-gfm/unnamed-chunk-26-1.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-26-2.png)<!-- -->
 
 </details>
 
@@ -412,27 +435,18 @@ click to open
 click to open
 </summary>
 
-![](Aggie_report_files/figure-gfm/vk_unique_site-1.png)<!-- -->
-
-Summary of unique peaks
-
-| Class              | Xeric | Mesic | Hydric |
-|:-------------------|------:|------:|-------:|
-| aliphatic          |   172 |   483 |    294 |
-| aromatic           |    32 |   135 |     22 |
-| condensed aromatic |    10 |    65 |     17 |
-| unsaturated/lignin |   122 |   703 |     47 |
+![](Aggie_report_files/figure-gfm/unnamed-chunk-27-1.png)<!-- -->
 
 </details>
 
-####### 3.3.3. Seasonality
+####### 3.3.3. Seasonality Mesic and Hydric
 
 <details>
 <summary>
 click to open
 </summary>
 
-![](Aggie_report_files/figure-gfm/vk_season-1.png)<!-- -->
+![](Aggie_report_files/figure-gfm/unnamed-chunk-28-1.png)<!-- -->
 
 </details>
 </details>
@@ -448,7 +462,7 @@ click to open
 Session Info
 </summary>
 
-Date run: 2023-03-01
+Date run: 2023-03-02
 
     ## R version 4.2.2 (2022-10-31 ucrt)
     ## Platform: x86_64-w64-mingw32/x64 (64-bit)
@@ -485,23 +499,21 @@ Date run: 2023-03-01
     ## [22] rmarkdown_2.19      pkgconfig_2.0.3     htmltools_0.5.4    
     ## [25] parallelly_1.34.0   highr_0.10          dbplyr_2.2.1       
     ## [28] fastmap_1.1.0       rlang_1.0.6         readxl_1.4.1       
-    ## [31] rstudioapi_0.14     shiny_1.7.4         farver_2.1.1       
-    ## [34] generics_0.1.3      jsonlite_1.8.4      googlesheets4_1.0.1
-    ## [37] magrittr_2.0.3      Matrix_1.5-1        Rcpp_1.0.9         
-    ## [40] munsell_0.5.0       fansi_1.0.3         lifecycle_1.0.3    
-    ## [43] furrr_0.3.1         stringi_1.7.8       yaml_2.3.6         
-    ## [46] MASS_7.3-58.1       promises_1.2.0.1    parallel_4.2.2     
-    ## [49] listenv_0.9.0       crayon_1.5.2        miniUI_0.1.1.1     
-    ## [52] haven_2.5.1         splines_4.2.2       hms_1.1.2          
-    ## [55] knitr_1.41          ps_1.7.2            pillar_1.8.1       
-    ## [58] igraph_1.3.5        PNWColors_0.1.0     base64url_1.4      
-    ## [61] codetools_0.2-18    reprex_2.0.2        glue_1.6.2         
-    ## [64] evaluate_0.19       data.table_1.14.6   modelr_0.1.10      
-    ## [67] httpuv_1.6.7        vctrs_0.5.1         tzdb_0.3.0         
-    ## [70] cellranger_1.1.0    gtable_0.3.1        future_1.30.0      
-    ## [73] assertthat_0.2.1    ggExtra_0.10.0      xfun_0.36          
-    ## [76] mime_0.12           xtable_1.8-4        broom_1.0.2        
-    ## [79] later_1.3.0         googledrive_2.0.0   gargle_1.2.1       
-    ## [82] cluster_2.1.4       globals_0.16.2      ellipsis_0.3.2
+    ## [31] rstudioapi_0.14     farver_2.1.1        generics_0.1.3     
+    ## [34] jsonlite_1.8.4      googlesheets4_1.0.1 magrittr_2.0.3     
+    ## [37] Matrix_1.5-1        Rcpp_1.0.9          munsell_0.5.0      
+    ## [40] fansi_1.0.3         lifecycle_1.0.3     furrr_0.3.1        
+    ## [43] stringi_1.7.8       yaml_2.3.6          MASS_7.3-58.1      
+    ## [46] parallel_4.2.2      listenv_0.9.0       crayon_1.5.2       
+    ## [49] haven_2.5.1         splines_4.2.2       hms_1.1.2          
+    ## [52] knitr_1.41          ps_1.7.2            pillar_1.8.1       
+    ## [55] igraph_1.3.5        PNWColors_0.1.0     base64url_1.4      
+    ## [58] codetools_0.2-18    reprex_2.0.2        glue_1.6.2         
+    ## [61] evaluate_0.19       data.table_1.14.6   modelr_0.1.10      
+    ## [64] vctrs_0.5.1         tzdb_0.3.0          cellranger_1.1.0   
+    ## [67] gtable_0.3.1        future_1.30.0       assertthat_0.2.1   
+    ## [70] xfun_0.36           broom_1.0.2         googledrive_2.0.0  
+    ## [73] gargle_1.2.1        cluster_2.1.4       globals_0.16.2     
+    ## [76] ellipsis_0.3.2
 
 </details>

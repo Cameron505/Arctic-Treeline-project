@@ -23,7 +23,7 @@ tar_option_set(
 source("Code/0-packages.R")
 source("Code/a-processing_functions.R")
 source("Code/b-analysis_functions.R")
-
+source("code/fticrrr/b-functions_analysis.R")
 
 # source("other_functions.R") # Source other scripts as needed. # nolint
 
@@ -37,6 +37,23 @@ list(
   
   # data files
   #tar_target()
+
+  tar_target(fticr_meta_load,"data/processed/fticr_meta_combined.csv", format="file"),
+  tar_target(fticr_meta, read.csv(fticr_meta_load)),
+  tar_target(fticr_data_longform_load,"data/processed/fticr_data_longform_combined.csv", format="file"),
+  tar_target(fticr_data_longform, read.csv(fticr_data_longform_load)),
+  tar_target(fticr_data_trt_load,"data/processed/fticr_data_trt_combined.csv", format="file"),
+  tar_target(fticr_data_trt, read.csv(fticr_data_trt_load)),
+  
+  tar_target(fticr_hcoc, process_fticr_hcoc(fticr_data_trt,fticr_meta)),
+  tar_target(relabund_cores, process_fticr_relabund_cores(fticr_data_longform,fticr_meta)),
+  tar_target(fticr_hcoc_polar, process_fticr_hcoc_polar(fticr_hcoc)),
+  tar_target(relabund_cores_polar, process_fticr_relabund_cores_polar(relabund_cores)),
+  tar_target(pca_polar, process_pca_polar(relabund_cores)),
+  tar_target(pca_hydric, process_pca_hydric(relabund_cores)),
+  
+  
+  
   tar_target(PoreWater_data_read,"Data/PoreWater.csv", format="file"),
   tar_target(PoreWater_data, read.csv(PoreWater_data_read)),
   tar_target(PoreWater_processed, process_PoreWater(PoreWater_data)),
@@ -86,6 +103,15 @@ list(
   tar_target(gg_Resin_Fert, plot_resin_Fert(Resin_processed)),
   
   
+  tar_target(gg_fticr_Domains, plot_fticr_Domains(fticr_meta)),
+  tar_target(gg_polarVnonpolar, plot_polarVnonPolar(fticr_hcoc,relabund_cores)),
+  tar_target(Permanova_table_polar, plot_permanova_polar(relabund_cores_polar)),
+  tar_target(gg_pca_by_site, plot_pca_by_site(pca_polar)),
+  tar_target(gg_pca_polar, plot_pca_polar(pca_polar)),
+  tar_target(gg_pca_hydric, plot_pca_hydric(pca_hydric)),
+  tar_target(gg_vk_polar, plot_vk_polar(fticr_hcoc_polar)),
+  tar_target(gg_unique, plot_unique(fticr_hcoc,fticr_meta)),
+  tar_target(gg_seasonal, plot_seasonal_Mesic_Hydric_polar(fticr_hcoc_polar)),
   
   # combined data
  
