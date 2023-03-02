@@ -1,4 +1,4 @@
-Aggie treeline field experiment data
+Aggie treeline field experiment data sets
 ================
 
 ## sample summary

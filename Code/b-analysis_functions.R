@@ -2016,7 +2016,7 @@ plot_unique= function(fticr_hcoc, fticr_meta){
 
     
   list("site_common_unique"= gg_site_common_unique,
-       "PERMANOVA table"= UniqueT
+       "PERMANOVA_table"= UniqueT
   )
   
 }
