@@ -36,7 +36,7 @@ gg_fticr_Domains|stem|76527f309c8b2018|f102f5c50923e278|296fc40d9ea50639|-885151
 gg_pca_by_site|stem|94368be24367df2f|ee3fd7dafe965951|c5b7a89c777b6ecc|-2097505288||t19418.6990857499s|a341cffe607f7e15|102660|rds|local|vector|||0.12||
 gg_pca_hydric|stem|d1bca8e7a143387b|a23c98dd882216e5|97008543413e3fc0|1835671178||t19418.6990891554s|419ab35293673d56|97186|rds|local|vector|||0.06||
 gg_pca_polar|stem|855af30f0b5b9f62|905a4b144d5d3d02|c3080307b3ee8991|-78166223||t19418.6990878782s|8b3b1981a36f164e|132633|rds|local|vector|||0.11||
-gg_polarVnonpolar|stem|accb8579d2502d1b|287a6290076a21a4|28f3217f98a32107|464092186||t19418.8047652079s|1cee961efd9ea6fd|475487|rds|local|vector|||1||
+gg_polarVnonpolar|stem|6c1d9a2d7290042b|287a6290076a21a4|9172bee7079ab6f7|464092186||t19418.8175573783s|d1206cacdb0a5d79|475490|rds|local|vector|||0.98||
 gg_Porewater_Fert|stem|ca50d33c71127ead|44f4139d47a21de6|15dbf85cdb01a40e|1902486254||t19417.9712978409s|def87f8045e4102d|1441838|rds|local|vector|||0.39|NAs introduced by coercion. NAs introduced by coercion. NAs introduced by coercion. NAs introduced by coercion. NAs introduced by coercion. NAs introduced by coercion. NAs introduced by coercion. NAs introduced by coercion. NAs introduced by coercion. NAs introduced by coercion|
 gg_resin|stem|75c1f5475d11783a|81cec8bbdc458e22|c60eede08a575812|-1180256919||t19417.7896803384s|74e601f1b581c586|373199|rds|local|vector|||0.28||
 gg_resin_Ancillary|stem|215693e456e49de4|7e84c8f66471ca70|9f39b9a7550aa9f2|2132457085||t19417.7896710948s|923e5a4d2ac085c2|150121|rds|local|vector|||0.16||
@@ -64,7 +64,7 @@ plot_pca_by_site|function|356e258adfdbd3f1|||||||||||||||
 plot_pca_hydric|function|6276f8e630cdd3e0|||||||||||||||
 plot_pca_polar|function|6ad1e4fc421ee512|||||||||||||||
 plot_permanova_polar|function|77ec67a264228e37|||||||||||||||
-plot_polarVnonPolar|function|1542565e8e085842|||||||||||||||
+plot_polarVnonPolar|function|88ae20e942ce6b5f|||||||||||||||
 plot_PoreWater_all|function|fdd063c8e6e4d0cb|||||||||||||||
 plot_PoreWater_Fert|function|75aef6e39a65ca90|||||||||||||||
 plot_PoreWater_Lysim|function|7f7c7b6b6ad9bb12|||||||||||||||
@@ -109,7 +109,7 @@ relabund_cores|stem|30c521c19b478657|888f8208dd5407b7|9be07b21d2d54d9c|150918850
 relabund_cores_polar|stem|5ea82e7afb9139b5|d0e345c965f3794b|540af11a9e5b25b9|-1229788809||t19418.6744024661s|d812e05bc8bbe25e|3932|rds|local|vector|||0.01||
 reorder_seasons|function|0e9a5772fbdce6bb|||||||||||||||
 reorder_sites|function|9feeff82bcccca8d|||||||||||||||
-report|stem|17735a5c94e70ee9|f535c9ac52fb13fb|613c35b27ddfe9cf|-237041703|reports/Aggie_report.md*reports/Aggie_report.Rmd*reports/Aggie_report_files|t19418.8095586135s||4473629|file|local|vector|||202.72||object fticr_hcoc not found
+report|stem|17735a5c94e70ee9|f535c9ac52fb13fb|1ebe2b97d452b668|-237041703|reports/Aggie_report.md*reports/Aggie_report.Rmd*reports/Aggie_report_files|t19418.8253864068s|482f1517f453b6f5|4473629|file|local|vector|||308.75||
 Resin_data|stem|ddff247cd897b9b6|81922cd386115565|2c5d15756513a1cb|736601963||t19417.7896223142s|3a43b9be11a99ad2|12519|rds|local|vector|||0.02||
 Resin_data_read|stem|e2cc721102117948|e10d3fd426b3ece2|ef46db3751d8e999|-1045475728|Data/Resin.csv|t19417.7854711496s|f8f7f051e3d86ea0|50008|file|local|vector|||0||
 Resin_processed|stem|2e4f34189f4de842|7831cfc8de3e0329|d40fcf364be86837|1865690580||t19417.789658095s|4c9be0ec232de534|12727|rds|local|vector|||0.01||
@@ -168,3 +168,4 @@ plot_Extract_lysim|function|907bd4f613717dc8
 plot_Extract_Snowfence_H2O|function|b1fb415ed8af2bfd
 process_fticr_hcoc|function|5cb10afad820bc51
 process_fticr_relabund_cores|function|ae087444142c6d88
+gg_polarVnonpolar|stem|accb8579d2502d1b|287a6290076a21a4|28f3217f98a32107|464092186||t19418.8301165265s|1cee961efd9ea6fd|475487|rds|local|vector|||1.25||

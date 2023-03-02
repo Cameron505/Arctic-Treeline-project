@@ -344,7 +344,7 @@ tar_read(gg_fticr_Domains)
   <summary>click to open</summary>
 
 
-```{r , fig.height=6, fig.width=6}
+```{r , fig.height=6, fig.width=6, results='hide'}
 tar_read(gg_polarVnonpolar)
 ```
 
