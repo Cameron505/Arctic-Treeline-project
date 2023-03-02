@@ -1841,44 +1841,38 @@ plot_fticr_Domains= function(fticr_meta,fticr_data_longform,fticr_data_trt){
   
 }
 
-plot_polarVnonPolar= function(fticr_hcoc,relabund_cores){
+plot_polarVnonPolar_vk = function(fticr_hcoc){
   
-  gg_vk_polar_nonpolar = 
-    (fticr_hcoc %>%
+    fticr_hcoc %>%
        distinct(formula, HC, OC, Polar) %>% 
        gg_vankrev(aes(x = OC, y = HC, color = Polar))+
        stat_ellipse(level = 0.90, show.legend = FALSE)+
        theme(legend.position = c(0.8, 0.8)) +
-       NULL) %>% 
-    # include marginal density plots
-    ggExtra::ggMarginal(groupColour = TRUE, groupFill = TRUE, alpha = 0.1)
-  
-  
-  pca_all = fit_pca_function(relabund_cores)
-  
-  gg_pca_polar_nonpolar = 
-      ggbiplot(pca_all$pca_int, obs.scale = 1, var.scale = 1,
-               groups = as.character(pca_all$grp$Polar), 
-               ellipse = TRUE, circle = FALSE, var.axes = TRUE, alpha = 0) +
-      geom_point(size=3,stroke=1, alpha = 0.5,
-                 aes(#shape = groups,
-                   color = groups))+
-      #scale_shape_manual(values = c(21, 22, 19), name = "", guide = "none")+
-      xlim(-4,4)+
-      ylim(-3.5,3.5)+
-      labs(shape="",
-           title = "all samples",
-           subtitle = "polar vs. nonpolar")+
-      theme_kp()+
-      NULL
-  
-  
-  list("vk_polar_nonpolar"= gg_vk_polar_nonpolar,
-       "pca_polar_nonpolar"= gg_pca_polar_nonpolar
-  )
+       NULL
+    # include marginal density plots in the RMarkdown because of rendering issues
+    # see https://github.com/daattali/ggExtra/issues/147
   
 }
 
+plot_polarVnonPolar_pca= function(relabund_cores){
+  pca_all = fit_pca_function(relabund_cores)
+  
+  #gg_pca_polar_nonpolar = 
+    ggbiplot(pca_all$pca_int, obs.scale = 1, var.scale = 1,
+             groups = as.character(pca_all$grp$Polar), 
+             ellipse = TRUE, circle = FALSE, var.axes = TRUE, alpha = 0) +
+    geom_point(size=3,stroke=1, alpha = 0.5,
+               aes(#shape = groups,
+                 color = groups))+
+    #scale_shape_manual(values = c(21, 22, 19), name = "", guide = "none")+
+    xlim(-4,4)+
+    ylim(-3.5,3.5)+
+    labs(shape="",
+         title = "all samples",
+         subtitle = "polar vs. nonpolar")+
+    theme_kp()+
+    NULL
+}
 
 plot_pca_by_site= function(pca_polar){
   

@@ -1,4 +1,4 @@
-Aggie treeline field experiment data sets
+Aggie treeline field experiment data
 ================
 
 ## sample summary
@@ -323,6 +323,8 @@ click to open
 
 ![](Aggie_report_files/figure-gfm/unnamed-chunk-20-1.png)<!-- -->
 
+![](Aggie_report_files/figure-gfm/unnamed-chunk-21-1.png)<!-- -->
+
 Non-polar extracts were strongly dominated by low-O aliphatic molecules
 and skewed the overall trends when we combined results from polar and
 non-polar extracts. We therefore analyze the two extract types
@@ -368,18 +370,18 @@ Site accounted for 71 % of total variation among samples (R2= 0.71)
 click to open
 </summary>
 
-![](Aggie_report_files/figure-gfm/unnamed-chunk-22-1.png)<!-- -->
+![](Aggie_report_files/figure-gfm/unnamed-chunk-23-1.png)<!-- -->
 
 There was a strong separation among the three Site/soil types. Hydric
 and Xeric soils were strongly dominated by aliphatic (simple) molecules,
 whereas Mesic soils were dominated by lignin-like, aromatic, and
 condensed aromatic (complex) molecules.
 
-![](Aggie_report_files/figure-gfm/unnamed-chunk-23-1.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-23-2.png)<!-- -->
+![](Aggie_report_files/figure-gfm/unnamed-chunk-24-1.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-24-2.png)<!-- -->
 
 Hydric Only
 
-![](Aggie_report_files/figure-gfm/unnamed-chunk-24-1.png)<!-- -->
+![](Aggie_report_files/figure-gfm/unnamed-chunk-25-1.png)<!-- -->
 
 </details>
 
@@ -395,7 +397,7 @@ click to open
 click to open
 </summary>
 
-![](Aggie_report_files/figure-gfm/unnamed-chunk-25-1.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-25-2.png)<!-- -->
+![](Aggie_report_files/figure-gfm/unnamed-chunk-26-1.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-26-2.png)<!-- -->
 
 </details>
 3.3.2. Unique peaks by site
@@ -404,7 +406,7 @@ click to open
 click to open
 </summary>
 
-![](Aggie_report_files/figure-gfm/unnamed-chunk-26-1.png)<!-- -->
+![](Aggie_report_files/figure-gfm/unnamed-chunk-27-1.png)<!-- -->
 
 | Class              | Xeric | Mesic | Hydric |
 |:-------------------|------:|------:|-------:|
@@ -420,7 +422,7 @@ click to open
 click to open
 </summary>
 
-![](Aggie_report_files/figure-gfm/unnamed-chunk-28-1.png)<!-- -->
+![](Aggie_report_files/figure-gfm/unnamed-chunk-29-1.png)<!-- -->
 
 </details>
 </details>
@@ -438,56 +440,48 @@ Session Info
 
 Date run: 2023-03-02
 
-    ## R version 4.2.2 (2022-10-31 ucrt)
-    ## Platform: x86_64-w64-mingw32/x64 (64-bit)
-    ## Running under: Windows 10 x64 (build 19045)
+    ## R version 4.2.1 (2022-06-23)
+    ## Platform: x86_64-apple-darwin17.0 (64-bit)
+    ## Running under: macOS Big Sur ... 10.16
     ## 
     ## Matrix products: default
+    ## BLAS:   /Library/Frameworks/R.framework/Versions/4.2/Resources/lib/libRblas.0.dylib
+    ## LAPACK: /Library/Frameworks/R.framework/Versions/4.2/Resources/lib/libRlapack.dylib
     ## 
     ## locale:
-    ## [1] LC_COLLATE=English_United States.utf8 
-    ## [2] LC_CTYPE=English_United States.utf8   
-    ## [3] LC_MONETARY=English_United States.utf8
-    ## [4] LC_NUMERIC=C                          
-    ## [5] LC_TIME=English_United States.utf8    
+    ## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
     ## 
     ## attached base packages:
-    ## [1] grid      stats     graphics  grDevices utils     datasets  methods  
-    ## [8] base     
+    ## [1] stats     graphics  grDevices utils     datasets  methods   base     
     ## 
     ## other attached packages:
-    ##  [1] lubridate_1.9.0   timechange_0.1.1  ggbiplot_0.55     scales_1.2.1     
-    ##  [5] plyr_1.8.8        vegan_2.6-4       lattice_0.20-45   permute_0.9-7    
-    ##  [9] forcats_0.5.2     stringr_1.5.0     dplyr_1.0.10      purrr_1.0.0      
-    ## [13] readr_2.1.3       tidyr_1.2.1       tibble_3.1.8      ggplot2_3.4.0    
-    ## [17] tidyverse_1.3.2   tarchetypes_0.7.4 targets_0.14.2   
+    ##  [1] ggbiplot_0.55     vegan_2.6-4       lattice_0.20-45   permute_0.9-7    
+    ##  [5] lubridate_1.9.2   forcats_1.0.0     stringr_1.5.0     dplyr_1.1.0      
+    ##  [9] purrr_1.0.1       readr_2.1.4       tidyr_1.3.0       tibble_3.1.8     
+    ## [13] ggplot2_3.4.1     tidyverse_2.0.0   tarchetypes_0.7.2 targets_0.14.0   
     ## 
     ## loaded via a namespace (and not attached):
-    ##  [1] nlme_3.1-162        fs_1.5.2            httr_1.4.4         
-    ##  [4] future.callr_0.8.1  tools_4.2.2         backports_1.4.1    
-    ##  [7] utf8_1.2.2          R6_2.5.1            DBI_1.1.3          
-    ## [10] mgcv_1.8-41         colorspace_2.0-3    withr_2.5.0        
-    ## [13] tidyselect_1.2.0    processx_3.8.0      compiler_4.2.2     
-    ## [16] cli_3.6.0           rvest_1.0.3         xml2_1.3.3         
-    ## [19] labeling_0.4.2      callr_3.7.3         digest_0.6.31      
-    ## [22] rmarkdown_2.19      pkgconfig_2.0.3     htmltools_0.5.4    
-    ## [25] parallelly_1.34.0   highr_0.10          dbplyr_2.2.1       
-    ## [28] fastmap_1.1.0       rlang_1.0.6         readxl_1.4.1       
-    ## [31] rstudioapi_0.14     farver_2.1.1        generics_0.1.3     
-    ## [34] jsonlite_1.8.4      googlesheets4_1.0.1 magrittr_2.0.3     
-    ## [37] Matrix_1.5-1        Rcpp_1.0.9          munsell_0.5.0      
-    ## [40] fansi_1.0.3         lifecycle_1.0.3     furrr_0.3.1        
-    ## [43] stringi_1.7.8       yaml_2.3.6          MASS_7.3-58.1      
-    ## [46] parallel_4.2.2      listenv_0.9.0       crayon_1.5.2       
-    ## [49] haven_2.5.1         splines_4.2.2       hms_1.1.2          
-    ## [52] knitr_1.41          ps_1.7.2            pillar_1.8.1       
-    ## [55] igraph_1.3.5        PNWColors_0.1.0     base64url_1.4      
-    ## [58] codetools_0.2-18    reprex_2.0.2        glue_1.6.2         
-    ## [61] evaluate_0.19       data.table_1.14.6   modelr_0.1.10      
-    ## [64] vctrs_0.5.1         tzdb_0.3.0          cellranger_1.1.0   
-    ## [67] gtable_0.3.1        future_1.30.0       assertthat_0.2.1   
-    ## [70] xfun_0.36           broom_1.0.2         googledrive_2.0.0  
-    ## [73] gargle_1.2.1        cluster_2.1.4       globals_0.16.2     
-    ## [76] ellipsis_0.3.2
+    ##  [1] splines_4.2.1       shiny_1.7.2         highr_0.9          
+    ##  [4] base64url_1.4       yaml_2.3.5          pillar_1.8.1       
+    ##  [7] backports_1.4.1     glue_1.6.2          digest_0.6.29      
+    ## [10] promises_1.2.0.1    colorspace_2.0-3    htmltools_0.5.3    
+    ## [13] httpuv_1.6.5        Matrix_1.5-1        plyr_1.8.7         
+    ## [16] pkgconfig_2.0.3     xtable_1.8-4        scales_1.2.1       
+    ## [19] processx_3.7.0      later_1.3.0         tzdb_0.3.0         
+    ## [22] timechange_0.2.0    mgcv_1.8-40         generics_0.1.3     
+    ## [25] farver_2.1.1        ellipsis_0.3.2      withr_2.5.0        
+    ## [28] cli_3.6.0           magrittr_2.0.3      mime_0.12          
+    ## [31] evaluate_0.16       ps_1.7.1            fs_1.5.2           
+    ## [34] fansi_1.0.3         nlme_3.1-160        MASS_7.3-57        
+    ## [37] tools_4.2.1         data.table_1.14.4   hms_1.1.2          
+    ## [40] lifecycle_1.0.3     munsell_0.5.0       cluster_2.1.3      
+    ## [43] callr_3.7.2         compiler_4.2.1      PNWColors_0.1.0    
+    ## [46] rlang_1.0.6         grid_4.2.1          rstudioapi_0.14    
+    ## [49] igraph_1.3.4        miniUI_0.1.1.1      labeling_0.4.2     
+    ## [52] rmarkdown_2.16      gtable_0.3.0        codetools_0.2-18   
+    ## [55] R6_2.5.1            knitr_1.40          fastmap_1.1.0      
+    ## [58] utf8_1.2.2          ggExtra_0.10.0.9000 stringi_1.7.8      
+    ## [61] parallel_4.2.1      Rcpp_1.0.9          vctrs_0.5.2        
+    ## [64] tidyselect_1.2.0    xfun_0.32
 
 </details>

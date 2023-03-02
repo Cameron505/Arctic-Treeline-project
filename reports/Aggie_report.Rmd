@@ -1,5 +1,5 @@
 ---
-title: "Aggie treeline field experiment data sets"
+title: "Aggie treeline field experiment data"
 output: 
   github_document:
   html_preview: True
@@ -346,10 +346,15 @@ tar_read(gg_fticr_Domains)
   <summary>click to open</summary>
 
 
-```{r , fig.height=6, fig.width=6, results='hide'}
-tar_read(gg_polarVnonpolar)
+```{r, fig.height=6, fig.width=6}
+tar_load(gg_polarVnonpolar_vk) 
+ggExtra::ggMarginal(gg_polarVnonpolar_vk, groupColour = TRUE, groupFill = TRUE, alpha = 0.1)
+
 ```
 
+```{r, fig.height=6, fig.width=6}
+tar_read(gg_polarVnonpolar_pca) 
+```
 
 Non-polar extracts were strongly dominated by low-O aliphatic molecules and skewed the overall trends when we combined results from polar and non-polar extracts. 
 We therefore analyze the two extract types separately, and focus primarily on the polar (water) extracts.

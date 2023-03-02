@@ -104,7 +104,8 @@ list(
   
   
   tar_target(gg_fticr_Domains, plot_fticr_Domains(fticr_meta)),
-  tar_target(gg_polarVnonpolar, plot_polarVnonPolar(fticr_hcoc,relabund_cores)),
+  tar_target(gg_polarVnonpolar_vk, plot_polarVnonPolar_vk(fticr_hcoc)),
+  tar_target(gg_polarVnonpolar_pca, plot_polarVnonPolar_pca(relabund_cores)),
   tar_target(Permanova_table_polar, plot_permanova_polar(relabund_cores_polar)),
   tar_target(gg_pca_by_site, plot_pca_by_site(pca_polar)),
   tar_target(gg_pca_polar, plot_pca_polar(pca_polar)),
