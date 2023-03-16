@@ -155,6 +155,10 @@ process_resin =function(Resin_data){
 }
 
 
+
+
+#### FTICR
+
 process_fticr_hcoc =function(fticr_data_trt,fticr_meta){
   
   TREATMENTS = dplyr::quos(Site, Year, Season, Polar)
