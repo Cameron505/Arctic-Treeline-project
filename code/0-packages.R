@@ -2,6 +2,7 @@ library(tidyverse) #for tidy processing and plotting
 library(vegan) # for PERMANOVA analysis
 library(ggbiplot) #for PCA biplots
 library(lubridate)
+library(ggExtra)
 # to install {ggbiplot}:
 # library(devtools)
 # install_github("vqv/ggbiplot")

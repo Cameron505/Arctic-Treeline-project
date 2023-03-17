@@ -5,17 +5,6 @@
 
 plot_Extract_Snowfence = function(Extract_processed){
   
-  Extract_processed<-Extract_processed %>%
-  mutate(TIME= ifelse(MONTH == 3, "Late winter", as.character(MONTH)), 
-         TIME= ifelse(TIME == 4, "Late winter", as.character(TIME)),
-         TIME= ifelse(TIME == 5, "Early spring", as.character(TIME)),
-         TIME= ifelse(TIME == 6, "Early spring", as.character(TIME)),
-         TIME= ifelse(TIME == 9, "Late summer", as.character(TIME))
-  )
-  
-  
-  
-  
   gg_NH4_Extract =
     Extract_processed %>%
     ggplot(aes(x=TIME, y=NH4, fill=treatment))+
@@ -148,12 +137,6 @@ plot_Extract_Snowfence = function(Extract_processed){
   
   Extract_processed_long = Extract_processed %>%
     select(-c(Core.length:TRS.H2O)) %>%
-    mutate(TIME= ifelse(MONTH == 3, "Late winter", as.character(MONTH)), 
-           TIME= ifelse(TIME == 4, "Late winter", as.character(TIME)),
-           TIME= ifelse(TIME == 5, "Early spring", as.character(TIME)),
-           TIME= ifelse(TIME == 6, "Early spring", as.character(TIME)),
-           TIME= ifelse(TIME == 9, "Late summer", as.character(TIME))
-           )%>%
     pivot_longer(cols= TOC.k2so4:Mic.PO4,
                  names_to= "analyte",
                  values_to= "conc") %>%
