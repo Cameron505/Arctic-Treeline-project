@@ -12,6 +12,7 @@ plot_Extract_Snowfence = function(Extract_processed){
     stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
     facet_wrap(~YEAR+Site)+
     theme_light()+
+    theme(axis.text.x = element_text(angle = 90, hjust = 1))+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
     labs(x = "Time of year", 
@@ -25,7 +26,7 @@ plot_Extract_Snowfence = function(Extract_processed){
     stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
     stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
     facet_wrap(~YEAR+Site)+
-    theme_light()+
+    theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
     labs(x = "Time of year", 
@@ -38,7 +39,7 @@ plot_Extract_Snowfence = function(Extract_processed){
     stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
     stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
     facet_wrap(~YEAR+Site)+
-    theme_light()+
+    theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
     labs(x = "Time of year", 
@@ -51,7 +52,7 @@ plot_Extract_Snowfence = function(Extract_processed){
     stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
     stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
     facet_wrap(~YEAR+Site)+
-    theme_light()+
+    theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
     labs(x = "Time of year", 
@@ -64,7 +65,7 @@ plot_Extract_Snowfence = function(Extract_processed){
     stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
     stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
     facet_wrap(~YEAR+Site)+
-    theme_light()+
+    theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
     labs(x = "Time of year", 
@@ -77,7 +78,7 @@ plot_Extract_Snowfence = function(Extract_processed){
     stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
     stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
     facet_wrap(~YEAR+Site)+
-    theme_light()+
+    theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
     labs(x = "Time of year", 
@@ -90,7 +91,7 @@ plot_Extract_Snowfence = function(Extract_processed){
     stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
     stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
     facet_wrap(~YEAR+Site)+
-    theme_light()+
+    theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
     labs(x = "Time of year", 
@@ -103,7 +104,7 @@ plot_Extract_Snowfence = function(Extract_processed){
     stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
     stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
     facet_wrap(~YEAR+Site)+
-    theme_light()+
+    theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
     labs(x = "Time of year", 
@@ -116,7 +117,7 @@ plot_Extract_Snowfence = function(Extract_processed){
     stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
     stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
     facet_wrap(~YEAR+Site)+
-    theme_light()+
+    theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
     labs(x = "Time of year", 
@@ -148,7 +149,8 @@ plot_Extract_Snowfence = function(Extract_processed){
     group_by(analyte,Site, YEAR, TIME) %>%
     na.omit()%>%
     do(fit_aov(.))%>%
-    na.omit()
+    na.omit() %>%
+    knitr::kable()
   
   Extract_Snowfence_aov
   
@@ -177,7 +179,7 @@ plot_Extract_Snowfence_H2O = function(Extract_Processed_H2O){
     stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
     stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
     facet_wrap(~YEAR+Site)+
-    theme_light()+
+    theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
     labs(x = "Month", 
@@ -191,7 +193,7 @@ plot_Extract_Snowfence_H2O = function(Extract_Processed_H2O){
     stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
     stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
     facet_wrap(~YEAR+Site)+
-    theme_light()+
+    theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
     labs(x = "Month", 
@@ -204,7 +206,7 @@ plot_Extract_Snowfence_H2O = function(Extract_Processed_H2O){
     stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
     stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
     facet_wrap(~YEAR+Site)+
-    theme_light()+
+    theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
     labs(x = "Month", 
@@ -217,7 +219,7 @@ plot_Extract_Snowfence_H2O = function(Extract_Processed_H2O){
     stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
     stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
     facet_wrap(~YEAR+Site)+
-    theme_light()+
+    theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
     labs(x = "Month", 
@@ -231,7 +233,7 @@ plot_Extract_Snowfence_H2O = function(Extract_Processed_H2O){
     stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
     stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
     facet_wrap(~YEAR+Site)+
-    theme_light()+
+    theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
     labs(x = "Month", 
