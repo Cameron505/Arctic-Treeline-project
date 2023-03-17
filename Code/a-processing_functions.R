@@ -38,14 +38,13 @@ process_Extract =function(Extract_data){
            MONTH=month(DATE)) %>%
     mutate_at(c('NH4', 'NO3','PO4','TFPA','phenolics','TRS','MBC','MBN','Mic.PO4'), as.numeric) %>%
     filter(treatment %in% c("Snowfence","Control")) %>%
-    mutate(MONTH=as.factor(MONTH),
-           TIME= ifelse(MONTH == 3, "Late winter", as.character(MONTH)), 
-           TIME= ifelse(TIME == 4, "Late winter", as.character(TIME)),
-           TIME= ifelse(TIME == 5, "Early spring", as.character(TIME)),
-           TIME= ifelse(TIME == 6, "Early spring", as.character(TIME)),
-           TIME= ifelse(TIME == 9, "Late summer", as.character(TIME))
-    ) %>%
-    mutate(TIME = factor(TIME, levels=c("Late winter","Early spring","Late summer")))
+    mutate(MONTH=as.factor(MONTH))%>%
+    mutate (TIME= ifelse(MONTH == 3, "LW", as.character(MONTH))) %>%
+    mutate (TIME= ifelse(TIME == 4, "LW", as.character(TIME)))%>%
+    mutate (TIME= ifelse(TIME == 5, "ES", as.character(TIME)))%>%
+    mutate (TIME= ifelse(TIME == 6, "ES", as.character(TIME)))%>%
+    mutate (TIME= ifelse(TIME == 9, "LS", as.character(TIME))) %>%
+    mutate(TIME = factor(TIME, levels=c("LW","ES","LS")))
     
 }
 
