@@ -5,126 +5,6 @@
 
 plot_Extract_Snowfence = function(Extract_processed){
   
-  gg_NH4_Extract =
-    Extract_processed %>%
-    ggplot(aes(x=TIME, y=NH4, fill=treatment))+
-    stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
-    stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
-    facet_wrap(~YEAR+Site)+
-    theme_light()+
-    theme(axis.text.x = element_text(angle = 90, hjust = 1))+
-    scale_colour_manual(values=cbPalette2)+
-    scale_fill_manual(values=cbPalette2)+
-    labs(x = "Time of year", 
-         y = bquote('Ammonium ('*mu*'g '*NH[4]^"+"~-N~g^-1 ~ dry ~ soil*')'))+
-    ggtitle("Ammonium")
-  
-  
-  gg_NO3_Extract =
-    Extract_processed %>%
-    ggplot(aes(x=TIME, y=NO3, fill=treatment))+
-    stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
-    stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
-    facet_wrap(~YEAR+Site)+
-    theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
-    scale_colour_manual(values=cbPalette2)+
-    scale_fill_manual(values=cbPalette2)+
-    labs(x = "Time of year", 
-         y = bquote('Nitrate ('*mu*'g '*NO[3]^"-"~-N~g^-1 ~ dry ~ soil*')'))+
-    ggtitle("Nitrate")
-  
-  gg_PO4_Extract =
-    Extract_processed %>%
-    ggplot(aes(x=TIME, y=PO4, fill=treatment))+
-    stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
-    stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
-    facet_wrap(~YEAR+Site)+
-    theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
-    scale_colour_manual(values=cbPalette2)+
-    scale_fill_manual(values=cbPalette2)+
-    labs(x = "Time of year", 
-         y = bquote('Phosphate ('*mu*'g '*PO[4]^"3-"~-P~g^-1 ~ dry ~ soil*')'))+
-    ggtitle("Phosphate")
-  
-  gg_TRS_Extract =
-    Extract_processed %>%
-    ggplot(aes(x=TIME, y=TRS, fill=treatment))+
-    stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
-    stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
-    facet_wrap(~YEAR+Site)+
-    theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
-    scale_colour_manual(values=cbPalette2)+
-    scale_fill_manual(values=cbPalette2)+
-    labs(x = "Time of year", 
-         y = bquote('Total reducing sugars-glucose equiv. ('*mu*'g' ~g^-1 ~ dry ~ soil*')'))+
-    ggtitle("TRS")
-  
-  gg_phenolics_Extract =
-    Extract_processed %>%
-    ggplot(aes(x=TIME, y=phenolics, fill=treatment))+
-    stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
-    stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
-    facet_wrap(~YEAR+Site)+
-    theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
-    scale_colour_manual(values=cbPalette2)+
-    scale_fill_manual(values=cbPalette2)+
-    labs(x = "Time of year", 
-         y = bquote('Phenolics-gallic acid equiv. ('*mu*'g' ~g^-1 ~ dry ~ soil*')'))+
-    ggtitle("phenolics")
-  
-  gg_TFPA_Extract =
-    Extract_processed %>%
-    ggplot(aes(x=TIME, y=TFPA, fill=treatment))+
-    stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
-    stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
-    facet_wrap(~YEAR+Site)+
-    theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
-    scale_colour_manual(values=cbPalette2)+
-    scale_fill_manual(values=cbPalette2)+
-    labs(x = "Time of year", 
-         y = bquote('Total free primary amines-Leucine equiv. (nMol' ~g^-1 ~ dry ~ soil*')'))+
-    ggtitle("TFPA")
-  
-  gg_MBC_Extract =
-    Extract_processed %>%
-    ggplot(aes(x=TIME, y=MBC, fill=treatment))+
-    stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
-    stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
-    facet_wrap(~YEAR+Site)+
-    theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
-    scale_colour_manual(values=cbPalette2)+
-    scale_fill_manual(values=cbPalette2)+
-    labs(x = "Time of year", 
-         y = bquote('Microbial biomass ('*mu*'g C'~g^-1 ~ dry ~ soil*')'))+
-    ggtitle("MBC")
-  
-  gg_MBN_Extract =
-    Extract_processed %>%
-    ggplot(aes(x=TIME, y=MBN, fill=treatment))+
-    stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
-    stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
-    facet_wrap(~YEAR+Site)+
-    theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
-    scale_colour_manual(values=cbPalette2)+
-    scale_fill_manual(values=cbPalette2)+
-    labs(x = "Time of year", 
-         y = bquote('Microbial biomass ('*mu*'g N'~g^-1 ~ dry ~ soil*')'))+
-    ggtitle("MBN")
-  
-  gg_MBP_Extract =
-    Extract_processed %>%
-    ggplot(aes(x=TIME, y=Mic.PO4, fill=treatment))+
-    stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
-    stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
-    facet_wrap(~YEAR+Site)+
-    theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
-    scale_colour_manual(values=cbPalette2)+
-    scale_fill_manual(values=cbPalette2)+
-    labs(x = "Time of year", 
-         y = bquote('Microbial biomass ('*mu*'g P'~g^-1 ~ dry ~ soil*')'))+
-    ggtitle("MBP")
-  
-  
   
   fit_aov = function(Extract_processed){
     
@@ -148,11 +28,151 @@ plot_Extract_Snowfence = function(Extract_processed){
     Extract_processed_long %>% 
     group_by(analyte,Site, YEAR, TIME) %>%
     na.omit()%>%
+    do(fit_aov(.)) %>%
+    mutate( treatment="Snowfence")
+  
+  geom_text(data = all_aov %>% filter(analyte == "NH4"), aes(y = 5, label = asterisk), size=10)+
+  
+  
+  
+  gg_NH4_Extract =
+    Extract_processed %>%
+    ggplot(aes(x=TIME, y=NH4, fill=treatment))+
+    stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
+    stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
+    facet_wrap(~YEAR+Site)+
+    geom_text(data = Extract_Snowfence_aov %>% filter(analyte == "NH4"), aes(y = 100, label = asterisk), size=10)+
+    theme_light()+
+    theme(axis.text.x = element_text(angle = 90, hjust = 1))+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    labs(x = "Time of year", 
+         y = bquote('Ammonium ('*mu*'g '*NH[4]^"+"~-N~g^-1 ~ dry ~ soil*')'))+
+    ggtitle("Ammonium")
+  
+  
+  gg_NO3_Extract =
+    Extract_processed %>%
+    ggplot(aes(x=TIME, y=NO3, fill=treatment))+
+    stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
+    stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
+    facet_wrap(~YEAR+Site)+
+    geom_text(data = Extract_Snowfence_aov %>% filter(analyte == "NO3"), aes(y = 100, label = asterisk), size=10)+
+    theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    labs(x = "Time of year", 
+         y = bquote('Nitrate ('*mu*'g '*NO[3]^"-"~-N~g^-1 ~ dry ~ soil*')'))+
+    ggtitle("Nitrate")
+  
+  gg_PO4_Extract =
+    Extract_processed %>%
+    ggplot(aes(x=TIME, y=PO4, fill=treatment))+
+    stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
+    stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
+    facet_wrap(~YEAR+Site)+
+    geom_text(data = Extract_Snowfence_aov %>% filter(analyte == "PO4"), aes(y = 25, label = asterisk), size=4)+
+    theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    labs(x = "Time of year", 
+         y = bquote('Phosphate ('*mu*'g '*PO[4]^"3-"~-P~g^-1 ~ dry ~ soil*')'))+
+    ggtitle("Phosphate")
+  
+  gg_TRS_Extract =
+    Extract_processed %>%
+    ggplot(aes(x=TIME, y=TRS, fill=treatment))+
+    stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
+    stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
+    facet_wrap(~YEAR+Site)+
+    geom_text(data = Extract_Snowfence_aov %>% filter(analyte == "TRS"), aes(y = 9, label = asterisk), size=4)+
+    theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    labs(x = "Time of year", 
+         y = bquote('Total reducing sugars-glucose equiv. ('*mu*'g' ~g^-1 ~ dry ~ soil*')'))+
+    ggtitle("TRS")
+  
+  gg_phenolics_Extract =
+    Extract_processed %>%
+    ggplot(aes(x=TIME, y=phenolics, fill=treatment))+
+    stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
+    stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
+    facet_wrap(~YEAR+Site)+
+    geom_text(data = Extract_Snowfence_aov %>% filter(analyte == "phenolics"), aes(y = 9, label = asterisk), size=4)+
+    theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    labs(x = "Time of year", 
+         y = bquote('Phenolics-gallic acid equiv. ('*mu*'g' ~g^-1 ~ dry ~ soil*')'))+
+    ggtitle("phenolics")
+  
+  gg_TFPA_Extract =
+    Extract_processed %>%
+    ggplot(aes(x=TIME, y=TFPA, fill=treatment))+
+    stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
+    stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
+    facet_wrap(~YEAR+Site)+
+    geom_text(data = Extract_Snowfence_aov %>% filter(analyte == "TFPA"), aes(y = 4000, label = asterisk), size=4)+
+    theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    labs(x = "Time of year", 
+         y = bquote('Total free primary amines-Leucine equiv. (nMol' ~g^-1 ~ dry ~ soil*')'))+
+    ggtitle("TFPA")
+  
+  gg_MBC_Extract =
+    Extract_processed %>%
+    ggplot(aes(x=TIME, y=MBC, fill=treatment))+
+    stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
+    stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
+    facet_wrap(~YEAR+Site)+
+    geom_text(data = Extract_Snowfence_aov %>% filter(analyte == "MBC"), aes(y = 9, label = asterisk), size=4)+
+    theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    labs(x = "Time of year", 
+         y = bquote('Microbial biomass ('*mu*'g C'~g^-1 ~ dry ~ soil*')'))+
+    ggtitle("MBC")
+  
+  gg_MBN_Extract =
+    Extract_processed %>%
+    ggplot(aes(x=TIME, y=MBN, fill=treatment))+
+    stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
+    stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
+    facet_wrap(~YEAR+Site)+
+    geom_text(data = Extract_Snowfence_aov %>% filter(analyte == "MBN"), aes(y = 1000, label = asterisk), size=4)+
+    theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    labs(x = "Time of year", 
+         y = bquote('Microbial biomass ('*mu*'g N'~g^-1 ~ dry ~ soil*')'))+
+    ggtitle("MBN")
+  
+  gg_MBP_Extract =
+    Extract_processed %>%
+    ggplot(aes(x=TIME, y=Mic.PO4, fill=treatment))+
+    stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
+    stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
+    facet_wrap(~YEAR+Site)+
+    geom_text(data = Extract_Snowfence_aov %>% filter(analyte == "Mic.PO4"), aes(y = 9, label = asterisk), size=4)+
+    theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    labs(x = "Time of year", 
+         y = bquote('Microbial biomass ('*mu*'g P'~g^-1 ~ dry ~ soil*')'))+
+    ggtitle("MBP")
+  
+  
+  Extract_Snowfence_aov2 = 
+    Extract_processed_long %>% 
+    group_by(analyte,Site, YEAR, TIME) %>%
+    na.omit()%>%
     do(fit_aov(.))%>%
     na.omit() %>%
     knitr::kable()
   
-  Extract_Snowfence_aov
+  Extract_Snowfence_aov2
   
   
   list("Snowfence Vs. Control NH4"= gg_NH4_Extract,
@@ -164,7 +184,7 @@ plot_Extract_Snowfence = function(Extract_processed){
        "Snowfence Vs. Control MBC"= gg_MBC_Extract,
        "Snowfence Vs. Control MBN"= gg_MBN_Extract,
        "Snowfence Vs. Control MBP"= gg_MBP_Extract,
-       Extract_Snowfence_aov=Extract_Snowfence_aov
+       Extract_Snowfence_aov2=Extract_Snowfence_aov2
        )
   
  
@@ -175,7 +195,7 @@ plot_Extract_Snowfence_H2O = function(Extract_Processed_H2O){
   
   gg_NH4_Extract =
     Extract_Processed_H2O %>%
-    ggplot(aes(x=MONTH, y=NH4.H2O, fill=treatment))+
+    ggplot(aes(x=TIME, y=NH4.H2O, fill=treatment))+
     stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
     stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
     facet_wrap(~YEAR+Site)+
@@ -189,7 +209,7 @@ plot_Extract_Snowfence_H2O = function(Extract_Processed_H2O){
   
   gg_NO3_Extract =
     Extract_Processed_H2O %>%
-    ggplot(aes(x=MONTH, y=NO3.H2O, fill=treatment))+
+    ggplot(aes(x=TIME, y=NO3.H2O, fill=treatment))+
     stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
     stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
     facet_wrap(~YEAR+Site)+
@@ -202,7 +222,7 @@ plot_Extract_Snowfence_H2O = function(Extract_Processed_H2O){
   
   gg_PO4_Extract =
     Extract_Processed_H2O %>%
-    ggplot(aes(x=MONTH, y=PO4.H2O, fill=treatment))+
+    ggplot(aes(x=TIME, y=PO4.H2O, fill=treatment))+
     stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
     stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
     facet_wrap(~YEAR+Site)+
@@ -215,7 +235,7 @@ plot_Extract_Snowfence_H2O = function(Extract_Processed_H2O){
   
   gg_TRS_Extract =
     Extract_Processed_H2O %>%
-    ggplot(aes(x=MONTH, y=TRS.H2O, fill=treatment))+
+    ggplot(aes(x=TIME, y=TRS.H2O, fill=treatment))+
     stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
     stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
     facet_wrap(~YEAR+Site)+
@@ -229,7 +249,7 @@ plot_Extract_Snowfence_H2O = function(Extract_Processed_H2O){
   
   gg_TFPA_Extract =
     Extract_Processed_H2O %>%
-    ggplot(aes(x=MONTH, y=TFPA.H2O, fill=treatment))+
+    ggplot(aes(x=TIME, y=TFPA.H2O, fill=treatment))+
     stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
     stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
     facet_wrap(~YEAR+Site)+
