@@ -31,8 +31,6 @@ plot_Extract_Snowfence = function(Extract_processed){
     do(fit_aov(.)) %>%
     mutate( treatment="Snowfence")
   
-  geom_text(data = all_aov %>% filter(analyte == "NH4"), aes(y = 5, label = asterisk), size=10)+
-  
   
   
   gg_NH4_Extract =
@@ -191,14 +189,45 @@ plot_Extract_Snowfence = function(Extract_processed){
   
 }
 
-plot_Extract_Snowfence_H2O = function(Extract_Processed_H2O){
+plot_Extract_Snowfence_H2O = function(Extract_processed_H2O){
+  
+  fit_aov = function(Extract_processed_H2O){
+    
+    a = aov(conc ~ treatment, data = Extract_processed_H2O)
+    broom::tidy(a) %>% 
+      filter(term == "treatment") %>% 
+      dplyr::select(`p.value`) %>% 
+      mutate(asterisk = case_when(`p.value` <= 0.05 ~ "*"))
+    
+  }
+  
+  Extract_processed_long_H2O = Extract_processed_H2O %>%
+    select(-c(TOC.k2so4:Dry.weight)) %>%
+    mutate_at('TRS.H2O',as.numeric)%>%
+    pivot_longer(cols= NH4.H2O:TRS.H2O,
+                 names_to= "analyte",
+                 values_to= "conc") %>%
+    filter(analyte!= "Mic.PO4")
+  
+  
+  Extract_Snowfence_aov_H2O = 
+    Extract_processed_long_H2O %>% 
+    group_by(analyte,Site, YEAR, TIME) %>%
+    na.omit()%>%
+    do(fit_aov(.)) %>%
+    mutate( treatment="Snowfence")
+  
+  
+  
+  
   
   gg_NH4_Extract =
-    Extract_Processed_H2O %>%
+    Extract_processed_H2O %>%
     ggplot(aes(x=TIME, y=NH4.H2O, fill=treatment))+
     stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
     stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
     facet_wrap(~YEAR+Site)+
+    geom_text(data = Extract_Snowfence_aov_H2O %>% filter(analyte == "NH4.H2O"), aes(y = 50, label = asterisk), size=4)+
     theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -208,11 +237,12 @@ plot_Extract_Snowfence_H2O = function(Extract_Processed_H2O){
   
   
   gg_NO3_Extract =
-    Extract_Processed_H2O %>%
+    Extract_processed_H2O %>%
     ggplot(aes(x=TIME, y=NO3.H2O, fill=treatment))+
     stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
     stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
     facet_wrap(~YEAR+Site)+
+    geom_text(data = Extract_Snowfence_aov_H2O %>% filter(analyte == "NO3.H2O"), aes(y = 60, label = asterisk), size=10)+
     theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -221,11 +251,12 @@ plot_Extract_Snowfence_H2O = function(Extract_Processed_H2O){
     ggtitle("Water Extracted Nitrate")
   
   gg_PO4_Extract =
-    Extract_Processed_H2O %>%
+    Extract_processed_H2O %>%
     ggplot(aes(x=TIME, y=PO4.H2O, fill=treatment))+
     stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
     stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
     facet_wrap(~YEAR+Site)+
+    geom_text(data = Extract_Snowfence_aov_H2O %>% filter(analyte == "PO4.H2O"), aes(y = 60, label = asterisk), size=10)+
     theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -234,11 +265,12 @@ plot_Extract_Snowfence_H2O = function(Extract_Processed_H2O){
     ggtitle("Water Extracted Phosphate")
   
   gg_TRS_Extract =
-    Extract_Processed_H2O %>%
+    Extract_processed_H2O %>%
     ggplot(aes(x=TIME, y=TRS.H2O, fill=treatment))+
     stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
     stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
     facet_wrap(~YEAR+Site)+
+    geom_text(data = Extract_Snowfence_aov_H2O %>% filter(analyte == "TRS.H2O"), aes(y = 2, label = asterisk), size=4)+
     theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -248,11 +280,12 @@ plot_Extract_Snowfence_H2O = function(Extract_Processed_H2O){
   
   
   gg_TFPA_Extract =
-    Extract_Processed_H2O %>%
+    Extract_processed_H2O %>%
     ggplot(aes(x=TIME, y=TFPA.H2O, fill=treatment))+
     stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
     stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
     facet_wrap(~YEAR+Site)+
+    geom_text(data = Extract_Snowfence_aov_H2O %>% filter(analyte == "TFPA.H2O"), aes(y = 60, label = asterisk), size=10)+
     theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -260,6 +293,17 @@ plot_Extract_Snowfence_H2O = function(Extract_Processed_H2O){
          y = bquote('Total free primary amines-Leucine equiv. (nMol' ~g^-1 ~ dry ~ soil*')'))+
     ggtitle("Water Extracted TFPA")
   
+  
+  
+  Extract_Snowfence_aov2_H2O = 
+    Extract_processed_long_H2O %>% 
+    group_by(analyte,Site, YEAR, TIME) %>%
+    na.omit()%>%
+    do(fit_aov(.))%>%
+    na.omit() %>%
+    knitr::kable()
+  
+  Extract_Snowfence_aov2_H2O
   
   
   list("Snowfence Vs. Control H2O NH4"= gg_NH4_Extract,
@@ -338,6 +382,37 @@ plot_PoreWater_Snowfence = function(PoreWater_processed){
     labs(x = "Date", 
          y = bquote('Total free primary amines-Leucine equiv. (nMol' ~mL^-1 ~ Soil ~ Solution*')'))+
     ggtitle("TFPA")
+  
+  
+  
+  PoreWater_processed_long = PoreWater_processed %>%
+    pivot_longer(cols= Mass:TRS,
+                 names_to= "analyte",
+                 values_to= "conc") 
+  
+  a = nlme::lme(TRS ~ YEAR+treatment+MONTH,random = ~1|Plot,
+                data = PoreWater_processed,na.action=na.exclude)
+  
+  
+  Fit.LME=function(PoreWater_processed_long){
+  a = nlme::lme(analyte ~ MONTH + YEAR + Site + treatment,
+                random = ~1|Plot,
+                data = PoreWater_processed_long)
+  }
+  
+  
+  
+  
+  aanova<-anova(a) %>%
+    knitr::kable("simple")
+  
+  
+  
+  
+  
+  
+  
+  
   
   list("Snowfence Vs. Control PoreWater_NH4"= gg_NH4_PoreWater,
        "Snowfence Vs. Control PoreWater_NO3"= gg_NO3_PoreWater,
