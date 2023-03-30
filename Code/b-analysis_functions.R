@@ -401,7 +401,9 @@ plot_PoreWater_Snowfence = function(PoreWater_processed){
   }
   
   
-  
+  Porewater_Snowfence_LME = 
+    PoreWater_processed_long %>% 
+    do(Fit.LME(.))
   
   aanova<-anova(a) %>%
     knitr::kable("simple")
