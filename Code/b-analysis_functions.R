@@ -400,9 +400,9 @@ plot_PoreWater_Snowfence = function(PoreWater_processed){
   a %>% 
     as.data.frame() %>% 
     rownames_to_column("variable") %>% 
-    filter(variable == c("MONTH","YEAR","Site","treatment")) %>%
+    filter(variable %in% c("MONTH","YEAR","Site","treatment")) %>%
     rename(p_value = `p-value`) %>% 
-    dplyr::select(p_value) %>% 
+    #dplyr::select(p_value) %>% 
     mutate(p_value = round(p_value, 3))
   }
   
@@ -414,33 +414,7 @@ plot_PoreWater_Snowfence = function(PoreWater_processed){
   
   
   
-  
-  
-  #### Done individually on analyte
-  
-  a = nlme::lme(NH4 ~ YEAR+treatment+MONTH+ Site,random = ~1|Plot,
-                data = PoreWater_processed,na.action=na.exclude)
-  NH4_anova<-anova(a)
-  b = nlme::lme(NO3 ~ YEAR+treatment+MONTH+ Site,random = ~1|Plot,
-                data = PoreWater_processed,na.action=na.exclude)
-  NO3_anova<-anova(b)
-  c = nlme::lme(PO4 ~ YEAR+treatment+MONTH+ Site,random = ~1|Plot,
-                data = PoreWater_processed,na.action=na.exclude)
-  PO4_anova<-anova(c) 
-  d = nlme::lme(TFPA ~ YEAR+treatment+MONTH+ Site,random = ~1|Plot,
-                data = PoreWater_processed,na.action=na.exclude)
-  TFPA_anova<-anova(d)
-  e = nlme::lme(TRS ~ YEAR+treatment+MONTH+ Site,random = ~1|Plot,
-                data = PoreWater_processed,na.action=na.exclude)
-  TRS_anova<-anova(e) 
-  
-  
-
-  NH4_anova 
-  NO3_anova
-  PO4_anova
-  TFPA_anova
-  TRS_anova
+ 
   
   
   
@@ -450,7 +424,8 @@ plot_PoreWater_Snowfence = function(PoreWater_processed){
        "Snowfence Vs. Control PoreWater_PO4"= gg_PO4_PoreWater,
        "Snowfence Vs. Control PoreWater_TFPA"= gg_TFPA_PoreWater,
        #"Snowfence Vs. Control PoreWater_Phenolics"= gg_phenolics_PoreWater,
-       "Snowfence Vs. Control PoreWater_TRS"= gg_TRS_PoreWater
+       "Snowfence Vs. Control PoreWater_TRS"= gg_TRS_PoreWater,
+       Porewater_Snowfence_LME=Porewater_Snowfence_LME
   )
 }
 
