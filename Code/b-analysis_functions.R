@@ -390,21 +390,30 @@ plot_PoreWater_Snowfence = function(PoreWater_processed){
                  names_to= "analyte",
                  values_to= "conc") 
   
-  a = nlme::lme(TRS ~ YEAR+treatment+MONTH,random = ~1|Plot,
+  a = nlme::lme(NH4 ~ YEAR+treatment+MONTH+ Site,random = ~1|Plot,
                 data = PoreWater_processed,na.action=na.exclude)
   
   
   Fit.LME=function(PoreWater_processed_long){
-  a = nlme::lme(analyte ~ MONTH + YEAR + Site + treatment,
+  a = nlme::lme(conc ~ MONTH + YEAR + Site + treatment,
                 random = ~1|Plot,
-                data = PoreWater_processed_long)
+                data = PoreWater_processed_long,na.action=na.exclude)
   }
   
   
   Porewater_Snowfence_LME = 
     PoreWater_processed_long %>% 
+    group_by(analyte)%>%
     do(Fit.LME(.))
   
+  
+  
+  
+  
+  #### Done individually on analyte
+  
+  a = nlme::lme(NH4 ~ YEAR+treatment+MONTH+ Site,random = ~1|Plot,
+                data = PoreWater_processed,na.action=na.exclude)
   aanova<-anova(a) %>%
     knitr::kable("simple")
   
