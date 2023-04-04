@@ -45,7 +45,15 @@ Soils were collected around trees on treelines in the western brooks range Alask
 ```{r , fig.height=6, fig.width=6, results='hide', out.width="100%"}
 tar_read(gg_aggie_Extract_Snowfence_Control)
 ```
-
+<details>
+  <summary>click to open ANOVA results</summary>
+  
+```{r , fig.height=6, fig.width=6}
+tar_read(gg_aggie_Extract_Snowfence_Control)$Extract_Snowfence_aov2
+tar_read(gg_aggie_Extract_Snowfence_Control)$Extract_Snowfence_aov3
+```
+  
+</details>
 </details>
 
 #### H2O: 
@@ -56,12 +64,20 @@ tar_read(gg_aggie_Extract_Snowfence_Control)
 ```{r , fig.height=6, fig.width=6, results='hide', out.width="100%"}
 tar_read(gg_aggie_Extract_Snowfence_Control_H2O)
 ```
+ <details>
+  <summary>click to open ANOVA results</summary>
+  
+```{r , fig.height=6, fig.width=6}
+tar_read(gg_aggie_Extract_Snowfence_Control_H2O)$Extract_Snowfence_aov2_H2O
+tar_read(gg_aggie_Extract_Snowfence_Control_H2O)$Extract_Snowfence_aov3_H2O
+```
 
+</details>
 </details>
 
 
 
- #### Pore water:
+#### Pore water:
  
   <details>
   <summary>click to open</summary>
@@ -71,10 +87,29 @@ tar_read(gg_aggie_Extract_Snowfence_Control_H2O)
 ```{r , fig.height=6, fig.width=6, results='hide', out.width="100%"}
 tar_read(gg_aggie_PoreWater_Snowfence_Control)
 ```
+<details>
+  <summary>click to open</summary>
+  
+ 
+
+```{r , fig.height=6, fig.width=6, results='hide', out.width="100%"}
+tar_read(gg_aggie_PoreWater_Snowfence_Control)
+```
+<details>
+  <summary>click to open LME results</summary>
+  
+ 
+
+```{r , fig.height=6, fig.width=6}
+tar_read(gg_aggie_PoreWater_Snowfence_Control)$Porewater_Snowfence_LME2
+tar_read(gg_aggie_PoreWater_Snowfence_Control)$Porewater_Snowfence_LME
+```
 
 </details>
+</details>
+</details>
 
- #### Resin strip:
+#### Resin strip:
  
   <details>
   <summary>click to open</summary>
@@ -85,6 +120,18 @@ tar_read(gg_aggie_PoreWater_Snowfence_Control)
 tar_read(gg_resin_Snowfence)
 ```
 
+
+<details>
+  <summary>click to open ANOVA results</summary>
+  
+ Differences between sites.
+
+```{r , fig.height=6, fig.width=6}
+tar_read(gg_resin_Snowfence)$Extract_resin_aov3
+tar_read(gg_resin_Snowfence)$Extract_resin_aov2
+```
+
+</details>
 </details>
 
 
@@ -123,7 +170,7 @@ tar_read(gg_Extract_Seasonal_H2O)
 
 
 
- #### Pore water:
+#### Pore water:
  
   <details>
   <summary>click to open</summary>
@@ -133,10 +180,20 @@ tar_read(gg_Extract_Seasonal_H2O)
 ```{r , fig.height=6, fig.width=6, results='hide', out.width="100%"}
 tar_read(gg_aggie_PoreWater_Seasonal)
 ```
+<details>
+  <summary>click to open LME results</summary>
+  
+ 
+
+```{r , fig.height=6, fig.width=6}
+tar_read(gg_aggie_PoreWater_Seasonal)$Porewater_Seasonal_LME
+tar_read(gg_aggie_PoreWater_Seasonal)$Porewater_Seasonal_LME2
+```
 
 </details>
+</details>
 
- #### Resin strip:
+#### Resin strip:
  
   <details>
   <summary>click to open</summary>
@@ -158,7 +215,7 @@ tar_read(gg_resin_Ancillary)
 <details>
   <summary>click to open</summary>
   
- #### Extracts:
+#### Extracts:
  Due to soil plot concerns only ancillary plots were harvested multiple times per year.
   K2SO4:
   
@@ -171,7 +228,7 @@ tar_read(gg_Extract_all)
 
 </details>
 
- #### H2O:
+#### H2O:
 
 <details>
 
@@ -185,7 +242,7 @@ tar_read(gg_Extract_all_H2O)
 
 
 
- #### Pore water:
+#### Pore water:
  
   <details>
   
@@ -196,10 +253,21 @@ tar_read(gg_Extract_all_H2O)
 ```{r , fig.height=6, fig.width=6, results='hide', out.width="100%"}
 tar_read(gg_aggie_PoreWater_all)
 ```
+<details>
+  
+  <summary>click to open LME results</summary>
+  
+ 
+
+```{r , fig.height=6, fig.width=6, results='hide', out.width="100%"}
+tar_read(gg_aggie_PoreWater_all)$Porewater_all_LME
+tar_read(gg_aggie_PoreWater_all)$Porewater_all_LME2
+```
 
 </details>
+</details>
 
- #### Resin strip:
+#### Resin strip:
 
 <details>
   <summary>click to open</summary>
@@ -223,7 +291,7 @@ tar_read(gg_resin)
 <details>
   <summary>click to open</summary>
   
- #### Extracts:
+#### Extracts:
  Due to soil plot concerns only ancillary plots were harvested multiple times per year.
   K2SO4:
   
@@ -236,7 +304,7 @@ tar_read(gg_Extract_Fert)
 
 </details>
 
- #### H2O:
+#### H2O:
 
 <details>
 
@@ -250,7 +318,7 @@ tar_read(gg_Extract_H2O_Fert)
 
 
 
- #### Pore water:
+#### Pore water:
  
   <details>
   
@@ -261,10 +329,21 @@ tar_read(gg_Extract_H2O_Fert)
 ```{r , fig.height=6, fig.width=6, results='hide', out.width="100%"}
 tar_read(gg_Porewater_Fert)
 ```
+<details>
+  
+  <summary>click to open LME results</summary>
+  
+ 
+
+```{r , fig.height=6, fig.width=6, results='hide', out.width="100%"}
+tar_read(gg_Porewater_Fert)$Porewater_LME
+tar_read(gg_Porewater_Fert)$Porewater_LME2
+```
 
 </details>
+</details>
 
- #### Resin strip:
+#### Resin strip:
 
 <details>
   <summary>click to open</summary>
