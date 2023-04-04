@@ -125,6 +125,8 @@ tar_read(gg_resin_Snowfence)
   <summary>click to open ANOVA results</summary>
   
  Differences between sites.
+ 
+ Treatment differences were almost non existent.only over winter NH4 Xeric 2019 showed differences between snowfence and control. 
 
 ```{r , fig.height=6, fig.width=6}
 tar_read(gg_resin_Snowfence)$Extract_resin_aov3
@@ -277,7 +279,18 @@ tar_read(gg_aggie_PoreWater_all)$Porewater_all_LME2
 ```{r , fig.height=6, fig.width=6, results='hide', out.width="100%"}
 tar_read(gg_resin)
 ```
+<details>
+  <summary>click to open</summary>
+  
+ ANOVA results. Differences between sites
+  
+```{r , fig.height=6, fig.width=6, results='hide', out.width="100%"}
+tar_read(gg_resin)$Extract_resin_aov3
+tar_read(gg_resin)$Extract_resin_aov4
+```
 
+
+</details>
 
 </details>
 

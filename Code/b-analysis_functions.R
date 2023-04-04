@@ -556,13 +556,13 @@ plot_resin_Snowfence = function(Resin_processed){
     Extract_processed_long %>% 
     group_by(analyte,YEAR,Treatment, Purpose2) %>%
     do(fit_aov2(.))%>%
-    knitr::kable()
+    knitr::kable(caption="Comparing Sites (Significant only)")
   Extract_resin_aov4 = 
     Extract_processed_long %>% 
     group_by(analyte,YEAR,Treatment, Purpose2) %>%
     do(fit_aov2(.))%>%
     na.omit()%>%
-    knitr::kable()
+    knitr::kable(caption="Comparing Sites")
   
   list("resin NH4-Treatment"= gg_NH4_Extract2,
        "resin NO3-Treatment"= gg_NO3_Extract2,
@@ -1998,7 +1998,7 @@ plot_resin_Ancillary = function(Resin_processed){
     scale_fill_manual(values=cbPalette2)+
     labs(x = "Season", 
          y = bquote('Ammonium ('*mu*'g '*NH[4]^"+"~-N~cm^-2 ~ Day^-1*')'))+
-    ggtitle("Ammonium")
+    ggtitle("Ammonium-Ancillary")
   
   
   gg_NO3_Extract2 =
@@ -2014,7 +2014,7 @@ plot_resin_Ancillary = function(Resin_processed){
     scale_fill_manual(values=cbPalette2)+
     labs(x = "Season", 
          y = bquote('Nitrate ('*mu*'g '*NO[3]^"-"~-N~cm^-2 ~ Day^-1*')'))+
-    ggtitle("Nitrate")
+    ggtitle("Nitrate-Ancillary")
   
   gg_PO4_Extract2 =
     Resin_processed %>%
@@ -2029,7 +2029,7 @@ plot_resin_Ancillary = function(Resin_processed){
     scale_fill_manual(values=cbPalette2)+
     labs(x = "Season", 
          y = bquote('Phosphate ('*mu*'g '*PO[4]^"3-"~-P~cm^-2 ~ Day^-1*')'))+
-    ggtitle("Phosphate")
+    ggtitle("Phosphate-Ancillary")
   
   
   list("resin NH4-Treatment"= gg_NH4_Extract2,
@@ -2041,6 +2041,48 @@ plot_resin_Ancillary = function(Resin_processed){
 
 plot_resin = function(Resin_processed){
   
+  fit_aov = function(Resin_processed){
+    
+    a = aov(conc ~ Treatment, data = Resin_processed)
+    broom::tidy(a) %>% 
+      filter(term == "Treatment") %>% 
+      dplyr::select(`p.value`) %>% 
+      mutate(asterisk = case_when(`p.value` <= 0.05 ~ "*"))
+    
+  }
+  
+  fit_aov2 = function(Resin_processed){
+    
+    a = aov(conc ~ Site, data = Resin_processed)
+    broom::tidy(a) %>% 
+      filter(term == "Site") %>% 
+      dplyr::select(`p.value`) %>% 
+      mutate(asterisk = case_when(`p.value` <= 0.05 ~ "*"))
+    
+  }
+  
+  Extract_processed_long = Resin_processed %>%
+    mutate(Purpose2=factor(Purpose2, levels= c("OW-GS","OW","GS")))%>%
+    select(-c(Matrix:Anion.area)) %>%
+    pivot_longer(cols= Nitrate:Phosphate,
+                 names_to= "analyte",
+                 values_to= "conc") %>%
+    filter(analyte!= "Mic.PO4")
+  
+  
+  Extract_resin_aov = 
+    Extract_processed_long %>% 
+    group_by(analyte,YEAR,Site,Purpose2) %>%
+    do(fit_aov(.)) %>%
+    mutate( Treatment="Snowfence")
+  
+  Extract_resin_aov2 = 
+    Extract_processed_long %>% 
+    group_by(analyte,YEAR, Purpose2) %>%
+    do(fit_aov2(.)) %>%
+  mutate( Site="Hydric")
+  
+  
   gg_NH4_Extract =
     Resin_processed %>%
     mutate(Purpose2=factor(Purpose2, levels= c("OW-GS","OW","GS")))%>%
@@ -2048,6 +2090,7 @@ plot_resin = function(Resin_processed){
     stat_summary(fun="mean",geom = "bar",size = 2, position= 'dodge') +
     stat_summary(fun.data = mean_se, geom = "errorbar", position= 'dodge')+
     facet_wrap(~YEAR, scale="free_x")+
+    geom_text(data = Extract_resin_aov2 %>% filter(analyte == "Ammonium"), aes(y = 0.04, label = asterisk), size=6)+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -2063,6 +2106,7 @@ plot_resin = function(Resin_processed){
     stat_summary(fun="mean",geom = "bar",size = 2, position= 'dodge') +
     stat_summary(fun.data = mean_se, geom = "errorbar", position= 'dodge')+
     facet_wrap(~YEAR, scale="free_x")+
+    geom_text(data = Extract_resin_aov2 %>% filter(analyte == "Nitrate"), aes(y = 0.015, label = asterisk), size=6)+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -2077,6 +2121,7 @@ plot_resin = function(Resin_processed){
     stat_summary(fun="mean",geom = "bar",size = 2, position= 'dodge') +
     stat_summary(fun.data = mean_se, geom = "errorbar", position= 'dodge')+
     facet_wrap(~YEAR, scale="free_x")+
+    geom_text(data = Extract_resin_aov2 %>% filter(analyte == "Phosphate"), aes(y = 0.04, label = asterisk), size=6)+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -2132,14 +2177,26 @@ plot_resin = function(Resin_processed){
     labs(x = "Season", 
          y = bquote('Phosphate ('*mu*'g '*PO[4]^"3-"~-P~cm^-2 ~ Day^-1*')'))+
     ggtitle("Phosphate- By Site and Treatment")
-  
+  Extract_resin_aov3 = 
+    Extract_processed_long %>% 
+    group_by(analyte,YEAR, Purpose2) %>%
+    do(fit_aov2(.)) %>%
+    na.omit()%>%
+    knitr::kable(caption="Significant differences between sites")
+  Extract_resin_aov4 = 
+    Extract_processed_long %>% 
+    group_by(analyte,YEAR, Purpose2) %>%
+    do(fit_aov2(.)) %>%
+    knitr::kable(caption="differences between sites all")
   
   list("resin NH4"= gg_NH4_Extract,
        "resin NO3"= gg_NO3_Extract,
        "resin PO4"= gg_PO4_Extract,
        "resin NH4-Treatment"= gg_NH4_Extract2,
        "resin NO3-Treatment"= gg_NO3_Extract2,
-       "resin PO4-Treatment"= gg_PO4_Extract2
+       "resin PO4-Treatment"= gg_PO4_Extract2,
+       Extract_resin_aov3=Extract_resin_aov3,
+       Extract_resin_aov4=Extract_resin_aov4
   )
   
 }

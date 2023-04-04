@@ -315,6 +315,9 @@ click to open ANOVA results
 
 Differences between sites.
 
+Treatment differences were almost non existent.only over winter NH4
+Xeric 2019 showed differences between snowfence and control.
+
 | analyte   | YEAR | Treatment | Purpose2 |   p.value | asterisk |
 |:----------|-----:|:----------|:---------|----------:|:---------|
 | Ammonium  | 2017 | Control   | OW       | 0.1828669 | NA       |
@@ -359,6 +362,8 @@ Differences between sites.
 | Phosphate | 2020 | Snowfence | OW-GS    | 0.3372624 | NA       |
 | Phosphate | 2021 | Control   | OW       | 0.0334202 | \*       |
 | Phosphate | 2021 | Snowfence | OW       | 0.0336466 | \*       |
+
+Comparing Sites (Significant only)
 
     ## NULL
 
@@ -527,7 +532,14 @@ click to open
 Resin strips were extracted in 2M KCl
 
 <img src="Aggie_report_files/figure-gfm/unnamed-chunk-19-1.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-19-2.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-19-3.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-19-4.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-19-5.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-19-6.png" width="100%" />
+<details>
+<summary>
+click to open
+</summary>
 
+ANOVA results. Differences between sites
+
+</details>
 </details>
 </details>
 
@@ -550,7 +562,7 @@ times per year. K2SO4:
 click to open
 </summary>
 
-<img src="Aggie_report_files/figure-gfm/unnamed-chunk-20-1.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-20-2.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-20-3.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-20-4.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-20-5.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-20-6.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-20-7.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-20-8.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-20-9.png" width="100%" />
+<img src="Aggie_report_files/figure-gfm/unnamed-chunk-21-1.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-21-2.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-21-3.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-21-4.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-21-5.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-21-6.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-21-7.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-21-8.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-21-9.png" width="100%" />
 
 </details>
 
@@ -561,7 +573,7 @@ click to open
 click to open
 </summary>
 
-<img src="Aggie_report_files/figure-gfm/unnamed-chunk-21-1.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-21-2.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-21-3.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-21-4.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-21-5.png" width="100%" />
+<img src="Aggie_report_files/figure-gfm/unnamed-chunk-22-1.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-22-2.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-22-3.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-22-4.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-22-5.png" width="100%" />
 
 </details>
 
@@ -571,7 +583,7 @@ click to open
 <summary>
 click to open
 </summary>
-<img src="Aggie_report_files/figure-gfm/unnamed-chunk-22-1.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-22-2.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-22-3.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-22-4.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-22-5.png" width="100%" />
+<img src="Aggie_report_files/figure-gfm/unnamed-chunk-23-1.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-23-2.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-23-3.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-23-4.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-23-5.png" width="100%" />
 <details>
 <summary>
 click to open LME results
@@ -588,7 +600,7 @@ click to open
 
 Resin strips were extracted in 2M KCl
 
-<img src="Aggie_report_files/figure-gfm/unnamed-chunk-24-1.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-24-2.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-24-3.png" width="100%" />
+<img src="Aggie_report_files/figure-gfm/unnamed-chunk-25-1.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-25-2.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-25-3.png" width="100%" />
 
 </details>
 </details>
@@ -609,7 +621,7 @@ click to open
 click to open
 </summary>
 
-![](Aggie_report_files/figure-gfm/unnamed-chunk-25-1.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-25-2.png)<!-- -->
+![](Aggie_report_files/figure-gfm/unnamed-chunk-26-1.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-26-2.png)<!-- -->
 
 </details>
 
@@ -620,7 +632,7 @@ click to open
 click to open
 </summary>
 
-![](Aggie_report_files/figure-gfm/unnamed-chunk-26-1.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-26-2.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-26-3.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-26-4.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-26-5.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-26-6.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-26-7.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-26-8.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-26-9.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-26-10.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-26-11.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-26-12.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-26-13.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-26-14.png)<!-- -->
+![](Aggie_report_files/figure-gfm/unnamed-chunk-27-1.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-27-2.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-27-3.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-27-4.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-27-5.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-27-6.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-27-7.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-27-8.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-27-9.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-27-10.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-27-11.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-27-12.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-27-13.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-27-14.png)<!-- -->
 
 </details>
 </details>
@@ -645,7 +657,7 @@ begining of June) and late spring (Late June or early July) from 2017,
 click to open
 </summary>
 
-![](Aggie_report_files/figure-gfm/unnamed-chunk-27-1.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-27-2.png)<!-- -->
+![](Aggie_report_files/figure-gfm/unnamed-chunk-28-1.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-28-2.png)<!-- -->
 
 </details>
 
@@ -656,9 +668,9 @@ click to open
 click to open
 </summary>
 
-![](Aggie_report_files/figure-gfm/unnamed-chunk-28-1.png)<!-- -->
-
 ![](Aggie_report_files/figure-gfm/unnamed-chunk-29-1.png)<!-- -->
+
+![](Aggie_report_files/figure-gfm/unnamed-chunk-30-1.png)<!-- -->
 
 Non-polar extracts were strongly dominated by low-O aliphatic molecules
 and skewed the overall trends when we combined results from polar and
@@ -705,18 +717,18 @@ Site accounted for 71 % of total variation among samples (R2= 0.71)
 click to open
 </summary>
 
-![](Aggie_report_files/figure-gfm/unnamed-chunk-31-1.png)<!-- -->
+![](Aggie_report_files/figure-gfm/unnamed-chunk-32-1.png)<!-- -->
 
 There was a strong separation among the three Site/soil types. Hydric
 and Xeric soils were strongly dominated by aliphatic (simple) molecules,
 whereas Mesic soils were dominated by lignin-like, aromatic, and
 condensed aromatic (complex) molecules.
 
-![](Aggie_report_files/figure-gfm/unnamed-chunk-32-1.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-32-2.png)<!-- -->
+![](Aggie_report_files/figure-gfm/unnamed-chunk-33-1.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-33-2.png)<!-- -->
 
 Hydric Only
 
-![](Aggie_report_files/figure-gfm/unnamed-chunk-33-1.png)<!-- -->
+![](Aggie_report_files/figure-gfm/unnamed-chunk-34-1.png)<!-- -->
 
 </details>
 
@@ -732,7 +744,7 @@ click to open
 click to open
 </summary>
 
-![](Aggie_report_files/figure-gfm/unnamed-chunk-34-1.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-34-2.png)<!-- -->
+![](Aggie_report_files/figure-gfm/unnamed-chunk-35-1.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-35-2.png)<!-- -->
 
 </details>
 3.3.2. Unique peaks by site
@@ -741,7 +753,7 @@ click to open
 click to open
 </summary>
 
-![](Aggie_report_files/figure-gfm/unnamed-chunk-35-1.png)<!-- -->
+![](Aggie_report_files/figure-gfm/unnamed-chunk-36-1.png)<!-- -->
 
 | Class              | Xeric | Mesic | Hydric |
 |:-------------------|------:|------:|-------:|
@@ -757,7 +769,7 @@ click to open
 click to open
 </summary>
 
-![](Aggie_report_files/figure-gfm/unnamed-chunk-37-1.png)<!-- -->
+![](Aggie_report_files/figure-gfm/unnamed-chunk-38-1.png)<!-- -->
 
 </details>
 </details>
@@ -773,7 +785,7 @@ click to open
 Session Info
 </summary>
 
-Date run: 2023-04-03
+Date run: 2023-04-04
 
     ## R version 4.2.3 (2023-03-15 ucrt)
     ## Platform: x86_64-w64-mingw32/x64 (64-bit)
