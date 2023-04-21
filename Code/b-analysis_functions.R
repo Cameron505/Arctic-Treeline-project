@@ -1059,6 +1059,28 @@ plot_Extract_all = function(Extract_processed_all){
   
   
   
+  
+  
+  
+  
+  gg_MBC_3year =
+    Extract_processed_all %>%
+    filter(YEAR %in% c("2017","2018","2019"), MONTH %in% c(5,6,7,8,9,10) )%>%
+    ggplot(aes(x=DATE, y=MBC, color=Site))+
+    stat_summary(fun="mean",geom = "line",size = 1) +
+    stat_summary(fun="mean",geom = "point",size = 3) +
+    stat_summary(fun.data = mean_se, geom = "errorbar", size=1)+
+    facet_wrap(~YEAR, scale="free_x")+
+    theme_light()+
+    theme(axis.text.x = element_text(angle=90))+
+    scale_x_date(date_labels = "%b/%d")+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    labs(x = "Date", 
+         y = bquote('Microbial biomass ('*mu*'g C'~g^-1 ~ dry ~ soil*')'))+
+    ggtitle("MBC")
+  ggsave(gg_MBC_3year,filename="MBC_3year.png","Graphs/", device= "png" ,width = 18, height = 12 , units = "in")
+  
   list("all NH4"= gg_NH4_Extract,
        "all NO3"= gg_NO3_Extract,
        "all PO4"= gg_PO4_Extract,
