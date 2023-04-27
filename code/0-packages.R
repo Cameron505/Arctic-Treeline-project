@@ -1,5 +1,5 @@
 library(tidyverse) #for tidy processing and plotting
-library(vegan) # for PERMANOVA analysis
+library(vegan) # for PERMANOVA analysishttp://127.0.0.1:10019/graphics/plot_zoom_png?width=750&height=900
 library(ggbiplot) #for PCA biplots
 library(lubridate)
 library(ggExtra)

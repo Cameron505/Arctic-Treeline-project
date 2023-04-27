@@ -1065,17 +1065,20 @@ plot_Extract_all = function(Extract_processed_all){
   
   gg_MBC_3year =
     Extract_processed_all %>%
-    filter(YEAR %in% c("2017","2018","2019"), MONTH %in% c(5,6,7,8,9,10) )%>%
+    filter(YEAR %in% c("2017","2018","2019") )%>%
     ggplot(aes(x=DATE, y=MBC, color=Site))+
-    stat_summary(fun="mean",geom = "line",size = 1) +
-    stat_summary(fun="mean",geom = "point",size = 3) +
-    stat_summary(fun.data = mean_se, geom = "errorbar", size=1)+
+    stat_summary(fun="mean",geom = "line",size = 1.3) +
+    stat_summary(fun="mean",geom = "point",size = 5) +
+    stat_summary(fun.data = mean_se, geom = "errorbar", size=0.8, color="black")+
     facet_wrap(~YEAR, scale="free_x")+
     theme_light()+
-    theme(axis.text.x = element_text(angle=90))+
+    theme(title = element_blank(),strip.text.x = element_blank(),
+          axis.text.x = element_text(angle=90),
+          axis.text=element_text(size=20),
+          axis.title=element_text(size=25,face="bold"),
+          legend.text = element_text(size=20))+
     scale_x_date(date_labels = "%b/%d")+
-    scale_colour_manual(values=cbPalette2)+
-    scale_fill_manual(values=cbPalette2)+
+    scale_colour_manual(values= c( "#33FFFF", "#990099","#66CC00"))+
     labs(x = "Date", 
          y = bquote('Microbial biomass ('*mu*'g C'~g^-1 ~ dry ~ soil*')'))+
     ggtitle("MBC")
