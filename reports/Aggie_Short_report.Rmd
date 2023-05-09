@@ -1,0 +1,159 @@
+---
+title: "Aggie subset data"
+output: 
+  github_document:
+  html_preview: True
+date: "2023-05-09"
+---
+```{r setup, include=FALSE, echo=FALSE}
+library(targets)
+knitr::opts_chunk$set(echo = FALSE,
+                      message = FALSE,
+                      warning = FALSE
+                      )
+```
+
+## sample summary
+
+<details>
+  <summary>click to open</summary>
+
+Soils were collected around trees on treelines in the western brooks range Alaska varying in soil moisture. Three sites were chosen: Tussock tundra (Mesic), Wet Sedge (Hydric), and Dryas-lichen tundra (Xeric). 8 similar trees were chosen per treatment based on their DBH and proximity to the treeline. Snow fences were constructed as a treatment to build larger snow packs around the given trees in winter and compared against a control group where nothing was done besides sampling. In order to reduce impact on these tree-plots 8 Ancillary trees were also chosen based on the same DBH, proximity to treeline parameters and used for seasonal sampling.   
+  A previous project conducted at these sites fertilized soils around similar trees. These soils were also sampled to identify long term effects of fertilization. 
+  Soils were collected from control and snowfence trees in march and late may/early June (Just after thaw) along with resin strips (Except in 2020). Soil pore water was taken regularly during the growing season (2017-2019). During 2019 collection frequencies reduced due to staffing and were disrupted due to COVID in 2020 with an inability to visit the field sites. 
+
+```{r setup, include=FALSE, echo=FALSE}
+```
+
+</details>
+
+---
+
+##   Snowfence Vs. Control
+
+<details>
+  <summary>click to open</summary>
+  
+ #### Extracts:
+  K2SO4 
+  No variation in extractable nutrients from snow fence treatment.
+  <details>
+  <summary>click to open</summary>
+  
+```{r , fig.height=6, fig.width=6, results='hide', out.width="100%"}
+tar_read(gg_aggie_Extract_Snowfence_Control)
+```
+
+</details>
+
+<details>
+  <summary>click to open ANOVA results</summary>
+  
+```{r , fig.height=6, fig.width=6}
+tar_read(gg_aggie_Extract_Snowfence_Control)$Extract_Snowfence_aov2
+tar_read(gg_aggie_Extract_Snowfence_Control)$Extract_Snowfence_aov3
+```
+  
+</details>
+
+</details>
+
+##   Microbial biomass
+
+<details>
+  <summary>click to open</summary>
+  
+ #### Extracts K2SO4:
+  Significant changes in microbial biomass over time and between sites, including a biomass crash observed in 2018, biomass was not seen increasing again until the end of 2019.
+  
+```{r , fig.height=6, fig.width=6, results='hide', out.width="100%"}
+tar_read(gg_Extract_Seasonal)$"Seasonal MBC"
+```
+  
+</details>
+
+##   Resin Strips
+
+<details>
+  <summary>click to open</summary>
+  
+ #### resin strip NO3 and PO4 concentrations:
+  Resin stips showed significant differences between sites. Primary feature: Xeric contained high NO3, and Mesic contained high PO4. These differences were not seen in soil extractions, in fact Mesic showed the highest NO3 extractable concentrations consistently, and Hydric showed the highest po4 extractable concentrations consistently
+  
+  <details>
+  <summary>click to open</summary>
+  
+```{r , fig.height=6, fig.width=6, results='hide', out.width="100%"}
+tar_read(gg_resin_Snowfence)$"resin NO3-Treatment"
+tar_read(gg_resin_Snowfence)$"resin PO4-Treatment"
+```
+  
+</details>
+
+#### Extractable NO3 and PO4 concentrations for comparison:
+
+ <details>
+  <summary>click to open</summary>
+  
+```{r , fig.height=6, fig.width=6, results='hide', out.width="100%"}
+tar_read(gg_Extract_Seasonal)$"Seasonal NO3"
+tar_read(gg_Extract_Seasonal)$"Seasonal PO4"
+```
+  
+</details>
+
+</details>
+
+##   Fertilized plots
+
+<details>
+  <summary>click to open</summary>
+  
+#### Extractions PO4 data:
+  pore water measurements from fertilized plots showed little variation in N components, but significantly more PO4 in 2017 and 2018 all season, with concentrations returning to that of the other plots near the end of 2019 in xeric and mesic. In Hydric concentrations of PO4 in pore water were also significantly higher in 2017, and at the beginning of 2018 and return to similar concentrations of other plots at the end of 2018, and remained similar for 2019.
+  
+```{r , fig.height=6, fig.width=6, results='hide', out.width="100%"}
+tar_read(gg_Porewater_Fert)$"Fert PoreWater_PO4"
+```
+
+</details>
+
+##   FTICR
+
+
+<details>
+  <summary>click to open</summary>
+
+
+#### PCA by Site:
+FTICR revealed large differences in organic matter content based on site, and small variation based on time of year. Mesic contains far more aromatic, condensed aromatic, and unsaturated lignin compounds (Note that it does not have the highest concentrations of phenolics). Site explained ~70% of the variation in FTICR compound diversity, where as the interaction between Site:year explained ~10% of the variation.
+
+<details>
+  <summary>click to open</summary>
+  
+
+  
+```{r , fig.height=6, fig.width=6, results='hide', out.width="100%"}
+tar_read(gg_pca_by_site)
+```
+
+</details>
+
+#### PERMANOVA results
+
+<details>
+  <summary>click to open</summary>
+
+
+```{r , fig.height=6, fig.width=6}
+tar_read(Permanova_table_polar)
+```
+
+Site, Site:Year were significant (p < 0.05)
+
+Site accounted for 71 % of total variation among samples (R2= 0.71)
+Site:Year accounted for ~10% of total variation among samples (R2=0.09)
+
+</details>
+
+</details>

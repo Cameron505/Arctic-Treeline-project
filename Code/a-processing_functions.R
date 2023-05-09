@@ -198,6 +198,11 @@ process_fticr_hcoc_polar =function(fticr_hcoc){
   fticr_hcoc_polar = fticr_hcoc %>% filter(Polar == "polar") 
   
 }
+process_fticr_hcoc_nonpolar =function(fticr_hcoc){
+  
+  fticr_hcoc_nonpolar = fticr_hcoc %>% filter(Polar == "nonpolar") 
+  
+}
 
 process_fticr_relabund_cores_polar =function(relabund_cores){
   
@@ -205,9 +210,20 @@ process_fticr_relabund_cores_polar =function(relabund_cores){
   
 }
 
+process_fticr_relabund_cores_nonpolar =function(relabund_cores){
+  
+  relabund_cores_nonpolar = relabund_cores %>% filter(Polar == "nonpolar")
+  
+}
+
 process_pca_polar =function(relabund_cores){
   
   pca_polar = fit_pca_function(relabund_cores %>% filter(Polar == "polar"))
+  
+}
+process_pca_nonpolar =function(relabund_cores){
+  
+  pca_nonpolar = fit_pca_function(relabund_cores %>% filter(Polar == "nonpolar"))
   
 }
 

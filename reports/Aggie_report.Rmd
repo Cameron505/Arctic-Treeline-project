@@ -462,6 +462,7 @@ We therefore analyze the two extract types separately, and focus primarily on th
   
 
 ###### 3.1. PERMANOVA
+Polar:
 
 <details>
   <summary>click to open</summary>
@@ -476,6 +477,18 @@ Site accounted for 71 % of total variation among samples (R2= 0.71)
 
 </details>
 
+Non-Polar:
+
+<details>
+  <summary>click to open</summary>
+  
+```{r , fig.height=6, fig.width=6}
+tar_read(Permanova_table_nonpolar)
+```
+
+
+
+</details>
 
 
 
@@ -518,6 +531,105 @@ tar_read(gg_pca_hydric)
 
 ```{r , fig.height=6, fig.width=6, results='hide'}
 tar_read(gg_vk_polar)
+```
+
+</details>
+
+
+
+3.3.2. Unique peaks by site
+<details>
+  <summary>click to open</summary>
+
+```{r , fig.height=6, fig.width=6, results='hide'}
+tar_read(gg_unique)
+```
+
+```{r , fig.height=6, fig.width=6}
+tar_read(gg_unique2)
+```
+
+</details>
+
+
+
+3.3.3. Seasonality Mesic and Hydric
+<details>
+  <summary>click to open</summary>
+
+```{r , fig.height=6, fig.width=6, results='hide'}
+tar_read(gg_seasonal)
+```
+
+</details>
+
+</details>
+
+</details>
+
+  
+</details>
+
+---
+
+
+
+
+#### 3. Non-Polar extracts
+
+<details>
+  <summary>click to open</summary>
+  
+
+###### 3.1. PERMANOVA
+
+
+Non-Polar:
+
+<details>
+  <summary>click to open</summary>
+  
+```{r , fig.height=6, fig.width=6}
+tar_read(Permanova_table_nonpolar)
+```
+
+
+
+</details>
+
+
+
+###### 3.2. PCA
+
+<details>
+  <summary>click to open</summary>
+  
+```{r , fig.height=6, fig.width=6, results='hide'}
+tar_read(gg_pca_by_site_nonpolar)
+```
+
+
+
+```{r , fig.height=6, fig.width=6, results='hide'}
+tar_read(gg_pca_nonpolar)
+```
+
+
+</details>
+
+###### 3.3. Van Krevelen 
+
+<details>
+  <summary>click to open</summary>
+
+
+
+3.3.1. All treatments
+<details>
+  <summary>click to open</summary>
+
+```{r , fig.height=6, fig.width=6, results='hide'}
+tar_read(gg_vk_nonpolar)
 ```
 
 </details>

@@ -2454,6 +2454,48 @@ plot_pca_polar= function(pca_polar){
   
 }
 
+plot_pca_nonpolar= function(pca_nonpolar){
+  
+  gg_pca_by_year = 
+    ggbiplot(pca_nonpolar$pca_int, obs.scale = 1, var.scale = 1,
+             groups = as.character(pca_nonpolar$grp$Year), 
+             ellipse = TRUE, circle = FALSE, var.axes = TRUE, alpha = 0) +
+    geom_point(size=3,stroke=1, alpha = 1,
+               aes(
+                 #shape = as.character(pca_polar$grp$Site),
+                 color = groups))+
+    #scale_shape_manual(values = c(21, 22, 19), name = "", guide = "none")+
+    xlim(-4,4)+
+    ylim(-3.5,3.5)+
+    labs(shape="",
+         title = "all samples-nonpolar",
+         subtitle = "separation by Site")+
+    theme_kp()+
+    NULL
+  
+  gg_pca_by_season = 
+    ggbiplot(pca_nonpolar$pca_int, obs.scale = 1, var.scale = 1,
+             groups = as.character(pca_nonpolar$grp$Season), 
+             ellipse = TRUE, circle = FALSE, var.axes = TRUE, alpha = 0) +
+    geom_point(size=3,stroke=1, alpha = 1,
+               aes(#shape = groups,
+                 color = groups))+
+    #scale_shape_manual(values = c(21, 22, 19), name = "", guide = "none")+
+    xlim(-4,4)+
+    ylim(-3.5,3.5)+
+    labs(shape="",
+         title = "all samples-nonpolar",
+         subtitle = "separation by Site")+
+    theme_kp()+
+    NULL
+  
+  
+  list("pca_by_year"= gg_pca_by_year,
+       "pca_by_season"= gg_pca_by_season
+  )
+  
+}
+
 plot_pca_hydric= function(pca_hydric){
   
   gg_pca_hydric = 
@@ -2581,6 +2623,27 @@ plot_permanova_polar= function( relabund_cores_polar){
            data = relabund_wide) 
   
  knitr::kable(permanova_fticr_all$aov.tab)
+  
+  
+}
+
+plot_permanova_nonpolar= function( relabund_cores_nonpolar){
+  relabund_wide = 
+    relabund_cores_nonpolar %>% 
+    ungroup() %>% 
+    mutate(Class = factor(Class, 
+                          levels = c("aliphatic", "unsaturated/lignin", 
+                                     "aromatic", "condensed aromatic"))) %>% 
+    dplyr::select(-c(abund, total)) %>% 
+    spread(Class, relabund) %>% 
+    replace(is.na(.), 0)
+  
+  # adonis function for PERMANOVA
+  permanova_fticr_all = 
+    adonis(relabund_wide %>% dplyr::select(aliphatic:`condensed aromatic`) ~ (Site + Year + Season)^2, 
+           data = relabund_wide) 
+  
+  knitr::kable(permanova_fticr_all$aov.tab)
   
   
 }
