@@ -112,7 +112,7 @@ list(
   tar_target(Permanova_table_polar, plot_permanova_polar(relabund_cores_polar)),
   tar_target(Permanova_table_nonpolar, plot_permanova_nonpolar(relabund_cores_nonpolar)),
   tar_target(gg_pca_by_site, plot_pca_by_site(pca_polar)),
-  tar_target(gg_pca_by_site_nonpolar, plot_pca_by_site(pca_nonpolar)),
+  tar_target(gg_pca_by_site_nonpolar, plot_pca_by_site_nonpolar(pca_nonpolar)),
   tar_target(gg_pca_polar, plot_pca_polar(pca_polar)),
   tar_target(gg_pca_nonpolar, plot_pca_nonpolar(pca_nonpolar)),
   tar_target(gg_pca_hydric, plot_pca_hydric(pca_hydric)),
@@ -127,7 +127,7 @@ list(
  
   
   # report  
-  tar_render(report, path = "reports/Aggie_report.Rmd")
-  #tar_render(report2, path = "reports/Aggie_Short_report.Rmd")
+  tar_render(report, path = "reports/Aggie_report.Rmd"),
+  tar_render(report2, path = "reports/Aggie_Short_report.Rmd")
   
 )

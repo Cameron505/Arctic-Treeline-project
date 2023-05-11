@@ -688,6 +688,8 @@ click to open
 
 ###### 3.1. PERMANOVA
 
+Polar:
+
 <details>
 <summary>
 click to open
@@ -704,9 +706,33 @@ click to open
 | Residuals   |  48 | 0.0450052 | 0.0009376 |          NA | 0.1555696 |      NA |
 | Total       |  59 | 0.2892930 |        NA |          NA | 1.0000000 |      NA |
 
+Polar PERMANOVA results
+
 Site, Site:Year were significant (p \< 0.05)
 
 Site accounted for 71 % of total variation among samples (R2= 0.71)
+
+</details>
+
+Non-Polar:
+
+<details>
+<summary>
+click to open
+</summary>
+
+|             |  Df |  SumsOfSqs |    MeanSqs |    F.Model |         R2 | Pr(\>F) |
+|:------------|----:|-----------:|-----------:|-----------:|-----------:|--------:|
+| Site        |   2 |  0.0815983 |  0.0407992 | 95.7669139 |  0.6687323 |   0.001 |
+| Year        |   1 |  0.0031369 |  0.0031369 |  7.3631567 |  0.0257082 |   0.016 |
+| Season      |   2 |  0.0019339 |  0.0009670 |  2.2697396 |  0.0158494 |   0.121 |
+| Site:Year   |   2 |  0.0123377 |  0.0061689 | 14.4800301 |  0.1011128 |   0.001 |
+| Site:Season |   3 |  0.0025707 |  0.0008569 |  2.0113723 |  0.0210679 |   0.120 |
+| Year:Season |   1 | -0.0000074 | -0.0000074 | -0.0173272 | -0.0000605 |   0.999 |
+| Residuals   |  48 |  0.0204492 |  0.0004260 |         NA |  0.1675900 |      NA |
+| Total       |  59 |  0.1220194 |         NA |         NA |  1.0000000 |      NA |
+
+Non-Polar PERMANOVA results
 
 </details>
 
@@ -717,18 +743,18 @@ Site accounted for 71 % of total variation among samples (R2= 0.71)
 click to open
 </summary>
 
-![](Aggie_report_files/figure-gfm/unnamed-chunk-32-1.png)<!-- -->
+![](Aggie_report_files/figure-gfm/unnamed-chunk-33-1.png)<!-- -->
 
 There was a strong separation among the three Site/soil types. Hydric
 and Xeric soils were strongly dominated by aliphatic (simple) molecules,
 whereas Mesic soils were dominated by lignin-like, aromatic, and
 condensed aromatic (complex) molecules.
 
-![](Aggie_report_files/figure-gfm/unnamed-chunk-33-1.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-33-2.png)<!-- -->
+![](Aggie_report_files/figure-gfm/unnamed-chunk-34-1.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-34-2.png)<!-- -->
 
 Hydric Only
 
-![](Aggie_report_files/figure-gfm/unnamed-chunk-34-1.png)<!-- -->
+![](Aggie_report_files/figure-gfm/unnamed-chunk-35-1.png)<!-- -->
 
 </details>
 
@@ -744,7 +770,7 @@ click to open
 click to open
 </summary>
 
-![](Aggie_report_files/figure-gfm/unnamed-chunk-35-1.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-35-2.png)<!-- -->
+![](Aggie_report_files/figure-gfm/unnamed-chunk-36-1.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-36-2.png)<!-- -->
 
 </details>
 3.3.2. Unique peaks by site
@@ -753,7 +779,7 @@ click to open
 click to open
 </summary>
 
-![](Aggie_report_files/figure-gfm/unnamed-chunk-36-1.png)<!-- -->
+![](Aggie_report_files/figure-gfm/unnamed-chunk-37-1.png)<!-- -->
 
 | Class              | Xeric | Mesic | Hydric |
 |:-------------------|------:|------:|-------:|
@@ -769,7 +795,97 @@ click to open
 click to open
 </summary>
 
-![](Aggie_report_files/figure-gfm/unnamed-chunk-38-1.png)<!-- -->
+![](Aggie_report_files/figure-gfm/unnamed-chunk-39-1.png)<!-- -->
+
+</details>
+</details>
+</details>
+</details>
+
+------------------------------------------------------------------------
+
+#### 3. Non-Polar extracts
+
+<details>
+<summary>
+click to open
+</summary>
+
+###### 3.1. PERMANOVA
+
+Non-Polar:
+
+<details>
+<summary>
+click to open
+</summary>
+
+|             |  Df |  SumsOfSqs |    MeanSqs |    F.Model |         R2 | Pr(\>F) |
+|:------------|----:|-----------:|-----------:|-----------:|-----------:|--------:|
+| Site        |   2 |  0.0815983 |  0.0407992 | 95.7669139 |  0.6687323 |   0.001 |
+| Year        |   1 |  0.0031369 |  0.0031369 |  7.3631567 |  0.0257082 |   0.016 |
+| Season      |   2 |  0.0019339 |  0.0009670 |  2.2697396 |  0.0158494 |   0.121 |
+| Site:Year   |   2 |  0.0123377 |  0.0061689 | 14.4800301 |  0.1011128 |   0.001 |
+| Site:Season |   3 |  0.0025707 |  0.0008569 |  2.0113723 |  0.0210679 |   0.120 |
+| Year:Season |   1 | -0.0000074 | -0.0000074 | -0.0173272 | -0.0000605 |   0.999 |
+| Residuals   |  48 |  0.0204492 |  0.0004260 |         NA |  0.1675900 |      NA |
+| Total       |  59 |  0.1220194 |         NA |         NA |  1.0000000 |      NA |
+
+Non-Polar PERMANOVA results
+
+</details>
+
+###### 3.2. PCA
+
+<details>
+<summary>
+click to open
+</summary>
+
+![](Aggie_report_files/figure-gfm/unnamed-chunk-41-1.png)<!-- -->
+
+![](Aggie_report_files/figure-gfm/unnamed-chunk-42-1.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-42-2.png)<!-- -->
+
+</details>
+
+###### 3.3. Van Krevelen
+
+<details>
+<summary>
+click to open
+</summary>
+3.3.1. All treatments
+<details>
+<summary>
+click to open
+</summary>
+
+![](Aggie_report_files/figure-gfm/unnamed-chunk-43-1.png)<!-- -->![](Aggie_report_files/figure-gfm/unnamed-chunk-43-2.png)<!-- -->
+
+</details>
+3.3.2. Unique peaks by site
+<details>
+<summary>
+click to open
+</summary>
+
+![](Aggie_report_files/figure-gfm/unnamed-chunk-44-1.png)<!-- -->
+
+| Class              | Xeric | Mesic | Hydric |
+|:-------------------|------:|------:|-------:|
+| aliphatic          |   172 |   483 |    294 |
+| aromatic           |    32 |   135 |     22 |
+| condensed aromatic |    10 |    65 |     17 |
+| unsaturated/lignin |   122 |   703 |     47 |
+
+</details>
+3.3.3. Seasonality Mesic and Hydric
+<details>
+<summary>
+click to open
+</summary>
+
+![](Aggie_report_files/figure-gfm/unnamed-chunk-46-1.png)<!-- -->
 
 </details>
 </details>
@@ -785,7 +901,7 @@ click to open
 Session Info
 </summary>
 
-Date run: 2023-04-04
+Date run: 2023-05-10
 
     ## R version 4.2.3 (2023-03-15 ucrt)
     ## Platform: x86_64-w64-mingw32/x64 (64-bit)
@@ -805,29 +921,29 @@ Date run: 2023-04-04
     ## [8] base     
     ## 
     ## other attached packages:
-    ##  [1] ggExtra_0.10.0    ggbiplot_0.55     scales_1.2.1      plyr_1.8.8       
+    ##  [1] ggExtra_0.10.0    ggbiplot_0.55     scales_1.2.1.9000 plyr_1.8.8       
     ##  [5] vegan_2.6-4       lattice_0.20-45   permute_0.9-7     lubridate_1.9.2  
-    ##  [9] forcats_1.0.0     stringr_1.5.0     dplyr_1.1.0       purrr_1.0.1      
-    ## [13] readr_2.1.4       tidyr_1.3.0       tibble_3.2.0      ggplot2_3.4.1    
-    ## [17] tidyverse_2.0.0   tarchetypes_0.7.5 targets_0.14.3   
+    ##  [9] forcats_1.0.0     stringr_1.5.0     dplyr_1.1.1       purrr_1.0.1      
+    ## [13] readr_2.1.4       tidyr_1.3.0       tibble_3.2.1      ggplot2_3.4.1    
+    ## [17] tidyverse_2.0.0   tarchetypes_0.7.6 targets_0.14.3   
     ## 
     ## loaded via a namespace (and not attached):
     ##  [1] splines_4.2.3      shiny_1.7.4        highr_0.10         future.callr_0.8.1
-    ##  [5] base64url_1.4      yaml_2.3.7         globals_0.16.2     pillar_1.8.1      
+    ##  [5] base64url_1.4      yaml_2.3.7         globals_0.16.2     pillar_1.9.0      
     ##  [9] backports_1.4.1    glue_1.6.2         digest_0.6.31      promises_1.2.0.1  
-    ## [13] colorspace_2.1-0   htmltools_0.5.4    httpuv_1.6.9       Matrix_1.5-3      
-    ## [17] pkgconfig_2.0.3    broom_1.0.4        listenv_0.9.0      xtable_1.8-4      
-    ## [21] processx_3.8.0     later_1.3.0        tzdb_0.3.0         timechange_0.2.0  
-    ## [25] mgcv_1.8-42        farver_2.1.1       generics_0.1.3     ellipsis_0.3.2    
-    ## [29] withr_2.5.0        furrr_0.3.1        cli_3.6.0          magrittr_2.0.3    
-    ## [33] mime_0.12          evaluate_0.20      ps_1.7.2           fs_1.6.1          
-    ## [37] future_1.32.0      fansi_1.0.4        parallelly_1.34.0  nlme_3.1-162      
-    ## [41] MASS_7.3-58.2      tools_4.2.3        data.table_1.14.8  hms_1.1.2         
-    ## [45] lifecycle_1.0.3    munsell_0.5.0      cluster_2.1.4      callr_3.7.3       
-    ## [49] compiler_4.2.3     PNWColors_0.1.0    rlang_1.1.0        rstudioapi_0.14   
-    ## [53] igraph_1.4.1       miniUI_0.1.1.1     labeling_0.4.2     rmarkdown_2.20    
-    ## [57] gtable_0.3.1       codetools_0.2-19   R6_2.5.1           knitr_1.42        
-    ## [61] fastmap_1.1.1      utf8_1.2.3         stringi_1.7.12     parallel_4.2.3    
-    ## [65] Rcpp_1.0.10        vctrs_0.6.0        tidyselect_1.2.0   xfun_0.37
+    ## [13] colorspace_2.1-0   htmltools_0.5.4    httpuv_1.6.9       Matrix_1.5-4      
+    ## [17] pkgconfig_2.0.3    listenv_0.9.0      xtable_1.8-4       processx_3.8.0    
+    ## [21] later_1.3.0        tzdb_0.3.0         timechange_0.2.0   mgcv_1.8-42       
+    ## [25] farver_2.1.1       generics_0.1.3     ellipsis_0.3.2     withr_2.5.0       
+    ## [29] furrr_0.3.1        cli_3.6.0          magrittr_2.0.3     mime_0.12         
+    ## [33] evaluate_0.21      ps_1.7.2           fs_1.6.2           future_1.32.0     
+    ## [37] fansi_1.0.4        parallelly_1.35.0  nlme_3.1-162       MASS_7.3-60       
+    ## [41] tools_4.2.3        data.table_1.14.8  hms_1.1.3          lifecycle_1.0.3   
+    ## [45] munsell_0.5.0      cluster_2.1.4      callr_3.7.3        compiler_4.2.3    
+    ## [49] PNWColors_0.1.0    rlang_1.1.0        rstudioapi_0.14    igraph_1.4.1      
+    ## [53] miniUI_0.1.1.1     labeling_0.4.2     rmarkdown_2.21     gtable_0.3.3      
+    ## [57] codetools_0.2-19   R6_2.5.1           knitr_1.42         fastmap_1.1.1     
+    ## [61] utf8_1.2.3         stringi_1.7.12     parallel_4.2.3     Rcpp_1.0.10       
+    ## [65] vctrs_0.6.0        tidyselect_1.2.0   xfun_0.38
 
 </details>

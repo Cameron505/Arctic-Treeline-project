@@ -151,10 +151,10 @@ tar_read(Permanova_table_polar)
 tar_read(Permanova_table_nonpolar)
 ```
 
-Site, Site:Year were significant (p < 0.05)
+In polar and nonpolar sample extracts Site, Site:Year were significant (p < 0.05)
 
-Site accounted for 71 % of total variation among samples (R2= 0.71)
-Site:Year accounted for ~10% of total variation among samples (R2=0.09)
+Site accounted for ~70 % of total variation among samples
+Site:Year accounted for ~10% of total variation among samples 
 
 </details>
 

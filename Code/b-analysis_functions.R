@@ -31,8 +31,6 @@ plot_Extract_Snowfence = function(Extract_processed){
     mutate( treatment="Snowfence")
  
   
-  
-  
   gg_NH4_Extract =
     Extract_processed %>%
     ggplot(aes(x=TIME, y=NH4, fill=treatment))+
@@ -163,7 +161,7 @@ plot_Extract_Snowfence = function(Extract_processed){
   
   
   
-
+  
   
   Extract_Snowfence_aov3 = 
     Extract_processed_long %>% 
@@ -194,8 +192,10 @@ plot_Extract_Snowfence = function(Extract_processed){
        "Snowfence Vs. Control MBP"= gg_MBP_Extract,
        Extract_Snowfence_aov2=Extract_Snowfence_aov2,
        Extract_Snowfence_aov3=Extract_Snowfence_aov3
-       )
+  )
   
+  
+ 
  
   
 }
@@ -2401,7 +2401,7 @@ plot_pca_by_site= function(pca_polar){
     xlim(-4,4)+
     ylim(-3.5,3.5)+
     labs(shape="",
-         title = "all samples",
+         title = "all samples-Polar",
          subtitle = "separation by Site")+
     theme_kp()+
     NULL
@@ -2426,7 +2426,7 @@ plot_pca_polar= function(pca_polar){
     xlim(-4,4)+
     ylim(-3.5,3.5)+
     labs(shape="",
-         title = "all samples",
+         title = "all samples-Polar",
          subtitle = "separation by Site")+
     theme_kp()+
     NULL
@@ -2442,7 +2442,7 @@ plot_pca_polar= function(pca_polar){
     xlim(-4,4)+
     ylim(-3.5,3.5)+
     labs(shape="",
-         title = "all samples",
+         title = "all samples-Polar",
          subtitle = "separation by Site")+
     theme_kp()+
     NULL
@@ -2450,6 +2450,30 @@ plot_pca_polar= function(pca_polar){
   
   list("pca_by_year"= gg_pca_by_year,
        "pca_by_season"= gg_pca_by_season
+  )
+  
+}
+
+plot_pca_by_site_nonpolar= function(pca_polar){
+  
+  gg_pca_by_site = 
+    ggbiplot(pca_polar$pca_int, obs.scale = 1, var.scale = 1,
+             groups = as.character(pca_polar$grp$Site), 
+             ellipse = TRUE, circle = FALSE, var.axes = TRUE, alpha = 0) +
+    geom_point(size=3,stroke=1, alpha = 1,
+               aes(#shape = groups,
+                 color = groups))+
+    #scale_shape_manual(values = c(21, 22, 19), name = "", guide = "none")+
+    xlim(-4,4)+
+    ylim(-3.5,3.5)+
+    labs(shape="",
+         title = "all samples Non-Polar",
+         subtitle = "separation by Site")+
+    theme_kp()+
+    NULL
+  
+  
+  list("pca_by_site"= gg_pca_by_site
   )
   
 }
@@ -2622,7 +2646,7 @@ plot_permanova_polar= function( relabund_cores_polar){
     adonis(relabund_wide %>% dplyr::select(aliphatic:`condensed aromatic`) ~ (Site + Year + Season)^2, 
            data = relabund_wide) 
   
- knitr::kable(permanova_fticr_all$aov.tab)
+ knitr::kable(permanova_fticr_all$aov.tab, caption = "Polar PERMANOVA results")
   
   
 }
@@ -2643,7 +2667,7 @@ plot_permanova_nonpolar= function( relabund_cores_nonpolar){
     adonis(relabund_wide %>% dplyr::select(aliphatic:`condensed aromatic`) ~ (Site + Year + Season)^2, 
            data = relabund_wide) 
   
-  knitr::kable(permanova_fticr_all$aov.tab)
+  knitr::kable(permanova_fticr_all$aov.tab, caption = "Non-Polar PERMANOVA results")
   
   
 }
