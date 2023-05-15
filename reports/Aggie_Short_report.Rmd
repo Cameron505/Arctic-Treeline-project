@@ -34,18 +34,19 @@ Soils were collected around trees on treelines in the western brooks range Alask
 <details>
   <summary>click to open</summary>
   
- #### Extracts:
+#### Extracts snowfence vs control:
   K2SO4 
   No variation in extractable nutrients from snow fence treatment.
   <details>
   <summary>click to open</summary>
   
-```{r , fig.height=6, fig.width=6, results='hide', out.width="100%"}
+```{r , fig.height=9, fig.width=9, results='hide', out.width="100%"}
 tar_read(gg_aggie_Extract_Snowfence_Control)
 ```
 
 </details>
 
+#### Anova results
 <details>
   <summary>click to open ANOVA results</summary>
   
@@ -63,15 +64,28 @@ tar_read(gg_aggie_Extract_Snowfence_Control)$Extract_Snowfence_aov3
 <details>
   <summary>click to open</summary>
   
- #### Extracts K2SO4:
+#### Ancillary Extracts K2SO4:
   Significant changes in microbial biomass over time and between sites, including a biomass crash observed in 2018, biomass was not seen increasing again until the end of 2019.
-  
-```{r , fig.height=6, fig.width=6, results='hide', out.width="100%"}
-tar_read(gg_Extract_Seasonal)$"Seasonal MBC"
+  <details>
+  <summary>click to open </summary>
+```{r , fig.height=9, fig.width=12, results='hide', out.width="100%"}
+tar_read(gg_Extract_Seasonal)$gg_MBC_Extract2
+tar_read(gg_Extract_Seasonal)$gg_MBN_Extract2
+tar_read(gg_Extract_Seasonal)$gg_MBP_Extract2
+```
+  </details>
+#### Ancillary extraction LME results  
+  <details>
+  <summary>click to open LME results</summary>
+```{r }
+tar_read(gg_Extract_Seasonal)$Ancillary_LME_biomass
+tar_read(gg_Extract_Seasonal)$Ancillary_LME2_biomass
 ```
   
+  
+  
 </details>
-
+</details>
 ##   Resin Strips
 
 <details>
@@ -79,13 +93,14 @@ tar_read(gg_Extract_Seasonal)$"Seasonal MBC"
   
  #### resin strip NO3 and PO4 concentrations:
   Resin stips showed significant differences between sites. Primary feature: Xeric contained high NO3, and Mesic contained high PO4. These differences were not seen in soil extractions, in fact Mesic showed the highest NO3 extractable concentrations consistently, and Hydric showed the highest po4 extractable concentrations consistently
-  
+#### Resin strip data by site  
   <details>
   <summary>click to open</summary>
   
-```{r , fig.height=6, fig.width=6, results='hide', out.width="100%"}
-tar_read(gg_resin_Snowfence)$"resin NO3-Treatment"
-tar_read(gg_resin_Snowfence)$"resin PO4-Treatment"
+```{r , fig.height=9, fig.width=9, results='hide', out.width="100%"}
+tar_read(gg_resin_Snowfence)$"resin NO3"
+tar_read(gg_resin_Snowfence)$"resin PO4"
+tar_read(gg_resin_Snowfence)$"resin NH4"
 ```
   
 </details>
@@ -95,12 +110,26 @@ tar_read(gg_resin_Snowfence)$"resin PO4-Treatment"
  <details>
   <summary>click to open</summary>
   
-```{r , fig.height=6, fig.width=6, results='hide', out.width="100%"}
+```{r , fig.height=9, fig.width=9, results='hide', out.width="100%"}
 tar_read(gg_Extract_Seasonal)$"Seasonal NO3"
 tar_read(gg_Extract_Seasonal)$"Seasonal PO4"
+tar_read(gg_Extract_Seasonal)$"Seasonal NH4"
 ```
   
 </details>
+
+#### resin strip ANOVA results
+  <details>
+  <summary>click to open ANOVA stats</summary>
+  
+```{r }
+tar_read(gg_resin)$Extract_resin_aov3
+tar_read(gg_resin)$Extract_resin_aov4
+```
+  
+</details>
+
+
 
 </details>
 
@@ -109,11 +138,23 @@ tar_read(gg_Extract_Seasonal)$"Seasonal PO4"
 <details>
   <summary>click to open</summary>
   
-#### Extractions PO4 data:
+#### pore water data:
   pore water measurements from fertilized plots showed little variation in N components, but significantly more PO4 in 2017 and 2018 all season, with concentrations returning to that of the other plots near the end of 2019 in xeric and mesic. In Hydric concentrations of PO4 in pore water were also significantly higher in 2017, and at the beginning of 2018 and return to similar concentrations of other plots at the end of 2018, and remained similar for 2019.
   
-```{r , fig.height=6, fig.width=6, results='hide', out.width="100%"}
-tar_read(gg_Porewater_Fert)$"Fert PoreWater_PO4"
+```{r , fig.height=9, fig.width=12, results='hide', out.width="100%"}
+tar_read(gg_Porewater_Fert)$gg_PO4_PoreWater2
+tar_read(gg_Porewater_Fert)$gg_NO3_PoreWater2
+tar_read(gg_Porewater_Fert)$gg_NH4_PoreWater2
+tar_read(gg_Porewater_Fert)$gg_TRS_PoreWater2
+tar_read(gg_Porewater_Fert)$gg_TFPA_PoreWater2
+```
+
+#### Pore water LME results
+<details>
+  <summary>click to open LME results</summary>
+```{r }
+tar_read(gg_Porewater_Fert)$Porewater_LME
+tar_read(gg_Porewater_Fert)$Porewater_LME2
 ```
 
 </details>

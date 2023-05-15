@@ -3,6 +3,7 @@ library(vegan) # for PERMANOVA analysishttp://127.0.0.1:10019/graphics/plot_zoom
 library(ggbiplot) #for PCA biplots
 library(lubridate)
 library(ggExtra)
+library(ggbreak)
 #devtools::install_version("ggplot2", "3.4.1") V3.4.2 broke the markdown code with the descrete_range
 # to install {ggbiplot}:
 # library(devtools)

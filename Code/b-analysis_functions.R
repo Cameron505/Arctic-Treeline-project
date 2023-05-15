@@ -33,11 +33,17 @@ plot_Extract_Snowfence = function(Extract_processed){
   
   gg_NH4_Extract =
     Extract_processed %>%
-    ggplot(aes(x=TIME, y=NH4, fill=treatment))+
-    stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
-    stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
+    ggplot(aes(x=TIME, y=NH4, color=treatment))+
+    geom_boxplot(show.legend = F, 
+                 outlier.colour = NULL,
+                 outlier.fill = NULL,
+                 alpha = 0.2,
+                 position = position_dodge(width = 1),
+                 aes(group = interaction(Site,TIME, treatment, YEAR)),
+                 width=0.7)+
+    geom_point(position = position_dodge(width = 1), size = 2)+
     facet_wrap(~YEAR+Site)+
-    geom_text(data = Extract_Snowfence_aov %>% filter(analyte == "NH4"), aes(y = 100, label = asterisk), size=10)+
+    geom_text(data = Extract_Snowfence_aov %>% filter(analyte == "NH4"), aes(y = 100, label = asterisk), size=10, show.legend = FALSE, color="black")+
     theme_light()+
     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
     scale_colour_manual(values=cbPalette2)+
@@ -49,11 +55,17 @@ plot_Extract_Snowfence = function(Extract_processed){
   
   gg_NO3_Extract =
     Extract_processed %>%
-    ggplot(aes(x=TIME, y=NO3, fill=treatment))+
-    stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
-    stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
+    ggplot(aes(x=TIME, y=NO3, color=treatment))+
+    geom_boxplot(show.legend = F, 
+                 outlier.colour = NULL,
+                 outlier.fill = NULL,
+                 alpha = 0.2,
+                 position = position_dodge(width = 1),
+                 aes(group = interaction(Site,TIME, treatment, YEAR)),
+                 width=0.7)+
+    geom_point(position = position_dodge(width = 1), size = 2)+
     facet_wrap(~YEAR+Site)+
-    geom_text(data = Extract_Snowfence_aov %>% filter(analyte == "NO3"), aes(y = 100, label = asterisk), size=10)+
+    geom_text(data = Extract_Snowfence_aov %>% filter(analyte == "NO3"), aes(y = 100, label = asterisk), size=10, show.legend = FALSE, color="black")+
     theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -63,11 +75,17 @@ plot_Extract_Snowfence = function(Extract_processed){
   
   gg_PO4_Extract =
     Extract_processed %>%
-    ggplot(aes(x=TIME, y=PO4, fill=treatment))+
-    stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
-    stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
+    ggplot(aes(x=TIME, y=PO4, color=treatment))+
+    geom_boxplot(show.legend = F, 
+                 outlier.colour = NULL,
+                 outlier.fill = NULL,
+                 alpha = 0.2,
+                 position = position_dodge(width = 1),
+                 aes(group = interaction(Site,TIME, treatment, YEAR)),
+                 width=0.7)+
+    geom_point(position = position_dodge(width = 1), size = 2)+
     facet_wrap(~YEAR+Site)+
-    geom_text(data = Extract_Snowfence_aov %>% filter(analyte == "PO4"), aes(y = 25, label = asterisk), size=4)+
+    geom_text(data = Extract_Snowfence_aov %>% filter(analyte == "PO4"), aes(y = 25, label = asterisk), size=4, show.legend = FALSE, color="black")+
     theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -77,11 +95,17 @@ plot_Extract_Snowfence = function(Extract_processed){
   
   gg_TRS_Extract =
     Extract_processed %>%
-    ggplot(aes(x=TIME, y=TRS, fill=treatment))+
-    stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
-    stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
+    ggplot(aes(x=TIME, y=TRS, color=treatment))+
+    geom_boxplot(show.legend = F, 
+                 outlier.colour = NULL,
+                 outlier.fill = NULL,
+                 alpha = 0.2,
+                 position = position_dodge(width = 1),
+                 aes(group = interaction(Site,TIME, treatment, YEAR)),
+                 width=0.7)+
+    geom_point(position = position_dodge(width = 1), size = 2)+
     facet_wrap(~YEAR+Site)+
-    geom_text(data = Extract_Snowfence_aov %>% filter(analyte == "TRS"), aes(y = 9, label = asterisk), size=4)+
+    geom_text(data = Extract_Snowfence_aov %>% filter(analyte == "TRS"), aes(y = 9, label = asterisk), size=4, show.legend = FALSE, color="black")+
     theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -91,11 +115,17 @@ plot_Extract_Snowfence = function(Extract_processed){
   
   gg_phenolics_Extract =
     Extract_processed %>%
-    ggplot(aes(x=TIME, y=phenolics, fill=treatment))+
-    stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
-    stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
+    ggplot(aes(x=TIME, y=phenolics, color=treatment))+
+    geom_boxplot(show.legend = F, 
+                 outlier.colour = NULL,
+                 outlier.fill = NULL,
+                 alpha = 0.2,
+                 position = position_dodge(width = 1),
+                 aes(group = interaction(Site,TIME, treatment, YEAR)),
+                 width=0.7)+
+    geom_point(position = position_dodge(width = 1), size = 2)+
     facet_wrap(~YEAR+Site)+
-    geom_text(data = Extract_Snowfence_aov %>% filter(analyte == "phenolics"), aes(y = 9, label = asterisk), size=4)+
+    geom_text(data = Extract_Snowfence_aov %>% filter(analyte == "phenolics"), aes(y = 9, label = asterisk), size=4, show.legend = FALSE, color="black")+
     theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -105,11 +135,17 @@ plot_Extract_Snowfence = function(Extract_processed){
   
   gg_TFPA_Extract =
     Extract_processed %>%
-    ggplot(aes(x=TIME, y=TFPA, fill=treatment))+
-    stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
-    stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
+    ggplot(aes(x=TIME, y=TFPA, color=treatment))+
+    geom_boxplot(show.legend = F, 
+                 outlier.colour = NULL,
+                 outlier.fill = NULL,
+                 alpha = 0.2,
+                 position = position_dodge(width = 1),
+                 aes(group = interaction(Site,TIME, treatment, YEAR)),
+                 width=0.7)+
+    geom_point(position = position_dodge(width = 1), size = 2)+
     facet_wrap(~YEAR+Site)+
-    geom_text(data = Extract_Snowfence_aov %>% filter(analyte == "TFPA"), aes(y = 4000, label = asterisk), size=4)+
+    geom_text(data = Extract_Snowfence_aov %>% filter(analyte == "TFPA"), aes(y = 4000, label = asterisk), size=4, show.legend = FALSE, color="black")+
     theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -119,11 +155,17 @@ plot_Extract_Snowfence = function(Extract_processed){
   
   gg_MBC_Extract =
     Extract_processed %>%
-    ggplot(aes(x=TIME, y=MBC, fill=treatment))+
-    stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
-    stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
+    ggplot(aes(x=TIME, y=MBC, color=treatment))+
+    geom_boxplot(show.legend = F, 
+                 outlier.colour = NULL,
+                 outlier.fill = NULL,
+                 alpha = 0.2,
+                 position = position_dodge(width = 1),
+                 aes(group = interaction(Site,TIME, treatment, YEAR)),
+                 width=0.7)+
+    geom_point(position = position_dodge(width = 1), size = 2)+
     facet_wrap(~YEAR+Site)+
-    geom_text(data = Extract_Snowfence_aov %>% filter(analyte == "MBC"), aes(y = 9, label = asterisk), size=4)+
+    geom_text(data = Extract_Snowfence_aov %>% filter(analyte == "MBC"), aes(y = 9, label = asterisk), size=4, show.legend = FALSE, color="black")+
     theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -133,11 +175,17 @@ plot_Extract_Snowfence = function(Extract_processed){
   
   gg_MBN_Extract =
     Extract_processed %>%
-    ggplot(aes(x=TIME, y=MBN, fill=treatment))+
-    stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
-    stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
+    ggplot(aes(x=TIME, y=MBN, color=treatment))+
+    geom_boxplot(show.legend = F, 
+                 outlier.colour = NULL,
+                 outlier.fill = NULL,
+                 alpha = 0.2,
+                 position = position_dodge(width = 1),
+                 aes(group = interaction(Site,TIME, treatment, YEAR)),
+                 width=0.7)+
+    geom_point(position = position_dodge(width = 1), size = 2)+
     facet_wrap(~YEAR+Site)+
-    geom_text(data = Extract_Snowfence_aov %>% filter(analyte == "MBN"), aes(y = 1000, label = asterisk), size=4)+
+    geom_text(data = Extract_Snowfence_aov %>% filter(analyte == "MBN"), aes(y = 1000, label = asterisk), size=4, show.legend = FALSE, color="black")+
     theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -147,11 +195,17 @@ plot_Extract_Snowfence = function(Extract_processed){
   
   gg_MBP_Extract =
     Extract_processed %>%
-    ggplot(aes(x=TIME, y=Mic.PO4, fill=treatment))+
-    stat_summary(fun="mean",geom = "bar",size = 2, position='dodge') +
-    stat_summary(fun.data = mean_se, geom = "errorbar", position='dodge')+
+    ggplot(aes(x=TIME, y=Mic.PO4, color=treatment))+
+    geom_boxplot(show.legend = F, 
+                 outlier.colour = NULL,
+                 outlier.fill = NULL,
+                 alpha = 0.2,
+                 position = position_dodge(width = 1),
+                 aes(group = interaction(Site,TIME, treatment, YEAR)),
+                 width=0.7)+
+    geom_point(position = position_dodge(width = 1), size = 2)+
     facet_wrap(~YEAR+Site)+
-    geom_text(data = Extract_Snowfence_aov %>% filter(analyte == "Mic.PO4"), aes(y = 9, label = asterisk), size=4)+
+    geom_text(data = Extract_Snowfence_aov %>% filter(analyte == "Mic.PO4"), aes(y = 9, label = asterisk), size=4, show.legend = FALSE, color="black")+
     theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -168,7 +222,7 @@ plot_Extract_Snowfence = function(Extract_processed){
     group_by(analyte,Site, YEAR, TIME) %>%
     na.omit()%>%
     do(fit_aov(.)) %>%
-    knitr::kable()
+    knitr::kable(caption = "Significant comparisons")
   
   Extract_Snowfence_aov2 = 
     Extract_processed_long %>% 
@@ -176,7 +230,7 @@ plot_Extract_Snowfence = function(Extract_processed){
     na.omit()%>%
     do(fit_aov(.))%>%
     na.omit() %>%
-    knitr::kable()
+    knitr::kable(caption= "All comparisons")
   
   Extract_Snowfence_aov2
   
@@ -710,6 +764,146 @@ plot_Extract_Seasonal = function(Extract_processed_Seasonal){
   
   
   
+  gg_MBC_Extract2 =
+    Extract_processed_Seasonal %>%
+    filter(YEAR %in% c(2017,2018,2019))%>%
+    ggplot(aes(x=DATE, y=MBC, color=Site))+
+    geom_boxplot(show.legend = F, 
+                 outlier.colour = NULL,
+                 outlier.fill = NULL,
+                 alpha = 0.2,
+                 aes(group = interaction(Site,DATE)),
+                 width=3)+
+    geom_point( size = 2)+
+    facet_wrap(~Site, scale="free",ncol=1)+
+    theme_light()+
+    theme( axis.text.x.top = element_blank(),
+           axis.ticks.x.top = element_blank())+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    scale_x_break(breaks=as.Date(c("2017-09-03","2018-05-30","2018-08-30","2019-06-05")))+
+    scale_x_date(labels = date_format("%m-%Y"))+
+    labs(x = "Date", 
+         y = bquote('Microbial biomass ('*mu*'g C'~g^-1 ~ dry ~ soil*')'))+
+    ggtitle("MBC")
+  
+  
+  
+  gg_MBN_Extract2 =
+    Extract_processed_Seasonal %>%
+    filter(YEAR %in% c(2017,2018,2019))%>%
+    ggplot(aes(x=DATE, y=MBN, color=Site))+
+    geom_boxplot(show.legend = F, 
+                 outlier.colour = NULL,
+                 outlier.fill = NULL,
+                 alpha = 0.2,
+                 aes(group = interaction(Site,DATE)),
+                 width=3)+
+    geom_point( size = 2)+
+    facet_wrap(~Site, scale="free",ncol=1)+
+    theme_light()+
+    theme( axis.text.x.top = element_blank(),
+           axis.ticks.x.top = element_blank())+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    scale_x_break(breaks=as.Date(c("2017-09-03","2018-05-30","2018-08-30","2019-06-05")))+
+    scale_x_date(labels = date_format("%m-%Y"))+
+    labs(x = "Date", 
+         y = bquote('Microbial biomass ('*mu*'g N'~g^-1 ~ dry ~ soil*')'))+
+    ggtitle("MBN")
+  
+  
+  
+  gg_MBP_Extract2 =
+    Extract_processed_Seasonal %>%
+    filter(YEAR %in% c(2017,2018,2019))%>%
+    ggplot(aes(x=DATE, y=Mic.PO4, color=Site))+
+    geom_boxplot(show.legend = F, 
+                 outlier.colour = NULL,
+                 outlier.fill = NULL,
+                 alpha = 0.2,
+                 aes(group = interaction(Site,DATE)),
+                 width=3)+
+    geom_point( size = 2)+
+    facet_wrap(~Site, scale="free",ncol=1)+
+    theme_light()+
+    theme( axis.text.x.top = element_blank(),
+           axis.ticks.x.top = element_blank())+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    scale_x_break(breaks=as.Date(c("2017-09-03","2018-05-30","2018-08-30","2019-06-05")))+
+    scale_x_date(labels = date_format("%m-%Y"))+
+    labs(x = "Date", 
+         y = bquote('Microbial biomass ('*mu*'g P'~g^-1 ~ dry ~ soil*')'))+
+    ggtitle("MBP")
+  
+  Extract_processed_S = Extract_processed_Seasonal %>%
+    mutate(DATE=as.Date(Date, format= "%m/%d/%Y"),
+           YEAR=year(DATE),
+           MONTH=month(DATE))%>%
+    filter(Site %in% c("Hydric","Mesic","Xeric")) %>%
+    mutate_at(c('NH4', 'NO3','PO4','TFPA','TRS','MBC','MBN','Mic.PO4'), as.numeric)
+  
+  Extract_processed_S_long = Extract_processed_S %>%
+    pivot_longer(cols= MBC:Mic.PO4,
+                 names_to= "analyte",
+                 values_to= "conc") 
+  
+  
+  Extract_processed_S_long_biomass = Extract_processed_S %>%
+    pivot_longer(cols= MBC:Mic.PO4,
+                 names_to= "analyte",
+                 values_to= "conc") %>%
+    filter(analyte %in% c('MBC','MBN','Mic.PO4'))
+  
+  
+  Fit.LME=function(Extract_processed_S_long){
+    a = nlme::lme(conc ~ MONTH * YEAR * Site ,
+                  random = ~1|Plot,
+                  data = Extract_processed_S_long,na.action=na.exclude)%>%
+      anova()
+    
+    a %>% 
+      as.data.frame() %>% 
+      rownames_to_column("variable") %>% 
+      filter(variable %in% c("MONTH","YEAR","Site","MONTH:YEAR","MONTH:Site","YEAR:Site","MONTH:YEAR:Site")) %>%
+      dplyr::rename(p_value = 'p-value') %>%
+      mutate(p_value == round(p_value, 3),asterisk = case_when(`p_value` <= 0.05 ~ "*"))
+  }
+  
+  
+  Ancillary_LME = 
+    Extract_processed_S_long %>% 
+    group_by(analyte)%>%
+    do(Fit.LME(.))%>%
+    na.omit()%>%
+    knitr::kable()
+  
+  Ancillary_LME2 = 
+    Extract_processed_S_long %>% 
+    group_by(analyte)%>%
+    do(Fit.LME(.))%>%
+    knitr::kable()
+  
+  
+  
+  
+  
+  Ancillary_LME_biomass = 
+    Extract_processed_S_long_biomass %>% 
+    group_by(analyte)%>%
+    do(Fit.LME(.))%>%
+    na.omit()%>%
+    knitr::kable(caption = "Biomass LME significant comparisons")
+  
+  Ancillary_LME2_biomass = 
+    Extract_processed_S_long_biomass %>% 
+    group_by(analyte)%>%
+    do(Fit.LME(.))%>%
+    knitr::kable(caption = "Biomass LME all comparisons")
+  
+  
+  
   list("Seasonal NH4"= gg_NH4_Extract,
        "Seasonal NO3"= gg_NO3_Extract,
        "Seasonal PO4"= gg_PO4_Extract,
@@ -718,7 +912,15 @@ plot_Extract_Seasonal = function(Extract_processed_Seasonal){
        "Seasonal TRS"= gg_TRS_Extract,
        "Seasonal MBC"= gg_MBC_Extract,
        "Seasonal MBN"= gg_MBN_Extract,
-       "Seasonal MBP"= gg_MBP_Extract
+       "Seasonal MBP"= gg_MBP_Extract,
+       gg_MBC_Extract2=gg_MBC_Extract2,
+       gg_MBN_Extract2=gg_MBN_Extract2,
+       gg_MBP_Extract2=gg_MBP_Extract2,
+       Ancillary_LME=Ancillary_LME,
+       Ancillary_LME2=Ancillary_LME2,
+       Ancillary_LME_biomass=Ancillary_LME_biomass,
+       Ancillary_LME2_biomass=Ancillary_LME2_biomass
+       
   )
   
 }
@@ -1595,6 +1797,13 @@ plot_Extract_Fert = function(Extract_data){
 
 plot_PoreWater_Fert = function(PoreWater_data){
 
+  PoreWater_data2=PoreWater_data%>%
+    mutate(DATE=as.Date(Date, format= "%m/%d/%Y"),
+           YEAR=year(DATE),
+           MONTH=month(DATE)) %>%
+    filter(YEAR %in% c("2017","2018","2019"))
+  
+  
   gg_NH4_PoreWater =
     PoreWater_data %>%
     mutate_at(c('NH4', 'NO3','PO4','TFPA','TRS'), as.numeric) %>%
@@ -1682,11 +1891,140 @@ plot_PoreWater_Fert = function(PoreWater_data){
     ggtitle("TFPA")
   
   
+  gg_NH4_PoreWater2 =
+    PoreWater_data2 %>%
+    mutate_at(c('NH4', 'NO3','PO4','TFPA','TRS'), as.numeric) %>%
+    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"),Site %in% c("Hydric","Mesic","Xeric"))%>%
+    mutate(treatment=factor(treatment, levels=c("Ancillary","Control","Snowfence","fertilized")),DATE=as.Date(Date, format= "%m/%d/%Y"),
+           YEAR=year(DATE),
+           MONTH=month(DATE)) %>%
+    ggplot(aes(x=DATE, y=NH4, color=treatment))+
+    stat_summary(geom = "point",size = 2) +
+    stat_summary(fun.data = mean_se, geom = "errorbar")+
+    facet_wrap(~Site, scales="free", ncol=1)+
+    theme_light()+
+    theme( axis.text.x.top = element_blank(),
+           axis.ticks.x.top = element_blank())+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    scale_x_break(breaks=as.Date(c("2017-09-03","2018-05-30","2018-08-30","2019-06-05")))+
+    scale_x_date(labels = date_format("%m-%Y"))+
+    labs(x = "Date", 
+         y = bquote('Ammonium ('*mu*'g '*NH[4]^"+"~-N~mL^-1 ~ Soil ~ Solution*')'))+
+    ggtitle("Ammonium")
+  
+  
+  gg_NO3_PoreWater2 =
+    PoreWater_data2 %>%
+    mutate_at(c('NH4', 'NO3','PO4','TFPA','TRS'), as.numeric) %>%
+    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"),Site %in% c("Hydric","Mesic","Xeric"))%>%
+    mutate(treatment=factor(treatment, levels=c("Ancillary","Control","Snowfence","fertilized")),DATE=as.Date(Date, format= "%m/%d/%Y"),
+           YEAR=year(DATE),
+           MONTH=month(DATE)) %>%
+    ggplot(aes(x=DATE, y=NO3, color=treatment))+
+    stat_summary(geom = "point",size = 2) +
+    stat_summary(fun.data = mean_se, geom = "errorbar")+
+    facet_wrap(~Site, scales="free", ncol=1)+
+    theme_light()+
+    theme( axis.text.x.top = element_blank(),
+           axis.ticks.x.top = element_blank())+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    scale_x_break(breaks=as.Date(c("2017-09-03","2018-05-30","2018-08-30","2019-06-05")))+
+    scale_x_date(labels = date_format("%m-%Y"))+
+    labs(x = "Date", 
+         y = bquote('Nitrate ('*mu*'g '*NO[3]^"-"~-N~mL^-1 ~ Soil ~ Solution*')'))+
+    ggtitle("Nitrate")
+  
+  
+  gg_PO4_PoreWater2 =
+    PoreWater_data2 %>%
+    mutate_at(c('NH4', 'NO3','PO4','TFPA','TRS'), as.numeric) %>%
+    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"),Site %in% c("Hydric","Mesic","Xeric"))%>%
+    mutate(treatment=factor(treatment, levels=c("Ancillary","Control","Snowfence","fertilized")),DATE=as.Date(Date, format= "%m/%d/%Y"),
+           YEAR=year(DATE),
+           MONTH=month(DATE)) %>%
+    ggplot(aes(x=DATE, y=PO4, color=treatment))+
+    stat_summary(geom = "point",size = 2) +
+    stat_summary(fun.data = mean_se, geom = "errorbar")+
+    facet_wrap(~Site, scales="free", ncol=1)+
+    theme_light()+
+    theme( axis.text.x.top = element_blank(),
+           axis.ticks.x.top = element_blank())+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    scale_x_break(breaks=as.Date(c("2017-09-03","2018-05-30","2018-08-30","2019-06-05")))+
+    scale_x_date(labels = date_format("%m-%Y"))+
+    scale_y_continuous(limits= c(0,5),oob=rescale_none)+
+    labs(x = "Date", 
+         y = bquote('Phosphate ('*mu*'g '*PO[4]^"3-"~-P~mL^-1 ~ Soil ~ Solution*')'))+
+    ggtitle("Phosphate")
+  
+  
+  
+  gg_TRS_PoreWater2 =
+    PoreWater_data2 %>%
+    mutate_at(c('NH4', 'NO3','PO4','TFPA','TRS'), as.numeric) %>%
+    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"),Site %in% c("Hydric","Mesic","Xeric"))%>%
+    mutate(treatment=factor(treatment, levels=c("Ancillary","Control","Snowfence","fertilized")),DATE=as.Date(Date, format= "%m/%d/%Y"),
+           YEAR=year(DATE),
+           MONTH=month(DATE)) %>%
+    ggplot(aes(x=DATE, y=TRS, color=treatment))+
+    stat_summary(geom = "point",size = 2) +
+    stat_summary(fun.data = mean_se, geom = "errorbar")+
+    facet_wrap(~Site, scales="free", ncol=1)+
+    theme_light()+
+    theme( axis.text.x.top = element_blank(),
+           axis.ticks.x.top = element_blank())+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    scale_x_break(breaks=as.Date(c("2017-09-03","2018-05-30","2018-08-30","2019-06-05")))+
+    scale_x_date(labels = date_format("%m-%Y"))+
+    labs(x = "Date", 
+         y = bquote('Total reducing sugars-glucose equiv. ('*mu*'g' ~mL^-1 ~ Soil ~ Solution*')'))+
+    ggtitle("TRS")
+  
+  
+  gg_TFPA_PoreWater2 =
+    PoreWater_data2 %>%
+    mutate_at(c('NH4', 'NO3','PO4','TFPA','TRS'), as.numeric) %>%
+    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"),Site %in% c("Hydric","Mesic","Xeric"))%>%
+    mutate(treatment=factor(treatment, levels=c("Ancillary","Control","Snowfence","fertilized")),DATE=as.Date(Date, format= "%m/%d/%Y"),
+           YEAR=year(DATE),
+           MONTH=month(DATE)) %>%
+    ggplot(aes(x=DATE, y=TFPA, color=treatment))+
+    stat_summary(geom = "point",size = 2) +
+    stat_summary(fun.data = mean_se, geom = "errorbar")+
+    facet_wrap(~Site, scales="free", ncol=1)+
+    theme_light()+
+    theme( axis.text.x.top = element_blank(),
+           axis.ticks.x.top = element_blank())+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    scale_x_break(breaks=as.Date(c("2017-09-03","2018-05-30","2018-08-30","2019-06-05")))+
+    scale_x_date(labels = date_format("%m-%Y"))+
+    labs(x = "Date", 
+         y = bquote('Total free primary amines-Leucine equiv. (nMol' ~mL^-1 ~ Soil ~ Solution*')'))+
+    ggtitle("TFPA")
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   PoreWater_data = PoreWater_data %>%
     mutate(DATE=as.Date(Date, format= "%m/%d/%Y"),
            YEAR=year(DATE),
-           MONTH=month(DATE)) %>%
+           MONTH=month(DATE))%>%
+    filter(Site %in% c("Hydric","Mesic","Xeric"),
+           treatment %in% c("Snowfence","Control","Ancillary","fertilized")) %>%
     mutate_at(c('NH4', 'NO3','PO4','TFPA','TRS'), as.numeric)
   
   PoreWater_processed_long = PoreWater_data %>%
@@ -1696,7 +2034,7 @@ plot_PoreWater_Fert = function(PoreWater_data){
   
   
   Fit.LME=function(PoreWater_processed_long){
-    a = nlme::lme(conc ~ MONTH + YEAR + Site + treatment,
+    a = nlme::lme(conc ~ MONTH * YEAR * Site * treatment,
                   random = ~1|Plot,
                   data = PoreWater_processed_long,na.action=na.exclude)%>%
       anova()
@@ -1704,7 +2042,7 @@ plot_PoreWater_Fert = function(PoreWater_data){
     a %>% 
       as.data.frame() %>% 
       rownames_to_column("variable") %>% 
-      filter(variable %in% c("MONTH","YEAR","Site","treatment")) %>%
+      filter(variable %in% c("MONTH","YEAR","Site","treatment","MONTH:YEAR","MONTH:Site","YEAR:Site","MONTH:treatment","YEAR:treatment","Site:treatment","MONTH:YEAR:Site","MONTH:YEAR:treatment","MONTH:Site:treatment","YEAR:Site:treatment","MONTH:YEAR:Site:treatment")) %>%
       dplyr::rename(p_value = 'p-value') %>%
       mutate(p_value == round(p_value, 3),asterisk = case_when(`p_value` <= 0.05 ~ "*"))
   }
@@ -1715,13 +2053,13 @@ plot_PoreWater_Fert = function(PoreWater_data){
     group_by(analyte)%>%
     do(Fit.LME(.))%>%
     na.omit()%>%
-    knitr::kable()
+    knitr::kable(caption = "Significant LME comparisons")
   
   Porewater_LME2 = 
     PoreWater_processed_long %>% 
     group_by(analyte)%>%
     do(Fit.LME(.))%>%
-    knitr::kable()
+    knitr::kable(caption = "All LME comparisons")
   
   
   
@@ -1734,7 +2072,12 @@ plot_PoreWater_Fert = function(PoreWater_data){
        #"Fert PoreWater_Phenolics"= gg_phenolics_PoreWater,
        "Fert PoreWater_TRS"= gg_TRS_PoreWater,
        Porewater_LME=Porewater_LME,
-       Porewater_LME2=Porewater_LME2
+       Porewater_LME2=Porewater_LME2,
+       gg_NH4_PoreWater2=gg_NH4_PoreWater2,
+       gg_NO3_PoreWater2=gg_NO3_PoreWater2,
+       gg_PO4_PoreWater2=gg_PO4_PoreWater2,
+       gg_TFPA_PoreWater2=gg_TFPA_PoreWater2,
+       gg_TRS_PoreWater2=gg_TRS_PoreWater2
   )
 }
 
@@ -2108,14 +2451,22 @@ plot_resin = function(Resin_processed){
   mutate( Site="Hydric")
   
   
-  gg_NH4_Extract =
+ 
+  
+   gg_NH4_Extract =
     Resin_processed %>%
     mutate(Purpose2=factor(Purpose2, levels= c("OW-GS","OW","GS")))%>%
-    ggplot(aes(x=Purpose2, y=Ammonium, fill=Site))+
-    stat_summary(fun="mean",geom = "bar",size = 2, position= 'dodge') +
-    stat_summary(fun.data = mean_se, geom = "errorbar", position= 'dodge')+
+    ggplot(aes(x=Purpose2, y=Ammonium, color=Site))+
+    geom_boxplot(show.legend = F, 
+                 outlier.colour = NULL,
+                 outlier.fill = NULL,
+                 alpha = 0.2,
+                 position = position_dodge(width = 1),
+                 aes(group = interaction(Site,Purpose2,YEAR)),
+                 width=0.7)+
+    geom_point(position = position_dodge(width = 1), size = 2)+
     facet_wrap(~YEAR, scale="free_x")+
-    geom_text(data = Extract_resin_aov2 %>% filter(analyte == "Ammonium"), aes(y = 0.04, label = asterisk), size=6)+
+    geom_text(data = Extract_resin_aov2 %>% filter(analyte == "Ammonium"), aes(y = 0.04, label = asterisk), size=6, color="black",show.legend = FALSE)+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -2127,11 +2478,17 @@ plot_resin = function(Resin_processed){
   gg_NO3_Extract =
     Resin_processed %>%
     mutate(Purpose2=factor(Purpose2, levels= c("OW-GS","OW","GS")))%>%
-    ggplot(aes(x=Purpose2, y=Nitrate, fill=Site))+
-    stat_summary(fun="mean",geom = "bar",size = 2, position= 'dodge') +
-    stat_summary(fun.data = mean_se, geom = "errorbar", position= 'dodge')+
+    ggplot(aes(x=Purpose2, y=Nitrate, color=Site))+
+    geom_boxplot(show.legend = F, 
+                 outlier.colour = NULL,
+                 outlier.fill = NULL,
+                 alpha = 0.2,
+                 position = position_dodge(width = 1),
+                 aes(group = interaction(Site,Purpose2,YEAR)),
+                 width=0.7)+
+    geom_point(position = position_dodge(width = 1), size = 2)+
     facet_wrap(~YEAR, scale="free_x")+
-    geom_text(data = Extract_resin_aov2 %>% filter(analyte == "Nitrate"), aes(y = 0.015, label = asterisk), size=6)+
+    geom_text(data = Extract_resin_aov2 %>% filter(analyte == "Ammonium"), aes(y = 0.04, label = asterisk), size=6, color="black",show.legend = FALSE)+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -2142,11 +2499,17 @@ plot_resin = function(Resin_processed){
   gg_PO4_Extract =
     Resin_processed %>%
     mutate(Purpose2=factor(Purpose2, levels= c("OW-GS","OW","GS")))%>%
-    ggplot(aes(x=Purpose2, y=Phosphate, fill=Site))+
-    stat_summary(fun="mean",geom = "bar",size = 2, position= 'dodge') +
-    stat_summary(fun.data = mean_se, geom = "errorbar", position= 'dodge')+
+    ggplot(aes(x=Purpose2, y=Phosphate, color=Site))+
+    geom_boxplot(show.legend = F, 
+                 outlier.colour = NULL,
+                 outlier.fill = NULL,
+                 alpha = 0.2,
+                 position = position_dodge(width = 1),
+                 aes(group = interaction(Site,Purpose2,YEAR)),
+                 width=0.7)+
+    geom_point(position = position_dodge(width = 1), size = 2)+
     facet_wrap(~YEAR, scale="free_x")+
-    geom_text(data = Extract_resin_aov2 %>% filter(analyte == "Phosphate"), aes(y = 0.04, label = asterisk), size=6)+
+    geom_text(data = Extract_resin_aov2 %>% filter(analyte == "Ammonium"), aes(y = 0.04, label = asterisk), size=6, color="black",show.legend = FALSE)+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -2158,7 +2521,7 @@ plot_resin = function(Resin_processed){
     Resin_processed %>%
     mutate(Purpose2=factor(Purpose2, levels= c("OW-GS","OW","GS")))%>%
     filter(Treatment %in% c("Snowfence","Control","Ancillary"))%>%
-    ggplot(aes(x=Purpose2, y=Ammonium, fill=Site,alpha=Treatment))+
+    ggplot(aes(x=Purpose2, y=Ammonium, color=Site,alpha=Treatment))+
     stat_summary(fun="mean",geom = "bar",size = 2, position= 'dodge') +
     stat_summary(fun.data = mean_se, geom = "errorbar", position= 'dodge')+
     facet_wrap(~YEAR, scale="free_x")+
@@ -2202,6 +2565,8 @@ plot_resin = function(Resin_processed){
     labs(x = "Season", 
          y = bquote('Phosphate ('*mu*'g '*PO[4]^"3-"~-P~cm^-2 ~ Day^-1*')'))+
     ggtitle("Phosphate- By Site and Treatment")
+  
+  
   Extract_resin_aov3 = 
     Extract_processed_long %>% 
     group_by(analyte,YEAR, Purpose2) %>%
@@ -2269,6 +2634,7 @@ plot_resin_Fert= function(Resin_processed){
     do(fit_aov2(.)) 
     #mutate( Site="Hydric")
   
+
   gg_NH4_Extract2 =
     Resin_processed %>%
     mutate(Purpose2=factor(Purpose2, levels= c("OW-GS","OW","GS")))%>%

@@ -1,5 +1,5 @@
 name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
-.Random.seed|object|b1d5de3698cca861|||||||||||||||
+.Random.seed|object|a425346deab31a10|||||||||||||||
 cbPalette2|object|ff69c39f443898b5|||||||||||||||
 compute_relabund_cores|function|0c488a52236691a5|||||||||||||||
 Extract_data|stem|35c8225a921c92f5|330c5b1d770bc735|d15f521e6a472285|-1550774751||t19433.6288281478s|3cac2531b18de607|50341|rds|local|vector|||0.02||
@@ -21,7 +21,7 @@ fticr_hcoc_nonpolar|stem|c60e1931980a8d1f|ef950fd05d0e4238|0290d5fc99676c0d|-148
 fticr_hcoc_polar|stem|47a1cff3fe959aba|0d70b48b158c9cfb|3a261dda19c35c0a|1480925108||t19433.6290580027s|5d0c61917d2a9ed3|101828|rds|local|vector|||0.01||
 fticr_meta|stem|5e4c71f281b5bda2|03f3daa364544f61|209d091ed4df09f7|86553410||t19433.6288295332s|8e6a3aed4261fa97|150907|rds|local|vector|||0.06||
 fticr_meta_load|stem|3e74b170e5e25587|1364e1b7403fce64|ef46db3751d8e999|-653152440|data/processed/fticr_meta_combined.csv|t19432.8560186438s|6156cf942020001b|936985|file|local|vector|||0||
-gg_aggie_Extract_Snowfence_Control|stem|640aa53061984fde|f412bc0968370bc5|a5018dc86dcc7889|1005296864||t19487.6263642867s|2067da124a2953d6|856830|rds|local|vector|||4.64|1m22mUsing size aesthetic for lines was deprecated in ggplot2 3.4.0.36mℹ39m Please use linewidth instead.|
+gg_aggie_Extract_Snowfence_Control|stem|02f6d09032927279|f412bc0968370bc5|460bc967aacfb4a8|1005296864||t19492.7839317994s|4ec349347d2367c3|865379|rds|local|vector|||4.42||
 gg_aggie_Extract_Snowfence_Control_H2O|stem|8946b7f3ef4c3a79|8eb766d7c220639d|b81443ccf247ed1b|-2088647863||t19450.8120367255s|23e68bf67f9df418|527238|rds|local|vector|||2.56||
 gg_aggie_PoreWater_all|stem|018d00ed5976b1bf|36ab481c4d52efe3|41bcf0f3a38aac40|-1721725602||t19450.8460670691s|3f173ff586a5ccb6|1377835|rds|local|vector|||0.95||
 gg_aggie_PoreWater_Lysim|stem|c0513efc3a2c69d9|edced9c5b9a65be0|bcf1b34eb486c946|-871950839||t19433.6290459703s|70ace18ae8e49cec|203328|rds|local|vector|||0.13||
@@ -32,7 +32,7 @@ gg_Extract_all_H2O|stem|44f12e5dc98c62a9|98c10f951670f616|80cce68b62429aac|19675
 gg_Extract_Fert|stem|6d765b4b35706e47|c8330b6f89c09bf5|d8b10a339060408f|1214916318||t19450.8460357591s|851ce5bb3e46ae4b|1475652|rds|local|vector|||1.89|1m22mThere were 2 warnings in mutate.The first warning was1m22m36mℹ39m In argument NH4  .Primitiveas.doubleNH4.Caused by warning33m39m NAs introduced by coercion1m22m36mℹ39m Run dplyrlast_dplyr_warnings to see the 1 remaining warning.. 1m22mThere were 2 warnings in mutate.The first warning was1m22m36mℹ39m In argument NH4  .Primitiveas.doubleNH4.Caused by warning33m39m NAs introduced by coercion1m22m36mℹ39m Run dplyrlast_dplyr_warnings to see the 1 remaining warning.. 1m22mThere were 2 warnings in mutate.The first warning was1m22m36mℹ39m In argument NH4  .Primitiveas.doubleNH4.Caused by warning33m39m NAs introduced by coercion1m22m36mℹ39m Run dplyrlast_dplyr_warnings to see the 1 remaining warning.. 1m22mThere were 2 warnings in mutate.The first warning was1m22m36mℹ39m In argument NH4  .Primitiveas.doubleNH4.Caused by warning33m39m NAs introduced by coercion1m22m36mℹ39m Run dplyrlast_dplyr_warnings to see the 1 remaining warning.. 1m22mThere were 2 warnings in mutate.The first warning was1m22m36mℹ39m In argument NH4  .Primitiveas.doubleNH4.Caused by warning33m39m NAs introduced by coercion1m22m36mℹ39m Run dplyrlast_dplyr_warnings to see the 1 remaining warning.. 1m22mThere were 2 warnings in mutate.The first warning was1m22m36mℹ39m In argument NH4  .Primitiveas.doubleNH4.Caused by warning33m39m NAs introduced by coercion1m22m36mℹ39m Run dplyrlast_dplyr_warnings to see the 1 remaining warning.. 1m22mThere were 2 warnings in mutate.The first warning was1m22m36mℹ39m In argument NH4  .Primitiveas.doubleNH4.Caused by warning33m39m NAs introduced by coercion1m22m36mℹ39m Run dplyrlast_dplyr_warnings to see the 1 remaining warning.. 1m22mThere were 2 warnings i|
 gg_Extract_H2O_Fert|stem|a0bdcf7cf321f032|59c60757d8834bde|dd3b0e856ca8700c|806351818||t19433.6289183192s|3ee26f9fe00fe3bb|892594|rds|local|vector|||0.73|1m22mThere was 1 warning in mutate.1m22m36mℹ39m In argument TRS.H2O  .Primitiveas.doubleTRS.H2O.Caused by warning33m39m NAs introduced by coercion. 1m22mThere was 1 warning in mutate.1m22m36mℹ39m In argument TRS.H2O  .Primitiveas.doubleTRS.H2O.Caused by warning33m39m NAs introduced by coercion. 1m22mThere was 1 warning in mutate.1m22m36mℹ39m In argument TRS.H2O  .Primitiveas.doubleTRS.H2O.Caused by warning33m39m NAs introduced by coercion. 1m22mThere was 1 warning in mutate.1m22m36mℹ39m In argument TRS.H2O  .Primitiveas.doubleTRS.H2O.Caused by warning33m39m NAs introduced by coercion. 1m22mThere was 1 warning in mutate.1m22m36mℹ39m In argument TRS.H2O  .Primitiveas.doubleTRS.H2O.Caused by warning33m39m NAs introduced by coercion|
 gg_Extract_lysim|stem|0850bc42ff189759|2db63df9e72a8c6e|e9a21344a3f7e0bd|-520152490||t19433.6289784941s|e466388d9784ebb7|246354|rds|local|vector|||0.87||
-gg_Extract_Seasonal|stem|cdc41b25ec9493a8|2f0509d693760f64|c057475a34b7e355|423898810||t19433.6290189996s|ebd83e1c38feaf8f|846889|rds|local|vector|||0.5||
+gg_Extract_Seasonal|stem|c2dd0e232ae8e43b|2f0509d693760f64|2248587ffa7c46d1|423898810||t19492.8008094353s|3853997cafca3a1b|1200464|rds|local|vector|||1.39|1m22mUsing size aesthetic for lines was deprecated in ggplot2 3.4.0.36mℹ39m Please use linewidth instead.|
 gg_Extract_Seasonal_H2O|stem|69c373e1470cf946|dff3316bd8e12fe6|d045a058ae0f1e3d|-608167118||t19433.6289908786s|2068f780cad1d587|522936|rds|local|vector|||0.28||
 gg_fticr_Domains|stem|acf731c47abf0889|f102f5c50923e278|980431597aa45f81|-885151625||t19433.6289358516s|87fd1b4397cdc5eb|1176902|rds|local|vector|||0.17||
 gg_pca_by_site|stem|fe5c57e790c00745|ee3fd7dafe965951|fb0b13479be7335b|-2097505288||t19487.6497063564s|d4372e41505b69c3|102897|rds|local|vector|||0.06||
@@ -42,11 +42,11 @@ gg_pca_nonpolar|stem|27e688d72cb134be|183a6b63c43d9b6a|de71c0d524a1f030|45768276
 gg_pca_polar|stem|83a8d2733527b5c9|905a4b144d5d3d02|f07abc5e30ab257f|-78166223||t19487.6497049598s|3b62a0050710e8fe|132897|rds|local|vector|||0.25||
 gg_polarVnonpolar_pca|stem|43209b204651f76c|ac8f73f5a505cb89|5c023f300c4f1bfc|-939633954||t19433.6290261166s|282baacc1069881d|116854|rds|local|vector|||0.09||
 gg_polarVnonpolar_vk|stem|ffe202a9743cf0b6|bf6e426e137f26bf|c22dcfc43b940e93|-762432858||t19433.6290610049s|e6de797adaf56f99|417654|rds|local|vector|||0.01||
-gg_Porewater_Fert|stem|3edf5d3c5a82eea8|44f4139d47a21de6|435bdbb807add4f5|1902486254||t19450.8253821155s|b0d24ed1ac0f3e70|1555850|rds|local|vector|||2.22|1m22mThere were 2 warnings in mutate.The first warning was1m22m36mℹ39m In argument NO3  .Primitiveas.doubleNO3.Caused by warning33m39m NAs introduced by coercion1m22m36mℹ39m Run dplyrlast_dplyr_warnings to see the 1 remaining warning.. 1m22mThere were 2 warnings in mutate.The first warning was1m22m36mℹ39m In argument NO3  .Primitiveas.doubleNO3.Caused by warning33m39m NAs introduced by coercion1m22m36mℹ39m Run dplyrlast_dplyr_warnings to see the 1 remaining warning.. 1m22mThere were 2 warnings in mutate.The first warning was1m22m36mℹ39m In argument NO3  .Primitiveas.doubleNO3.Caused by warning33m39m NAs introduced by coercion1m22m36mℹ39m Run dplyrlast_dplyr_warnings to see the 1 remaining warning.. 1m22mThere were 2 warnings in mutate.The first warning was1m22m36mℹ39m In argument NO3  .Primitiveas.doubleNO3.Caused by warning33m39m NAs introduced by coercion1m22m36mℹ39m Run dplyrlast_dplyr_warnings to see the 1 remaining warning.. 1m22mThere were 2 warnings in mutate.The first warning was1m22m36mℹ39m In argument NO3  .Primitiveas.doubleNO3.Caused by warning33m39m NAs introduced by coercion1m22m36mℹ39m Run dplyrlast_dplyr_warnings to see the 1 remaining warning.. 1m22mThere were 2 warnings in mutate.The first warning was1m22m36mℹ39m In argument NO3  .Primitiveas.doubleNO3.Caused by warning33m39m NAs introduced by coercion1m22m36mℹ39m Run dplyrlast_dplyr_warnings to see the 1 remaining warning.|
-gg_resin|stem|97a0b94b15907bbd|81cec8bbdc458e22|460be4d1ebb20e16|-1180256919||t19451.7600194706s|973997289de37ac9|395523|rds|local|vector|||3.8|1m22mUsing size aesthetic for lines was deprecated in ggplot2 3.4.0.36mℹ39m Please use linewidth instead.|
-gg_resin_Ancillary|stem|361cc3ee7db8eaf7|7e84c8f66471ca70|bd49b116f88f4609|2132457085||t19451.7600228885s|b4f5888595ed2a7e|150452|rds|local|vector|||0.21||
-gg_Resin_Fert|stem|2dfd2818410db5b2|d6ca0c71b3f87fa1|db24ec8f554a4300|-19212922||t19450.8971713471s|455a15a41453ef44|246430|rds|local|vector|||2.5|1m22mUsing size aesthetic for lines was deprecated in ggplot2 3.4.0.36mℹ39m Please use linewidth instead.|
-gg_resin_Snowfence|stem|4dec5123663aa121|cfe836cd8760d99a|0665b1ed53a1ad29|924567444||t19451.7600752849s|da819df3e4f36835|220048|rds|local|vector|||4.43||
+gg_Porewater_Fert|stem|0070a442bf649519|44f4139d47a21de6|ae06e2f9b278c666|1902486254||t19492.8007867324s|07d659af572794e7|2909202|rds|local|vector|||5.18|1m22mThere were 2 warnings in mutate.The first warning was1m22m36mℹ39m In argument NO3  .Primitiveas.doubleNO3.Caused by warning33m39m NAs introduced by coercion1m22m36mℹ39m Run dplyrlast_dplyr_warnings to see the 1 remaining warning.. 1m22mThere were 2 warnings in mutate.The first warning was1m22m36mℹ39m In argument NO3  .Primitiveas.doubleNO3.Caused by warning33m39m NAs introduced by coercion1m22m36mℹ39m Run dplyrlast_dplyr_warnings to see the 1 remaining warning.. 1m22mThere were 2 warnings in mutate.The first warning was1m22m36mℹ39m In argument NO3  .Primitiveas.doubleNO3.Caused by warning33m39m NAs introduced by coercion1m22m36mℹ39m Run dplyrlast_dplyr_warnings to see the 1 remaining warning.. 1m22mThere were 2 warnings in mutate.The first warning was1m22m36mℹ39m In argument NO3  .Primitiveas.doubleNO3.Caused by warning33m39m NAs introduced by coercion1m22m36mℹ39m Run dplyrlast_dplyr_warnings to see the 1 remaining warning.. 1m22mThere were 2 warnings in mutate.The first warning was1m22m36mℹ39m In argument NO3  .Primitiveas.doubleNO3.Caused by warning33m39m NAs introduced by coercion1m22m36mℹ39m Run dplyrlast_dplyr_warnings to see the 1 remaining warning.. 1m22mThere were 2 warnings in mutate.The first warning was1m22m36mℹ39m In argument NO3  .Primitiveas.doubleNO3.Caused by warning33m39m NAs introduced by coercion1m22m36mℹ39m Run dplyrlast_dplyr_warnings to see the 1 remaining warning.. 1m22mThere were 2 warnings in mutate.The first warning was1m22m36mℹ39m In argument NO3  .Primitiveas.doubleNO3.Caused by warning33m39m NAs introduced by coercion1m22m36mℹ39m Run dplyrlast_dplyr_warnings to see the 1 remaining warning.. 1m22mThere were 2 warnings i|
+gg_resin|stem|6c577e45f51cf6c6|81cec8bbdc458e22|4af5fd8bbae135fc|-1180256919||t19492.8135777925s|c1d095baea987f64|412223|rds|local|vector|||2.03|1m22mUsing size aesthetic for lines was deprecated in ggplot2 3.4.0.36mℹ39m Please use linewidth instead.|
+gg_resin_Ancillary|stem|7d5ea561f2b3ad44|7e84c8f66471ca70|22bc80266cae91cb|2132457085||t19492.8136076966s|4940a6842da6f5aa|150445|rds|local|vector|||0.17||
+gg_Resin_Fert|stem|3375cf1f4b75cbc0|d6ca0c71b3f87fa1|ce4f998696f261a1|-19212922||t19492.8136232595s|76433a453bdb43a6|251607|rds|local|vector|||1.24||
+gg_resin_Snowfence|stem|62e3672198a014c3|cfe836cd8760d99a|6aeb2fe2aab9507a|924567444||t19492.8136047986s|2cf76837c5ef4ac9|220042|rds|local|vector|||2.23||
 gg_seasonal|stem|0c6292c10a2a3428|56547c5eb93eb15d|88364827425056bb|1173199820||t19433.6290818214s|025792260368227a|714651|rds|local|vector|||0.05||
 gg_seasonal_nonpolar|stem|c8768f20658d9375|38a893aec5e494b8|65f757b7478e4cec|187399727||t19486.7082986857s|0a8dd17fd6825434|703582|rds|local|vector|||0.03||
 gg_unique|stem|c9a0f022010aa15f|440a4e4945edc390|3df11af1f8b461c0|1813917841||t19433.6290566064s|84b993693934d933|1116016|rds|local|vector|||0.4||
@@ -64,9 +64,9 @@ plot_Extract_all_H2O|function|235c6430db253f21|||||||||||||||
 plot_Extract_Fert|function|bab2fdb49e87c3d0|||||||||||||||
 plot_Extract_Fert_H2O|function|2ac5f895d01302cf|||||||||||||||
 plot_Extract_lysim|function|907bd4f613717dc8|||||||||||||||
-plot_Extract_Seasonal|function|1bb18e03a8b46731|||||||||||||||
+plot_Extract_Seasonal|function|b06e5fca4e96b0d1|||||||||||||||
 plot_Extract_Seasonal_H2O|function|e3400090e8f88061|||||||||||||||
-plot_Extract_Snowfence|function|cecf35dea92fa2ee|||||||||||||||
+plot_Extract_Snowfence|function|855b4bdf56817c0f|||||||||||||||
 plot_Extract_Snowfence_H2O|function|c78689319b3013ee|||||||||||||||
 plot_fticr_Domains|function|f84a15630eac67e6|||||||||||||||
 plot_pca_by_site|function|8a9020c1fc82ca0c|||||||||||||||
@@ -79,11 +79,11 @@ plot_permanova_polar|function|19211eb80aa01b80|||||||||||||||
 plot_polarVnonPolar_pca|function|467f638d2ad7d5e4|||||||||||||||
 plot_polarVnonPolar_vk|function|6c35d182066be0e7|||||||||||||||
 plot_PoreWater_all|function|b0614c75ac6ad512|||||||||||||||
-plot_PoreWater_Fert|function|42d999d0303295b7|||||||||||||||
+plot_PoreWater_Fert|function|9427de2818c857c2|||||||||||||||
 plot_PoreWater_Lysim|function|7f7c7b6b6ad9bb12|||||||||||||||
 plot_PoreWater_Seasonal|function|2bcb6b05283384c1|||||||||||||||
 plot_PoreWater_Snowfence|function|389b2531793ca0e2|||||||||||||||
-plot_resin|function|127e9c02d83f150e|||||||||||||||
+plot_resin|function|ddcb30ae38ede756|||||||||||||||
 plot_resin_Ancillary|function|52f3aa435bb9117e|||||||||||||||
 plot_resin_Fert|function|923d336568b902f5|||||||||||||||
 plot_resin_Snowfence|function|a9ae6a529a61bbab|||||||||||||||
@@ -126,9 +126,9 @@ relabund_cores_nonpolar|stem|e629b5ae5fa42c39|3f4b0d37f6463632|21425b89bf604030|
 relabund_cores_polar|stem|7f71e46ecf266658|d0e345c965f3794b|19c04be309805cbd|-1229788809||t19433.6290236174s|36806297027e0d4f|3933|rds|local|vector|||0.01||
 reorder_seasons|function|0e9a5772fbdce6bb|||||||||||||||
 reorder_sites|function|9feeff82bcccca8d|||||||||||||||
-report|stem|8cfb2ce1413fbb0e|3a1fc72a4f953c29|21412a9885829c63|-237041703|reports/Aggie_report.md*reports/Aggie_report.Rmd*reports/Aggie_report_files|t19487.6558262885s|1271eae486f525e4|57123|file|local|vector|||401.44||
-report2|stem|ff8dfedf70419cac|aaa118cb69220dc1|8a5fcbad88580de5|-1253350427|reports/Aggie_Short_report.md*reports/Aggie_Short_report.Rmd*reports/Aggie_Short_report_files|t19487.7794497208s|46ca5dfe80a40260|232632|file|local|vector|||29.75||
-Resin_data|stem|fcb5f0a7be4d9049|81922cd386115565|2c5d15756513a1cb|736601963||t19433.6288519147s|66576056faf04532|12518|rds|local|vector|||0||
-Resin_data_read|stem|e2cc721102117948|e10d3fd426b3ece2|ef46db3751d8e999|-1045475728|Data/Resin.csv|t19432.8560125045s|f8f7f051e3d86ea0|50008|file|local|vector|||0||
-Resin_processed|stem|dfacf767192766ec|7831cfc8de3e0329|f4c8dd25048339dd|1865690580||t19433.6289380874s|4c9be0ec232de534|12727|rds|local|vector|||0.01||
+report|stem|1015cfa25b92a623|3a1fc72a4f953c29|d77d8c096d1852c1|-237041703|reports/Aggie_report.md*reports/Aggie_report.Rmd*reports/Aggie_report_files|t19492.8197408108s|085277c470e5f6a0|6768668|file|local|vector|||456.86||
+report2|stem|452f6dbd45608d03|1bbc35fea725d396|8886117d9f4734aa|-1253350427|reports/Aggie_Short_report.md*reports/Aggie_Short_report.Rmd*reports/Aggie_Short_report_files|t19492.8144416275s|539992a600fb9d90|686819|file|local|vector|||70.43||
+Resin_data|stem|8af8b2cfe6518f42|81922cd386115565|99bf62ff8fe0f311|736601963||t19492.8135480664s|d3d4b9edfd4d4573|12511|rds|local|vector|||0||
+Resin_data_read|stem|839712328f6f99dc|e10d3fd426b3ece2|ef46db3751d8e999|-1045475728|Data/Resin.csv|t19492.8131193515s|b59cf481f092d4e4|49828|file|local|vector|||0||
+Resin_processed|stem|29fcab43cd78bf4f|7831cfc8de3e0329|3ab0383ee836db37|1865690580||t19492.8135509524s|ddeffd2f7840e94d|12719|rds|local|vector|||0.04||
 theme_kp|function|5982ad535dc86aea|||||||||||||||

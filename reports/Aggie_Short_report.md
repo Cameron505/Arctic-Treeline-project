@@ -39,7 +39,7 @@ frequencies reduced due to staffing and were disrupted due to COVID in
 click to open
 </summary>
 
-#### Extracts:
+#### Extracts snowfence vs control:
 
 K2SO4 No variation in extractable nutrients from snow fence treatment.
 <details>
@@ -50,6 +50,9 @@ click to open
 <img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-1-1.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-1-2.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-1-3.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-1-4.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-1-5.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-1-6.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-1-7.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-1-8.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-1-9.png" width="100%" />
 
 </details>
+
+#### Anova results
+
 <details>
 <summary>
 click to open ANOVA results
@@ -62,6 +65,8 @@ click to open ANOVA results
 | PO4.fum | Mesic  | 2017 | Late Winter  | 0.0014443 | \*       |
 | TFPA    | Hydric | 2018 | Early Spring | 0.0124263 | \*       |
 | TRS     | Xeric  | 2018 | Early Spring | 0.0015616 | \*       |
+
+All comparisons
 
 | analyte   | Site   | YEAR | TIME         |   p.value | asterisk |
 |:----------|:-------|-----:|:-------------|----------:|:---------|
@@ -183,6 +188,8 @@ click to open ANOVA results
 | phenolics | Xeric  | 2018 | Early Spring | 0.8679635 | NA       |
 | phenolics | Xeric  | 2019 | Early Spring | 0.6036452 | NA       |
 
+Significant comparisons
+
 </details>
 </details>
 
@@ -193,14 +200,67 @@ click to open ANOVA results
 click to open
 </summary>
 
-#### Extracts K2SO4:
+#### Ancillary Extracts K2SO4:
 
 Significant changes in microbial biomass over time and between sites,
 including a biomass crash observed in 2018, biomass was not seen
 increasing again until the end of 2019.
+<details>
+<summary>
+click to open
+</summary>
+<img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-3-1.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-3-2.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-3-3.png" width="100%" />
+</details>
 
-<img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-3-1.png" width="100%" />
+#### Ancillary extraction LME results
 
+<details>
+<summary>
+click to open LME results
+</summary>
+
+| analyte | variable        | numDF | denDF |   F-value |   p_value | asterisk |
+|:--------|:----------------|------:|------:|----------:|----------:|:---------|
+| MBC     | Site            |     2 |   266 |  8.324702 | 0.0003114 | \*       |
+| MBC     | MONTH:YEAR      |     1 |   266 | 12.319021 | 0.0005264 | \*       |
+| MBC     | MONTH:Site      |     2 |   266 |  4.075738 | 0.0180513 | \*       |
+| MBC     | YEAR:Site       |     2 |   266 |  5.834864 | 0.0033110 | \*       |
+| MBC     | MONTH:YEAR:Site |     2 |   266 |  4.331849 | 0.0140828 | \*       |
+| MBN     | YEAR            |     1 |   266 | 83.921320 | 0.0000000 | \*       |
+| MBN     | MONTH:Site      |     2 |   266 | 12.707745 | 0.0000054 | \*       |
+| MBN     | YEAR:Site       |     2 |   266 |  5.680923 | 0.0038375 | \*       |
+| MBN     | MONTH:YEAR:Site |     2 |   266 |  9.534462 | 0.0001002 | \*       |
+| Mic.PO4 | YEAR            |     1 |   269 | 20.701633 | 0.0000081 | \*       |
+
+Biomass LME significant comparisons
+
+| analyte | variable        | numDF | denDF |    F-value |   p_value | asterisk |
+|:--------|:----------------|------:|------:|-----------:|----------:|:---------|
+| MBC     | MONTH           |     1 |   266 |  0.2964890 | 0.5865481 | NA       |
+| MBC     | YEAR            |     1 |   266 |  0.6913539 | 0.4064500 | NA       |
+| MBC     | Site            |     2 |   266 |  8.3247024 | 0.0003114 | \*       |
+| MBC     | MONTH:YEAR      |     1 |   266 | 12.3190213 | 0.0005264 | \*       |
+| MBC     | MONTH:Site      |     2 |   266 |  4.0757381 | 0.0180513 | \*       |
+| MBC     | YEAR:Site       |     2 |   266 |  5.8348642 | 0.0033110 | \*       |
+| MBC     | MONTH:YEAR:Site |     2 |   266 |  4.3318485 | 0.0140828 | \*       |
+| MBN     | MONTH           |     1 |   266 |  3.4767076 | 0.0633397 | NA       |
+| MBN     | YEAR            |     1 |   266 | 83.9213202 | 0.0000000 | \*       |
+| MBN     | Site            |     2 |   266 |  1.9146197 | 0.1494237 | NA       |
+| MBN     | MONTH:YEAR      |     1 |   266 |  0.8526888 | 0.3566297 | NA       |
+| MBN     | MONTH:Site      |     2 |   266 | 12.7077452 | 0.0000054 | \*       |
+| MBN     | YEAR:Site       |     2 |   266 |  5.6809232 | 0.0038375 | \*       |
+| MBN     | MONTH:YEAR:Site |     2 |   266 |  9.5344616 | 0.0001002 | \*       |
+| Mic.PO4 | MONTH           |     1 |   269 |  1.1502124 | 0.2844659 | NA       |
+| Mic.PO4 | YEAR            |     1 |   269 | 20.7016330 | 0.0000081 | \*       |
+| Mic.PO4 | Site            |     2 |   269 |  1.0203188 | 0.3618707 | NA       |
+| Mic.PO4 | MONTH:YEAR      |     1 |   269 |  3.4249215 | 0.0653156 | NA       |
+| Mic.PO4 | MONTH:Site      |     2 |   269 |  2.1748958 | 0.1156139 | NA       |
+| Mic.PO4 | YEAR:Site       |     2 |   269 |  2.2689271 | 0.1053990 | NA       |
+| Mic.PO4 | MONTH:YEAR:Site |     2 |   269 |  1.4283485 | 0.2415165 | NA       |
+
+Biomass LME all comparisons
+
+</details>
 </details>
 
 ## Resin Strips
@@ -216,14 +276,14 @@ Resin stips showed significant differences between sites. Primary
 feature: Xeric contained high NO3, and Mesic contained high PO4. These
 differences were not seen in soil extractions, in fact Mesic showed the
 highest NO3 extractable concentrations consistently, and Hydric showed
-the highest po4 extractable concentrations consistently
-
+the highest po4 extractable concentrations consistently \#### Resin
+strip data by site  
 <details>
 <summary>
 click to open
 </summary>
 
-<img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-4-1.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-4-2.png" width="100%" />
+<img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-5-1.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-5-2.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-5-3.png" width="100%" />
 
 </details>
 
@@ -234,7 +294,60 @@ click to open
 click to open
 </summary>
 
-<img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-5-1.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-5-2.png" width="100%" />
+<img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-6-1.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-6-2.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-6-3.png" width="100%" />
+
+</details>
+
+#### resin strip ANOVA results
+
+<details>
+<summary>
+click to open ANOVA stats
+</summary>
+
+| analyte   | YEAR | Purpose2 |   p.value | asterisk |
+|:----------|-----:|:---------|----------:|:---------|
+| Ammonium  | 2018 | GS       | 0.0000000 | \*       |
+| Ammonium  | 2019 | OW       | 0.0000003 | \*       |
+| Ammonium  | 2019 | GS       | 0.0000644 | \*       |
+| Nitrate   | 2017 | OW       | 0.0223603 | \*       |
+| Nitrate   | 2018 | OW-GS    | 0.0425072 | \*       |
+| Nitrate   | 2018 | GS       | 0.0172312 | \*       |
+| Nitrate   | 2020 | OW-GS    | 0.0011635 | \*       |
+| Nitrate   | 2021 | OW       | 0.0000000 | \*       |
+| Phosphate | 2017 | OW       | 0.0000001 | \*       |
+| Phosphate | 2018 | OW-GS    | 0.0153396 | \*       |
+| Phosphate | 2018 | GS       | 0.0011471 | \*       |
+| Phosphate | 2020 | OW-GS    | 0.0057749 | \*       |
+| Phosphate | 2021 | OW       | 0.0000002 | \*       |
+
+Significant differences between sites
+
+| analyte   | YEAR | Purpose2 |   p.value | asterisk |
+|:----------|-----:|:---------|----------:|:---------|
+| Ammonium  | 2017 | OW       | 0.0526606 | NA       |
+| Ammonium  | 2018 | OW-GS    | 0.2519457 | NA       |
+| Ammonium  | 2018 | GS       | 0.0000000 | \*       |
+| Ammonium  | 2019 | OW       | 0.0000003 | \*       |
+| Ammonium  | 2019 | GS       | 0.0000644 | \*       |
+| Ammonium  | 2020 | OW-GS    | 0.7553321 | NA       |
+| Ammonium  | 2021 | OW       | 0.8304596 | NA       |
+| Nitrate   | 2017 | OW       | 0.0223603 | \*       |
+| Nitrate   | 2018 | OW-GS    | 0.0425072 | \*       |
+| Nitrate   | 2018 | GS       | 0.0172312 | \*       |
+| Nitrate   | 2019 | OW       |       NaN | NA       |
+| Nitrate   | 2019 | GS       | 0.0915005 | NA       |
+| Nitrate   | 2020 | OW-GS    | 0.0011635 | \*       |
+| Nitrate   | 2021 | OW       | 0.0000000 | \*       |
+| Phosphate | 2017 | OW       | 0.0000001 | \*       |
+| Phosphate | 2018 | OW-GS    | 0.0153396 | \*       |
+| Phosphate | 2018 | GS       | 0.0011471 | \*       |
+| Phosphate | 2019 | OW       | 0.1746391 | NA       |
+| Phosphate | 2019 | GS       |       NaN | NA       |
+| Phosphate | 2020 | OW-GS    | 0.0057749 | \*       |
+| Phosphate | 2021 | OW       | 0.0000002 | \*       |
+
+differences between sites all
 
 </details>
 </details>
@@ -246,7 +359,7 @@ click to open
 click to open
 </summary>
 
-#### Extractions PO4 data:
+#### pore water data:
 
 pore water measurements from fertilized plots showed little variation in
 N components, but significantly more PO4 in 2017 and 2018 all season,
@@ -256,7 +369,154 @@ were also significantly higher in 2017, and at the beginning of 2018 and
 return to similar concentrations of other plots at the end of 2018, and
 remained similar for 2019.
 
-<img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-6-1.png" width="100%" />
+<img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-8-1.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-8-2.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-8-3.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-8-4.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-8-5.png" width="100%" />
+
+#### Pore water LME results
+
+<details>
+<summary>
+click to open LME results
+</summary>
+
+| analyte | variable                  | numDF | denDF |    F-value |   p_value | asterisk |
+|:--------|:--------------------------|------:|------:|-----------:|----------:|:---------|
+| NH4     | MONTH                     |     1 |  2519 |  23.613547 | 0.0000012 | \*       |
+| NH4     | YEAR                      |     1 |  2519 | 222.858139 | 0.0000000 | \*       |
+| NH4     | MONTH:YEAR                |     1 |  2519 |  26.076260 | 0.0000004 | \*       |
+| NH4     | YEAR:treatment            |     3 |  2519 |  17.072934 | 0.0000000 | \*       |
+| NH4     | MONTH:YEAR:treatment      |     3 |  2519 |   6.656544 | 0.0001785 | \*       |
+| NH4     | YEAR:Site:treatment       |     6 |  2519 |   2.142476 | 0.0457770 | \*       |
+| NH4     | MONTH:YEAR:Site:treatment |     6 |  2519 |   3.822831 | 0.0008478 | \*       |
+| NO3     | YEAR                      |     1 |  2451 |  71.195558 | 0.0000000 | \*       |
+| NO3     | Site                      |     2 |  2451 |  37.262319 | 0.0000000 | \*       |
+| NO3     | treatment                 |     3 |  2451 |   3.078040 | 0.0265207 | \*       |
+| NO3     | MONTH:Site                |     2 |  2451 |  15.651052 | 0.0000002 | \*       |
+| NO3     | MONTH:treatment           |     3 |  2451 |   3.621275 | 0.0126115 | \*       |
+| NO3     | YEAR:treatment            |     3 |  2451 |   8.385542 | 0.0000152 | \*       |
+| NO3     | Site:treatment            |     6 |  2451 |   6.335395 | 0.0000013 | \*       |
+| NO3     | MONTH:YEAR:treatment      |     3 |  2451 |   5.301888 | 0.0012129 | \*       |
+| NO3     | MONTH:Site:treatment      |     6 |  2451 |   4.869738 | 0.0000590 | \*       |
+| NO3     | YEAR:Site:treatment       |     6 |  2451 |   2.188305 | 0.0413914 | \*       |
+| NO3     | MONTH:YEAR:Site:treatment |     6 |  2451 |   7.250415 | 0.0000001 | \*       |
+| PO4     | MONTH                     |     1 |  2399 |  12.714676 | 0.0003699 | \*       |
+| PO4     | YEAR                      |     1 |  2399 |  36.907364 | 0.0000000 | \*       |
+| PO4     | Site                      |     2 |  2399 |   4.591018 | 0.0102318 | \*       |
+| PO4     | treatment                 |     3 |  2399 |  32.581219 | 0.0000000 | \*       |
+| PO4     | MONTH:treatment           |     3 |  2399 |  16.607878 | 0.0000000 | \*       |
+| PO4     | YEAR:treatment            |     3 |  2399 |   7.921750 | 0.0000295 | \*       |
+| PO4     | Site:treatment            |     6 |  2399 |  10.502761 | 0.0000000 | \*       |
+| PO4     | MONTH:YEAR:treatment      |     3 |  2399 |  21.929746 | 0.0000000 | \*       |
+| PO4     | MONTH:Site:treatment      |     6 |  2399 |   3.880157 | 0.0007359 | \*       |
+| PO4     | YEAR:Site:treatment       |     6 |  2399 |   3.614012 | 0.0014277 | \*       |
+| PO4     | MONTH:YEAR:Site:treatment |     6 |  2399 |   8.323263 | 0.0000000 | \*       |
+| TFPA    | MONTH                     |     1 |  2346 |   4.364881 | 0.0367945 | \*       |
+| TFPA    | Site                      |     2 |  2346 |   6.300836 | 0.0018660 | \*       |
+| TFPA    | YEAR:Site                 |     2 |  2346 |   3.253995 | 0.0387940 | \*       |
+| TRS     | MONTH                     |     1 |  2497 |  37.472507 | 0.0000000 | \*       |
+| TRS     | YEAR                      |     1 |  2497 | 128.289731 | 0.0000000 | \*       |
+| TRS     | Site                      |     2 |  2497 |   5.368236 | 0.0047163 | \*       |
+| TRS     | treatment                 |     3 |  2497 |   5.158927 | 0.0014823 | \*       |
+| TRS     | MONTH:YEAR                |     1 |  2497 |  33.647837 | 0.0000000 | \*       |
+| TRS     | YEAR:Site                 |     2 |  2497 |   3.402213 | 0.0334540 | \*       |
+| TRS     | MONTH:treatment           |     3 |  2497 |   6.646371 | 0.0001811 | \*       |
+| TRS     | MONTH:YEAR:Site           |     2 |  2497 |   5.390973 | 0.0046107 | \*       |
+
+Significant LME comparisons
+
+| analyte | variable                  | numDF | denDF |     F-value |   p_value | asterisk |
+|:--------|:--------------------------|------:|------:|------------:|----------:|:---------|
+| Mass    | MONTH                     |     1 |  2486 |   0.0989833 | 0.7530795 | NA       |
+| Mass    | YEAR                      |     1 |  2486 |   1.4667719 | 0.2259708 | NA       |
+| Mass    | Site                      |     2 |  2486 |   1.1171260 | 0.3273831 | NA       |
+| Mass    | treatment                 |     3 |  2486 |   1.1074982 | 0.3447382 | NA       |
+| Mass    | MONTH:YEAR                |     1 |  2486 |   0.0951064 | 0.7578090 | NA       |
+| Mass    | MONTH:Site                |     2 |  2486 |   0.0119858 | 0.9880858 | NA       |
+| Mass    | YEAR:Site                 |     2 |  2486 |   0.9708924 | 0.3788885 | NA       |
+| Mass    | MONTH:treatment           |     3 |  2486 |   0.0014793 | 0.9999215 | NA       |
+| Mass    | YEAR:treatment            |     3 |  2486 |   1.0230944 | 0.3812582 | NA       |
+| Mass    | Site:treatment            |     6 |  2486 |   0.8936561 | 0.4984786 | NA       |
+| Mass    | MONTH:YEAR:Site           |     2 |  2486 |   0.0676554 | 0.9345842 | NA       |
+| Mass    | MONTH:YEAR:treatment      |     3 |  2486 |   0.0158035 | 0.9972924 | NA       |
+| Mass    | MONTH:Site:treatment      |     6 |  2486 |   0.0151719 | 0.9999848 | NA       |
+| Mass    | YEAR:Site:treatment       |     6 |  2486 |   0.7238450 | 0.6303962 | NA       |
+| Mass    | MONTH:YEAR:Site:treatment |     6 |  2486 |   0.0284329 | 0.9999027 | NA       |
+| NH4     | MONTH                     |     1 |  2519 |  23.6135468 | 0.0000012 | \*       |
+| NH4     | YEAR                      |     1 |  2519 | 222.8581386 | 0.0000000 | \*       |
+| NH4     | Site                      |     2 |  2519 |   0.1199802 | 0.8869431 | NA       |
+| NH4     | treatment                 |     3 |  2519 |   0.8359364 | 0.4740167 | NA       |
+| NH4     | MONTH:YEAR                |     1 |  2519 |  26.0762600 | 0.0000004 | \*       |
+| NH4     | MONTH:Site                |     2 |  2519 |   1.1138621 | 0.3284503 | NA       |
+| NH4     | YEAR:Site                 |     2 |  2519 |   0.0851350 | 0.9183909 | NA       |
+| NH4     | MONTH:treatment           |     3 |  2519 |   0.7678538 | 0.5119530 | NA       |
+| NH4     | YEAR:treatment            |     3 |  2519 |  17.0729338 | 0.0000000 | \*       |
+| NH4     | Site:treatment            |     6 |  2519 |   1.3180046 | 0.2453784 | NA       |
+| NH4     | MONTH:YEAR:Site           |     2 |  2519 |   1.8076051 | 0.1642593 | NA       |
+| NH4     | MONTH:YEAR:treatment      |     3 |  2519 |   6.6565440 | 0.0001785 | \*       |
+| NH4     | MONTH:Site:treatment      |     6 |  2519 |   1.3995448 | 0.2109031 | NA       |
+| NH4     | YEAR:Site:treatment       |     6 |  2519 |   2.1424763 | 0.0457770 | \*       |
+| NH4     | MONTH:YEAR:Site:treatment |     6 |  2519 |   3.8228306 | 0.0008478 | \*       |
+| NO3     | MONTH                     |     1 |  2451 |   0.2084546 | 0.6480219 | NA       |
+| NO3     | YEAR                      |     1 |  2451 |  71.1955582 | 0.0000000 | \*       |
+| NO3     | Site                      |     2 |  2451 |  37.2623193 | 0.0000000 | \*       |
+| NO3     | treatment                 |     3 |  2451 |   3.0780403 | 0.0265207 | \*       |
+| NO3     | MONTH:YEAR                |     1 |  2451 |   1.3242788 | 0.2499378 | NA       |
+| NO3     | MONTH:Site                |     2 |  2451 |  15.6510519 | 0.0000002 | \*       |
+| NO3     | YEAR:Site                 |     2 |  2451 |   0.7696518 | 0.4632862 | NA       |
+| NO3     | MONTH:treatment           |     3 |  2451 |   3.6212749 | 0.0126115 | \*       |
+| NO3     | YEAR:treatment            |     3 |  2451 |   8.3855420 | 0.0000152 | \*       |
+| NO3     | Site:treatment            |     6 |  2451 |   6.3353952 | 0.0000013 | \*       |
+| NO3     | MONTH:YEAR:Site           |     2 |  2451 |   1.5630873 | 0.2096971 | NA       |
+| NO3     | MONTH:YEAR:treatment      |     3 |  2451 |   5.3018875 | 0.0012129 | \*       |
+| NO3     | MONTH:Site:treatment      |     6 |  2451 |   4.8697383 | 0.0000590 | \*       |
+| NO3     | YEAR:Site:treatment       |     6 |  2451 |   2.1883048 | 0.0413914 | \*       |
+| NO3     | MONTH:YEAR:Site:treatment |     6 |  2451 |   7.2504147 | 0.0000001 | \*       |
+| PO4     | MONTH                     |     1 |  2399 |  12.7146757 | 0.0003699 | \*       |
+| PO4     | YEAR                      |     1 |  2399 |  36.9073636 | 0.0000000 | \*       |
+| PO4     | Site                      |     2 |  2399 |   4.5910180 | 0.0102318 | \*       |
+| PO4     | treatment                 |     3 |  2399 |  32.5812186 | 0.0000000 | \*       |
+| PO4     | MONTH:YEAR                |     1 |  2399 |   2.0825569 | 0.1491210 | NA       |
+| PO4     | MONTH:Site                |     2 |  2399 |   1.4489132 | 0.2350308 | NA       |
+| PO4     | YEAR:Site                 |     2 |  2399 |   2.9589467 | 0.0520629 | NA       |
+| PO4     | MONTH:treatment           |     3 |  2399 |  16.6078783 | 0.0000000 | \*       |
+| PO4     | YEAR:treatment            |     3 |  2399 |   7.9217500 | 0.0000295 | \*       |
+| PO4     | Site:treatment            |     6 |  2399 |  10.5027613 | 0.0000000 | \*       |
+| PO4     | MONTH:YEAR:Site           |     2 |  2399 |   1.2369229 | 0.2904611 | NA       |
+| PO4     | MONTH:YEAR:treatment      |     3 |  2399 |  21.9297457 | 0.0000000 | \*       |
+| PO4     | MONTH:Site:treatment      |     6 |  2399 |   3.8801569 | 0.0007359 | \*       |
+| PO4     | YEAR:Site:treatment       |     6 |  2399 |   3.6140115 | 0.0014277 | \*       |
+| PO4     | MONTH:YEAR:Site:treatment |     6 |  2399 |   8.3232635 | 0.0000000 | \*       |
+| TFPA    | MONTH                     |     1 |  2346 |   4.3648813 | 0.0367945 | \*       |
+| TFPA    | YEAR                      |     1 |  2346 |   0.0253375 | 0.8735426 | NA       |
+| TFPA    | Site                      |     2 |  2346 |   6.3008362 | 0.0018660 | \*       |
+| TFPA    | treatment                 |     3 |  2346 |   1.0004341 | 0.3916216 | NA       |
+| TFPA    | MONTH:YEAR                |     1 |  2346 |   1.0569400 | 0.3040201 | NA       |
+| TFPA    | MONTH:Site                |     2 |  2346 |   0.3083943 | 0.7346554 | NA       |
+| TFPA    | YEAR:Site                 |     2 |  2346 |   3.2539953 | 0.0387940 | \*       |
+| TFPA    | MONTH:treatment           |     3 |  2346 |   2.5431356 | 0.0545869 | NA       |
+| TFPA    | YEAR:treatment            |     3 |  2346 |   0.5679299 | 0.6361483 | NA       |
+| TFPA    | Site:treatment            |     6 |  2346 |   1.3488158 | 0.2318808 | NA       |
+| TFPA    | MONTH:YEAR:Site           |     2 |  2346 |   0.0586504 | 0.9430378 | NA       |
+| TFPA    | MONTH:YEAR:treatment      |     3 |  2346 |   0.5373310 | 0.6567211 | NA       |
+| TFPA    | MONTH:Site:treatment      |     6 |  2346 |   1.0132753 | 0.4146243 | NA       |
+| TFPA    | YEAR:Site:treatment       |     6 |  2346 |   0.6132802 | 0.7198969 | NA       |
+| TFPA    | MONTH:YEAR:Site:treatment |     6 |  2346 |   0.2849393 | 0.9443101 | NA       |
+| TRS     | MONTH                     |     1 |  2497 |  37.4725075 | 0.0000000 | \*       |
+| TRS     | YEAR                      |     1 |  2497 | 128.2897311 | 0.0000000 | \*       |
+| TRS     | Site                      |     2 |  2497 |   5.3682356 | 0.0047163 | \*       |
+| TRS     | treatment                 |     3 |  2497 |   5.1589272 | 0.0014823 | \*       |
+| TRS     | MONTH:YEAR                |     1 |  2497 |  33.6478369 | 0.0000000 | \*       |
+| TRS     | MONTH:Site                |     2 |  2497 |   2.4135020 | 0.0897101 | NA       |
+| TRS     | YEAR:Site                 |     2 |  2497 |   3.4022125 | 0.0334540 | \*       |
+| TRS     | MONTH:treatment           |     3 |  2497 |   6.6463707 | 0.0001811 | \*       |
+| TRS     | YEAR:treatment            |     3 |  2497 |   0.4093911 | 0.7462688 | NA       |
+| TRS     | Site:treatment            |     6 |  2497 |   0.2455244 | 0.9612100 | NA       |
+| TRS     | MONTH:YEAR:Site           |     2 |  2497 |   5.3909732 | 0.0046107 | \*       |
+| TRS     | MONTH:YEAR:treatment      |     3 |  2497 |   0.4793736 | 0.6966532 | NA       |
+| TRS     | MONTH:Site:treatment      |     6 |  2497 |   0.4554882 | 0.8414601 | NA       |
+| TRS     | YEAR:Site:treatment       |     6 |  2497 |   0.5914919 | 0.7374033 | NA       |
+| TRS     | MONTH:YEAR:Site:treatment |     6 |  2497 |   0.5389044 | 0.7789662 | NA       |
+
+All LME comparisons
 
 </details>
 
@@ -281,7 +541,7 @@ the interaction between Site:year explained \~10% of the variation.
 click to open
 </summary>
 
-<img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-7-1.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-7-2.png" width="100%" />
+<img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-10-1.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-10-2.png" width="100%" />
 
 </details>
 
