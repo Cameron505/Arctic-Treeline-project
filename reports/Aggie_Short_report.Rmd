@@ -200,3 +200,16 @@ Site:Year accounted for ~10% of total variation among samples
 </details>
 
 </details>
+
+## Session Info 
+
+<details>
+  <summary> Session Info </summary>
+
+Date run: `r Sys.Date()`
+
+```{r}
+sessionInfo()
+```
+
+</details>
