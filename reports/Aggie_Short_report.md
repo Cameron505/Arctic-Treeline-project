@@ -193,6 +193,126 @@ Significant comparisons
 </details>
 </details>
 
+## Seasonal (Pore water and extractions)
+
+<details>
+<summary>
+click to open
+</summary>
+
+#### Extractable concentrations:
+
+<details>
+<summary>
+click to open
+</summary>
+
+<img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-3-1.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-3-2.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-3-3.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-3-4.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-3-5.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-3-6.png" width="100%" />
+
+</details>
+
+###### Extractable LME:
+
+<details>
+<summary>
+click to open
+</summary>
+
+| analyte   | variable        | numDF | denDF |     F-value |   p_value | asterisk |
+|:----------|:----------------|------:|------:|------------:|----------:|:---------|
+| NH4       | MONTH           |     1 |   299 |   4.4976102 | 0.0347652 | \*       |
+| NH4       | YEAR            |     1 |   299 |  11.2811566 | 0.0008844 | \*       |
+| NH4       | Site            |     2 |   299 |  10.7628418 | 0.0000306 | \*       |
+| NH4       | MONTH:YEAR      |     1 |   299 |  25.8473424 | 0.0000007 | \*       |
+| NH4       | MONTH:Site      |     2 |   299 |   3.1565002 | 0.0439968 | \*       |
+| NH4       | YEAR:Site       |     2 |   299 |   0.1679324 | 0.8454906 | NA       |
+| NH4       | MONTH:YEAR:Site |     2 |   299 |   9.9729752 | 0.0000641 | \*       |
+| NO3       | MONTH           |     1 |   299 |  15.8736994 | 0.0000851 | \*       |
+| NO3       | YEAR            |     1 |   299 | 191.6510932 | 0.0000000 | \*       |
+| NO3       | Site            |     2 |   299 |   5.4194678 | 0.0048754 | \*       |
+| NO3       | MONTH:YEAR      |     1 |   299 |  79.7173912 | 0.0000000 | \*       |
+| NO3       | MONTH:Site      |     2 |   299 |   2.7517372 | 0.0654336 | NA       |
+| NO3       | YEAR:Site       |     2 |   299 |   0.7235968 | 0.4858520 | NA       |
+| NO3       | MONTH:YEAR:Site |     2 |   299 |   0.5220105 | 0.5938662 | NA       |
+| PO4       | MONTH           |     1 |   297 |   4.3851250 | 0.0371013 | \*       |
+| PO4       | YEAR            |     1 |   297 |   8.9415670 | 0.0030209 | \*       |
+| PO4       | Site            |     2 |   297 |  15.4792652 | 0.0000004 | \*       |
+| PO4       | MONTH:YEAR      |     1 |   297 |   3.1812235 | 0.0755099 | NA       |
+| PO4       | MONTH:Site      |     2 |   297 |   1.6149417 | 0.2006439 | NA       |
+| PO4       | YEAR:Site       |     2 |   297 |   0.7670401 | 0.4653033 | NA       |
+| PO4       | MONTH:YEAR:Site |     2 |   297 |   6.8148330 | 0.0012772 | \*       |
+| TFPA      | MONTH           |     1 |   295 |   4.3596276 | 0.0376579 | \*       |
+| TFPA      | YEAR            |     1 |   295 |   0.9365378 | 0.3339626 | NA       |
+| TFPA      | Site            |     2 |   295 |   8.9978631 | 0.0001610 | \*       |
+| TFPA      | MONTH:YEAR      |     1 |   295 |  10.7394407 | 0.0011740 | \*       |
+| TFPA      | MONTH:Site      |     2 |   295 |   2.2879118 | 0.1032761 | NA       |
+| TFPA      | YEAR:Site       |     2 |   295 |   1.0357558 | 0.3562452 | NA       |
+| TFPA      | MONTH:YEAR:Site |     2 |   295 |   8.6859168 | 0.0002161 | \*       |
+| TRS       | MONTH           |     1 |   299 |   5.1331611 | 0.0241880 | \*       |
+| TRS       | YEAR            |     1 |   299 |   0.4554783 | 0.5002663 | NA       |
+| TRS       | Site            |     2 |   299 |   3.7207078 | 0.0253453 | \*       |
+| TRS       | MONTH:YEAR      |     1 |   299 |   6.6029744 | 0.0106654 | \*       |
+| TRS       | MONTH:Site      |     2 |   299 |   0.0846192 | 0.9188841 | NA       |
+| TRS       | YEAR:Site       |     2 |   299 |   0.7870434 | 0.4561293 | NA       |
+| TRS       | MONTH:YEAR:Site |     2 |   299 |   1.3061226 | 0.2724092 | NA       |
+| phenolics | MONTH           |     1 |   300 |   7.9247530 | 0.0051990 | \*       |
+| phenolics | YEAR            |     1 |   300 |  19.5917325 | 0.0000134 | \*       |
+| phenolics | Site            |     2 |   300 |   2.2015022 | 0.1124212 | NA       |
+| phenolics | MONTH:YEAR      |     1 |   300 |   3.4818756 | 0.0630201 | NA       |
+| phenolics | MONTH:Site      |     2 |   300 |   0.9607031 | 0.3837977 | NA       |
+| phenolics | YEAR:Site       |     2 |   300 |   1.8956076 | 0.1520220 | NA       |
+| phenolics | MONTH:YEAR:Site |     2 |   300 |   1.2762146 | 0.2806025 | NA       |
+
+</details>
+
+#### Seasonal pore water concentrations:
+
+<details>
+<summary>
+click to open
+</summary>
+
+<img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-5-1.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-5-2.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-5-3.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-5-4.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-5-5.png" width="100%" />
+
+</details>
+
+###### Seasonal pore water LME:
+
+<details>
+<summary>
+click to open
+</summary>
+
+| analyte | variable  | numDF | denDF |     F-value | p_value | asterisk |
+|:--------|:----------|------:|------:|------------:|--------:|:---------|
+| Mass    | MONTH     |     1 |  2208 |   0.0612205 |   0.805 | NA       |
+| Mass    | YEAR      |     1 |  2208 |   1.8015229 |   0.180 | NA       |
+| Mass    | Site      |     2 |  2208 |   1.2360672 |   0.291 | NA       |
+| Mass    | treatment |     2 |  2208 |   1.1057461 |   0.331 | NA       |
+| NH4     | MONTH     |     1 |  2243 |  26.0401282 |   0.000 | \*       |
+| NH4     | YEAR      |     1 |  2243 | 286.4451963 |   0.000 | \*       |
+| NH4     | Site      |     2 |  2243 |   0.1469776 |   0.863 | NA       |
+| NH4     | treatment |     2 |  2243 |   1.3044999 |   0.272 | NA       |
+| NO3     | MONTH     |     1 |  2206 |   0.0094192 |   0.923 | NA       |
+| NO3     | YEAR      |     1 |  2206 |  99.9662866 |   0.000 | \*       |
+| NO3     | Site      |     2 |  2206 |  34.7994825 |   0.000 | \*       |
+| NO3     | treatment |     2 |  2206 |   5.2813921 |   0.005 | \*       |
+| PO4     | MONTH     |     1 |  2178 |  30.1680789 |   0.000 | \*       |
+| PO4     | YEAR      |     1 |  2178 | 379.1874157 |   0.000 | \*       |
+| PO4     | Site      |     2 |  2178 |   4.1794646 |   0.015 | \*       |
+| PO4     | treatment |     2 |  2178 |   1.3890078 |   0.250 | NA       |
+| TFPA    | MONTH     |     1 |  2130 |   4.6966325 |   0.030 | \*       |
+| TFPA    | YEAR      |     1 |  2130 |   0.0016565 |   0.968 | NA       |
+| TFPA    | Site      |     2 |  2130 |   4.7275359 |   0.009 | \*       |
+| TFPA    | treatment |     2 |  2130 |   0.8810253 |   0.415 | NA       |
+| TRS     | MONTH     |     1 |  2231 |  41.5239057 |   0.000 | \*       |
+| TRS     | YEAR      |     1 |  2231 | 114.7911306 |   0.000 | \*       |
+| TRS     | Site      |     2 |  2231 |   4.8212145 |   0.008 | \*       |
+| TRS     | treatment |     2 |  2231 |   6.1957137 |   0.002 | \*       |
+
+</details>
+</details>
+
 ## Microbial biomass
 
 <details>
@@ -209,7 +329,7 @@ increasing again until the end of 2019.
 <summary>
 click to open
 </summary>
-<img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-3-1.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-3-2.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-3-3.png" width="100%" />
+<img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-7-1.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-7-2.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-7-3.png" width="100%" />
 </details>
 
 #### Ancillary extraction LME results
@@ -283,18 +403,7 @@ strip data by site
 click to open
 </summary>
 
-<img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-5-1.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-5-2.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-5-3.png" width="100%" />
-
-</details>
-
-#### Extractable NO3 and PO4 concentrations for comparison:
-
-<details>
-<summary>
-click to open
-</summary>
-
-<img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-6-1.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-6-2.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-6-3.png" width="100%" />
+<img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-9-1.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-9-2.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-9-3.png" width="100%" />
 
 </details>
 
@@ -369,7 +478,7 @@ were also significantly higher in 2017, and at the beginning of 2018 and
 return to similar concentrations of other plots at the end of 2018, and
 remained similar for 2019.
 
-<img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-8-1.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-8-2.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-8-3.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-8-4.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-8-5.png" width="100%" />
+<img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-11-1.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-11-2.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-11-3.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-11-4.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-11-5.png" width="100%" />
 
 #### Pore water LME results
 
@@ -519,6 +628,7 @@ Significant LME comparisons
 All LME comparisons
 
 </details>
+</details>
 
 ## FTICR
 
@@ -541,7 +651,7 @@ the interaction between Site:year explained \~10% of the variation.
 click to open
 </summary>
 
-<img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-10-1.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-10-2.png" width="100%" />
+<img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-13-1.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-13-2.png" width="100%" />
 
 </details>
 
@@ -594,7 +704,7 @@ accounted for \~10% of total variation among samples
 Session Info
 </summary>
 
-Date run: 2023-05-16
+Date run: 2023-06-06
 
     ## R version 4.2.3 (2023-03-15 ucrt)
     ## Platform: x86_64-w64-mingw32/x64 (64-bit)

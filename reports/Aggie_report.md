@@ -394,7 +394,7 @@ times per year. K2SO4:
 click to open
 </summary>
 
-<img src="Aggie_report_files/figure-gfm/unnamed-chunk-10-1.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-10-2.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-10-3.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-10-4.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-10-5.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-10-6.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-10-7.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-10-8.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-10-9.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-10-10.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-10-11.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-10-12.png" width="100%" />
+<img src="Aggie_report_files/figure-gfm/unnamed-chunk-10-1.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-10-2.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-10-3.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-10-4.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-10-5.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-10-6.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-10-7.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-10-8.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-10-9.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-10-10.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-10-11.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-10-12.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-10-13.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-10-14.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-10-15.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-10-16.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-10-17.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-10-18.png" width="100%" />
 
 </details>
 
@@ -415,7 +415,7 @@ click to open
 <summary>
 click to open
 </summary>
-<img src="Aggie_report_files/figure-gfm/unnamed-chunk-12-1.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-12-2.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-12-3.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-12-4.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-12-5.png" width="100%" />
+<img src="Aggie_report_files/figure-gfm/unnamed-chunk-12-1.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-12-2.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-12-3.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-12-4.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-12-5.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-12-6.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-12-7.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-12-8.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-12-9.png" width="100%" /><img src="Aggie_report_files/figure-gfm/unnamed-chunk-12-10.png" width="100%" />
 <details>
 <summary>
 click to open LME results
@@ -905,7 +905,7 @@ click to open
 Session Info
 </summary>
 
-Date run: 2023-05-15
+Date run: 2023-06-06
 
     ## R version 4.2.3 (2023-03-15 ucrt)
     ## Platform: x86_64-w64-mingw32/x64 (64-bit)
@@ -948,8 +948,8 @@ Date run: 2023-05-15
     ## [53] PNWColors_0.1.0    base64url_1.4      codetools_0.2-19   glue_1.6.2        
     ## [57] evaluate_0.21      ggfun_0.0.9        data.table_1.14.8  vctrs_0.6.0       
     ## [61] tzdb_0.3.0         httpuv_1.6.9       gtable_0.3.3       future_1.32.0     
-    ## [65] xfun_0.38          mime_0.12          broom_1.0.4        xtable_1.8-4      
-    ## [69] later_1.3.0        aplot_0.1.10       cluster_2.1.4      timechange_0.2.0  
-    ## [73] globals_0.16.2     ellipsis_0.3.2
+    ## [65] xfun_0.38          mime_0.12          xtable_1.8-4       later_1.3.0       
+    ## [69] aplot_0.1.10       cluster_2.1.4      timechange_0.2.0   globals_0.16.2    
+    ## [73] ellipsis_0.3.2
 
 </details>

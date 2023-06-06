@@ -13,7 +13,7 @@ knitr::opts_chunk$set(echo = FALSE,
                       )
 ```
 
-## sample summary
+##   sample summary
 
 <details>
   <summary>click to open</summary>
@@ -58,6 +58,71 @@ tar_read(gg_aggie_Extract_Snowfence_Control)$Extract_Snowfence_aov3
 </details>
 
 </details>
+
+
+##   Seasonal (Pore water and extractions)
+<details>
+  <summary>click to open</summary>
+#### Extractable concentrations:
+
+ <details>
+  <summary>click to open</summary>
+  
+```{r , fig.height=9, fig.width=9, results='hide', out.width="100%"}
+tar_read(gg_Extract_Seasonal)$gg_NO3_Extract2
+tar_read(gg_Extract_Seasonal)$gg_PO4_Extract2
+tar_read(gg_Extract_Seasonal)$gg_NH4_Extract2
+tar_read(gg_Extract_Seasonal)$gg_TFPA_Extract2
+tar_read(gg_Extract_Seasonal)$gg_phenolics_Extract2
+tar_read(gg_Extract_Seasonal)$gg_TRS_Extract2
+```
+  
+</details>
+
+###### Extractable LME:
+
+ <details>
+  <summary>click to open</summary>
+  
+```{r , fig.height=9, fig.width=9, out.width="100%"}
+#tar_read(gg_Extract_Seasonal)$Ancillary_LME
+tar_read(gg_Extract_Seasonal)$Ancillary_LME2
+
+```
+  
+</details>
+
+#### Seasonal pore water concentrations:
+
+ <details>
+  <summary>click to open</summary>
+  
+```{r , fig.height=9, fig.width=9, results='hide', out.width="100%"}
+tar_read(gg_aggie_PoreWater_Seasonal)$gg_NH4_PoreWater2
+tar_read(gg_aggie_PoreWater_Seasonal)$gg_NO3_PoreWater2
+tar_read(gg_aggie_PoreWater_Seasonal)$ gg_TFPA_PoreWater2
+tar_read(gg_aggie_PoreWater_Seasonal)$ gg_PO4_PoreWater2
+tar_read(gg_aggie_PoreWater_Seasonal)$ gg_TRS_PoreWater2
+```
+  
+</details>
+
+
+###### Seasonal pore water LME:
+
+ <details>
+  <summary>click to open</summary>
+  
+```{r , fig.height=9, fig.width=9, out.width="100%"}
+#tar_read(gg_aggie_PoreWater_Seasonal)$Porewater_Seasonal_LME
+tar_read(gg_aggie_PoreWater_Seasonal)$Porewater_Seasonal_LME2
+```
+  
+</details>
+
+
+</details>
+
 
 ##   Microbial biomass
 
@@ -105,18 +170,7 @@ tar_read(gg_resin_Snowfence)$"resin NH4"
   
 </details>
 
-#### Extractable NO3 and PO4 concentrations for comparison:
 
- <details>
-  <summary>click to open</summary>
-  
-```{r , fig.height=9, fig.width=9, results='hide', out.width="100%"}
-tar_read(gg_Extract_Seasonal)$"Seasonal NO3"
-tar_read(gg_Extract_Seasonal)$"Seasonal PO4"
-tar_read(gg_Extract_Seasonal)$"Seasonal NH4"
-```
-  
-</details>
 
 #### resin strip ANOVA results
   <details>
@@ -156,6 +210,8 @@ tar_read(gg_Porewater_Fert)$gg_TFPA_PoreWater2
 tar_read(gg_Porewater_Fert)$Porewater_LME
 tar_read(gg_Porewater_Fert)$Porewater_LME2
 ```
+
+</details>
 
 </details>
 
@@ -201,7 +257,7 @@ Site:Year accounted for ~10% of total variation among samples
 
 </details>
 
-## Session Info 
+##   Session Info 
 
 <details>
   <summary> Session Info </summary>

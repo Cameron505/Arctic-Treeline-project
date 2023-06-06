@@ -720,6 +720,148 @@ plot_Extract_Seasonal = function(Extract_processed_Seasonal){
          y = bquote('Total free primary amines-Leucine equiv. (nMol' ~g^-1 ~ dry ~ soil*')'))+
     ggtitle("TFPA")
   
+  
+  
+  gg_NH4_Extract2 =
+    Extract_processed_Seasonal %>%
+    ggplot(aes(x=DATE, y=NH4, color=Site))+
+    geom_boxplot(show.legend = F, 
+                 outlier.colour = NULL,
+                 outlier.fill = NULL,
+                 alpha = 0.2,
+                 aes(group = interaction(Site,DATE)),
+                 width=3,
+                 position = position_dodge(width = 3))+
+    geom_point( size = 2, position = position_dodge(width = 3))+
+    facet_wrap(~Site, scale="free_x",nrow=3)+
+    theme_light()+
+    theme( axis.text.x.top = element_blank(),
+           axis.ticks.x.top = element_blank())+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    scale_x_break(breaks=as.Date(c("2017-08-26","2018-06-03","2018-08-24","2019-06-06","2019-08-16","2020-08-30","2020-09-06","2021-06-04")))+
+    scale_x_date(labels = date_format("%m-%Y"))+
+    labs(x = "Date", 
+         y = bquote('Ammonium ('*mu*'g '*NH[4]^"+"~-N~g^-1 ~ dry ~ soil*')'))+
+    ggtitle("Ammonium")
+  
+  
+  gg_NO3_Extract2 =
+    Extract_processed_Seasonal %>%
+    ggplot(aes(x=DATE, y=NO3, color=Site))+
+    geom_boxplot(show.legend = F, 
+                 outlier.colour = NULL,
+                 outlier.fill = NULL,
+                 alpha = 0.2,
+                 aes(group = interaction(Site,DATE)),
+                 width=3,
+                 position = position_dodge(width = 3))+
+    geom_point( size = 2, position = position_dodge(width = 3))+
+    facet_wrap(~Site, scale="free_x",nrow=3)+
+    theme_light()+
+    theme( axis.text.x.top = element_blank(),
+           axis.ticks.x.top = element_blank())+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    scale_x_break(breaks=as.Date(c("2017-08-26","2018-06-03","2018-08-24","2019-06-06","2019-08-16","2020-08-30","2020-09-06","2021-06-04")))+
+    scale_x_date(labels = date_format("%m-%Y"))+
+    labs(x = "Date", 
+         y = bquote('Nitrate ('*mu*'g '*NO[3]^"-"~-N~g^-1 ~ dry ~ soil*')'))+
+    ggtitle("Nitrate")
+  
+  gg_PO4_Extract2 =
+    Extract_processed_Seasonal %>%
+    ggplot(aes(x=DATE, y=PO4, color=Site))+
+    geom_boxplot(show.legend = F, 
+                 outlier.colour = NULL,
+                 outlier.fill = NULL,
+                 alpha = 0.2,
+                 aes(group = interaction(Site,DATE)),
+                 width=3,
+                 position = position_dodge(width = 3))+
+    geom_point( size = 2, position = position_dodge(width = 3))+
+    facet_wrap(~Site, scale="free_x",nrow=3)+
+    theme_light()+
+    theme( axis.text.x.top = element_blank(),
+           axis.ticks.x.top = element_blank())+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    scale_x_break(breaks=as.Date(c("2017-08-26","2018-06-03","2018-08-24","2019-06-06","2019-08-16","2020-08-30","2020-09-06","2021-06-04")))+
+    scale_x_date(labels = date_format("%m-%Y"))+
+    labs(x = "Date", 
+         y = bquote('Phosphate ('*mu*'g '*PO[4]^"3-"~-P~g^-1 ~ dry ~ soil*')'))+
+    ggtitle("Phosphate")
+  
+  gg_TRS_Extract2 =
+    Extract_processed_Seasonal %>%
+    ggplot(aes(x=DATE, y=TRS, color=Site))+
+    geom_boxplot(show.legend = F, 
+                 outlier.colour = NULL,
+                 outlier.fill = NULL,
+                 alpha = 0.2,
+                 aes(group = interaction(Site,DATE)),
+                 width=3,
+                 position = position_dodge(width = 3))+
+    geom_point( size = 2, position = position_dodge(width = 3))+
+    facet_wrap(~Site, scale="free_x",nrow=3)+
+    theme_light()+
+    theme( axis.text.x.top = element_blank(),
+           axis.ticks.x.top = element_blank())+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    scale_x_break(breaks=as.Date(c("2017-08-26","2018-06-03","2018-08-24","2019-06-06","2019-08-16","2020-08-30","2020-09-06","2021-06-04")))+
+    scale_x_date(labels = date_format("%m-%Y"))+
+    labs(x = "Date", 
+         y = bquote('Total reducing sugars-glucose equiv. ('*mu*'g' ~g^-1 ~ dry ~ soil*')'))+
+    ggtitle("TRS")
+  
+  gg_phenolics_Extract2 =
+    Extract_processed_Seasonal %>%
+    ggplot(aes(x=DATE, y=phenolics, color=Site))+
+    geom_boxplot(show.legend = F, 
+                 outlier.colour = NULL,
+                 outlier.fill = NULL,
+                 alpha = 0.2,
+                 aes(group = interaction(Site,DATE)),
+                 width=3,
+                 position = position_dodge(width = 3))+
+    geom_point( size = 2, position = position_dodge(width = 3))+
+    facet_wrap(~Site, scale="free_x",nrow=3)+
+    theme_light()+
+    theme( axis.text.x.top = element_blank(),
+           axis.ticks.x.top = element_blank())+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    scale_x_break(breaks=as.Date(c("2017-08-26","2018-06-03","2018-08-24","2019-06-06","2019-08-16","2020-08-30","2020-09-06","2021-06-04")))+
+    scale_x_date(labels = date_format("%m-%Y"))+
+    labs(x = "Date", 
+         y = bquote('Phenolics-gallic acid equiv. ('*mu*'g' ~g^-1 ~ dry ~ soil*')'))+
+    ggtitle("phenolics")
+  
+  gg_TFPA_Extract2 =
+    Extract_processed_Seasonal %>%
+    ggplot(aes(x=DATE, y=TFPA, color=Site))+
+    geom_boxplot(show.legend = F, 
+                 outlier.colour = NULL,
+                 outlier.fill = NULL,
+                 alpha = 0.2,
+                 aes(group = interaction(Site,DATE)),
+                 width=3,
+                 position = position_dodge(width = 3))+
+    geom_point( size = 2, position = position_dodge(width = 3))+
+    facet_wrap(~Site, scale="free_x",nrow=3)+
+    theme_light()+
+    theme( axis.text.x.top = element_blank(),
+           axis.ticks.x.top = element_blank())+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    scale_x_break(breaks=as.Date(c("2017-08-26","2018-06-03","2018-08-24","2019-06-06","2019-08-16","2020-08-30","2020-09-06","2021-06-04")))+
+    scale_x_date(labels = date_format("%m-%Y"))+
+    labs(x = "Date", 
+         y = bquote('Total free primary amines-Leucine equiv. (nMol' ~g^-1 ~ dry ~ soil*')'))+
+    ggtitle("TFPA")
+  
+  
   gg_MBC_Extract =
     Extract_processed_Seasonal %>%
     ggplot(aes(x=DATE, y=MBC, color=Site))+
@@ -845,7 +987,7 @@ plot_Extract_Seasonal = function(Extract_processed_Seasonal){
     mutate_at(c('NH4', 'NO3','PO4','TFPA','TRS','MBC','MBN','Mic.PO4'), as.numeric)
   
   Extract_processed_S_long = Extract_processed_S %>%
-    pivot_longer(cols= MBC:Mic.PO4,
+    pivot_longer(cols= NH4:TRS,
                  names_to= "analyte",
                  values_to= "conc") 
   
@@ -913,6 +1055,12 @@ plot_Extract_Seasonal = function(Extract_processed_Seasonal){
        "Seasonal MBC"= gg_MBC_Extract,
        "Seasonal MBN"= gg_MBN_Extract,
        "Seasonal MBP"= gg_MBP_Extract,
+       gg_NH4_Extract2=gg_NH4_Extract2,
+       gg_NO3_Extract2=gg_NO3_Extract2,
+       gg_PO4_Extract2=gg_PO4_Extract2,
+       gg_TFPA_Extract2=gg_TFPA_Extract2,
+       gg_phenolics_Extract2=gg_phenolics_Extract2,
+       gg_TRS_Extract2=gg_TRS_Extract2,
        gg_MBC_Extract2=gg_MBC_Extract2,
        gg_MBN_Extract2=gg_MBN_Extract2,
        gg_MBP_Extract2=gg_MBP_Extract2,
@@ -1076,6 +1224,97 @@ plot_PoreWater_Seasonal = function(PoreWater_processed_Seasonal){
          y = bquote('Total free primary amines-Leucine equiv. (nMol' ~mL^-1 ~ Soil ~ Solution*')'))+
     ggtitle("TFPA")
   
+  
+  
+  
+  gg_NH4_PoreWater2 =
+    PoreWater_processed_Seasonal %>%
+    filter(Site!="",YEAR %in% c(2017,2018,2019),treatment=="Ancillary")%>%
+    ggplot(aes(x=DATE, y=NH4, color=treatment))+
+    stat_summary(geom = "point",size = 2) +
+    stat_summary(fun.data = mean_se, geom = "errorbar")+
+    facet_wrap(~Site,nrow=3)+
+    theme_light()+
+    theme( axis.text.x.top = element_blank(),
+           axis.ticks.x.top = element_blank())+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    scale_x_break(breaks=as.Date(c("2017-09-03","2018-05-30","2018-08-30","2019-06-05")))+
+    scale_x_date(labels = date_format("%m-%Y"))+
+    labs(x = "Date", 
+         y = bquote('Ammonium ('*mu*'g '*NH[4]^"+"~-N~mL^-1 ~ Soil ~ Solution*')'))+
+    ggtitle("Ammonium")
+  
+  gg_NO3_PoreWater2 =
+    PoreWater_processed_Seasonal %>%
+    filter(Site!="",YEAR %in% c(2017,2018,2019),treatment=="Ancillary")%>%
+    ggplot(aes(x=DATE, y=NO3, color=treatment))+
+    stat_summary(geom = "point",size = 2) +
+    stat_summary(fun.data = mean_se, geom = "errorbar")+
+    facet_wrap(~Site,nrow=3)+
+    theme_light()+
+    theme( axis.text.x.top = element_blank(),
+           axis.ticks.x.top = element_blank())+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    scale_x_break(breaks=as.Date(c("2017-09-03","2018-05-30","2018-08-30","2019-06-05")))+
+    scale_x_date(labels = date_format("%m-%Y"))+
+    labs(x = "Date", 
+         y = bquote('Nitrate ('*mu*'g '*NO[3]^"-"~-N~mL^-1 ~ Soil ~ Solution*')'))+
+    ggtitle("Nitrate")
+  gg_PO4_PoreWater2 =
+    PoreWater_processed_Seasonal %>%
+    filter(Site!="",YEAR %in% c(2017,2018,2019),treatment=="Ancillary")%>%
+    ggplot(aes(x=DATE, y=PO4, color=treatment))+
+    stat_summary(geom = "point",size = 2) +
+    stat_summary(fun.data = mean_se, geom = "errorbar")+
+    facet_wrap(~Site,nrow=3)+
+    theme_light()+
+    theme( axis.text.x.top = element_blank(),
+           axis.ticks.x.top = element_blank())+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    scale_x_break(breaks=as.Date(c("2017-09-03","2018-05-30","2018-08-30","2019-06-05")))+
+    scale_x_date(labels = date_format("%m-%Y"))+
+    labs(x = "Date", 
+         y = bquote('Phosphate ('*mu*'g '*PO[4]^"3-"~-P~mL^-1 ~ Soil ~ Solution*')'))+
+    ggtitle("Phosphate")
+  gg_TRS_PoreWater2 =
+    PoreWater_processed_Seasonal %>%
+    filter(Site!="",YEAR %in% c(2017,2018,2019),treatment=="Ancillary")%>%
+    ggplot(aes(x=DATE, y=TRS, color=treatment))+
+    stat_summary(geom = "point",size = 2) +
+    stat_summary(fun.data = mean_se, geom = "errorbar")+
+    facet_wrap(~Site,nrow=3)+
+    theme_light()+
+    theme( axis.text.x.top = element_blank(),
+           axis.ticks.x.top = element_blank())+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    scale_x_break(breaks=as.Date(c("2017-09-03","2018-05-30","2018-08-30","2019-06-05")))+
+    scale_x_date(labels = date_format("%m-%Y"))+
+    labs(x = "Date", 
+         y = bquote('Total reducing sugars-glucose equiv. ('*mu*'g' ~mL^-1 ~ Soil ~ Solution*')'))+
+    ggtitle("TRS")
+  gg_TFPA_PoreWater2 =
+    PoreWater_processed_Seasonal %>%
+    filter(Site!="",YEAR %in% c(2017,2018,2019),treatment=="Ancillary")%>%
+    ggplot(aes(x=DATE, y=TFPA, color=treatment))+
+    stat_summary(geom = "point",size = 2) +
+    stat_summary(fun.data = mean_se, geom = "errorbar")+
+    facet_wrap(~Site,nrow=3)+
+    theme_light()+
+    theme( axis.text.x.top = element_blank(),
+           axis.ticks.x.top = element_blank())+
+    scale_colour_manual(values=cbPalette2)+
+    scale_fill_manual(values=cbPalette2)+
+    scale_x_break(breaks=as.Date(c("2017-09-03","2018-05-30","2018-08-30","2019-06-05")))+
+    scale_x_date(labels = date_format("%m-%Y"))+
+    labs(x = "Date", 
+         y = bquote('Total free primary amines-Leucine equiv. (nMol' ~mL^-1 ~ Soil ~ Solution*')'))+
+    ggtitle("TFPA")
+  
+  
   PoreWater_processed_long = PoreWater_processed_Seasonal %>%
     pivot_longer(cols= Mass:TRS,
                  names_to= "analyte",
@@ -1114,6 +1353,11 @@ plot_PoreWater_Seasonal = function(PoreWater_processed_Seasonal){
        "Seasonal PoreWater_PO4"= gg_PO4_PoreWater,
        "Seasonal PoreWater_TFPA"= gg_TFPA_PoreWater,
        "Seasonal PoreWater_TRS"= gg_TRS_PoreWater,
+       gg_NH4_PoreWater2=gg_NH4_PoreWater2,
+       gg_NO3_PoreWater2=gg_NO3_PoreWater2,
+       gg_PO4_PoreWater2=gg_PO4_PoreWater2,
+       gg_TFPA_PoreWater2=gg_TFPA_PoreWater2,
+       gg_TRS_PoreWater2=gg_TRS_PoreWater2,
        Porewater_Seasonal_LME=Porewater_Seasonal_LME,
        Porewater_Seasonal_LME2=Porewater_Seasonal_LME2
   )
