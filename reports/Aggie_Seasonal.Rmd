@@ -1,0 +1,239 @@
+---
+title: "Aggie subset data"
+output: 
+  github_document:
+  html_preview: True
+date: "2023-05-09"
+---
+```{r setup, include=FALSE, echo=FALSE}
+library(targets)
+knitr::opts_chunk$set(echo = FALSE,
+                      message = FALSE,
+                      warning = FALSE
+                      )
+```
+
+##   sample summary
+
+<details>
+  <summary>click to open</summary>
+
+Soils were collected around trees on treelines in the western brooks range Alaska varying in soil moisture. Three sites were chosen: Tussock tundra (Mesic), Wet Sedge (Hydric), and Dryas-lichen tundra (Xeric). 8 similar trees were chosen per treatment based on their DBH and proximity to the treeline. Snow fences were constructed as a treatment to build larger snow packs around the given trees in winter and compared against a control group where nothing was done besides sampling. In order to reduce impact on these tree-plots 8 Ancillary trees were also chosen based on the same DBH, proximity to treeline parameters and used for seasonal sampling.   
+  A previous project conducted at these sites fertilized soils around similar trees. These soils were also sampled to identify long term effects of fertilization. 
+  Soils were collected from control and snowfence trees in march and late may/early June (Just after thaw) along with resin strips (Except in 2020). Soil pore water was taken regularly during the growing season (2017-2019). During 2019 collection frequencies reduced due to staffing and were disrupted due to COVID in 2020 with an inability to visit the field sites. 
+
+```{r setup, include=FALSE, echo=FALSE}
+```
+
+</details>
+---
+##   Seasonal (Pore water and extractions)
+<details>
+  <summary>click to open</summary>
+#### Extractable concentrations:
+Ancillary plots only
+Here are the concentrations for soil K2SO4 extractable nitrate, phosphate, ammonium, total free primary amines, phenolics, and total reducing sugars. Samples were taken in 2017, 2018 and 2019 at several time points. Due to COVID sample frequency reduced significantly in 2020, and 2021. Note that some soils were collected in 2022, however none from the ancillary plots.
+
+ <details>
+  <summary>click to open</summary>
+  
+```{r , fig.height=9, fig.width=9, results='hide', out.width="100%"}
+tar_read(gg_Extract_Seasonal)$gg_NO3_Extract2
+tar_read(gg_Extract_Seasonal)$gg_PO4_Extract2
+tar_read(gg_Extract_Seasonal)$gg_NH4_Extract2
+tar_read(gg_Extract_Seasonal)$gg_TFPA_Extract2
+tar_read(gg_Extract_Seasonal)$gg_phenolics_Extract2
+tar_read(gg_Extract_Seasonal)$gg_TRS_Extract2
+```
+  
+</details>
+
+###### Extractable LME:
+
+ <details>
+  <summary>click to open</summary>
+  
+```{r , fig.height=9, fig.width=9, out.width="100%"}
+#tar_read(gg_Extract_Seasonal)$Ancillary_LME
+tar_read(gg_Extract_Seasonal)$Ancillary_LME2
+
+```
+  
+</details>
+
+#### Seasonal pore water concentrations:
+
+Pore water was collected from around the crown of trees in northwest Alaska to obtain a seasonal perspective of nutrient flow. 2017, 2018 and 2019 had many samples collected, however due to restrictions in travel during/after COVID only a single set of pore water measurements were taken. We will likely remove the 2020 and 2021 pore water samples from the data set. 
+
+ <details>
+  <summary>click to open</summary>
+  
+```{r , fig.height=9, fig.width=9, results='hide', out.width="100%"}
+tar_read(gg_aggie_PoreWater_Seasonal)$gg_NH4_PoreWater2
+tar_read(gg_aggie_PoreWater_Seasonal)$gg_NO3_PoreWater2
+tar_read(gg_aggie_PoreWater_Seasonal)$ gg_TFPA_PoreWater2
+tar_read(gg_aggie_PoreWater_Seasonal)$ gg_PO4_PoreWater2
+tar_read(gg_aggie_PoreWater_Seasonal)$ gg_TRS_PoreWater2
+```
+  
+</details>
+
+
+###### Seasonal pore water LME:
+
+ <details>
+  <summary>click to open</summary>
+  
+```{r , fig.height=9, fig.width=9, out.width="100%"}
+#tar_read(gg_aggie_PoreWater_Seasonal)$Porewater_Seasonal_LME
+tar_read(gg_aggie_PoreWater_Seasonal)$Porewater_Seasonal_LME2
+```
+  
+</details>
+
+
+
+
+
+####   Microbial biomass
+Microbial biomass measurements were collected using CHCL3 fumigation method along side the K2SO4 extracts. Significant changes in microbial biomass over time and between sites, including a biomass crash observed in 2018, biomass was not seen increasing again until the end of 2019.
+
+  <details>
+  <summary>click to open </summary>
+```{r , fig.height=9, fig.width=12, results='hide', out.width="100%"}
+tar_read(gg_Extract_Seasonal)$gg_MBC_Extract2
+tar_read(gg_Extract_Seasonal)$gg_MBN_Extract2
+tar_read(gg_Extract_Seasonal)$gg_MBP_Extract2
+```
+  </details>
+###### Microbial biomass LME:  
+  <details>
+  <summary>click to open LME results</summary>
+```{r }
+tar_read(gg_Extract_Seasonal)$Ancillary_LME_biomass
+tar_read(gg_Extract_Seasonal)$Ancillary_LME2_biomass
+```
+
+</details>
+</details>
+##   Resin Strips
+
+<details>
+  <summary>click to open</summary>
+  
+#### Resin strip data by site:
+  Resin stips showed significant differences between sites. Primary feature: Xeric contained high NO3, and Mesic contained high PO4. These differences were not seen in soil extractions, in fact Mesic showed the highest NO3 extractable concentrations consistently, and Hydric showed the highest po4 extractable concentrations consistently.
+  
+  <details>
+  <summary>click to open</summary>
+  
+```{r , fig.height=9, fig.width=9, results='hide', out.width="100%"}
+tar_read(gg_resin_Snowfence)$"resin NO3"
+tar_read(gg_resin_Snowfence)$"resin PO4"
+tar_read(gg_resin_Snowfence)$"resin NH4"
+```
+  
+</details>
+
+
+
+###### Resin strip ANOVA:
+  <details>
+  <summary>click to open ANOVA stats</summary>
+  
+```{r }
+tar_read(gg_resin)$Extract_resin_aov3
+tar_read(gg_resin)$Extract_resin_aov4
+```
+  
+</details>
+
+
+
+</details>
+
+##   Fertilized plots (Pore water)
+
+<details>
+  <summary>click to open</summary>
+  
+#### Pore water data:
+  pore water measurements from fertilized plots showed little variation in N components, but significantly more PO4 in 2017 and 2018 all season, with concentrations returning to that of the other plots near the end of 2019 in xeric and mesic. In Hydric concentrations of PO4 in pore water were also significantly higher in 2017, and at the beginning of 2018 and return to similar concentrations of other plots at the end of 2018, and remained similar for 2019.
+  <details>
+  <summary>click to open LME results</summary>
+  
+```{r , fig.height=9, fig.width=12, results='hide', out.width="100%"}
+tar_read(gg_Porewater_Fert)$gg_PO4_PoreWater2
+tar_read(gg_Porewater_Fert)$gg_NO3_PoreWater2
+tar_read(gg_Porewater_Fert)$gg_NH4_PoreWater2
+tar_read(gg_Porewater_Fert)$gg_TRS_PoreWater2
+tar_read(gg_Porewater_Fert)$gg_TFPA_PoreWater2
+```
+</details>
+
+###### Pore water LME:
+<details>
+  <summary>click to open LME results</summary>
+```{r }
+tar_read(gg_Porewater_Fert)$Porewater_LME
+tar_read(gg_Porewater_Fert)$Porewater_LME2
+```
+
+</details>
+
+</details>
+
+##   FTICR
+
+
+<details>
+  <summary>click to open</summary>
+
+
+#### PCA by Site:
+FTICR revealed large differences in organic matter content based on site, and small variation based on time of year. Mesic contains far more aromatic, condensed aromatic, and unsaturated lignin compounds (Note that it does not have the highest concentrations of phenolics). Site explained ~70% of the variation in FTICR compound diversity, where as the interaction between Site:year explained ~10% of the variation.
+
+<details>
+  <summary>click to open</summary>
+  
+
+  
+```{r , fig.height=6, fig.width=6, results='hide', out.width="100%"}
+tar_read(gg_pca_by_site)
+tar_read(gg_pca_by_site_nonpolar)
+```
+
+</details>
+
+###### PERMANOVA:
+
+<details>
+  <summary>click to open</summary>
+
+
+```{r , fig.height=6, fig.width=6}
+tar_read(Permanova_table_polar)
+tar_read(Permanova_table_nonpolar)
+```
+
+In polar and nonpolar sample extracts Site, Site:Year were significant (p < 0.05)
+
+Site accounted for ~70 % of total variation among samples
+Site:Year accounted for ~10% of total variation among samples 
+
+</details>
+
+</details>
+
+##   Session Info 
+
+<details>
+  <summary> Session Info </summary>
+
+Date run: `r Sys.Date()`
+
+```{r}
+sessionInfo()
+```
+
+</details>

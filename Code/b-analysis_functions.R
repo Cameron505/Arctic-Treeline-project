@@ -730,11 +730,11 @@ plot_Extract_Seasonal = function(Extract_processed_Seasonal){
                  outlier.fill = NULL,
                  alpha = 0.2,
                  aes(group = interaction(Site,DATE)),
-                 width=3,
-                 position = position_dodge(width = 3))+
-    geom_point( size = 2, position = position_dodge(width = 3))+
-    facet_wrap(~Site, scale="free_x",nrow=3)+
+                 width=0.8)+
+    geom_point( size = 1.4)+
+    #facet_wrap(~Site, scale="free_x",nrow=3)+
     theme_light()+
+    scale_y_continuous(limits=c(0,200),oob=rescale_none,expand = c(0, 0))+
     theme( axis.text.x.top = element_blank(),
            axis.ticks.x.top = element_blank())+
     scale_colour_manual(values=cbPalette2)+
@@ -754,11 +754,11 @@ plot_Extract_Seasonal = function(Extract_processed_Seasonal){
                  outlier.fill = NULL,
                  alpha = 0.2,
                  aes(group = interaction(Site,DATE)),
-                 width=3,
-                 position = position_dodge(width = 3))+
-    geom_point( size = 2, position = position_dodge(width = 3))+
-    facet_wrap(~Site, scale="free_x",nrow=3)+
+                 width=0.8)+
+    geom_point( size = 1.4)+
+    #facet_wrap(~Site, scale="free_x",nrow=3)+
     theme_light()+
+    scale_y_continuous(limits=c(0,100),oob=rescale_none,expand = c(0, 0))+
     theme( axis.text.x.top = element_blank(),
            axis.ticks.x.top = element_blank())+
     scale_colour_manual(values=cbPalette2)+
@@ -777,11 +777,11 @@ plot_Extract_Seasonal = function(Extract_processed_Seasonal){
                  outlier.fill = NULL,
                  alpha = 0.2,
                  aes(group = interaction(Site,DATE)),
-                 width=3,
-                 position = position_dodge(width = 3))+
-    geom_point( size = 2, position = position_dodge(width = 3))+
-    facet_wrap(~Site, scale="free_x",nrow=3)+
+                 width=0.8)+
+    geom_point( size = 1.4)+
+    #facet_wrap(~Site, scale="free_x",nrow=3)+
     theme_light()+
+    scale_y_continuous(limits=c(0,75),oob=rescale_none,expand = c(0, 0))+
     theme( axis.text.x.top = element_blank(),
            axis.ticks.x.top = element_blank())+
     scale_colour_manual(values=cbPalette2)+
@@ -800,11 +800,11 @@ plot_Extract_Seasonal = function(Extract_processed_Seasonal){
                  outlier.fill = NULL,
                  alpha = 0.2,
                  aes(group = interaction(Site,DATE)),
-                 width=3,
-                 position = position_dodge(width = 3))+
-    geom_point( size = 2, position = position_dodge(width = 3))+
-    facet_wrap(~Site, scale="free_x",nrow=3)+
+                 width=0.8)+
+    geom_point( size = 1.4)+
+    #facet_wrap(~Site, scale="free_x",nrow=3)+
     theme_light()+
+    scale_y_continuous(limits=c(0,50),oob=rescale_none,expand = c(0, 0))+
     theme( axis.text.x.top = element_blank(),
            axis.ticks.x.top = element_blank())+
     scale_colour_manual(values=cbPalette2)+
@@ -823,11 +823,11 @@ plot_Extract_Seasonal = function(Extract_processed_Seasonal){
                  outlier.fill = NULL,
                  alpha = 0.2,
                  aes(group = interaction(Site,DATE)),
-                 width=3,
-                 position = position_dodge(width = 3))+
-    geom_point( size = 2, position = position_dodge(width = 3))+
-    facet_wrap(~Site, scale="free_x",nrow=3)+
+                 width=0.8)+
+    geom_point( size = 1.4)+
+    #facet_wrap(~Site, scale="free_x",nrow=3)+
     theme_light()+
+    scale_y_continuous(limits=c(0,200),oob=rescale_none,expand = c(0, 0))+
     theme( axis.text.x.top = element_blank(),
            axis.ticks.x.top = element_blank())+
     scale_colour_manual(values=cbPalette2)+
@@ -846,11 +846,11 @@ plot_Extract_Seasonal = function(Extract_processed_Seasonal){
                  outlier.fill = NULL,
                  alpha = 0.2,
                  aes(group = interaction(Site,DATE)),
-                 width=3,
-                 position = position_dodge(width = 3))+
-    geom_point( size = 2, position = position_dodge(width = 3))+
-    facet_wrap(~Site, scale="free_x",nrow=3)+
+                 width=0.8)+
+    geom_point( size = 1.4)+
+    #facet_wrap(~Site, scale="free_x",nrow=3)+
     theme_light()+
+    scale_y_continuous(limits=c(0,2000),oob=rescale_none,expand = c(0, 0))+
     theme( axis.text.x.top = element_blank(),
            axis.ticks.x.top = element_blank())+
     scale_colour_manual(values=cbPalette2)+
@@ -908,7 +908,7 @@ plot_Extract_Seasonal = function(Extract_processed_Seasonal){
   
   gg_MBC_Extract2 =
     Extract_processed_Seasonal %>%
-    filter(YEAR %in% c(2017,2018,2019))%>%
+    #filter(YEAR %in% c(2017,2018,2019))%>%
     ggplot(aes(x=DATE, y=MBC, color=Site))+
     geom_boxplot(show.legend = F, 
                  outlier.colour = NULL,
@@ -917,13 +917,14 @@ plot_Extract_Seasonal = function(Extract_processed_Seasonal){
                  aes(group = interaction(Site,DATE)),
                  width=3)+
     geom_point( size = 2)+
-    facet_wrap(~Site, scale="free",ncol=1)+
+    #facet_wrap(~Site, scale="free",ncol=1)+
     theme_light()+
+    scale_y_continuous(limits=c(0,25000),oob=rescale_none,expand = c(0, 0))+
     theme( axis.text.x.top = element_blank(),
            axis.ticks.x.top = element_blank())+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
-    scale_x_break(breaks=as.Date(c("2017-09-03","2018-05-30","2018-08-30","2019-06-05")))+
+    scale_x_break(breaks=as.Date(c("2017-08-26","2018-06-03","2018-08-24","2019-06-06","2019-08-16","2020-08-30","2020-09-06","2021-06-04")))+
     scale_x_date(labels = date_format("%m-%Y"))+
     labs(x = "Date", 
          y = bquote('Microbial biomass ('*mu*'g C'~g^-1 ~ dry ~ soil*')'))+
@@ -933,7 +934,7 @@ plot_Extract_Seasonal = function(Extract_processed_Seasonal){
   
   gg_MBN_Extract2 =
     Extract_processed_Seasonal %>%
-    filter(YEAR %in% c(2017,2018,2019))%>%
+    #filter(YEAR %in% c(2017,2018,2019))%>%
     ggplot(aes(x=DATE, y=MBN, color=Site))+
     geom_boxplot(show.legend = F, 
                  outlier.colour = NULL,
@@ -942,13 +943,14 @@ plot_Extract_Seasonal = function(Extract_processed_Seasonal){
                  aes(group = interaction(Site,DATE)),
                  width=3)+
     geom_point( size = 2)+
-    facet_wrap(~Site, scale="free",ncol=1)+
+    #facet_wrap(~Site, scale="free",ncol=1)+
     theme_light()+
+    scale_y_continuous(limits=c(0,2500),oob=rescale_none,expand = c(0, 0))+
     theme( axis.text.x.top = element_blank(),
            axis.ticks.x.top = element_blank())+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
-    scale_x_break(breaks=as.Date(c("2017-09-03","2018-05-30","2018-08-30","2019-06-05")))+
+    scale_x_break(breaks=as.Date(c("2017-08-26","2018-06-03","2018-08-24","2019-06-06","2019-08-16","2020-08-30","2020-09-06","2021-06-04")))+
     scale_x_date(labels = date_format("%m-%Y"))+
     labs(x = "Date", 
          y = bquote('Microbial biomass ('*mu*'g N'~g^-1 ~ dry ~ soil*')'))+
@@ -958,7 +960,7 @@ plot_Extract_Seasonal = function(Extract_processed_Seasonal){
   
   gg_MBP_Extract2 =
     Extract_processed_Seasonal %>%
-    filter(YEAR %in% c(2017,2018,2019))%>%
+    #filter(YEAR %in% c(2017,2018,2019))%>%
     ggplot(aes(x=DATE, y=Mic.PO4, color=Site))+
     geom_boxplot(show.legend = F, 
                  outlier.colour = NULL,
@@ -967,13 +969,14 @@ plot_Extract_Seasonal = function(Extract_processed_Seasonal){
                  aes(group = interaction(Site,DATE)),
                  width=3)+
     geom_point( size = 2)+
-    facet_wrap(~Site, scale="free",ncol=1)+
+    #facet_wrap(~Site, scale="free",ncol=1)+
     theme_light()+
+    scale_y_continuous(limits=c(0,300),oob=rescale_none,expand = c(0, 0))+
     theme( axis.text.x.top = element_blank(),
            axis.ticks.x.top = element_blank())+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
-    scale_x_break(breaks=as.Date(c("2017-09-03","2018-05-30","2018-08-30","2019-06-05")))+
+    scale_x_break(breaks=as.Date(c("2017-08-26","2018-06-03","2018-08-24","2019-06-06","2019-08-16","2020-08-30","2020-09-06","2021-06-04")))+
     scale_x_date(labels = date_format("%m-%Y"))+
     labs(x = "Date", 
          y = bquote('Microbial biomass ('*mu*'g P'~g^-1 ~ dry ~ soil*')'))+
@@ -1158,11 +1161,17 @@ plot_Extract_Seasonal_H2O = function(Extract_processed_Seasonal_H2O){
 
 plot_PoreWater_Seasonal = function(PoreWater_processed_Seasonal){
   
+  
+ 
+  
+  
+  
+  
   gg_NH4_PoreWater =
     PoreWater_processed_Seasonal %>%
     filter(Site!="")%>%
     ggplot(aes(x=DATE, y=NH4, color=treatment))+
-    stat_summary(geom = "point",size = 1) +
+    stat_summary(geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
     facet_wrap(~YEAR + Site, scales="free_x")+
     theme_light()+
@@ -1226,90 +1235,94 @@ plot_PoreWater_Seasonal = function(PoreWater_processed_Seasonal){
   
   
   
-  
   gg_NH4_PoreWater2 =
     PoreWater_processed_Seasonal %>%
-    filter(Site!="",YEAR %in% c(2017,2018,2019),treatment=="Ancillary")%>%
-    ggplot(aes(x=DATE, y=NH4, color=treatment))+
+    #filter(Site!="",YEAR %in% c(2017,2018,2019),treatment=="Ancillary")%>%
+    ggplot(aes(x=DATE, y=NH4, color=Site))+
     stat_summary(geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~Site,nrow=3)+
+    #facet_wrap(~Site,nrow=3)+
     theme_light()+
+    scale_y_continuous(limits=c(0,4),oob=rescale_none,expand = c(0, 0))+
     theme( axis.text.x.top = element_blank(),
            axis.ticks.x.top = element_blank())+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
-    scale_x_break(breaks=as.Date(c("2017-09-03","2018-05-30","2018-08-30","2019-06-05")))+
-    scale_x_date(labels = date_format("%m-%Y"))+
+    scale_x_break(breaks=as.Date(c("2017-08-26","2018-06-03","2018-08-24","2019-06-06","2019-08-16","2020-09-05","2020-09-09","2021-06-04")))+
+    scale_x_date(labels = date_format("%m-%y"))+
     labs(x = "Date", 
          y = bquote('Ammonium ('*mu*'g '*NH[4]^"+"~-N~mL^-1 ~ Soil ~ Solution*')'))+
     ggtitle("Ammonium")
   
   gg_NO3_PoreWater2 =
     PoreWater_processed_Seasonal %>%
-    filter(Site!="",YEAR %in% c(2017,2018,2019),treatment=="Ancillary")%>%
-    ggplot(aes(x=DATE, y=NO3, color=treatment))+
+    #filter(Site!="",YEAR %in% c(2017,2018,2019),treatment=="Ancillary")%>%
+    ggplot(aes(x=DATE, y=NO3, color=Site))+
     stat_summary(geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~Site,nrow=3)+
+    #facet_wrap(~Site,nrow=3)+
     theme_light()+
+    scale_y_continuous(limits=c(0,1.5),oob=rescale_none,expand = c(0, 0))+
     theme( axis.text.x.top = element_blank(),
            axis.ticks.x.top = element_blank())+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
-    scale_x_break(breaks=as.Date(c("2017-09-03","2018-05-30","2018-08-30","2019-06-05")))+
-    scale_x_date(labels = date_format("%m-%Y"))+
+    scale_x_break(breaks=as.Date(c("2017-08-26","2018-06-03","2018-08-24","2019-06-06","2019-08-16","2020-09-05","2020-09-09","2021-06-04")))+
+    scale_x_date(labels = date_format("%m-%y"))+
     labs(x = "Date", 
          y = bquote('Nitrate ('*mu*'g '*NO[3]^"-"~-N~mL^-1 ~ Soil ~ Solution*')'))+
     ggtitle("Nitrate")
   gg_PO4_PoreWater2 =
     PoreWater_processed_Seasonal %>%
-    filter(Site!="",YEAR %in% c(2017,2018,2019),treatment=="Ancillary")%>%
-    ggplot(aes(x=DATE, y=PO4, color=treatment))+
+    #filter(Site!="",YEAR %in% c(2017,2018,2019),treatment=="Ancillary")%>%
+    ggplot(aes(x=DATE, y=PO4, color=Site))+
     stat_summary(geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~Site,nrow=3)+
+    #facet_wrap(~Site,nrow=3)+
     theme_light()+
+    scale_y_continuous(limits=c(0,0.9),oob=rescale_none,expand = c(0, 0))+
     theme( axis.text.x.top = element_blank(),
            axis.ticks.x.top = element_blank())+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
-    scale_x_break(breaks=as.Date(c("2017-09-03","2018-05-30","2018-08-30","2019-06-05")))+
-    scale_x_date(labels = date_format("%m-%Y"))+
+    scale_x_break(breaks=as.Date(c("2017-08-26","2018-06-03","2018-08-24","2019-06-06","2019-08-16","2020-09-05","2020-09-09","2021-06-04")))+
+    scale_x_date(labels = date_format("%m-%y"))+
     labs(x = "Date", 
          y = bquote('Phosphate ('*mu*'g '*PO[4]^"3-"~-P~mL^-1 ~ Soil ~ Solution*')'))+
     ggtitle("Phosphate")
   gg_TRS_PoreWater2 =
     PoreWater_processed_Seasonal %>%
-    filter(Site!="",YEAR %in% c(2017,2018,2019),treatment=="Ancillary")%>%
-    ggplot(aes(x=DATE, y=TRS, color=treatment))+
+    #filter(Site!="",YEAR %in% c(2017,2018,2019),treatment=="Ancillary")%>%
+    ggplot(aes(x=DATE, y=TRS, color=Site))+
     stat_summary(geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~Site,nrow=3)+
+    #facet_wrap(~Site,nrow=3)+
     theme_light()+
+    scale_y_continuous(limits=c(0,0.7),oob=rescale_none,expand = c(0, 0))+
     theme( axis.text.x.top = element_blank(),
            axis.ticks.x.top = element_blank())+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
-    scale_x_break(breaks=as.Date(c("2017-09-03","2018-05-30","2018-08-30","2019-06-05")))+
-    scale_x_date(labels = date_format("%m-%Y"))+
+    scale_x_break(breaks=as.Date(c("2017-08-26","2018-06-03","2018-08-24","2019-06-06","2019-08-16","2020-09-05","2020-09-09","2021-06-04")))+
+    scale_x_date(labels = date_format("%m-%y"))+
     labs(x = "Date", 
          y = bquote('Total reducing sugars-glucose equiv. ('*mu*'g' ~mL^-1 ~ Soil ~ Solution*')'))+
     ggtitle("TRS")
   gg_TFPA_PoreWater2 =
     PoreWater_processed_Seasonal %>%
-    filter(Site!="",YEAR %in% c(2017,2018,2019),treatment=="Ancillary")%>%
-    ggplot(aes(x=DATE, y=TFPA, color=treatment))+
+    #filter(Site!="",YEAR %in% c(2017,2018,2019),treatment=="Ancillary")%>%
+    ggplot(aes(x=DATE, y=TFPA, color=Site))+
     stat_summary(geom = "point",size = 2) +
     stat_summary(fun.data = mean_se, geom = "errorbar")+
-    facet_wrap(~Site,nrow=3)+
+    #facet_wrap(~Site,nrow=3)+
     theme_light()+
+    scale_y_continuous(limits=c(0,10),oob=rescale_none,expand = c(0, 0))+
     theme( axis.text.x.top = element_blank(),
            axis.ticks.x.top = element_blank())+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
-    scale_x_break(breaks=as.Date(c("2017-09-03","2018-05-30","2018-08-30","2019-06-05")))+
-    scale_x_date(labels = date_format("%m-%Y"))+
+    scale_x_break(breaks=as.Date(c("2017-08-26","2018-06-03","2018-08-24","2019-06-06","2019-08-16","2020-09-05","2020-09-09","2021-06-04")))+
+    scale_x_date(labels = date_format("%m-%y"))+
     labs(x = "Date", 
          y = bquote('Total free primary amines-Leucine equiv. (nMol' ~mL^-1 ~ Soil ~ Solution*')'))+
     ggtitle("TFPA")
