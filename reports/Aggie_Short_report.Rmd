@@ -28,6 +28,19 @@ Soils were collected around trees on treelines in the western brooks range Alask
 </details>
 
 ---
+##   Soil temperature
+
+<details>
+  <summary>click to open</summary>
+  
+```{r , fig.height=9, fig.width=9, results='hide', out.width="100%"}
+tar_read(Soil_Temp)
+```
+
+</details>
+
+
+
 
 ##   Snowfence Vs. Control
 
@@ -119,7 +132,18 @@ tar_read(gg_aggie_PoreWater_Seasonal)$Porewater_Seasonal_LME2
 ```
   
 </details>
+###### inaccessible N:
 
+ <details>
+  <summary>click to open</summary>
+  
+```{r , fig.height=9, fig.width=9, out.width="100%"}
+tar_read(Inaccessable)$inaccessible_N2
+tar_read(Inaccessable_p)$inaccessible_N2
+
+```
+  
+</details>
 
 </details>
 
@@ -137,6 +161,8 @@ tar_read(gg_aggie_PoreWater_Seasonal)$Porewater_Seasonal_LME2
 tar_read(gg_Extract_Seasonal)$gg_MBC_Extract2
 tar_read(gg_Extract_Seasonal)$gg_MBN_Extract2
 tar_read(gg_Extract_Seasonal)$gg_MBP_Extract2
+tar_read(gg_Extract_all)$COMB
+
 ```
   </details>
 #### Ancillary extraction LME results  
@@ -166,6 +192,7 @@ tar_read(gg_Extract_Seasonal)$Ancillary_LME2_biomass
 tar_read(gg_resin_Snowfence)$"resin NO3"
 tar_read(gg_resin_Snowfence)$"resin PO4"
 tar_read(gg_resin_Snowfence)$"resin NH4"
+tar_read(gg_resin_Snowfence)$"COMB"
 ```
   
 </details>
@@ -215,6 +242,19 @@ tar_read(gg_Porewater_Fert)$Porewater_LME2
 
 </details>
 
+##   Branch extension
+
+<details>
+  <summary>click to open</summary>
+  
+ 
+```{r , fig.height=9, fig.width=12, results='hide', out.width="100%"}
+
+```
+
+
+</details>
+
 ##   FTICR
 
 
@@ -233,6 +273,8 @@ FTICR revealed large differences in organic matter content based on site, and sm
 ```{r , fig.height=6, fig.width=6, results='hide', out.width="100%"}
 tar_read(gg_pca_by_site)
 tar_read(gg_pca_by_site_nonpolar)
+tar_read(pca_polar_nonpolar)$gg_PCA_Legend
+
 ```
 
 </details>
@@ -253,6 +295,10 @@ In polar and nonpolar sample extracts Site, Site:Year were significant (p < 0.05
 Site accounted for ~70 % of total variation among samples
 Site:Year accounted for ~10% of total variation among samples 
 
+Unique counts by site:
+```{r , fig.height=6, fig.width=6}
+tar_read(gg_unique)$"PERMANOVA_table"
+```
 </details>
 
 </details>

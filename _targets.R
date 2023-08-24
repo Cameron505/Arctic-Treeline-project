@@ -57,6 +57,37 @@ list(
   
   
   
+  #Soil Temperature
+  tar_target(KotzTemp_data_read,"Data/Temp/kotz.daily.air.temp.1900.2022.csv", format="file"),
+  tar_target(KotzTemp_data, read.csv(KotzTemp_data_read)),
+  tar_target(Kotz_proccessed, process_KotzTemp(KotzTemp_data)),
+  tar_target(SoilTempHydric_data_read,"Data/Temp/Hydric Met Station.csv", format="file"),
+  tar_target(SoilTempHydric_data, read.csv(SoilTempHydric_data_read)),
+  tar_target(SoilTempMesic_data_read,"Data/Temp/Mesic Met Station.csv", format="file"),
+  tar_target(SoilTempMesic_data, read.csv(SoilTempMesic_data_read)),
+  tar_target(SoilTempXeric_data_read,"Data/Temp/Xeric Met Station.csv", format="file"),
+  tar_target(SoilTempXeric_data, read.csv(SoilTempXeric_data_read)),
+  
+  tar_target(Ibutton_data_read,"Data/Temp/ibuttons.csv", format="file"),
+  tar_target(Ibutton_data, read.csv(Ibutton_data_read)),
+  
+  #Merging and predicting soil temperatures based on air temps
+  tar_target(Kotz_proccessed_HMX, process_SoilTemp(SoilTempHydric_data,SoilTempMesic_data,SoilTempXeric_data,Kotz_proccessed)),
+  
+  tar_target(Soil_Temp, plot_soilTemp(SoilTempHydric_data,SoilTempMesic_data,SoilTempXeric_data,Kotz_proccessed)),
+  
+  #tar_target(Ibutton_Temp, plot_Ibutton(Ibutton_data)),
+  #branch extension measurments
+  tar_target(AggieBranch_data_read,"Data/tree/snowfence.branch.primary.growth.csv", format="file"),
+  tar_target(AggieBranch_data, read.csv(AggieBranch_data_read)),
+  tar_target(AggieNNeedle_data_read,"Data/tree/Needle_N.csv", format="file"),
+  tar_target(AggieNNeedle_data, read.csv(AggieNNeedle_data_read)),
+  
+  
+  
+  
+  
+  
   tar_target(PoreWater_data_read,"Data/PoreWater.csv", format="file"),
   tar_target(PoreWater_data, read.csv(PoreWater_data_read)),
   tar_target(PoreWater_processed, process_PoreWater(PoreWater_data)),
@@ -77,6 +108,8 @@ list(
   tar_target(Extract_processed_all_H2O, process_Extract_all_H2O(Extract_data)),
   tar_target(Extract_processed_lysim, process_Extract_lysim(Extract_data)),
   
+  tar_target(Inaccessable, plot_inaccess(Extract_processed_Seasonal,PoreWater_processed_Seasonal)),
+  tar_target(Inaccessable_p, plot_inaccess_p(Extract_processed_Seasonal,PoreWater_processed_Seasonal)),
   
   tar_target(Resin_data_read,"Data/Resin.csv", format="file"),
   tar_target(Resin_data, read.csv(Resin_data_read)),
@@ -124,7 +157,7 @@ list(
   tar_target(gg_seasonal_nonpolar, plot_seasonal_Mesic_Hydric_polar(fticr_hcoc_nonpolar)),
   
   # combined data
- 
+  tar_target(pca_polar_nonpolar, plot_pca_PNP(gg_pca_by_site_nonpolar,gg_pca_by_site)),
   
   # report  
   tar_render(report, path = "reports/Aggie_report.Rmd"),
