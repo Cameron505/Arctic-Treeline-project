@@ -653,9 +653,9 @@ plot_inaccess =function(Extract_processed_Seasonal,PoreWater_processed_Seasonal)
   Inaccess<-Extract_processed_Seasonal %>%
     mutate(NH4I=((((NH4*(Dry.weight*5)/25)/14.0067)*1000)),NO3I=((((NO3*(Dry.weight*5)/25)/14.0067)*1000)),TFPAI=((TFPA*(Dry.weight*5)/(25+(5-(Dry.weight*5))))),
            NH4IW=((((NH4.H2O*(Dry.weight*5)/25)/14.0067)*1000)),NO3IW=((((NO3.H2O*(Dry.weight*5)/25)/14.0067)*1000)),TFPAIW=((TFPA.H2O*(Dry.weight*5)/(25+(5-(Dry.weight*5))))),
-           NTE= NH4I+NO3I+TFPAI,NTW=NH4IW+NO3IW+TFPAIW, inacN=NTE-NTW)%>%
-    select(Date:Plot,NTE,NTW)%>%
-    pivot_longer(NTE:NTW)%>%
+           NTE= NH4I+NO3I+TFPAI,NTW=NH4IW+NO3IW+TFPAIW, adsorb=NTE-NTW)%>%
+    select(Date:Plot,NTE,NTW,adsorb)%>%
+    pivot_longer(NTE:adsorb)%>%
     select(Date:Plot,name,value)
   
   Pore<-PoreWater_processed_Seasonal %>%
@@ -665,7 +665,9 @@ plot_inaccess =function(Extract_processed_Seasonal,PoreWater_processed_Seasonal)
     select(Date:Plot,name,value)
   
   comb<- data.frame(rbind(Inaccess,Pore))%>%
-    mutate(Date=as.Date(Date, "%m/%d/%Y"), name=as.factor(as.character(name)), value=as.numeric(value),Site=as.factor(as.character(Site)))
+    mutate(Date=as.Date(Date, "%m/%d/%Y"), name=as.factor(as.character(name)), value=as.numeric(value),Site=as.factor(as.character(Site)), DATE=as.Date(Date),
+           YEAR=year(Date),
+           MONTH=month(Date))
   
   
   Inaccess2<- comb %>%
@@ -682,9 +684,68 @@ plot_inaccess =function(Extract_processed_Seasonal,PoreWater_processed_Seasonal)
               se= sqrt(var(inacN, na.rm = TRUE) / sum(!is.na(inacN)))) %>%
     filter(Site != "")
   
+  Table<- Inaccess2 %>%
+    pivot_wider(names_from = Site,
+                values_from = c(mean_value,se))
+  Table_E<-Table%>%
+    filter(name=="NTE")
+  Table_W<-Table%>%
+    filter(name=="NTW")
+  Table_P<-Table%>%
+    filter(name=="NTP")
+  
+  min(Table_E$mean_value_Xeric, na.rm = T)
+  max(Table_E$mean_value_Xeric, na.rm = T)
+  min(Table_E$mean_value_Mesic, na.rm = T)
+  max(Table_E$mean_value_Mesic, na.rm = T)
+  min(Table_E$mean_value_Hydric, na.rm = T)
+  max(Table_E$mean_value_Hydric, na.rm = T)
+  
+  min(Table_W$mean_value_Xeric, na.rm = T)
+  max(Table_W$mean_value_Xeric, na.rm = T)
+  min(Table_W$mean_value_Mesic, na.rm = T)
+  max(Table_W$mean_value_Mesic, na.rm = T)
+  min(Table_W$mean_value_Hydric, na.rm = T)
+  max(Table_W$mean_value_Hydric, na.rm = T)
+  
+  min(Table_P$mean_value_Xeric, na.rm = T)
+  max(Table_P$mean_value_Xeric, na.rm = T)
+  min(Table_P$mean_value_Mesic, na.rm = T)
+  max(Table_P$mean_value_Mesic, na.rm = T)
+  min(Table_P$mean_value_Hydric, na.rm = T)
+  max(Table_P$mean_value_Hydric, na.rm = T)
   
   
-  inaccessible_N<-ggplot(Inaccess2, aes(x = Date, y = mean_value, fill = name)) +
+  
+  
+  fit_aov = function(Extract_processed){
+    
+    a = aov(value ~ MONTH * YEAR * Site,  data = Extract_processed)
+    broom::tidy(a) %>% 
+      mutate(asterisk = case_when(`p.value` <= 0.05 ~ "*"))
+    
+  }
+  
+  Extraction_Porewater_ANOVA = 
+    comb %>% 
+    group_by(name)%>%
+    do(fit_aov(.))%>%
+    na.omit()%>%
+    knitr::kable()
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  inaccessible_N<-ggplot(Inaccess2%>% filter(name != "adsorb"), aes(x = Date, y = mean_value, fill = name)) +
     geom_area(aes(fill=name),position = 'identity', alpha = 0.4) +
     geom_line(aes(color = name), lwd = 2) +
     geom_errorbar(aes(ymin = mean_value - se, ymax = mean_value + se, color = name), lwd = 1, width = 1) +
@@ -694,10 +755,10 @@ plot_inaccess =function(Extract_processed_Seasonal,PoreWater_processed_Seasonal)
     guides(fill=guide_legend(title= "Legend"))+
     scale_x_break(breaks=as.Date(c("2017-08-26","2018-06-03","2018-08-24","2019-06-06","2019-08-16","2020-08-30","2020-09-06","2021-06-04")))+
     scale_x_date(labels = date_format("%m-%Y"))+
-    scale_color_manual(values = cbPalette2)+
+    scale_color_manual(values = cbPalette3, labels= c("Salt extract", "pore water", "Water extract"))+
     scale_fill_manual(name="name",
                       breaks=c("NTE", "NTP", "NTW"),
-                      labels=c("Adsorbed", "Mobile", "Inaccessible"),values = cbPalette2)+
+                      labels=c("Adsorbed", "Mobile", "Inaccessible"),values = cbPalette3)+
     theme( axis.text.x.top = element_blank(),
            axis.ticks.x.top = element_blank())
   
@@ -713,15 +774,15 @@ plot_inaccess =function(Extract_processed_Seasonal,PoreWater_processed_Seasonal)
     guides(fill=guide_legend(title= "Legend"))+
     scale_x_break(breaks=as.Date(c("2017-08-26","2018-06-03","2018-08-24","2019-06-06","2019-08-16","2020-08-30","2020-09-06","2021-06-04")))+
     scale_x_date(labels = date_format("%m-%Y"))+
-    scale_color_manual(values = cbPalette2)+
-    scale_fill_manual(values = cbPalette2)+
+    scale_color_manual(values = cbPalette3)+
+    scale_fill_manual(values = cbPalette3)+
     theme( axis.text.x.top = element_blank(),
            axis.ticks.x.top = element_blank())
   
   Inaccess2S<-Inaccess2%>%
     filter(Date < as.Date("2019-08-16"))
   
-  inaccessible_N2<-ggplot(Inaccess2S, aes(x = Date, y = mean_value, fill = name)) +
+  inaccessible_N2<-ggplot(Inaccess2S%>% filter(name != "adsorb"), aes(x = Date, y = mean_value, fill = name)) +
     geom_area(aes(fill=name),position = 'identity', alpha = 0.4) +
     geom_line(aes(color = name), lwd = 2) +
     geom_errorbar(aes(ymin = mean_value - se, ymax = mean_value + se, color = name), lwd = 1, width = 1) +
@@ -731,10 +792,11 @@ plot_inaccess =function(Extract_processed_Seasonal,PoreWater_processed_Seasonal)
     guides(fill=guide_legend(title= "Legend"))+
     scale_x_break(breaks=as.Date(c("2017-08-26","2018-06-03","2018-08-24","2019-06-06")))+
     scale_x_date(labels = date_format("%m-%Y"))+
-    scale_color_manual(values = cbPalette2)+
+    scale_color_manual(values = cbPalette3, labels= c("Salt extract", "pore water", "Water extract"))+
     scale_fill_manual(name="name",
                       breaks=c("NTE", "NTP", "NTW"),
-                      labels=c("Adsorbed", "Mobile", "Inaccessible"),values = cbPalette2)+
+                      labels=c("Adsorbed", "Mobile", "Inaccessible"),values = cbPalette3)+
+    ylab(bquote(''*NH[4]^'+' *+ NO[3]^'-'~+ TFPA ~(μMol ~N) ))+
     theme( axis.text.x.top = element_blank(),
            axis.ticks.x.top = element_blank())
   
@@ -756,13 +818,13 @@ plot_inaccess_p =function(Extract_processed_Seasonal,PoreWater_processed_Seasona
   
   InaccessA<-Extract_processed_Seasonal %>%
     mutate(PO4I=((((PO4*(Dry.weight*5)/25)/30.973762)*1000)),
-           PO4IW=((((NH4.H2O*(Dry.weight*5)/25)/14.0067)*1000)))%>%
+           PO4IW=((((PO4.H2O*(Dry.weight*5)/25)/30.973762)*1000)))%>%
     select(Date:Plot,PO4I,PO4IW)%>%
     pivot_longer(PO4I:PO4IW)%>%
     select(Date:Plot,name,value)
   
   Pore<-PoreWater_processed_Seasonal %>%
-    mutate(PO4IP=(NH4/14.0067)*1000,NO3I=(NO3/14.0067)*1000)%>%
+    mutate(PO4IP=(PO4/30.973762)*1000)%>%
     pivot_longer(PO4IP)%>%
     select(Date:Plot,name,value)
   
@@ -787,14 +849,14 @@ plot_inaccess_p =function(Extract_processed_Seasonal,PoreWater_processed_Seasona
     geom_errorbar(aes(ymin = mean_value - se, ymax = mean_value + se, color = name), lwd = 1, width = 1) +
     geom_point(shape = 16,aes(color=name),lwd=6)+
     facet_wrap(~Site, nrow = 3)+
-    scale_y_continuous(limits=c(0,600),oob=rescale_none,expand = c(0, 0))+
+    scale_y_continuous(limits=c(0,50),oob=rescale_none,expand = c(0, 0))+
     guides(fill=guide_legend(title= "Legend"))+
     scale_x_break(breaks=as.Date(c("2017-08-26","2018-06-03","2018-08-24","2019-06-06","2019-08-16","2020-08-30","2020-09-06","2021-06-04")))+
     scale_x_date(labels = date_format("%m-%Y"))+
-    scale_color_manual(values = cbPalette2)+
+    scale_color_manual(values = cbPalette3)+
     scale_fill_manual(name="name",
                       breaks=c("NTE", "NTP", "NTW"),
-                      labels=c("Adsorbed", "Mobile", "Inaccessible"),values = cbPalette2)+
+                      labels=c("Adsorbed", "Mobile", "Inaccessible"),values = cbPalette3)+
     theme( axis.text.x.top = element_blank(),
            axis.ticks.x.top = element_blank())
   
@@ -809,16 +871,18 @@ plot_inaccess_p =function(Extract_processed_Seasonal,PoreWater_processed_Seasona
     geom_errorbar(aes(ymin = mean_value - se, ymax = mean_value + se, color = name), lwd = 1, width = 1) +
     geom_point(shape = 16,aes(color=name),lwd=6)+
     facet_wrap(~Site, nrow = 3)+
-    scale_y_continuous(limits=c(0,200),oob=rescale_none,expand = c(0, 0))+
+    scale_y_continuous(limits=c(0,30),oob=rescale_none,expand = c(0, 0))+
     guides(fill=guide_legend(title= "Legend"))+
     scale_x_break(breaks=as.Date(c("2017-08-26","2018-06-03","2018-08-24","2019-06-06")))+
-    scale_x_date(labels = date_format("%m-%Y"))+
-    scale_color_manual(values = cbPalette2)+
+    scale_x_date(labels = date_format("%m"))+
+    scale_color_manual(values = cbPalette3, labels= c("Salt extract", "pore water", "Water extract"))+
     scale_fill_manual(name="name",
                       breaks=c("NTE", "NTP", "NTW"),
-                      labels=c("Adsorbed", "Mobile", "Inaccessible"),values = cbPalette2)+
+                      labels=c("Adsorbed", "Mobile", "Inaccessible"),values = cbPalette3)+
     theme( axis.text.x.top = element_blank(),
-           axis.ticks.x.top = element_blank())
+           axis.ticks.x.top = element_blank())+
+    ylab(bquote('Phosphate ('*mu*'g '*PO[4]^"3-"~-P~L^-1 *')'))+
+    xlab("Month")
   
   
   list(inaccessible_N=inaccessible_N,
@@ -830,6 +894,7 @@ plot_inaccess_p =function(Extract_processed_Seasonal,PoreWater_processed_Seasona
   
   
 }
+
 #### due to higher frequency these plots are for ancillary only
 
 plot_Extract_Seasonal = function(Extract_processed_Seasonal){
@@ -1234,7 +1299,32 @@ plot_Extract_Seasonal = function(Extract_processed_Seasonal){
   
   
   
+  fit_aov = function(Extract_processed){
+    
+    a = aov(conc ~ MONTH * YEAR * Site,  data = Extract_processed)
+    broom::tidy(a) %>% 
+      mutate(asterisk = case_when(`p.value` <= 0.05 ~ "*"))
+    
+  }
   
+  Ancillary_ANOVA2 = 
+    Extract_processed_S_long %>% 
+    group_by(analyte)%>%
+    do(fit_aov(.))%>%
+    na.omit()%>%
+    knitr::kable()
+  
+  Ancillary_ANOVA = 
+    Extract_processed_S_long %>% 
+    group_by(analyte)%>%
+    do(fit_aov(.))%>%
+    knitr::kable()
+  
+  Ancillary_ANOVA_biomass = 
+    Extract_processed_S_long_biomass %>% 
+    group_by(analyte)%>%
+    do(fit_aov(.))%>%
+    knitr::kable(caption = "Biomass ANOVA significant comparisons")
   
   Ancillary_LME_biomass = 
     Extract_processed_S_long_biomass %>% 
@@ -1272,7 +1362,10 @@ plot_Extract_Seasonal = function(Extract_processed_Seasonal){
        Ancillary_LME=Ancillary_LME,
        Ancillary_LME2=Ancillary_LME2,
        Ancillary_LME_biomass=Ancillary_LME_biomass,
-       Ancillary_LME2_biomass=Ancillary_LME2_biomass
+       Ancillary_LME2_biomass=Ancillary_LME2_biomass,
+       Ancillary_ANOVA= Ancillary_ANOVA,
+       Ancillary_ANOVA_biomass=Ancillary_ANOVA_biomass
+       
        
   )
   
@@ -1352,11 +1445,65 @@ plot_Extract_Seasonal_H2O = function(Extract_processed_Seasonal_H2O){
     ggtitle("Water extracted TFPA")
   
   
+  Extract_processed_H2O_long = Extract_processed_Seasonal_H2O %>%
+    pivot_longer(cols= NH4.H2O:TRS.H2O,
+                 names_to= "analyte",
+                 values_to= "conc") 
+  
+  fit_aov = function(Extract_processed){
+    
+    a = aov(conc ~ MONTH * YEAR * Site,  data = Extract_processed)
+    broom::tidy(a) %>% 
+      mutate(asterisk = case_when(`p.value` <= 0.05 ~ "*"))
+    
+  }
+  
+  Fit.LME=function(Extract_processed_S_long){
+    a = nlme::lme(conc ~ MONTH * YEAR * Site ,
+                  random = ~1|Plot,
+                  data = Extract_processed_S_long,na.action=na.exclude)%>%
+      anova()
+    
+    a %>% 
+      as.data.frame() %>% 
+      rownames_to_column("variable") %>% 
+      filter(variable %in% c("MONTH","YEAR","Site","MONTH:YEAR","MONTH:Site","YEAR:Site","MONTH:YEAR:Site")) %>%
+      dplyr::rename(p_value = 'p-value') %>%
+      mutate(p_value == round(p_value, 3),asterisk = case_when(`p_value` <= 0.05 ~ "*"))
+  }
+  
+  
+  Ancillary_H2O_ANOVA = 
+    Extract_processed_H2O_long %>% 
+    group_by(analyte)%>%
+    do(fit_aov(.))%>%
+    na.omit()%>%
+    knitr::kable()
+  
+  Ancillary_H2O_ANOVA2 = 
+    Extract_processed_H2O_long %>% 
+    group_by(analyte)%>%
+    do(fit_aov(.))%>%
+    knitr::kable()
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   list("Seasonal_H2O NH4"= gg_NH4_Extract,
        "Seasonal_H2O NO3"= gg_NO3_Extract,
        "Seasonal_H2O PO4"= gg_PO4_Extract,
        "Seasonal_H2O TFPA"= gg_TFPA_Extract,
-       "Seasonal_H2O TRS"= gg_TRS_Extract
+       "Seasonal_H2O TRS"= gg_TRS_Extract,
+       Ancillary_H2O_ANOVA=Ancillary_H2O_ANOVA,
+       Ancillary_H2O_ANOVA2=Ancillary_H2O_ANOVA2
   )
   
 }
@@ -1683,12 +1830,13 @@ plot_Extract_all = function(Extract_processed_all){
     stat_summary(fun.data = mean_se, geom = "errorbar",lwd=1,width=1)+
     scale_y_continuous(oob=rescale_none,expand = c(0, 0))+
     facet_wrap(~YEAR, scale="free_x", nrow=1)+
-    scale_x_date(labels = date_format("%m-%Y"))+
+    scale_x_date(labels = date_format("%m"))+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
-    labs(x = "Date", 
+    labs(x = "Month", 
          y = bquote('Microbial biomass ('*mu*'g C'~g^-1 ~ dry ~ soil*')'))+
-    ggtitle("MBC")
+    ggtitle("Microbial Biomass Carbon")+
+    theme_CKM()
   
   gg_MBN_Extract =
     Extract_processed_all %>%
@@ -1698,12 +1846,13 @@ plot_Extract_all = function(Extract_processed_all){
     stat_summary(fun.data = mean_se, geom = "errorbar", lwd=1,width=1)+
     facet_wrap(~YEAR, scale="free", nrow=1)+
     scale_y_continuous(oob=rescale_none,expand = c(0, 0))+
-    scale_x_date(labels = date_format("%m-%Y"))+
+    scale_x_date(labels = date_format("%m"))+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
-    labs(x = "Date", 
+    labs(x = "Month", 
          y = bquote('Microbial biomass ('*mu*'g N'~g^-1 ~ dry ~ soil*')'))+
-    ggtitle("MBN")
+    ggtitle("Microbial Biomass Nitrogen")+
+    theme_CKM()
   
   gg_MBP_Extract =
     Extract_processed_all %>%
@@ -1720,7 +1869,9 @@ plot_Extract_all = function(Extract_processed_all){
          y = bquote('Microbial biomass ('*mu*'g P'~g^-1 ~ dry ~ soil*')'))+
     ggtitle("MBP")
   
-  
+  A<-Extract_processed_all %>%
+    group_by(Date,YEAR,Site)%>%
+    summarise(MBC2=mean(MBC),MBCse= sqrt(var(MBC, na.rm = TRUE) / sum(!is.na(MBC))),MBN2=mean(MBN),MBNse= sqrt(var(MBN, na.rm = TRUE) / sum(!is.na(MBN))))
   
   
   COMB<-Combine_plots2(gg_MBC_Extract,gg_MBN_Extract)
@@ -1759,7 +1910,7 @@ plot_Extract_all = function(Extract_processed_all){
        "all MBP"= gg_MBP_Extract,
        COMB=COMB
   )
-  
+
 }
 
 plot_Extract_all_H2O = function(Extract_processed_all_H2O){
@@ -2913,7 +3064,11 @@ plot_resin = function(Resin_processed){
     do(fit_aov2(.)) %>%
   mutate( Site="Hydric")
   
-  
+  Table<-Resin_processed %>%
+    group_by(Site,YEAR) %>%
+    summarise(NH4=mean(Ammonium,na.rm=T),NH4se= sqrt(var(Ammonium, na.rm = TRUE) / sum(!is.na(Ammonium))), 
+              NO3=mean(Nitrate,na.rm=T),NO3se= sqrt(var(Nitrate, na.rm = TRUE) / sum(!is.na(Nitrate))),
+              PO4=mean(Phosphate,na.rm=T),PO4se= sqrt(var(Phosphate, na.rm = TRUE) / sum(!is.na(Phosphate))))
  
   
    gg_NH4_Extract =
@@ -3704,6 +3859,27 @@ plot_BranchExtension=function(AggieBranch_data){
                  aes(group = interaction(site,trt)),
                  width=0.7)+
     facet_wrap(~year)
+  
+  list()
+  
+  
+}
+
+
+plot_AggieNNeedle=function(AggieNNeedle_data){
+  
+  AggieNNeedle_data%>%
+    pivot_longer(June2018N:August2017N)%>%
+    filter(site!="")%>%
+    ggplot(aes(x=site, y=value, color=trt))+
+    geom_boxplot(show.legend = T, 
+                 outlier.colour = NULL,
+                 outlier.fill = NULL,
+                 alpha = 0.2,
+                 position = position_dodge(width = 1),
+                 aes(group = interaction(site,trt)),
+                 width=0.7)+
+    facet_wrap(~name)
   
   list()
   

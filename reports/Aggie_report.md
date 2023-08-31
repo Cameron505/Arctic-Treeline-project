@@ -905,7 +905,7 @@ click to open
 Session Info
 </summary>
 
-Date run: 2023-08-23
+Date run: 2023-08-30
 
     ## R version 4.2.3 (2023-03-15 ucrt)
     ## Platform: x86_64-w64-mingw32/x64 (64-bit)
@@ -925,31 +925,45 @@ Date run: 2023-08-23
     ## [8] base     
     ## 
     ## other attached packages:
-    ##  [1] ggbreak_0.1.2     ggExtra_0.10.0    lubridate_1.9.2   forcats_1.0.0    
-    ##  [5] stringr_1.5.0     dplyr_1.1.2       purrr_1.0.1       readr_2.1.4      
-    ##  [9] tidyr_1.3.0       tibble_3.2.1      tidyverse_2.0.0   ggbiplot_0.55    
-    ## [13] scales_1.2.1      plyr_1.8.8        ggplot2_3.4.1     vegan_2.6-4      
-    ## [17] lattice_0.20-45   permute_0.9-7     tarchetypes_0.7.7 targets_1.2.0    
+    ##  [1] cowplot_1.1.1     agricolae_1.3-6   doBy_4.6.17       ggpubr_0.6.0     
+    ##  [5] pracma_2.4.2      reshape2_1.4.4    ggbreak_0.1.2     ggExtra_0.10.0   
+    ##  [9] lubridate_1.9.2   forcats_1.0.0     stringr_1.5.0     dplyr_1.1.2      
+    ## [13] purrr_1.0.1       readr_2.1.4       tidyr_1.3.0       tibble_3.2.1     
+    ## [17] tidyverse_2.0.0   ggbiplot_0.55     scales_1.2.1      plyr_1.8.8       
+    ## [21] ggplot2_3.4.1     vegan_2.6-4       lattice_0.20-45   permute_0.9-7    
+    ## [25] tarchetypes_0.7.7 targets_1.2.0    
     ## 
     ## loaded via a namespace (and not attached):
-    ##  [1] nlme_3.1-162       fs_1.6.2           future.callr_0.8.1 tools_4.2.3       
-    ##  [5] backports_1.4.1    utf8_1.2.3         R6_2.5.1           mgcv_1.8-42       
-    ##  [9] colorspace_2.1-0   withr_2.5.0        tidyselect_1.2.0   processx_3.8.2    
-    ## [13] compiler_4.2.3     cli_3.6.1          labeling_0.4.2     callr_3.7.3       
-    ## [17] digest_0.6.33      yulab.utils_0.0.7  rmarkdown_2.23     pkgconfig_2.0.3   
-    ## [21] htmltools_0.5.5    parallelly_1.36.0  highr_0.10         fastmap_1.1.1     
-    ## [25] rlang_1.1.1        rstudioapi_0.15.0  shiny_1.7.4.1      farver_2.1.1      
-    ## [29] gridGraphics_0.5-1 generics_0.1.3     magrittr_2.0.3     ggplotify_0.1.2   
-    ## [33] patchwork_1.1.2    Matrix_1.6-0       Rcpp_1.0.11        munsell_0.5.0     
-    ## [37] fansi_1.0.4        lifecycle_1.0.3    furrr_0.3.1        stringi_1.7.12    
-    ## [41] yaml_2.3.7         MASS_7.3-58.2      parallel_4.2.3     listenv_0.9.0     
-    ## [45] promises_1.2.0.1   miniUI_0.1.1.1     cowplot_1.1.1      splines_4.2.3     
-    ## [49] hms_1.1.3          knitr_1.43         ps_1.7.5           pillar_1.9.0      
-    ## [53] igraph_1.5.0       PNWColors_0.1.0    base64url_1.4      codetools_0.2-19  
-    ## [57] glue_1.6.2         evaluate_0.21      ggfun_0.1.2        data.table_1.14.8 
-    ## [61] vctrs_0.6.3        tzdb_0.4.0         httpuv_1.6.11      gtable_0.3.3      
-    ## [65] future_1.33.0      cachem_1.0.8       xfun_0.39          mime_0.12         
-    ## [69] xtable_1.8-4       later_1.3.1        aplot_0.2.0        memoise_2.0.1     
-    ## [73] cluster_2.1.4      timechange_0.2.0   globals_0.16.2     ellipsis_0.3.2
+    ##  [1] colorspace_2.1-0      ggsignif_0.6.4        ellipsis_0.3.2       
+    ##  [4] fs_1.6.2              aplot_0.2.0           rstudioapi_0.15.0    
+    ##  [7] farver_2.1.1          listenv_0.9.0         furrr_0.3.1          
+    ## [10] Deriv_4.1.3           fansi_1.0.4           codetools_0.2-19     
+    ## [13] splines_4.2.3         cachem_1.0.8          knitr_1.43           
+    ## [16] broom_1.0.5           cluster_2.1.4         shiny_1.7.4.1        
+    ## [19] compiler_4.2.3        backports_1.4.1       Matrix_1.6-0         
+    ## [22] fastmap_1.1.1         cli_3.6.1             later_1.3.1          
+    ## [25] htmltools_0.5.5       tools_4.2.3           igraph_1.5.0         
+    ## [28] gtable_0.3.3          glue_1.6.2            Rcpp_1.0.11          
+    ## [31] carData_3.0-5         vctrs_0.6.3           nlme_3.1-162         
+    ## [34] xfun_0.39             globals_0.16.2        ps_1.7.5             
+    ## [37] timechange_0.2.0      mime_0.12             miniUI_0.1.1.1       
+    ## [40] lifecycle_1.0.3       rstatix_0.7.2         future_1.33.0        
+    ## [43] MASS_7.3-58.2         microbenchmark_1.4.10 ragg_1.2.5           
+    ## [46] hms_1.1.3             promises_1.2.0.1      parallel_4.2.3       
+    ## [49] yaml_2.3.7            memoise_2.0.1         ggfun_0.1.2          
+    ## [52] yulab.utils_0.0.7     labelled_2.12.0       stringi_1.7.12       
+    ## [55] highr_0.10            klaR_1.7-2            AlgDesign_1.2.1      
+    ## [58] PNWColors_0.1.0       systemfonts_1.0.4     rlang_1.1.1          
+    ## [61] pkgconfig_2.0.3       evaluate_0.21         labeling_0.4.2       
+    ## [64] patchwork_1.1.2       processx_3.8.2        tidyselect_1.2.0     
+    ## [67] parallelly_1.36.0     magrittr_2.0.3        R6_2.5.1             
+    ## [70] generics_0.1.3        base64url_1.4         combinat_0.0-8       
+    ## [73] pillar_1.9.0          haven_2.5.3           withr_2.5.0          
+    ## [76] mgcv_1.8-42           abind_1.4-5           car_3.1-2            
+    ## [79] questionr_0.7.8       utf8_1.2.3            rmarkdown_2.23       
+    ## [82] tzdb_0.4.0            future.callr_0.8.1    data.table_1.14.8    
+    ## [85] callr_3.7.3           digest_0.6.33         xtable_1.8-4         
+    ## [88] httpuv_1.6.11         textshaping_0.3.6     gridGraphics_0.5-1   
+    ## [91] munsell_0.5.0         ggplotify_0.1.2
 
 </details>

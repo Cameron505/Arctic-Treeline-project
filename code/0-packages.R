@@ -29,6 +29,7 @@ reorder_sites = function(dat){
   
 }
 cbPalette2 <- c("#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black")
+cbPalette3 <- c( "#F0E442", "#0072B2", "#D55E00", "#CC79A7","#E69F00", "#56B4E9", "#009E73","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black")
 theme_kp <- function() {  # this for all the elements common across plots
   theme_bw() %+replace%
     theme(legend.position = "top",
@@ -112,5 +113,24 @@ fit_hsd = function(dat){
     dplyr::select(Temp, label)
 }
 
-
+theme_CKM <- function() {  # this for all the elements common across plots
+  theme_bw() %+replace%
+    theme(legend.text = element_text(size = 12),
+          legend.key.size = unit(1.5, 'lines'),
+          legend.background = element_rect(colour = NA),
+          panel.border = element_rect(color="black",size=2, fill = NA),
+          
+          plot.title = element_text(hjust = 0, size = 14),
+          axis.text = element_text(size = 14, color = "black"),
+          axis.title = element_text(size = 14, face = "bold", color = "black"),
+          
+          # formatting for facets
+          panel.background = element_blank(),
+          strip.background = element_rect(colour=NA, fill=NA), #facet formatting
+          panel.spacing.x = unit(1.5, "lines"), #facet spacing for x axis
+          panel.spacing.y = unit(1.5, "lines"), #facet spacing for x axis
+          strip.text.x = element_text(size=12, face="bold"), #facet labels
+          strip.text.y = element_text(size=12, face="bold", angle = 270) #facet labels
+    )
+}
 

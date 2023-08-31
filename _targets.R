@@ -162,6 +162,7 @@ list(
   # report  
   tar_render(report, path = "reports/Aggie_report.Rmd"),
   tar_render(report2, path = "reports/Aggie_Short_report.Rmd"),
-  tar_render(report3, path = "reports/Aggie_Seasonal.Rmd")
+  tar_render(report3, path = "reports/Aggie_Seasonal.Rmd"),
+  tar_render(report4, path = "reports/Treeline_Supplement.Rmd")
   
 )
