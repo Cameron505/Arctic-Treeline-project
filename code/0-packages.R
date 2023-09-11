@@ -50,7 +50,9 @@ theme_kp <- function() {  # this for all the elements common across plots
           panel.spacing.x = unit(1.5, "lines"), #facet spacing for x axis
           panel.spacing.y = unit(1.5, "lines"), #facet spacing for x axis
           strip.text.x = element_text(size=12, face="bold"), #facet labels
-          strip.text.y = element_text(size=12, face="bold", angle = 270) #facet labels
+          strip.text.y = element_text(size=12, face="bold", angle = 270), #facet labels
+          axis.text.x.top = element_blank(),
+          axis.ticks.x.top = element_blank()
     )
 }
 
@@ -115,7 +117,7 @@ fit_hsd = function(dat){
 
 theme_CKM <- function() {  # this for all the elements common across plots
   theme_bw() %+replace%
-    theme(legend.text = element_text(size = 12),
+    theme(legend.text = element_text(size = 14),
           legend.key.size = unit(1.5, 'lines'),
           legend.background = element_rect(colour = NA),
           panel.border = element_rect(color="black",size=2, fill = NA),
@@ -129,8 +131,35 @@ theme_CKM <- function() {  # this for all the elements common across plots
           strip.background = element_rect(colour=NA, fill=NA), #facet formatting
           panel.spacing.x = unit(1.5, "lines"), #facet spacing for x axis
           panel.spacing.y = unit(1.5, "lines"), #facet spacing for x axis
-          strip.text.x = element_text(size=12, face="bold"), #facet labels
-          strip.text.y = element_text(size=12, face="bold", angle = 270) #facet labels
+          strip.text.x = element_text(size=14, face="bold"), #facet labels
+          strip.text.y = element_text(size=14, face="bold", angle = 270), #facet labels
+          axis.text.x.top = element_blank(),
+          axis.ticks.x.top = element_blank() 
+    )
+}
+
+theme_CKM2 <- function() {  # this for all the elements common across plots
+  theme_bw() %+replace%
+    theme(legend.text = element_text(size = 18),
+          legend.title = element_text(size = 20),
+          legend.key.size = unit(3, 'lines'),
+          legend.background = element_rect(colour = NA),
+          legend.position = "top",
+          panel.border = element_rect(color="black",size=2, fill = NA),
+          
+          plot.title = element_text(hjust = 0, size = 14),
+          axis.text = element_text(size = 14, color = "black"),
+          axis.title = element_text(size = 14, face = "bold", color = "black"),
+          
+          # formatting for facets
+          panel.background = element_blank(),
+          strip.background = element_rect(colour=NA, fill=NA), #facet formatting
+          panel.spacing.x = unit(1.5, "lines"), #facet spacing for x axis
+          panel.spacing.y = unit(1.5, "lines"), #facet spacing for x axis
+          strip.text.x = element_text(size=14, face="bold"), #facet labels
+          strip.text.y = element_text(size=14, face="bold", angle = 270), #facet labels
+          axis.text.x.top = element_blank(),
+          axis.ticks.x.top = element_blank() 
     )
 }
 

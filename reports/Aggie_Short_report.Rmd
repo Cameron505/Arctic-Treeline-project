@@ -272,7 +272,7 @@ FTICR revealed large differences in organic matter content based on site, and sm
   
 
   
-```{r , fig.height=6, fig.width=6, results='hide', out.width="100%"}
+```{r , fig.height=6, fig.width=9, results='hide', out.width="100%"}
 tar_read(gg_pca_by_site)
 tar_read(gg_pca_by_site_nonpolar)
 tar_read(pca_polar_nonpolar)$gg_PCA_Legend

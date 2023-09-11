@@ -82,11 +82,13 @@ list(
   tar_target(AggieBranch_data, read.csv(AggieBranch_data_read)),
   tar_target(AggieNNeedle_data_read,"Data/tree/Needle_N.csv", format="file"),
   tar_target(AggieNNeedle_data, read.csv(AggieNNeedle_data_read)),
+  tar_target(AggieTree_data_read,"Data/tree/Tree_info.csv", format="file"),
+  tar_target(AggieTree_data, read.csv("Data/tree/Tree_info.csv")),
+  tar_target(gg_Tree, plot_Tree(AggieTree_data)),
   
-  
-  
-  
-  
+  tar_target(ph_data_read,"Data/pH.csv", format="file"),
+  tar_target(ph_data, read.csv(ph_data_read)),
+  tar_target(gg_ph, plot_ph(ph_data)),
   
   tar_target(PoreWater_data_read,"Data/PoreWater.csv", format="file"),
   tar_target(PoreWater_data, read.csv(PoreWater_data_read)),
@@ -110,6 +112,9 @@ list(
   
   tar_target(Inaccessable, plot_inaccess(Extract_processed_Seasonal,PoreWater_processed_Seasonal)),
   tar_target(Inaccessable_p, plot_inaccess_p(Extract_processed_Seasonal,PoreWater_processed_Seasonal)),
+  tar_target(Inaccessable_TRS, plot_inaccess_TRS(Extract_processed_Seasonal,PoreWater_processed_Seasonal)),
+  
+  
   
   tar_target(Resin_data_read,"Data/Resin.csv", format="file"),
   tar_target(Resin_data, read.csv(Resin_data_read)),

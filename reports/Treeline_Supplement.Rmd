@@ -39,6 +39,34 @@ tar_read(Soil_Temp)
 
 
 
+##   Tree location
+
+<details>
+  <summary>click to open</summary>
+  Tree locations are displayed as degree decimals 
+```{r , fig.height=9, fig.width=9, results='hide', out.width="100%"}
+tar_read(gg_Tree)
+```
+
+</details>
+
+
+
+
+##   Soil pH
+
+<details>
+  <summary>click to open</summary>
+  
+```{r , fig.height=9, fig.width=9, results='hide', out.width="100%"}
+tar_read(gg_ph)
+```
+
+</details>
+
+
+
+
 ##   Snowfence Vs. Control
 
 <details>
@@ -170,6 +198,22 @@ tar_read(gg_aggie_PoreWater_Seasonal)$Porewater_Seasonal_LME2
   
 ```{r , fig.height=9, fig.width=9, out.width="100%"}
 tar_read(Inaccessable_p)$inaccessible_N2
+
+```
+  
+</details>
+
+
+
+
+##   Seasonal (Inaccessible TRS)
+
+ <details>
+  <summary>click to open</summary>
+  The inaccessible TRS compiled the same way as N and P. 
+```{r , fig.height=9, fig.width=9, out.width="100%"}
+tar_read(Inaccessable_TRS)$inaccessible_TRS2_point5
+tar_read(Inaccessable_TRS)$inaccessible_TRS2_30
 
 ```
   
