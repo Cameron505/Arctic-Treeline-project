@@ -148,7 +148,7 @@ theme_CKM2 <- function() {  # this for all the elements common across plots
           panel.border = element_rect(color="black",size=2, fill = NA),
           
           plot.title = element_text(hjust = 0, size = 14),
-          axis.text = element_text(size = 14, color = "black"),
+          axis.text = element_text(size = 12, color = "black"),
           axis.title = element_text(size = 14, face = "bold", color = "black"),
           
           # formatting for facets

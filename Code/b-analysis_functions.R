@@ -564,7 +564,7 @@ plot_resin_Snowfence = function(Resin_processed){
     stat_summary(fun="mean",geom = "bar",size = 2, position= 'dodge') +
     stat_summary(fun.data = mean_se, geom = "errorbar", position= 'dodge')+
     facet_wrap(~YEAR, scale="free_x",nrow=1)+
-    scale_y_continuous(expand=c(0,0),limits=c(0,0.04),oob=rescale_none)+
+    scale_y_continuous(expand=c(0,0),limits=c(0,0.05),oob=rescale_none)+
     geom_text(data = Extract_resin_aov2 %>% filter(analyte == "Ammonium"), aes(y = 0.035, label = asterisk), size=10)+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
@@ -587,7 +587,7 @@ plot_resin_Snowfence = function(Resin_processed){
     stat_summary(fun.data = mean_se, geom = "errorbar", position= 'dodge')+
     geom_text(data = Extract_resin_aov2 %>% filter(analyte == "Nitrate"), aes(y = 0.01, label = asterisk), size=10)+
     facet_wrap(~YEAR, scale="free_x",nrow=1)+
-    scale_y_continuous(expand=c(0,0),limits=c(0,0.012),oob=rescale_none)+
+    scale_y_continuous(expand=c(0,0),limits=c(0,0.014),oob=rescale_none)+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -608,7 +608,7 @@ plot_resin_Snowfence = function(Resin_processed){
     stat_summary(fun.data = mean_se, geom = "errorbar", position= 'dodge')+
     geom_text(data = Extract_resin_aov2 %>% filter(analyte == "Phosphate"), aes(y = 0.025, label = asterisk), size=10)+
     facet_wrap(~YEAR, scale="free_x",nrow=1)+
-    scale_y_continuous(expand=c(0,0),limits=c(0,0.03),oob=rescale_none)+
+    scale_y_continuous(expand=c(0,0),limits=c(0,0.035),oob=rescale_none)+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -3525,8 +3525,8 @@ plot_pca_by_site= function(pca_polar){
     labs(shape="",
          title = "Polar seperation by site")+
     guides(color=guide_legend(title="Site"))+
-    theme_CKM()+
-    NULL
+    theme(plot.margin = unit(c(0,0,0,0), "cm"))+
+    theme_CKM()
   
   
   list("pca_by_site"= gg_pca_by_site
@@ -3592,8 +3592,8 @@ plot_pca_by_site_nonpolar= function(pca_polar){
     guides(color=guide_legend(title="Site"))+
     labs(shape="",
          title = "Non-Polar seperation by site")+
-    theme_CKM()+
-    NULL
+    theme(plot.margin = unit(c(0,0,0,0), "cm"))+
+    theme_CKM()
   
   
   list("pca_by_site"= gg_pca_by_site
@@ -3799,18 +3799,21 @@ plot_permanova_nonpolar= function( relabund_cores_nonpolar){
 plot_pca_PNP= function( gg_pca_by_site_nonpolar,gg_pca_by_site){
 
   Nutrient_legend = cowplot::get_legend(gg_pca_by_site$pca_by_site+ guides(color = guide_legend(nrow = 1)) +
-                                 theme(legend.position = "bottom"))
+                                 theme(legend.position = "bottom",
+                                       legend.title=element_text("Site"),
+                                       plot.margin = unit(c(0,0,0,0), "cm")
+                                       ))
   
   gg_Ncombine= cowplot::plot_grid(
     gg_pca_by_site$pca_by_site + theme(legend.position="none"),
     gg_pca_by_site_nonpolar$pca_by_site + theme(legend.position="none"),
-    align = 'h',
+    align = 'vh',
     labels = c("A", "B"),
     label_y= 0.93,
-    hjust = -1,
+    vjust = 5,
     nrow = 1
   )
-  gg_PCA_Legend=cowplot::plot_grid(gg_Ncombine,Nutrient_legend, ncol=1, rel_heights =c(1,0.03))
+  gg_PCA_Legend=cowplot::plot_grid(gg_Ncombine,NULL, ncol=1,Nutrient_legend, rel_heights =c(1,0,0.1))
   
   
   list(gg_PCA_Legend=gg_PCA_Legend)
