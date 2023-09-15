@@ -75,6 +75,9 @@ list(
   tar_target(Kotz_proccessed_HMX, process_SoilTemp(SoilTempHydric_data,SoilTempMesic_data,SoilTempXeric_data,Kotz_proccessed)),
   
   tar_target(Soil_Temp, plot_soilTemp(SoilTempHydric_data,SoilTempMesic_data,SoilTempXeric_data,Kotz_proccessed)),
+  tar_target(Soil_Water, plot_soilwater(SoilTempHydric_data,SoilTempMesic_data,SoilTempXeric_data,Kotz_proccessed)),
+  tar_target(Soil_WaterTemp, plot_soilTempwater(Soil_Water,Soil_Temp)),
+  
   
   #tar_target(Ibutton_Temp, plot_Ibutton(Ibutton_data)),
   #branch extension measurments

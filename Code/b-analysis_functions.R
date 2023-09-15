@@ -556,16 +556,27 @@ plot_resin_Snowfence = function(Resin_processed){
   
   Resin_processed$Purpose3<- paste(Resin_processed$Purpose2,Resin_processed$YEAR)
   
+  means<-Resin_processed%>%
+    pivot_longer(Nitrate:Phosphate)%>%
+    group_by(Site,name)%>%
+    summarise(M=mean(value, na.rm=T))
+  sd<-Resin_processed%>%
+    pivot_longer(Nitrate:Phosphate)%>%
+    group_by(Site,name)%>%
+    summarise(SD=sd(value, na.rm=T))%>%
+    left_join(means)
+  
+  
   gg_NH4_Extract2 =
     Resin_processed %>%
     mutate(Purpose3=factor(Purpose3, levels=c("OW 2017","OW-GS 2018","GS 2018","OW 2019","GS 2019","OW-GS 2020","OW 2021")))%>%
     filter(Treatment %in% c("Snowfence","Control"))%>%
-    ggplot(aes(x=Purpose3, y=Ammonium, fill=Site))+
+    ggplot(aes(x=Purpose3, y=Ammonium*100, fill=Site))+
     stat_summary(fun="mean",geom = "bar",size = 2, position= 'dodge') +
     stat_summary(fun.data = mean_se, geom = "errorbar", position= 'dodge')+
     facet_wrap(~YEAR, scale="free_x",nrow=1)+
-    scale_y_continuous(expand=c(0,0),limits=c(0,0.05),oob=rescale_none)+
-    geom_text(data = Extract_resin_aov2 %>% filter(analyte == "Ammonium"), aes(y = 0.035, label = asterisk), size=10)+
+    scale_y_continuous(expand=c(0,0),limits=c(0,5),oob=rescale_none)+
+    geom_text(data = Extract_resin_aov2 %>% filter(analyte == "Ammonium"), aes(y = 3.5, label = asterisk), size=10)+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -573,7 +584,7 @@ plot_resin_Snowfence = function(Resin_processed){
     scale_x_discrete(breaks=c("OW 2017","OW-GS 2018","GS 2018","OW 2019","GS 2019","OW-GS 2020","OW 2021"),
                      labels=c(" W '16-'17", "GW '17- '18",  "G '18","W '18-'19","G '19","WG '19-'20","W '20-'21"))+
     labs(x = "W- Winter G- Growing season")+
-    ylab(expression(atop('Ammonium', paste('('*mu*'g '*NH[4]^"+"~-N~cm^-2 ~ Day^-1*')'))))+
+    ylab(expression(atop('Ammonium', paste('('*mu*'g '*NH[4]^"+"~-N~cm^-2 ~ 100-Days^-1*')'))))+
     ggtitle("Ammonium")+
     theme_CKM()
   
@@ -582,12 +593,12 @@ plot_resin_Snowfence = function(Resin_processed){
     Resin_processed %>%
     mutate(Purpose3=factor(Purpose3, levels=c("OW 2017","OW-GS 2018","GS 2018","OW 2019","GS 2019","OW-GS 2020","OW 2021")))%>%
     filter(Treatment %in% c("Snowfence","Control"))%>%
-    ggplot(aes(x=Purpose3, y=Nitrate, fill=Site))+
+    ggplot(aes(x=Purpose3, y=Nitrate*100, fill=Site))+
     stat_summary(fun="mean",geom = "bar",size = 2, position= 'dodge') +
     stat_summary(fun.data = mean_se, geom = "errorbar", position= 'dodge')+
-    geom_text(data = Extract_resin_aov2 %>% filter(analyte == "Nitrate"), aes(y = 0.01, label = asterisk), size=10)+
+    geom_text(data = Extract_resin_aov2 %>% filter(analyte == "Nitrate"), aes(y = 1, label = asterisk), size=10)+
     facet_wrap(~YEAR, scale="free_x",nrow=1)+
-    scale_y_continuous(expand=c(0,0),limits=c(0,0.014),oob=rescale_none)+
+    scale_y_continuous(expand=c(0,0),limits=c(0,1.4),oob=rescale_none)+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -595,7 +606,7 @@ plot_resin_Snowfence = function(Resin_processed){
     scale_x_discrete(breaks=c("OW 2017","OW-GS 2018","GS 2018","OW 2019","GS 2019","OW-GS 2020","OW 2021"),
                      labels=c(" W '16-'17", "GW '17- '18",  "G '18","W '18-'19","G '19","WG '19-'20","W '20-'21"))+
     labs(x = "W- Winter G- Growing season")+
-    ylab(expression(atop('Nitrate', paste('('*mu*'g '*NO[3]^"-"~-N~cm^-2 ~ Day^-1*')'))))+
+    ylab(expression(atop('Nitrate', paste('('*mu*'g '*NO[3]^"-"~-N~cm^-2 ~ 100-Days^-1*')'))))+
     ggtitle("Nitrate")+
     theme_CKM()
   
@@ -603,12 +614,12 @@ plot_resin_Snowfence = function(Resin_processed){
     Resin_processed %>%
     mutate(Purpose3=factor(Purpose3, levels=c("OW 2017","OW-GS 2018","GS 2018","OW 2019","GS 2019","OW-GS 2020","OW 2021")))%>%
     filter(Treatment %in% c("Snowfence","Control"))%>%
-    ggplot(aes(x=Purpose3, y=Phosphate, fill=Site))+
+    ggplot(aes(x=Purpose3, y=Phosphate*100, fill=Site))+
     stat_summary(fun="mean",geom = "bar",size = 2, position= 'dodge') +
     stat_summary(fun.data = mean_se, geom = "errorbar", position= 'dodge')+
-    geom_text(data = Extract_resin_aov2 %>% filter(analyte == "Phosphate"), aes(y = 0.025, label = asterisk), size=10)+
+    geom_text(data = Extract_resin_aov2 %>% filter(analyte == "Phosphate"), aes(y = 2.5, label = asterisk), size=10)+
     facet_wrap(~YEAR, scale="free_x",nrow=1)+
-    scale_y_continuous(expand=c(0,0),limits=c(0,0.035),oob=rescale_none)+
+    scale_y_continuous(expand=c(0,0),limits=c(0,3.5),oob=rescale_none)+
     theme_light()+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
@@ -616,7 +627,7 @@ plot_resin_Snowfence = function(Resin_processed){
     scale_x_discrete(breaks=c("OW 2017","OW-GS 2018","GS 2018","OW 2019","GS 2019","OW-GS 2020","OW 2021"),
                      labels=c(" W '16-'17", "GW '17- '18",  "G '18","W '18-'19","G '19","WG '19-'20","W '20-'21"))+
     labs(x = "W- Winter G- Growing season")+
-    ylab(expression(atop('Phosphate', paste('('*mu*'g '*PO[4]^"3-"~-P~cm^-2 ~ Day^-1*')'))))+
+    ylab(expression(atop('Phosphate', paste('('*mu*'g '*PO[4]^"3-"~-P~cm^-2 ~ 100-Days^-1*')'))))+
     ggtitle("Phosphate")+
     theme_CKM()
   
@@ -665,8 +676,8 @@ plot_inaccess =function(Extract_processed_Seasonal,PoreWater_processed_Seasonal)
     select(Date:Plot,name,value)
   
   Pore<-PoreWater_processed_Seasonal %>%
-    mutate(NH4I=(NH4/14.0067)*1000,NO3I=(NO3/14.0067)*1000, TFPAI=TFPA,
-           NTP=NH4I+NO3I+TFPAI)%>%
+    mutate(NH4IP=(NH4/14.0067)*1000,NO3IP=(NO3/14.0067)*1000, TFPAIP=TFPA,
+           NTP=NH4IP+NO3IP+TFPAIP)%>%
     pivot_longer(NTP)%>%
     select(Date:Plot,name,value)
   
@@ -674,6 +685,120 @@ plot_inaccess =function(Extract_processed_Seasonal,PoreWater_processed_Seasonal)
     mutate(Date=as.Date(Date, "%m/%d/%Y"), name=as.factor(as.character(name)), value=as.numeric(value),Site=as.factor(as.character(Site)), DATE=as.Date(Date),
            YEAR=year(Date),
            MONTH=month(Date))
+  
+  
+  
+  Inaccess2<-Extract_processed_Seasonal %>%
+    mutate(NH4I=((((NH4*(Dry.weight*5)/25)/14.0067)*1000)),NO3I=((((NO3*(Dry.weight*5)/25)/14.0067)*1000)),TFPAI=((TFPA*(Dry.weight*5)/(25+(5-(Dry.weight*5))))),
+           NH4IW=((((NH4.H2O*(Dry.weight*5)/25)/14.0067)*1000)),NO3IW=((((NO3.H2O*(Dry.weight*5)/25)/14.0067)*1000)),TFPAIW=((TFPA.H2O*(Dry.weight*5)/(25+(5-(Dry.weight*5))))),
+           NTE= NH4I+NO3I+TFPAI,NTW=NH4IW+NO3IW+TFPAIW, adsorb=NTE-NTW)%>%
+    pivot_longer(NH4I:adsorb)%>%
+    select(Date:Plot,name,value)
+  
+  Pore2<-PoreWater_processed_Seasonal %>%
+    mutate(NH4IP=(NH4/14.0067)*1000,NO3IP=(NO3/14.0067)*1000, TFPAIP=TFPA,
+           NTP=NH4IP+NO3IP+TFPAIP)%>%
+    pivot_longer(NH4IP:NTP)%>%
+    select(Date:Plot,name,value)
+  
+  
+  
+  comb2<- data.frame(rbind(Inaccess2,Pore2))%>%
+    mutate(Date=as.Date(Date, "%m/%d/%Y"), name=as.factor(as.character(name)), value=as.numeric(value),Site=as.factor(as.character(Site)), DATE=as.Date(Date),
+           YEAR=year(Date),
+           MONTH=month(Date))%>%
+    pivot_wider(names_from = name, values_from = value)
+  
+  Pore<- comb2%>%
+    filter(Date < as.Date("2019-08-16"))%>%
+    filter(Site!="")%>%
+    select(DATE,Site,NH4IP:NTP)%>%
+    pivot_longer(NH4IP:NTP)%>%
+    group_by(DATE, Site,name) %>%
+    summarize(mean_value = mean(value, na.rm = TRUE),
+              se= sqrt(var(value, na.rm = TRUE) / sum(!is.na(value)))) %>%
+    ggplot(aes(x = DATE, y = mean_value, fill = name))+
+    geom_errorbar(aes(ymin = mean_value - se, ymax = mean_value + se, color = name), lwd = 1, width = 1) +
+    geom_point(shape = 16,aes(color=name),lwd=6)+
+    facet_wrap(~Site, ncol = 1, scales = "free_y")+
+    scale_y_continuous(oob=rescale_none,expand = c(0, 0))+
+    guides(fill=guide_legend(title= "Legend"))+
+    scale_x_break(breaks=as.Date(c("2017-08-26","2018-06-03","2018-08-24","2019-06-06")))+
+    scale_x_date(labels = date_format("%m-%Y"))
+  
+  Poreavg<- comb2%>%
+    filter(Date < as.Date("2019-08-16"))%>%
+    filter(Site!="")%>%
+    select(DATE,Site,NH4IP:NTP)%>%
+    pivot_longer(NH4IP:NTP)%>%
+    group_by(name) %>%
+    summarize(mean_value = mean(value, na.rm = TRUE),
+              se= sqrt(var(value, na.rm = TRUE) / sum(!is.na(value))))
+  
+  17.4/23.7
+  5.42/23.4
+  0.747/23.7
+  
+  
+  
+  water<- comb2%>%
+    filter(Date < as.Date("2019-08-16"))%>%
+    filter(Site!="")%>%
+    select(DATE,Site,NH4IW:TFPAIW,NTW)%>%
+    pivot_longer(NH4IW:NTW)%>%
+    group_by(DATE, Site,name) %>%
+    summarize(mean_value = mean(value, na.rm = TRUE),
+              se= sqrt(var(value, na.rm = TRUE) / sum(!is.na(value)))) %>%
+    ggplot(aes(x = DATE, y = mean_value, fill = name))+
+    geom_errorbar(aes(ymin = mean_value - se, ymax = mean_value + se, color = name), lwd = 1, width = 1) +
+    geom_point(shape = 16,aes(color=name),lwd=6)+
+    facet_wrap(~Site, ncol = 1, scales="free_x")+
+    scale_y_continuous(oob=rescale_none,expand = c(0, 0))+
+    guides(fill=guide_legend(title= "Legend"))+
+    scale_x_break(breaks=as.Date(c("2017-08-26","2018-06-03","2018-08-24","2019-06-06")))+
+    scale_x_date(labels = date_format("%m-%Y"))
+  water2<- comb2%>%
+    filter(Date < as.Date("2019-08-16"))%>%
+    filter(Site!="")%>%
+    select(DATE,Site,NH4IW:TFPAIW,NTW)%>%
+    pivot_longer(NH4IW:NTW)%>%
+    group_by(name) %>%
+    summarize(mean_value = mean(value, na.rm = TRUE),
+              se= sqrt(var(value, na.rm = TRUE) / sum(!is.na(value))))
+  
+  22.5/68.7
+  44.2/68.7
+  1.95/68.7
+  
+  salt<-comb2%>%
+    filter(Date < as.Date("2019-08-16"))%>%
+    filter(Site!="")%>%
+    select(DATE,Site,NH4I:TFPAI,NTE)%>%
+    pivot_longer(NH4I:NTE)%>%
+    group_by(DATE, Site,name) %>%
+    summarize(mean_value = mean(value, na.rm = TRUE),
+              se= sqrt(var(value, na.rm = TRUE) / sum(!is.na(value)))) %>%
+    ggplot(aes(x = DATE, y = mean_value, fill = name))+
+    geom_errorbar(aes(ymin = mean_value - se, ymax = mean_value + se, color = name), lwd = 1, width = 1) +
+    geom_point(shape = 16,aes(color=name),lwd=6)+
+    facet_wrap(~Site, ncol = 1, scales="free_x")+
+    scale_y_continuous(oob=rescale_none,expand = c(0, 0))+
+    guides(fill=guide_legend(title= "Legend"))+
+    scale_x_break(breaks=as.Date(c("2017-08-26","2018-06-03","2018-08-24","2019-06-06")))+
+    scale_x_date(labels = date_format("%m-%Y"))
+  salt2<-comb2%>%
+    filter(Date < as.Date("2019-08-16"))%>%
+    filter(Site!="")%>%
+    select(DATE,Site,NH4I:TFPAI,NTE)%>%
+    pivot_longer(NH4I:NTE)%>%
+    group_by(name) %>%
+    summarize(mean_value = mean(value, na.rm = TRUE),
+              se= sqrt(var(value, na.rm = TRUE) / sum(!is.na(value))))
+  
+  103/161
+  39.7/161
+  21.0/161
+ 
   
   
   Inaccess2<- comb %>%
@@ -844,7 +969,11 @@ plot_inaccess_p =function(Extract_processed_Seasonal,PoreWater_processed_Seasona
               se= sqrt(var(value, na.rm = TRUE) / sum(!is.na(value)))) %>%
     filter(Site != "")
   
-  
+  Overmean<-comb%>%
+    group_by(name,Site)%>%
+    summarize(mean_value = mean(value, na.rm = TRUE),
+              se= sqrt(var(value, na.rm = TRUE) / sum(!is.na(value)))) %>%
+    filter(Site != "")
   
   
   
@@ -1849,7 +1978,8 @@ plot_Extract_all = function(Extract_processed_all){
     scale_fill_manual(values=cbPalette2)+
     labs(x = "Date", 
          y = bquote('Ammonium ('*mu*'g '*NH[4]^"+"~-N~g^-1 ~ dry ~ soil*')'))+
-    ggtitle("Ammonium")
+    ggtitle("Ammonium")+
+    theme_CKM()
   
   
   gg_NO3_Extract =
@@ -1864,7 +1994,8 @@ plot_Extract_all = function(Extract_processed_all){
     scale_fill_manual(values=cbPalette2)+
     labs(x = "Date", 
          y = bquote('Nitrate ('*mu*'g '*NO[3]^"-"~-N~g^-1 ~ dry ~ soil*')'))+
-    ggtitle("Nitrate")
+    ggtitle("Nitrate")+
+    theme_CKM()
   
   gg_PO4_Extract =
     Extract_processed_all %>%
@@ -1878,7 +2009,8 @@ plot_Extract_all = function(Extract_processed_all){
     scale_fill_manual(values=cbPalette2)+
     labs(x = "Date", 
          y = bquote('Phosphate ('*mu*'g '*PO[4]^"3-"~-P~g^-1 ~ dry ~ soil*')'))+
-    ggtitle("Phosphate")
+    ggtitle("Phosphate")+
+    theme_CKM()
   
   gg_TRS_Extract =
     Extract_processed_all %>%
@@ -1892,7 +2024,8 @@ plot_Extract_all = function(Extract_processed_all){
     scale_fill_manual(values=cbPalette2)+
     labs(x = "Date", 
          y = bquote('Total reducing sugars-glucose equiv. ('*mu*'g' ~g^-1 ~ dry ~ soil*')'))+
-    ggtitle("TRS")
+    ggtitle("TRS")+
+    theme_CKM()
   
   gg_phenolics_Extract =
     Extract_processed_all %>%
@@ -1906,7 +2039,8 @@ plot_Extract_all = function(Extract_processed_all){
     scale_fill_manual(values=cbPalette2)+
     labs(x = "Date", 
          y = bquote('Phenolics-gallic acid equiv. ('*mu*'g' ~g^-1 ~ dry ~ soil*')'))+
-    ggtitle("phenolics")
+    ggtitle("phenolics")+
+    theme_CKM()
   
   gg_TFPA_Extract =
     Extract_processed_all %>%
@@ -1920,7 +2054,8 @@ plot_Extract_all = function(Extract_processed_all){
     scale_fill_manual(values=cbPalette2)+
     labs(x = "Date", 
          y = bquote('Total free primary amines-Leucine equiv. (nMol' ~g^-1 ~ dry ~ soil*')'))+
-    ggtitle("TFPA")
+    ggtitle("TFPA")+
+    theme_CKM()
   
   gg_MBC_Extract =
     Extract_processed_all %>%
@@ -1936,7 +2071,8 @@ plot_Extract_all = function(Extract_processed_all){
     labs(x = "Month", 
          y = bquote('Microbial biomass ('*mu*'g C'~g^-1 ~ dry ~ soil*')'))+
     ggtitle("Microbial Biomass Carbon")+
-    theme_CKM()
+    theme_CKM3()+
+    theme(legend.position = "bottom")
   
   gg_MBN_Extract =
     Extract_processed_all %>%
@@ -1952,7 +2088,7 @@ plot_Extract_all = function(Extract_processed_all){
     labs(x = "Month", 
          y = bquote('Microbial biomass ('*mu*'g N'~g^-1 ~ dry ~ soil*')'))+
     ggtitle("Microbial Biomass Nitrogen")+
-    theme_CKM()
+    theme_CKM3()
   
   gg_MBP_Extract =
     Extract_processed_all %>%
@@ -1967,7 +2103,8 @@ plot_Extract_all = function(Extract_processed_all){
     scale_fill_manual(values=cbPalette2)+
     labs(x = "Date", 
          y = bquote('Microbial biomass ('*mu*'g P'~g^-1 ~ dry ~ soil*')'))+
-    ggtitle("MBP")
+    ggtitle("MBP")+
+    theme_CKM3()
   
   A<-Extract_processed_all %>%
     group_by(Date,YEAR,Site)%>%
@@ -3879,15 +4016,17 @@ plot_soilTemp=function(SoilTempHydric_data,SoilTempMesic_data,SoilTempXeric_data
     geom_line(lwd=1)+
     geom_line(data=Mesic.met.station.daily,aes(x = as.Date(Date), y = Control_10.mean, color="#56B4E9"),lwd=1) +
     geom_line(data=hydric.met.station.daily,aes(x = as.Date(Date), y = Control_10.mean, color="#E69F00" ),lwd=1) +
-    guides(fill=guide_legend(title= "Legend"))+
-    scale_color_manual(name="Legend",
+    guides(fill=guide_legend(title= "Site"))+
+    scale_color_manual(name="Site",
                        values = c("#009E73", "#56B4E9", "#E69F00" ),
                          breaks=c("#009E73", "#56B4E9", "#E69F00" ),
                       labels=c("Xeric", "Mesic", "Hydric"))+
     xlab("Year")+
-    ylab("Soil temperature at 10 cm")+
+    ylab("°C")+
+    ggtitle("Soil temperature at 10 cm")+
     theme( axis.text.x.top = element_blank(),
-           axis.ticks.x.top = element_blank())+
+           axis.ticks.x.top = element_blank(),
+           legend.position = "bottom")+
     theme_CKM2()
     
     
@@ -3925,6 +4064,122 @@ plot_soilTemp=function(SoilTempHydric_data,SoilTempMesic_data,SoilTempXeric_data
   list(gg_soilTemp=gg_soilTemp,
        gg_soilTemp2=gg_soilTemp2,
        gg_soilTemp3=gg_soilTemp3)
+  
+  
+}
+
+plot_soilwater=function(SoilTempHydric_data,SoilTempMesic_data,SoilTempXeric_data,Kotz_proccessed){
+  
+  hydric.met.station.daily <- summary_by(data=SoilTempHydric_data, Control_10_sw~Date, FUN=c(length2, mean))
+  SoilTempHydric_data2 = hydric.met.station.daily %>%
+    mutate(DATE=as.Date(Date),
+           YEAR=year(Date),
+           MONTH=month(Date),
+           WEEK=week(Date)
+    )
+  hydric.met.station.monthly <- summary_by(data=SoilTempHydric_data2, Control_10_sw.mean~YEAR+MONTH+WEEK, FUN=c(length2, mean))
+  HydricSoilMonthly_Processed <- subset(hydric.met.station.monthly, Control_10_sw.mean.length2>27)
+  
+  Mesic.met.station.daily <- summary_by(data=SoilTempMesic_data, Control_10_sw~Date, FUN=c(length2, mean))
+  SoilTempMesic_data2 = Mesic.met.station.daily %>%
+    mutate(DATE=as.Date(Date),
+           YEAR=year(Date),
+           MONTH=month(Date),
+           WEEK=week(Date)
+    )
+  Mesic.met.station.monthly <- summary_by(data=SoilTempMesic_data2, Control_10_sw.mean~YEAR+MONTH+WEEK, FUN=c(length2, mean))
+  MesicSoilMonthly_Processed <- subset(Mesic.met.station.monthly, Control_10_sw.mean.length2>27)
+  
+  
+  MesicTemp<-Mesic.met.station.daily %>%
+    select(c(Date,Control_10_sw.mean))%>%
+    rename(Mesic=Control_10_sw.mean)
+  
+  
+  
+  
+  Xeric.met.station.daily <- summary_by(data=SoilTempXeric_data, Control_10_sw~Date, FUN=c(length2, mean))
+  SoilTempXeric_data2 = Xeric.met.station.daily %>%
+    mutate(DATE=as.Date(Date),
+           YEAR=year(Date),
+           MONTH=month(Date),
+           WEEK=week(Date)
+    )
+  Xeric.met.station.monthly <- summary_by(data=SoilTempXeric_data2, Control_10_sw.mean~YEAR+MONTH+WEEK, FUN=c(length2, mean))
+  XericSoilMonthly_Processed <- subset(Xeric.met.station.monthly, Control_10_sw.mean.length2>27)
+  
+  DF<-data.frame(Year=XericSoilMonthly_Processed$YEAR,MONTH=XericSoilMonthly_Processed$MONTH,Xeric=XericSoilMonthly_Processed$Control_10.mean.mean,Mesic=MesicSoilMonthly_Processed$Control_10.mean.mean,Hydric=HydricSoilMonthly_Processed$Control_10.mean.mean)
+  
+  
+  DF_Daily= Xeric.met.station.daily %>%
+    full_join(Mesic.met.station.daily, by="Date")%>%
+    full_join(hydric.met.station.daily, by="Date")%>%
+    rename("Xeric"=Control_10_sw.mean.x,"Mesic"=Control_10_sw.mean.y,"Hydric"=Control_10_sw.mean)%>%
+    select(c(Date,Xeric,Mesic,Hydric))%>%
+    pivot_longer(Xeric:Hydric)
+  
+  gg_soilwater= Xeric.met.station.daily %>%
+    ggplot(aes(x = as.Date(Date), y = Control_10_sw.mean, color="#009E73")) +
+    geom_line(lwd=1)+
+    geom_line(data=Mesic.met.station.daily,aes(x = as.Date(Date), y = Control_10_sw.mean, color="#56B4E9"),lwd=1) +
+    geom_line(data=hydric.met.station.daily,aes(x = as.Date(Date), y = Control_10_sw.mean, color="#E69F00" ),lwd=1) +
+    guides(fill=guide_legend(title= "Site"))+
+    scale_color_manual(name="Site",
+                       values = c("#009E73", "#56B4E9", "#E69F00" ),
+                       breaks=c("#009E73", "#56B4E9", "#E69F00" ),
+                       labels=c("Xeric", "Mesic", "Hydric"))+
+    xlab("Year")+
+    ylab("Soil water content (v/v)")+
+    ggtitle("Soil moisture at 10 cm")+
+    theme( axis.text.x.top = element_blank(),
+           axis.ticks.x.top = element_blank())+
+    theme_CKM2()
+  
+  
+  gg_soilwater2= DF_Daily %>%
+    ggplot(aes(x = as.Date(Date), y = value, color=name)) +
+    geom_line(lwd=1)+
+    guides(fill=guide_legend(title= "Legend"))+
+    xlab("Year")+
+    ylab("Soil water content (v/v)")+
+    scale_color_manual(values=cbPalette2)+
+    facet_wrap(~name,ncol=1)+
+    theme( axis.text.x.top = element_blank(),
+           axis.ticks.x.top = element_blank(),
+           legend.position = "none"
+    )
+  
+  gg_soilwater3= Xeric.met.station.daily %>%
+    filter(Date < '2020-01-01')%>%
+    ggplot(aes(x = as.Date(Date), y = Control_10_sw.mean, color="#009E73")) +
+    geom_line()+
+    geom_line(data=Mesic.met.station.daily%>%
+                filter(Date < '2020-01-01'),aes(x = as.Date(Date), y = Control_10_sw.mean, color="#56B4E9" )) +
+    geom_line(data=hydric.met.station.daily%>%
+                filter(Date < '2020-01-01'),aes(x = as.Date(Date), y = Control_10_sw.mean, color="#E69F00" )) +
+    guides(fill=guide_legend(title= "Legend"))+
+    scale_color_manual(name="Legend",
+                       values = c("#009E73", "#56B4E9", "#E69F00" ),
+                       breaks=c("#009E73", "#56B4E9", "#E69F00" ),
+                       labels=c("Xeric", "Mesic", "Hydric"))+
+    xlab("Year")+
+    ylab("Soil water content (v/v)")+
+    theme( axis.text.x.top = element_blank(),
+           axis.ticks.x.top = element_blank())
+  
+  list(gg_soilwater=gg_soilwater,
+       gg_soilwater2=gg_soilwater2,
+       gg_soilwater3=gg_soilwater3)
+  
+  
+}
+
+plot_soilTempwater=function(Soil_Water,Soil_Temp){
+  
+  Soil_Water$gg_soilwater
+  Soil_Temp$gg_soilTemp
+  COMB<-Combine_plots2(Soil_Water$gg_soilwater,Soil_Temp$gg_soilTemp)
+  list(COMB=COMB)
   
   
 }
@@ -4026,7 +4281,8 @@ plot_ph = function(ph_data){
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
     ggtitle("pH")+
-    theme_CKM()
+    theme_CKM()+
+    theme(legend.position = "bottom")
 
  
   

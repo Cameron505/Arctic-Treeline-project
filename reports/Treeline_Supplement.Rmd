@@ -32,6 +32,7 @@ Soils were collected around trees on treelines in the western brooks range Alask
   
 ```{r , fig.height=9, fig.width=9, results='hide', out.width="100%"}
 tar_read(Soil_Temp)
+tar_read(Soil_Water)
 ```
 
 </details>
@@ -44,8 +45,8 @@ tar_read(Soil_Temp)
 <details>
   <summary>click to open</summary>
   Tree locations are displayed as degree decimals 
-```{r , fig.height=9, fig.width=9, results='hide', out.width="100%"}
-tar_read(gg_Tree)
+```{r , fig.height=9, fig.width=9, out.width="100%"}
+tar_read(gg_Tree)$Tree_info
 ```
 
 </details>
@@ -232,10 +233,6 @@ tar_read(Inaccessable_TRS)$inaccessible_TRS2_30
   <details>
   <summary>click to open </summary>
 ```{r , fig.height=9, fig.width=12, results='hide', out.width="100%"}
-tar_read(gg_Extract_Seasonal)$gg_MBC_Extract2
-tar_read(gg_Extract_Seasonal)$gg_MBN_Extract2
-tar_read(gg_Extract_Seasonal)$gg_MBP_Extract2
-tar_read(gg_Extract_all)$COMB
 tar_read(gg_Extract_all)$"all MBC"
 tar_read(gg_Extract_all)$"all MBN"
 

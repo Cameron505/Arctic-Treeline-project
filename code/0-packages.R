@@ -94,7 +94,7 @@ Combine_plots2 <- function(gg_NH4_Extract,gg_NO3_Extract) {
     hjust = -1,
     ncol = 1
   )
-  gg_Legend=cowplot::plot_grid(gg_Resin_combine,legend, ncol=1, rel_heights =c(1,0.05))
+  gg_Legend=cowplot::plot_grid(legend,gg_Resin_combine, ncol=1, rel_heights =c(0.05,1))
   
   
   
@@ -123,7 +123,7 @@ theme_CKM <- function() {  # this for all the elements common across plots
           panel.border = element_rect(color="black",size=2, fill = NA),
           
           plot.title = element_text(hjust = 0, size = 14),
-          axis.text = element_text(size = 14, color = "black"),
+          axis.text = element_text(size = 10, color = "black"),
           axis.title = element_text(size = 14, face = "bold", color = "black"),
           
           # formatting for facets
@@ -158,6 +158,31 @@ theme_CKM2 <- function() {  # this for all the elements common across plots
           panel.spacing.y = unit(1.5, "lines"), #facet spacing for x axis
           strip.text.x = element_text(size=14, face="bold"), #facet labels
           strip.text.y = element_text(size=14, face="bold", angle = 270), #facet labels
+          axis.text.x.top = element_blank(),
+          axis.ticks.x.top = element_blank() 
+    )
+}
+
+theme_CKM3 <- function() {  # this for all the elements common across plots
+  theme_bw() %+replace%
+    theme(legend.text = element_text(size = 18),
+          legend.title = element_text(size = 20),
+          legend.key.size = unit(3, 'lines'),
+          legend.background = element_rect(colour = NA),
+          legend.position = "top",
+          panel.border = element_rect(color="black",size=2, fill = NA),
+          
+          plot.title = element_text(hjust = 0, size = 14),
+          axis.text = element_text(size = 14, color = "black"),
+          axis.title = element_text(size = 16, face = "bold", color = "black"),
+          
+          # formatting for facets
+          panel.background = element_blank(),
+          strip.background = element_rect(colour=NA, fill=NA), #facet formatting
+          panel.spacing.x = unit(1.5, "lines"), #facet spacing for x axis
+          panel.spacing.y = unit(1.5, "lines"), #facet spacing for x axis
+          strip.text.x = element_text(size=16, face="bold"), #facet labels
+          strip.text.y = element_text(size=16, face="bold", angle = 270), #facet labels
           axis.text.x.top = element_blank(),
           axis.ticks.x.top = element_blank() 
     )

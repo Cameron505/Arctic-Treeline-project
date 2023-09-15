@@ -37,7 +37,7 @@ frequencies reduced due to staffing and were disrupted due to COVID in
 click to open
 </summary>
 
-<img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-1-1.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-1-2.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-1-3.png" width="100%" />
+<img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-1-1.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-1-2.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-1-3.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-1-4.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-1-5.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-1-6.png" width="100%" />
 
 </details>
 
@@ -49,6 +49,8 @@ click to open
 </summary>
 
 Tree locations are displayed as degree decimals
+
+    ## NULL
 
 </details>
 
@@ -452,7 +454,7 @@ increasing again until the end of 2019.
 <summary>
 click to open
 </summary>
-<img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-14-1.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-14-2.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-14-3.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-14-4.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-14-5.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-14-6.png" width="100%" />
+<img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-14-1.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-14-2.png" width="100%" />
 </details>
 
 #### Ancillary extraction ANOVA results
@@ -577,7 +579,7 @@ Unique counts by site:
 Session Info
 </summary>
 
-Date run: 2023-09-12
+Date run: 2023-09-14
 
     ## R version 4.2.3 (2023-03-15 ucrt)
     ## Platform: x86_64-w64-mingw32/x64 (64-bit)

@@ -32,14 +32,14 @@ frequencies reduced due to staffing and were disrupted due to COVID in
 
 ------------------------------------------------------------------------
 
-## Soil temperature
+## Soil temperature and moisture
 
 <details>
 <summary>
 click to open
 </summary>
 
-<img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-1-1.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-1-2.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-1-3.png" width="100%" />
+<img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-1-1.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-1-2.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-1-3.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-1-4.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-1-5.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-1-6.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-1-7.png" width="100%" />
 
 </details>
 
@@ -351,7 +351,10 @@ increasing again until the end of 2019.
 <summary>
 click to open
 </summary>
+
 <img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-9-1.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-9-2.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-9-3.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-9-4.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-9-5.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-9-6.png" width="100%" />
+
+<img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-10-1.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-10-2.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-10-3.png" width="100%" />
 </details>
 
 #### Ancillary extraction LME results
@@ -425,7 +428,7 @@ strip data by site
 click to open
 </summary>
 
-<img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-11-1.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-11-2.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-11-3.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-11-4.png" width="100%" />
+<img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-12-1.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-12-2.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-12-3.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-12-4.png" width="100%" />
 
 </details>
 
@@ -500,7 +503,7 @@ were also significantly higher in 2017, and at the beginning of 2018 and
 return to similar concentrations of other plots at the end of 2018, and
 remained similar for 2019.
 
-<img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-13-1.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-13-2.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-13-3.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-13-4.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-13-5.png" width="100%" />
+<img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-14-1.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-14-2.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-14-3.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-14-4.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-14-5.png" width="100%" />
 
 #### Pore water LME results
 
@@ -681,7 +684,7 @@ the interaction between Site:year explained ~10% of the variation.
 click to open
 </summary>
 
-<img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-16-1.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-16-2.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-16-3.png" width="100%" />
+<img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-17-1.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-17-2.png" width="100%" /><img src="Aggie_Short_report_files/figure-gfm/unnamed-chunk-17-3.png" width="100%" />
 
 </details>
 
@@ -743,7 +746,7 @@ Unique counts by site:
 Session Info
 </summary>
 
-Date run: 2023-09-12
+Date run: 2023-09-14
 
     ## R version 4.2.3 (2023-03-15 ucrt)
     ## Platform: x86_64-w64-mingw32/x64 (64-bit)
