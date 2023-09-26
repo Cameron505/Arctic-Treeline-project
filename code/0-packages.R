@@ -30,6 +30,7 @@ reorder_sites = function(dat){
 }
 cbPalette2 <- c("#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black")
 cbPalette3 <- c( "#F0E442", "#0072B2", "#D55E00", "#CC79A7","#E69F00", "#56B4E9", "#009E73","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black")
+cbPalette4 <- c( "#E69F00", "#56B4E9", "#009E73","#F0E442", "#0072B2", "#D55E00", "#CC79A7")
 theme_kp <- function() {  # this for all the elements common across plots
   theme_bw() %+replace%
     theme(legend.position = "top",

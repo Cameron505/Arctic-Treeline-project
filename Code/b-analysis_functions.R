@@ -38,19 +38,22 @@ plot_Extract_Snowfence = function(Extract_processed){
                  outlier.colour = NULL,
                  outlier.fill = NULL,
                  alpha = 0.2,
-                 position = position_dodge(width = 1),
+                 position = position_dodge(width = 0.5),
                  aes(group = interaction(Site,TIME, treatment, YEAR)),
-                 width=0.7)+
-    geom_point(position = position_dodge(width = 1), size = 2)+
+                 width=0.4)+
+    geom_point(position = position_dodge(width = 0.5), size=1.6)+
     facet_wrap(~YEAR+Site)+
     geom_text(data = Extract_Snowfence_aov %>% filter(analyte == "NH4"), aes(y = 100, label = asterisk), size=10, show.legend = FALSE, color="black")+
     theme_light()+
     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
-    labs(x = "Time of year", 
+    scale_x_discrete(breaks=c("Late Winter", "Early Spring", "Late Summer"), labels=c("March", "June", "August"))+
+    labs(x = "Month", 
          y = bquote('Ammonium ('*mu*'g '*NH[4]^"+"~-N~g^-1 ~ dry ~ soil*')'))+
-    ggtitle("Ammonium")
+    ggtitle("Ammonium")+
+    theme_CKM()+
+    guides(color=guide_legend(title="Treatment"))
   
   
   gg_NO3_Extract =
@@ -60,18 +63,21 @@ plot_Extract_Snowfence = function(Extract_processed){
                  outlier.colour = NULL,
                  outlier.fill = NULL,
                  alpha = 0.2,
-                 position = position_dodge(width = 1),
+                 position = position_dodge(width = 0.05),
                  aes(group = interaction(Site,TIME, treatment, YEAR)),
-                 width=0.7)+
-    geom_point(position = position_dodge(width = 1), size = 2)+
+                 width = 0.4)+
+    geom_point(position = position_dodge(width = 0.05), size=1.6)+
     facet_wrap(~YEAR+Site)+
     geom_text(data = Extract_Snowfence_aov %>% filter(analyte == "NO3"), aes(y = 100, label = asterisk), size=10, show.legend = FALSE, color="black")+
     theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
-    labs(x = "Time of year", 
+    scale_x_discrete(breaks=c("Late Winter", "Early Spring", "Late Summer"), labels=c("March", "June", "August"))+
+    labs(x = "Month", 
          y = bquote('Nitrate ('*mu*'g '*NO[3]^"-"~-N~g^-1 ~ dry ~ soil*')'))+
-    ggtitle("Nitrate")
+    ggtitle("Nitrate")+
+    theme_CKM()+
+    guides(color=guide_legend(title="Treatment"))
   
   gg_PO4_Extract =
     Extract_processed %>%
@@ -80,18 +86,21 @@ plot_Extract_Snowfence = function(Extract_processed){
                  outlier.colour = NULL,
                  outlier.fill = NULL,
                  alpha = 0.2,
-                 position = position_dodge(width = 1),
+                 position = position_dodge(width = 0.05),
                  aes(group = interaction(Site,TIME, treatment, YEAR)),
-                 width=0.7)+
-    geom_point(position = position_dodge(width = 1), size = 2)+
+                 width = 0.4)+
+    geom_point(position = position_dodge(width = 0.05), size=1.6)+
     facet_wrap(~YEAR+Site)+
     geom_text(data = Extract_Snowfence_aov %>% filter(analyte == "PO4"), aes(y = 25, label = asterisk), size=4, show.legend = FALSE, color="black")+
     theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
-    labs(x = "Time of year", 
+    scale_x_discrete(breaks=c("Late Winter", "Early Spring", "Late Summer"), labels=c("March", "June", "August"))+
+    labs(x = "Month",  
          y = bquote('Phosphate ('*mu*'g '*PO[4]^"3-"~-P~g^-1 ~ dry ~ soil*')'))+
-    ggtitle("Phosphate")
+    ggtitle("Phosphate")+
+    theme_CKM()+
+    guides(color=guide_legend(title="Treatment"))
   
   gg_TRS_Extract =
     Extract_processed %>%
@@ -100,18 +109,21 @@ plot_Extract_Snowfence = function(Extract_processed){
                  outlier.colour = NULL,
                  outlier.fill = NULL,
                  alpha = 0.2,
-                 position = position_dodge(width = 1),
+                 position = position_dodge(width = 0.05),
                  aes(group = interaction(Site,TIME, treatment, YEAR)),
-                 width=0.7)+
-    geom_point(position = position_dodge(width = 1), size = 2)+
+                 width = 0.4)+
+    geom_point(position = position_dodge(width = 0.05), size=1.6)+
     facet_wrap(~YEAR+Site)+
     geom_text(data = Extract_Snowfence_aov %>% filter(analyte == "TRS"), aes(y = 9, label = asterisk), size=4, show.legend = FALSE, color="black")+
     theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
-    labs(x = "Time of year", 
+    scale_x_discrete(breaks=c("Late Winter", "Early Spring", "Late Summer"), labels=c("March", "June", "August"))+
+    labs(x = "Month",  
          y = bquote('Total reducing sugars-glucose equiv. ('*mu*'g' ~g^-1 ~ dry ~ soil*')'))+
-    ggtitle("TRS")
+    ggtitle("TRS")+
+    theme_CKM()+
+    guides(color=guide_legend(title="Treatment"))
   
   gg_phenolics_Extract =
     Extract_processed %>%
@@ -120,18 +132,21 @@ plot_Extract_Snowfence = function(Extract_processed){
                  outlier.colour = NULL,
                  outlier.fill = NULL,
                  alpha = 0.2,
-                 position = position_dodge(width = 1),
+                 position = position_dodge(width = 0.05),
                  aes(group = interaction(Site,TIME, treatment, YEAR)),
-                 width=0.7)+
-    geom_point(position = position_dodge(width = 1), size = 2)+
+                 width = 0.4)+
+    geom_point(position = position_dodge(width = 0.05), size=1.6)+
     facet_wrap(~YEAR+Site)+
     geom_text(data = Extract_Snowfence_aov %>% filter(analyte == "phenolics"), aes(y = 9, label = asterisk), size=4, show.legend = FALSE, color="black")+
     theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
-    labs(x = "Time of year", 
+    scale_x_discrete(breaks=c("Late Winter", "Early Spring", "Late Summer"), labels=c("March", "June", "August"))+
+    labs(x = "Month", 
          y = bquote('Phenolics-gallic acid equiv. ('*mu*'g' ~g^-1 ~ dry ~ soil*')'))+
-    ggtitle("phenolics")
+    ggtitle("phenolics")+
+    theme_CKM()+
+    guides(color=guide_legend(title="Treatment"))
   
   gg_TFPA_Extract =
     Extract_processed %>%
@@ -140,18 +155,21 @@ plot_Extract_Snowfence = function(Extract_processed){
                  outlier.colour = NULL,
                  outlier.fill = NULL,
                  alpha = 0.2,
-                 position = position_dodge(width = 1),
+                 position = position_dodge(width = 0.05),
                  aes(group = interaction(Site,TIME, treatment, YEAR)),
-                 width=0.7)+
-    geom_point(position = position_dodge(width = 1), size = 2)+
+                 width = 0.4)+
+    geom_point(position = position_dodge(width = 0.05), size=1.6)+
     facet_wrap(~YEAR+Site)+
     geom_text(data = Extract_Snowfence_aov %>% filter(analyte == "TFPA"), aes(y = 4000, label = asterisk), size=4, show.legend = FALSE, color="black")+
     theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
-    labs(x = "Time of year", 
+    scale_x_discrete(breaks=c("Late Winter", "Early Spring", "Late Summer"), labels=c("March", "June", "August"))+
+    labs(x = "Month",  
          y = bquote('Total free primary amines-Leucine equiv. (nMol' ~g^-1 ~ dry ~ soil*')'))+
-    ggtitle("TFPA")
+    ggtitle("TFPA")+
+    theme_CKM()+
+    guides(color=guide_legend(title="Treatment"))
   
   gg_MBC_Extract =
     Extract_processed %>%
@@ -160,18 +178,21 @@ plot_Extract_Snowfence = function(Extract_processed){
                  outlier.colour = NULL,
                  outlier.fill = NULL,
                  alpha = 0.2,
-                 position = position_dodge(width = 1),
+                 position = position_dodge(width = 0.05),
                  aes(group = interaction(Site,TIME, treatment, YEAR)),
-                 width=0.7)+
-    geom_point(position = position_dodge(width = 1), size = 2)+
+                 width = 0.4)+
+    geom_point(position = position_dodge(width = 0.05), size=1.6)+
     facet_wrap(~YEAR+Site)+
     geom_text(data = Extract_Snowfence_aov %>% filter(analyte == "MBC"), aes(y = 9, label = asterisk), size=4, show.legend = FALSE, color="black")+
     theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
-    labs(x = "Time of year", 
+    scale_x_discrete(breaks=c("Late Winter", "Early Spring", "Late Summer"), labels=c("March", "June", "August"))+
+    labs(x = "Month", 
          y = bquote('Microbial biomass ('*mu*'g C'~g^-1 ~ dry ~ soil*')'))+
-    ggtitle("MBC")
+    ggtitle("MBC")+
+    theme_CKM()+
+    guides(color=guide_legend(title="Treatment"))
   
   gg_MBN_Extract =
     Extract_processed %>%
@@ -180,18 +201,21 @@ plot_Extract_Snowfence = function(Extract_processed){
                  outlier.colour = NULL,
                  outlier.fill = NULL,
                  alpha = 0.2,
-                 position = position_dodge(width = 1),
+                 position = position_dodge(width = 0.05),
                  aes(group = interaction(Site,TIME, treatment, YEAR)),
-                 width=0.7)+
-    geom_point(position = position_dodge(width = 1), size = 2)+
+                 width = 0.4)+
+    geom_point(position = position_dodge(width = 0.05), size=1.6)+
     facet_wrap(~YEAR+Site)+
     geom_text(data = Extract_Snowfence_aov %>% filter(analyte == "MBN"), aes(y = 1000, label = asterisk), size=4, show.legend = FALSE, color="black")+
     theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
-    labs(x = "Time of year", 
+    scale_x_discrete(breaks=c("Late Winter", "Early Spring", "Late Summer"), labels=c("March", "June", "August"))+
+    labs(x = "Month", 
          y = bquote('Microbial biomass ('*mu*'g N'~g^-1 ~ dry ~ soil*')'))+
-    ggtitle("MBN")
+    ggtitle("MBN")+
+    theme_CKM()+
+    guides(color=guide_legend(title="Treatment"))
   
   gg_MBP_Extract =
     Extract_processed %>%
@@ -200,18 +224,21 @@ plot_Extract_Snowfence = function(Extract_processed){
                  outlier.colour = NULL,
                  outlier.fill = NULL,
                  alpha = 0.2,
-                 position = position_dodge(width = 1),
+                 position = position_dodge(width = 0.05),
                  aes(group = interaction(Site,TIME, treatment, YEAR)),
-                 width=0.7)+
-    geom_point(position = position_dodge(width = 1), size = 2)+
+                 width = 0.4)+
+    geom_point(position = position_dodge(width = 0.05), size=1.6)+
     facet_wrap(~YEAR+Site)+
     geom_text(data = Extract_Snowfence_aov %>% filter(analyte == "Mic.PO4"), aes(y = 9, label = asterisk), size=4, show.legend = FALSE, color="black")+
     theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
     scale_colour_manual(values=cbPalette2)+
     scale_fill_manual(values=cbPalette2)+
-    labs(x = "Time of year", 
+    scale_x_discrete(breaks=c("Late Winter", "Early Spring", "Late Summer"), labels=c("March", "June", "August"))+
+    labs(x = "Month",  
          y = bquote('Microbial biomass ('*mu*'g P'~g^-1 ~ dry ~ soil*')'))+
-    ggtitle("MBP")
+    ggtitle("MBP")+
+    theme_CKM()+
+    guides(color=guide_legend(title="Treatment"))
   
   
   
@@ -709,22 +736,28 @@ plot_inaccess =function(Extract_processed_Seasonal,PoreWater_processed_Seasonal)
            MONTH=month(Date))%>%
     pivot_wider(names_from = name, values_from = value)
   
-  Pore<- comb2%>%
+  gg_Pore<- comb2%>%
     filter(Date < as.Date("2019-08-16"))%>%
     filter(Site!="")%>%
-    select(DATE,Site,NH4IP:NTP)%>%
-    pivot_longer(NH4IP:NTP)%>%
+    select(DATE,Site,NH4IP:TFPAIP)%>%
+    pivot_longer(NH4IP:TFPAIP)%>%
     group_by(DATE, Site,name) %>%
     summarize(mean_value = mean(value, na.rm = TRUE),
               se= sqrt(var(value, na.rm = TRUE) / sum(!is.na(value)))) %>%
     ggplot(aes(x = DATE, y = mean_value, fill = name))+
     geom_errorbar(aes(ymin = mean_value - se, ymax = mean_value + se, color = name), lwd = 1, width = 1) +
-    geom_point(shape = 16,aes(color=name),lwd=6)+
+    geom_point(shape = 16,aes(color=name),lwd=6, show.legend =FALSE)+
     facet_wrap(~Site, ncol = 1, scales = "free_y")+
     scale_y_continuous(oob=rescale_none,expand = c(0, 0))+
-    guides(fill=guide_legend(title= "Legend"))+
+    guides(color=guide_legend(title= "Legend"))+
+    scale_color_manual(values = cbPalette4, labels= c("Ammonium", "Nitrate", "TFPA"))+
     scale_x_break(breaks=as.Date(c("2017-08-26","2018-06-03","2018-08-24","2019-06-06")))+
-    scale_x_date(labels = date_format("%m-%Y"))
+    scale_x_date(labels = date_format("%m-%Y"))+
+    theme_CKM()+
+    theme(legend.position = "bottom")+
+    labs(x = "Date", 
+         y = bquote(''*mu*'Mol N (Ammonium, Nitrate, or TFPA)'))+
+    ggtitle("Pore water")
   
   Poreavg<- comb2%>%
     filter(Date < as.Date("2019-08-16"))%>%
@@ -741,22 +774,29 @@ plot_inaccess =function(Extract_processed_Seasonal,PoreWater_processed_Seasonal)
   
   
   
-  water<- comb2%>%
+  gg_water<- comb2%>%
     filter(Date < as.Date("2019-08-16"))%>%
     filter(Site!="")%>%
-    select(DATE,Site,NH4IW:TFPAIW,NTW)%>%
-    pivot_longer(NH4IW:NTW)%>%
+    select(DATE,Site,NH4IW:TFPAIW)%>%
+    pivot_longer(NH4IW:TFPAIW)%>%
     group_by(DATE, Site,name) %>%
     summarize(mean_value = mean(value, na.rm = TRUE),
               se= sqrt(var(value, na.rm = TRUE) / sum(!is.na(value)))) %>%
     ggplot(aes(x = DATE, y = mean_value, fill = name))+
     geom_errorbar(aes(ymin = mean_value - se, ymax = mean_value + se, color = name), lwd = 1, width = 1) +
-    geom_point(shape = 16,aes(color=name),lwd=6)+
+    geom_point(shape = 16,aes(color=name),lwd=6, show.legend =FALSE)+
     facet_wrap(~Site, ncol = 1, scales="free_x")+
     scale_y_continuous(oob=rescale_none,expand = c(0, 0))+
-    guides(fill=guide_legend(title= "Legend"))+
+    guides(color=guide_legend(title= "Legend"))+
+    scale_color_manual(values = cbPalette4, labels= c("Ammonium", "Nitrate", "TFPA"))+
     scale_x_break(breaks=as.Date(c("2017-08-26","2018-06-03","2018-08-24","2019-06-06")))+
-    scale_x_date(labels = date_format("%m-%Y"))
+    scale_x_date(labels = date_format("%m-%Y"))+
+    theme_CKM()+
+    theme(legend.position = "bottom")+
+    labs(x = "Date", 
+         y = bquote(''*mu*'Mol N (Ammonium, Nitrate, or TFPA)'))+
+    ggtitle("Water extraction")
+  
   water2<- comb2%>%
     filter(Date < as.Date("2019-08-16"))%>%
     filter(Site!="")%>%
@@ -770,22 +810,29 @@ plot_inaccess =function(Extract_processed_Seasonal,PoreWater_processed_Seasonal)
   44.2/68.7
   1.95/68.7
   
-  salt<-comb2%>%
+  gg_salt<-comb2%>%
     filter(Date < as.Date("2019-08-16"))%>%
     filter(Site!="")%>%
-    select(DATE,Site,NH4I:TFPAI,NTE)%>%
-    pivot_longer(NH4I:NTE)%>%
+    select(DATE,Site,NH4I:TFPAI)%>%
+    pivot_longer(NH4I:TFPAI)%>%
     group_by(DATE, Site,name) %>%
     summarize(mean_value = mean(value, na.rm = TRUE),
               se= sqrt(var(value, na.rm = TRUE) / sum(!is.na(value)))) %>%
     ggplot(aes(x = DATE, y = mean_value, fill = name))+
     geom_errorbar(aes(ymin = mean_value - se, ymax = mean_value + se, color = name), lwd = 1, width = 1) +
-    geom_point(shape = 16,aes(color=name),lwd=6)+
+    geom_point(shape = 16,aes(color=name),lwd=6, show.legend =FALSE)+
     facet_wrap(~Site, ncol = 1, scales="free_x")+
     scale_y_continuous(oob=rescale_none,expand = c(0, 0))+
-    guides(fill=guide_legend(title= "Legend"))+
+    guides(color=guide_legend(title= "Legend"))+
+    scale_color_manual(values = cbPalette4, labels= c("Ammonium", "Nitrate", "TFPA"))+
     scale_x_break(breaks=as.Date(c("2017-08-26","2018-06-03","2018-08-24","2019-06-06")))+
-    scale_x_date(labels = date_format("%m-%Y"))
+    scale_x_date(labels = date_format("%m-%Y"))+
+    theme_CKM()+
+    theme(legend.position = "bottom")+
+    labs(x = "Date", 
+         y = bquote(''*mu*'Mol N (Ammonium, Nitrate, or TFPA)'))+
+    ggtitle("Potassium sulfate extraction")
+  
   salt2<-comb2%>%
     filter(Date < as.Date("2019-08-16"))%>%
     filter(Site!="")%>%
@@ -935,7 +982,10 @@ plot_inaccess =function(Extract_processed_Seasonal,PoreWater_processed_Seasonal)
   
   list(inaccessible_N=inaccessible_N,
        inaccessible_N_only=inaccessible_N_only,
-       inaccessible_N2=inaccessible_N2
+       inaccessible_N2=inaccessible_N2,
+       gg_Pore=gg_Pore,
+       gg_water=gg_water,
+       gg_salt=gg_salt
        
   )
   

@@ -1,13 +1,14 @@
 name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
-.Random.seed|object|74704d8e7aa87fdc|||||||||||||||
+.Random.seed|object|ce5d1b1d7315ce9c|||||||||||||||
 AggieBranch_data|stem|12d4c7929160c6de|bfd62e854877adef|4a387ba4dd249977|937008251||t19592.7899317894s|4675da1dfefe1690|723|rds|local|vector|||0||
 AggieBranch_data_read|stem|89dabe2c7d5b3257|1608936b3c10e1a9|ef46db3751d8e999|-1220160640|Data/tree/snowfence.branch.primary.growth.csv|t19592.7881879366s|78a7bfd1e2391d56|3654|file|local|vector|||0||
 AggieNNeedle_data|stem|265128cc75b6b480|09f540269ff96343|e97f36d983470c83|1321343072||t19593.5337842168s|ad449b3d431fb011|683|rds|local|vector|||0||
 AggieNNeedle_data_read|stem|1a61330f093a96cf|c2796e55531627be|ef46db3751d8e999|612998307|Data/tree/Needle_N.csv|t19593.5201224488s|037877574d0cd39f|1600|file|local|vector|||0||
 AggieTree_data|stem|5751d92e91156ba2|0e4b4ed0bdf8aa8b|cfcaebb9b7cad818|-1301923648||t19611.5294763957s|0e1b3a7b347541fa|2128|rds|local|vector|||0||
-AggieTree_data_read|stem|8e7f546be33c6ffd|56e261dd99bafba0|ef46db3751d8e999|1753396565|Data/tree/Tree_info.csv|t19611.5341426774s|69bb175dc23a2c3c|4382|file|local|vector|||0||
+AggieTree_data_read|stem|19409d1e21a88e95|56e261dd99bafba0|ef46db3751d8e999|1753396565|Data/tree/Tree_info.csv|t19626.7521149379s|41a3ed24f8809f7d|4981|file|local|vector|||0||
 cbPalette2|object|ff69c39f443898b5|||||||||||||||
 cbPalette3|object|10bc09f1f16dfaf2|||||||||||||||
+cbPalette4|object|f3c47a3658e5da2d|||||||||||||||
 Combine_plots|function|c7b8022f6580f834|||||||||||||||
 Combine_plots2|function|147628460cf6b0ef|||||||||||||||
 compute_relabund_cores|function|0c488a52236691a5|||||||||||||||
@@ -31,7 +32,7 @@ fticr_hcoc_nonpolar|stem|c60e1931980a8d1f|ef950fd05d0e4238|0290d5fc99676c0d|-148
 fticr_hcoc_polar|stem|47a1cff3fe959aba|0d70b48b158c9cfb|3a261dda19c35c0a|1480925108||t19579.6241937032s|5d0c61917d2a9ed3|101828|rds|local|vector|||0||
 fticr_meta|stem|5e4c71f281b5bda2|03f3daa364544f61|209d091ed4df09f7|86553410||t19579.6238005007s|8e6a3aed4261fa97|150907|rds|local|vector|||0.28||
 fticr_meta_load|stem|3e74b170e5e25587|1364e1b7403fce64|ef46db3751d8e999|-653152440|data/processed/fticr_meta_combined.csv|t19135.7664851054s|6156cf942020001b|936985|file|local|vector|||0||
-gg_aggie_Extract_Snowfence_Control|stem|02f6d09032927279|f412bc0968370bc5|460bc967aacfb4a8|1005296864||t19579.6243147117s|4ec349347d2367c3|865379|rds|local|vector|||7.99||
+gg_aggie_Extract_Snowfence_Control|stem|8ded5456bc192300|f412bc0968370bc5|8a54aa725b8feb55|1005296864||t19626.7600798497s|d6dec9bd518fafca|899038|rds|local|vector|||6.4||
 gg_aggie_Extract_Snowfence_Control_H2O|stem|f13d448e6fe2f767|8eb766d7c220639d|b81443ccf247ed1b|-2088647863||t19599.6427674303s|be56a6e1c3e172b3|529409|rds|local|vector|||2.19||
 gg_aggie_PoreWater_all|stem|018d00ed5976b1bf|36ab481c4d52efe3|41bcf0f3a38aac40|-1721725602||t19599.6423459516s|3f173ff586a5ccb6|1377835|rds|local|vector|||1.1||
 gg_aggie_PoreWater_Lysim|stem|c0513efc3a2c69d9|edced9c5b9a65be0|bcf1b34eb486c946|-871950839||t19599.6424082464s|70ace18ae8e49cec|203328|rds|local|vector|||0.15|1m22mUsing size aesthetic for lines was deprecated in ggplot2 3.4.0.36mℹ39m Please use linewidth instead.|
@@ -68,7 +69,7 @@ gg_vk_nonpolar|stem|5482180cea65e3ff|4607aca805faac7d|d3f5e364c3ec81a4|591277975
 gg_vk_polar|stem|c04d876a466d7ee5|aaa02d70178bb0e9|bfcae5cf4a7a96bf|1662313387||t19579.6245312806s|56f6a59a614cff43|843038|rds|local|vector|||0.07||
 Ibutton_data|stem|41190a370e38866f|b9f2c3f412931dc8|2b3bb7814ae3364e|989886434||t19593.533784044s|1c99e15f339ec6b1|243987|rds|local|vector|||0.51||
 Ibutton_data_read|stem|afb57810554ea256|69ad92ba342b17a1|ef46db3751d8e999|-1451202431|Data/Temp/ibuttons.csv|t19593.5192205313s|9374640694a78e2e|7556803|file|local|vector|||0||
-Inaccessable|stem|d99816feec6f8982|b0a07990ad65c8b6|f7eb52ae9c0655d2|656554190||t19613.8515285025s|a8b6cae2ff2a585d|618100|rds|local|vector|||1.55|1m22mIgnoring unknown parameters linewidth. 1m22mIgnoring unknown parameters linewidth. 1m22mIgnoring unknown parameters linewidth. 1m22mIgnoring unknown parameters linewidth. 1m22mIgnoring unknown parameters linewidth|
+Inaccessable|stem|27041dfb8d1d1899|b0a07990ad65c8b6|1ef74cf35e2fd51e|656554190||t19626.8096997866s|932c683a46bfc726|662164|rds|local|vector|||2.61|1m22mIgnoring unknown parameters linewidth. 1m22mIgnoring unknown parameters linewidth. 1m22mIgnoring unknown parameters linewidth. 1m22mIgnoring unknown parameters linewidth. 1m22mIgnoring unknown parameters linewidth|
 Inaccessable_p|stem|e2b7118709b1b370|06a3ec75774521e5|fc402cc33f45384c|1230511704||t19614.699194767s|01d74e401f25052b|337057|rds|local|vector|||0.37|1m22mIgnoring unknown parameters linewidth. 1m22mIgnoring unknown parameters linewidth|
 Inaccessable_TRS|stem|a24211056b39fb1f|dc68d8f04f45f31a|11cf04ac49336f4c|-423966803||t19613.9192100631s|ea9148542a311746|374193|rds|local|vector|||0.58|1m22mThere was 1 warning in mutate.1m22m36mℹ39m In argument TRS.H2O  as.numericTRS.H2O.Caused by warning33m39m NAs introduced by coercion. 1m22mIgnoring unknown parameters linewidth. 1m22mIgnoring unknown parameters linewidth. 1m22mIgnoring unknown parameters linewidth|
 Kotz_proccessed|stem|f7aab5e23944ad63|e8d1d0b809dcac10|27652014fa26101b|-1104655798||t19592.7867593356s|3b08c36f1616f052|6034|rds|local|vector|||0.42||
@@ -93,11 +94,11 @@ plot_Extract_Fert_H2O|function|2ac5f895d01302cf|||||||||||||||
 plot_Extract_lysim|function|907bd4f613717dc8|||||||||||||||
 plot_Extract_Seasonal|function|aeb9bd580028761a|||||||||||||||
 plot_Extract_Seasonal_H2O|function|1340a550c5a7e0c7|||||||||||||||
-plot_Extract_Snowfence|function|855b4bdf56817c0f|||||||||||||||
+plot_Extract_Snowfence|function|30a3bb85c5796212|||||||||||||||
 plot_Extract_Snowfence_H2O|function|c78689319b3013ee|||||||||||||||
 plot_fticr_Domains|function|0ad150bbe5bbed9a|||||||||||||||
 plot_Ibutton|function|ba55f271523e1878|||||||||||||||
-plot_inaccess|function|4b3246f07546a2c2|||||||||||||||
+plot_inaccess|function|c8c4755cb222d51e|||||||||||||||
 plot_inaccess_p|function|1e751994cadd0cea|||||||||||||||
 plot_inaccess_TRS|function|7562b12090b98ade|||||||||||||||
 plot_pca_by_site|function|54641e928508339e|||||||||||||||
@@ -165,10 +166,10 @@ relabund_cores_nonpolar|stem|e629b5ae5fa42c39|3f4b0d37f6463632|21425b89bf604030|
 relabund_cores_polar|stem|7f71e46ecf266658|d0e345c965f3794b|19c04be309805cbd|-1229788809||t19579.6241252205s|36806297027e0d4f|3933|rds|local|vector|||0.02||
 reorder_seasons|function|0e9a5772fbdce6bb|||||||||||||||
 reorder_sites|function|9feeff82bcccca8d|||||||||||||||
-report|stem|308ede4ca85fee77|3a1fc72a4f953c29|6f700bd9e34f1623|-237041703|reports/Aggie_report.md*reports/Aggie_report.Rmd*reports/Aggie_report_files|t19613.9514161457s|9e4e8fe346a0f5c5|59927|file|local|vector|||624.42||
-report2|stem|8a684fb2ce944b30|aa593c9134eb9646|9b70ad0e1053b3d6|-1253350427|reports/Aggie_Short_report.md*reports/Aggie_Short_report.Rmd*reports/Aggie_Short_report_files|t19614.7015327884s|e6203b65474dc7b9|1954091|file|local|vector|||185.19|font family not found in Windows font database|
+report|stem|162c3ab86b93282f|3a1fc72a4f953c29|ab1262e470525a95|-237041703|reports/Aggie_report.md*reports/Aggie_report.Rmd*reports/Aggie_report_files|t19626.7674860707s|00d5be4840afad32|59848|file|local|vector|||634.75||
+report2|stem|85460bf3f0b05cae|aa593c9134eb9646|6aadf77a15770a3c|-1253350427|reports/Aggie_Short_report.md*reports/Aggie_Short_report.Rmd*reports/Aggie_Short_report_files|t19626.8125451147s|411d7301092dce84|1963457|file|local|vector|||232.33|font family not found in Windows font database|
 report3|stem|4efea1d9f3f4542d|2b0336f2e8ed44c6|1273af992f128fc6|2107602062|reports/Aggie_Seasonal.md*reports/Aggie_Seasonal.Rmd*reports/Aggie_Seasonal_files|t19613.8529766281s|20d817cbb11c07d1|51256|file|local|vector|||122.81||
-report4|stem|dca5529c875c92d2|a851908f87b0bd53|da2344e4b427d555|1475291438|reports/Treeline_Supplement.md*reports/Treeline_Supplement.Rmd*reports/Treeline_Supplement_files|t19614.7028862241s|29c346bdef580d9a|1959953|file|local|vector|||115.85|font family not found in Windows font database|
+report4|stem|7946bd5f865c08f0|69aa7a34d47ba233|8782ddbe53d82cd7|1475291438|reports/Treeline_Supplement.md*reports/Treeline_Supplement.Rmd*reports/Treeline_Supplement_files|t19626.8137284792s|4797a17645905b9c|2140742|file|local|vector|||101.48|font family not found in Windows font database|
 Resin_data|stem|8af8b2cfe6518f42|81922cd386115565|99bf62ff8fe0f311|736601963||t19579.6237611038s|d3d4b9edfd4d4573|12511|rds|local|vector|||0||
 Resin_data_read|stem|839712328f6f99dc|e10d3fd426b3ece2|ef46db3751d8e999|-1045475728|Data/Resin.csv|t19530.5708798384s|b59cf481f092d4e4|49828|file|local|vector|||0||
 Resin_processed|stem|29fcab43cd78bf4f|7831cfc8de3e0329|3ab0383ee836db37|1865690580||t19579.6238077152s|ddeffd2f7840e94d|12719|rds|local|vector|||0.01||

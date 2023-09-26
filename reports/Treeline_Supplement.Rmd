@@ -46,10 +46,30 @@ tar_read(Soil_Water)
   <summary>click to open</summary>
   Tree locations are displayed as degree decimals 
 ```{r , fig.height=9, fig.width=9, out.width="100%"}
+NULL
 tar_read(gg_Tree)$Tree_info
 ```
 
 </details>
+
+
+
+
+##   N displayed by form for 2017-2019
+
+<details>
+  <summary>click to open</summary>
+   
+```{r , fig.height=9, fig.width=9, out.width="100%"}
+NULL
+tar_read(Inaccessable)$Pore
+tar_read(Inaccessable)$water
+tar_read(Inaccessable)$salt
+```
+
+</details>
+
+
 
 
 
