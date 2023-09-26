@@ -1,5 +1,5 @@
 name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
-.Random.seed|object|ce5d1b1d7315ce9c|||||||||||||||
+.Random.seed|object|aa5d981d28f611fb|||||||||||||||
 AggieBranch_data|stem|12d4c7929160c6de|bfd62e854877adef|4a387ba4dd249977|937008251||t19592.7899317894s|4675da1dfefe1690|723|rds|local|vector|||0||
 AggieBranch_data_read|stem|89dabe2c7d5b3257|1608936b3c10e1a9|ef46db3751d8e999|-1220160640|Data/tree/snowfence.branch.primary.growth.csv|t19592.7881879366s|78a7bfd1e2391d56|3654|file|local|vector|||0||
 AggieNNeedle_data|stem|265128cc75b6b480|09f540269ff96343|e97f36d983470c83|1321343072||t19593.5337842168s|ad449b3d431fb011|683|rds|local|vector|||0||
@@ -32,7 +32,7 @@ fticr_hcoc_nonpolar|stem|c60e1931980a8d1f|ef950fd05d0e4238|0290d5fc99676c0d|-148
 fticr_hcoc_polar|stem|47a1cff3fe959aba|0d70b48b158c9cfb|3a261dda19c35c0a|1480925108||t19579.6241937032s|5d0c61917d2a9ed3|101828|rds|local|vector|||0||
 fticr_meta|stem|5e4c71f281b5bda2|03f3daa364544f61|209d091ed4df09f7|86553410||t19579.6238005007s|8e6a3aed4261fa97|150907|rds|local|vector|||0.28||
 fticr_meta_load|stem|3e74b170e5e25587|1364e1b7403fce64|ef46db3751d8e999|-653152440|data/processed/fticr_meta_combined.csv|t19135.7664851054s|6156cf942020001b|936985|file|local|vector|||0||
-gg_aggie_Extract_Snowfence_Control|stem|8ded5456bc192300|f412bc0968370bc5|8a54aa725b8feb55|1005296864||t19626.7600798497s|d6dec9bd518fafca|899038|rds|local|vector|||6.4||
+gg_aggie_Extract_Snowfence_Control|stem|89d5ad198be7783f|f412bc0968370bc5|900bd4cf36a04205|1005296864||t19626.8655110407s|5fd372d2d68c5dd7|899000|rds|local|vector|||13.94||
 gg_aggie_Extract_Snowfence_Control_H2O|stem|f13d448e6fe2f767|8eb766d7c220639d|b81443ccf247ed1b|-2088647863||t19599.6427674303s|be56a6e1c3e172b3|529409|rds|local|vector|||2.19||
 gg_aggie_PoreWater_all|stem|018d00ed5976b1bf|36ab481c4d52efe3|41bcf0f3a38aac40|-1721725602||t19599.6423459516s|3f173ff586a5ccb6|1377835|rds|local|vector|||1.1||
 gg_aggie_PoreWater_Lysim|stem|c0513efc3a2c69d9|edced9c5b9a65be0|bcf1b34eb486c946|-871950839||t19599.6424082464s|70ace18ae8e49cec|203328|rds|local|vector|||0.15|1m22mUsing size aesthetic for lines was deprecated in ggplot2 3.4.0.36mℹ39m Please use linewidth instead.|
@@ -94,7 +94,7 @@ plot_Extract_Fert_H2O|function|2ac5f895d01302cf|||||||||||||||
 plot_Extract_lysim|function|907bd4f613717dc8|||||||||||||||
 plot_Extract_Seasonal|function|aeb9bd580028761a|||||||||||||||
 plot_Extract_Seasonal_H2O|function|1340a550c5a7e0c7|||||||||||||||
-plot_Extract_Snowfence|function|30a3bb85c5796212|||||||||||||||
+plot_Extract_Snowfence|function|abab911cce274af4|||||||||||||||
 plot_Extract_Snowfence_H2O|function|c78689319b3013ee|||||||||||||||
 plot_fticr_Domains|function|0ad150bbe5bbed9a|||||||||||||||
 plot_Ibutton|function|ba55f271523e1878|||||||||||||||
@@ -166,10 +166,10 @@ relabund_cores_nonpolar|stem|e629b5ae5fa42c39|3f4b0d37f6463632|21425b89bf604030|
 relabund_cores_polar|stem|7f71e46ecf266658|d0e345c965f3794b|19c04be309805cbd|-1229788809||t19579.6241252205s|36806297027e0d4f|3933|rds|local|vector|||0.02||
 reorder_seasons|function|0e9a5772fbdce6bb|||||||||||||||
 reorder_sites|function|9feeff82bcccca8d|||||||||||||||
-report|stem|162c3ab86b93282f|3a1fc72a4f953c29|ab1262e470525a95|-237041703|reports/Aggie_report.md*reports/Aggie_report.Rmd*reports/Aggie_report_files|t19626.7674860707s|00d5be4840afad32|59848|file|local|vector|||634.75||
-report2|stem|85460bf3f0b05cae|aa593c9134eb9646|6aadf77a15770a3c|-1253350427|reports/Aggie_Short_report.md*reports/Aggie_Short_report.Rmd*reports/Aggie_Short_report_files|t19626.8125451147s|411d7301092dce84|1963457|file|local|vector|||232.33|font family not found in Windows font database|
+report|stem|910a6e4cd243e521|3a1fc72a4f953c29|777260ac18d90fec|-237041703|reports/Aggie_report.md*reports/Aggie_report.Rmd*reports/Aggie_report_files|t19626.873283498s|abcf4f67cdb88f62|7046062|file|local|vector|||663.12||
+report2|stem|636a4cb57741408e|aa593c9134eb9646|730023d2f82b2e02|-1253350427|reports/Aggie_Short_report.md*reports/Aggie_Short_report.Rmd*reports/Aggie_Short_report_files|t19626.8751564343s|6df17ef62cc9441d|1965160|file|local|vector|||157.12|font family not found in Windows font database|
 report3|stem|4efea1d9f3f4542d|2b0336f2e8ed44c6|1273af992f128fc6|2107602062|reports/Aggie_Seasonal.md*reports/Aggie_Seasonal.Rmd*reports/Aggie_Seasonal_files|t19613.8529766281s|20d817cbb11c07d1|51256|file|local|vector|||122.81||
-report4|stem|7946bd5f865c08f0|69aa7a34d47ba233|8782ddbe53d82cd7|1475291438|reports/Treeline_Supplement.md*reports/Treeline_Supplement.Rmd*reports/Treeline_Supplement_files|t19626.8137284792s|4797a17645905b9c|2140742|file|local|vector|||101.48|font family not found in Windows font database|
+report4|stem|eaf618adc9d55491|69aa7a34d47ba233|54866f545d7e5b68|1475291438|reports/Treeline_Supplement.md*reports/Treeline_Supplement.Rmd*reports/Treeline_Supplement_files|t19626.876388671s|a1b26eb7cc758dcd|878458|file|local|vector|||106.1|font family not found in Windows font database|
 Resin_data|stem|8af8b2cfe6518f42|81922cd386115565|99bf62ff8fe0f311|736601963||t19579.6237611038s|d3d4b9edfd4d4573|12511|rds|local|vector|||0||
 Resin_data_read|stem|839712328f6f99dc|e10d3fd426b3ece2|ef46db3751d8e999|-1045475728|Data/Resin.csv|t19530.5708798384s|b59cf481f092d4e4|49828|file|local|vector|||0||
 Resin_processed|stem|29fcab43cd78bf4f|7831cfc8de3e0329|3ab0383ee836db37|1865690580||t19579.6238077152s|ddeffd2f7840e94d|12719|rds|local|vector|||0.01||

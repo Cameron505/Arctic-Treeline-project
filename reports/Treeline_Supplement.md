@@ -65,11 +65,7 @@ click to open
 
     ## NULL
 
-    ## NULL
-
-    ## NULL
-
-    ## NULL
+<img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-3-1.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-3-2.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-3-3.png" width="100%" />
 
 </details>
 

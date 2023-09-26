@@ -63,10 +63,10 @@ plot_Extract_Snowfence = function(Extract_processed){
                  outlier.colour = NULL,
                  outlier.fill = NULL,
                  alpha = 0.2,
-                 position = position_dodge(width = 0.05),
+                 position = position_dodge(width = 0.5),
                  aes(group = interaction(Site,TIME, treatment, YEAR)),
                  width = 0.4)+
-    geom_point(position = position_dodge(width = 0.05), size=1.6)+
+    geom_point(position = position_dodge(width = 0.5), size=1.6)+
     facet_wrap(~YEAR+Site)+
     geom_text(data = Extract_Snowfence_aov %>% filter(analyte == "NO3"), aes(y = 100, label = asterisk), size=10, show.legend = FALSE, color="black")+
     theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
@@ -86,10 +86,10 @@ plot_Extract_Snowfence = function(Extract_processed){
                  outlier.colour = NULL,
                  outlier.fill = NULL,
                  alpha = 0.2,
-                 position = position_dodge(width = 0.05),
+                 position = position_dodge(width = 0.5),
                  aes(group = interaction(Site,TIME, treatment, YEAR)),
                  width = 0.4)+
-    geom_point(position = position_dodge(width = 0.05), size=1.6)+
+    geom_point(position = position_dodge(width = 0.5), size=1.6)+
     facet_wrap(~YEAR+Site)+
     geom_text(data = Extract_Snowfence_aov %>% filter(analyte == "PO4"), aes(y = 25, label = asterisk), size=4, show.legend = FALSE, color="black")+
     theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
@@ -109,10 +109,10 @@ plot_Extract_Snowfence = function(Extract_processed){
                  outlier.colour = NULL,
                  outlier.fill = NULL,
                  alpha = 0.2,
-                 position = position_dodge(width = 0.05),
+                 position = position_dodge(width = 0.5),
                  aes(group = interaction(Site,TIME, treatment, YEAR)),
                  width = 0.4)+
-    geom_point(position = position_dodge(width = 0.05), size=1.6)+
+    geom_point(position = position_dodge(width = 0.5), size=1.6)+
     facet_wrap(~YEAR+Site)+
     geom_text(data = Extract_Snowfence_aov %>% filter(analyte == "TRS"), aes(y = 9, label = asterisk), size=4, show.legend = FALSE, color="black")+
     theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
@@ -132,10 +132,10 @@ plot_Extract_Snowfence = function(Extract_processed){
                  outlier.colour = NULL,
                  outlier.fill = NULL,
                  alpha = 0.2,
-                 position = position_dodge(width = 0.05),
+                 position = position_dodge(width = 0.5),
                  aes(group = interaction(Site,TIME, treatment, YEAR)),
                  width = 0.4)+
-    geom_point(position = position_dodge(width = 0.05), size=1.6)+
+    geom_point(position = position_dodge(width = 0.5), size=1.6)+
     facet_wrap(~YEAR+Site)+
     geom_text(data = Extract_Snowfence_aov %>% filter(analyte == "phenolics"), aes(y = 9, label = asterisk), size=4, show.legend = FALSE, color="black")+
     theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
@@ -155,10 +155,10 @@ plot_Extract_Snowfence = function(Extract_processed){
                  outlier.colour = NULL,
                  outlier.fill = NULL,
                  alpha = 0.2,
-                 position = position_dodge(width = 0.05),
+                 position = position_dodge(width = 0.5),
                  aes(group = interaction(Site,TIME, treatment, YEAR)),
                  width = 0.4)+
-    geom_point(position = position_dodge(width = 0.05), size=1.6)+
+    geom_point(position = position_dodge(width = 0.5), size=1.6)+
     facet_wrap(~YEAR+Site)+
     geom_text(data = Extract_Snowfence_aov %>% filter(analyte == "TFPA"), aes(y = 4000, label = asterisk), size=4, show.legend = FALSE, color="black")+
     theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
@@ -178,10 +178,10 @@ plot_Extract_Snowfence = function(Extract_processed){
                  outlier.colour = NULL,
                  outlier.fill = NULL,
                  alpha = 0.2,
-                 position = position_dodge(width = 0.05),
+                 position = position_dodge(width = 0.5),
                  aes(group = interaction(Site,TIME, treatment, YEAR)),
                  width = 0.4)+
-    geom_point(position = position_dodge(width = 0.05), size=1.6)+
+    geom_point(position = position_dodge(width = 0.5), size=1.6)+
     facet_wrap(~YEAR+Site)+
     geom_text(data = Extract_Snowfence_aov %>% filter(analyte == "MBC"), aes(y = 9, label = asterisk), size=4, show.legend = FALSE, color="black")+
     theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
@@ -201,10 +201,10 @@ plot_Extract_Snowfence = function(Extract_processed){
                  outlier.colour = NULL,
                  outlier.fill = NULL,
                  alpha = 0.2,
-                 position = position_dodge(width = 0.05),
+                 position = position_dodge(width = 0.5),
                  aes(group = interaction(Site,TIME, treatment, YEAR)),
                  width = 0.4)+
-    geom_point(position = position_dodge(width = 0.05), size=1.6)+
+    geom_point(position = position_dodge(width = 0.5), size=1.6)+
     facet_wrap(~YEAR+Site)+
     geom_text(data = Extract_Snowfence_aov %>% filter(analyte == "MBN"), aes(y = 1000, label = asterisk), size=4, show.legend = FALSE, color="black")+
     theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
@@ -224,10 +224,10 @@ plot_Extract_Snowfence = function(Extract_processed){
                  outlier.colour = NULL,
                  outlier.fill = NULL,
                  alpha = 0.2,
-                 position = position_dodge(width = 0.05),
+                 position = position_dodge(width = 0.5),
                  aes(group = interaction(Site,TIME, treatment, YEAR)),
                  width = 0.4)+
-    geom_point(position = position_dodge(width = 0.05), size=1.6)+
+    geom_point(position = position_dodge(width = 0.5), size=1.6)+
     facet_wrap(~YEAR+Site)+
     geom_text(data = Extract_Snowfence_aov %>% filter(analyte == "Mic.PO4"), aes(y = 9, label = asterisk), size=4, show.legend = FALSE, color="black")+
     theme_light()+     theme(axis.text.x = element_text(angle = 90, hjust = 1))+

@@ -62,9 +62,9 @@ tar_read(gg_Tree)$Tree_info
    
 ```{r , fig.height=9, fig.width=9, out.width="100%"}
 NULL
-tar_read(Inaccessable)$Pore
-tar_read(Inaccessable)$water
-tar_read(Inaccessable)$salt
+tar_read(Inaccessable)$gg_Pore
+tar_read(Inaccessable)$gg_water
+tar_read(Inaccessable)$gg_salt
 ```
 
 </details>
