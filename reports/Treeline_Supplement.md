@@ -106,135 +106,135 @@ click to open
 click to open ANOVA results
 </summary>
 
-| analyte | Site   | YEAR | TIME         |   p.value | asterisk |
-|:--------|:-------|-----:|:-------------|----------:|:---------|
-| MBN     | Xeric  | 2018 | Early Spring | 0.0459993 | \*       |
-| PO4     | Mesic  | 2017 | Late Winter  | 0.0005795 | \*       |
-| PO4.fum | Mesic  | 2017 | Late Winter  | 0.0014443 | \*       |
-| TFPA    | Hydric | 2018 | Early Spring | 0.0124263 | \*       |
-| TRS     | Xeric  | 2018 | Early Spring | 0.0015616 | \*       |
+| analyte | Site     | YEAR | TIME         |   p.value | asterisk |
+|:--------|:---------|-----:|:-------------|----------:|:---------|
+| MBN     | East dry | 2018 | Early Spring | 0.0459993 | \*       |
+| PO4     | West wet | 2017 | Late Winter  | 0.0005795 | \*       |
+| PO4.fum | West wet | 2017 | Late Winter  | 0.0014443 | \*       |
+| TFPA    | East wet | 2018 | Early Spring | 0.0124263 | \*       |
+| TRS     | East dry | 2018 | Early Spring | 0.0015616 | \*       |
 
 All comparisons
 
-| analyte   | Site   | YEAR | TIME         |   p.value | asterisk |
-|:----------|:-------|-----:|:-------------|----------:|:---------|
-| MBC       | Hydric | 2017 | Late Winter  | 0.9242528 | NA       |
-| MBC       | Hydric | 2018 | Early Spring | 0.6309733 | NA       |
-| MBC       | Hydric | 2019 | Early Spring | 0.1736374 | NA       |
-| MBC       | Mesic  | 2017 | Late Winter  | 0.2351039 | NA       |
-| MBC       | Mesic  | 2018 | Early Spring | 0.3767047 | NA       |
-| MBC       | Mesic  | 2019 | Early Spring | 0.4034522 | NA       |
-| MBC       | Xeric  | 2017 | Late Winter  | 0.8767061 | NA       |
-| MBC       | Xeric  | 2018 | Early Spring | 0.0723087 | NA       |
-| MBC       | Xeric  | 2019 | Early Spring | 0.5367112 | NA       |
-| MBN       | Hydric | 2017 | Late Winter  | 0.4577312 | NA       |
-| MBN       | Hydric | 2018 | Early Spring | 0.5318262 | NA       |
-| MBN       | Hydric | 2019 | Early Spring | 0.1827473 | NA       |
-| MBN       | Mesic  | 2017 | Late Winter  | 0.4644693 | NA       |
-| MBN       | Mesic  | 2018 | Early Spring | 0.4257308 | NA       |
-| MBN       | Mesic  | 2019 | Early Spring | 0.5062197 | NA       |
-| MBN       | Xeric  | 2017 | Late Winter  | 0.2733834 | NA       |
-| MBN       | Xeric  | 2018 | Early Spring | 0.0459993 | \*       |
-| MBN       | Xeric  | 2019 | Early Spring | 0.3603539 | NA       |
-| NH4       | Hydric | 2017 | Late Winter  | 0.4228383 | NA       |
-| NH4       | Hydric | 2018 | Early Spring | 0.3189400 | NA       |
-| NH4       | Hydric | 2019 | Early Spring | 0.2587825 | NA       |
-| NH4       | Mesic  | 2017 | Late Winter  | 0.6445248 | NA       |
-| NH4       | Mesic  | 2018 | Early Spring | 0.2476791 | NA       |
-| NH4       | Mesic  | 2019 | Early Spring | 0.2868158 | NA       |
-| NH4       | Xeric  | 2017 | Late Winter  | 0.1265287 | NA       |
-| NH4       | Xeric  | 2018 | Early Spring | 0.1018585 | NA       |
-| NH4       | Xeric  | 2019 | Early Spring | 0.3190037 | NA       |
-| NO3       | Hydric | 2017 | Late Winter  | 0.7447394 | NA       |
-| NO3       | Hydric | 2018 | Early Spring | 0.1286781 | NA       |
-| NO3       | Hydric | 2019 | Early Spring | 0.3457828 | NA       |
-| NO3       | Mesic  | 2017 | Late Winter  | 0.4303936 | NA       |
-| NO3       | Mesic  | 2018 | Early Spring | 0.5627412 | NA       |
-| NO3       | Mesic  | 2019 | Early Spring | 0.2782300 | NA       |
-| NO3       | Xeric  | 2017 | Late Winter  | 0.2067186 | NA       |
-| NO3       | Xeric  | 2018 | Early Spring | 0.5964418 | NA       |
-| NO3       | Xeric  | 2019 | Early Spring | 0.5464968 | NA       |
-| PO4       | Hydric | 2017 | Late Winter  | 0.6219360 | NA       |
-| PO4       | Hydric | 2018 | Early Spring | 0.6332027 | NA       |
-| PO4       | Hydric | 2019 | Early Spring | 0.9208946 | NA       |
-| PO4       | Mesic  | 2017 | Late Winter  | 0.0005795 | \*       |
-| PO4       | Mesic  | 2018 | Early Spring | 0.2821892 | NA       |
-| PO4       | Mesic  | 2019 | Early Spring |       NaN | NA       |
-| PO4       | Xeric  | 2017 | Late Winter  | 0.2969134 | NA       |
-| PO4       | Xeric  | 2018 | Early Spring | 0.1286896 | NA       |
-| PO4       | Xeric  | 2019 | Early Spring | 0.2288003 | NA       |
-| PO4.fum   | Hydric | 2017 | Late Winter  | 0.3946057 | NA       |
-| PO4.fum   | Hydric | 2018 | Early Spring | 0.9225939 | NA       |
-| PO4.fum   | Hydric | 2019 | Early Spring | 0.8841150 | NA       |
-| PO4.fum   | Mesic  | 2017 | Late Winter  | 0.0014443 | \*       |
-| PO4.fum   | Mesic  | 2018 | Early Spring | 0.8352359 | NA       |
-| PO4.fum   | Mesic  | 2019 | Early Spring | 0.7492556 | NA       |
-| PO4.fum   | Xeric  | 2017 | Late Winter  | 0.5309334 | NA       |
-| PO4.fum   | Xeric  | 2018 | Early Spring | 0.3224832 | NA       |
-| PO4.fum   | Xeric  | 2019 | Early Spring | 0.2023210 | NA       |
-| TFPA      | Hydric | 2017 | Late Winter  | 0.5821164 | NA       |
-| TFPA      | Hydric | 2018 | Early Spring | 0.0124263 | \*       |
-| TFPA      | Hydric | 2019 | Early Spring | 0.4173300 | NA       |
-| TFPA      | Mesic  | 2017 | Late Winter  | 0.0743117 | NA       |
-| TFPA      | Mesic  | 2018 | Early Spring | 0.6880129 | NA       |
-| TFPA      | Mesic  | 2019 | Early Spring | 0.3348522 | NA       |
-| TFPA      | Xeric  | 2017 | Late Winter  | 0.6976218 | NA       |
-| TFPA      | Xeric  | 2018 | Early Spring | 0.4146803 | NA       |
-| TFPA      | Xeric  | 2019 | Early Spring | 0.2464429 | NA       |
-| TN.fum    | Hydric | 2017 | Late Winter  | 0.6137744 | NA       |
-| TN.fum    | Hydric | 2018 | Early Spring | 0.9945790 | NA       |
-| TN.fum    | Hydric | 2019 | Early Spring | 0.3533706 | NA       |
-| TN.fum    | Mesic  | 2017 | Late Winter  | 0.2196318 | NA       |
-| TN.fum    | Mesic  | 2018 | Early Spring | 0.4382704 | NA       |
-| TN.fum    | Mesic  | 2019 | Early Spring | 0.3518988 | NA       |
-| TN.fum    | Xeric  | 2017 | Late Winter  | 0.2101150 | NA       |
-| TN.fum    | Xeric  | 2018 | Early Spring | 0.0976950 | NA       |
-| TN.fum    | Xeric  | 2019 | Early Spring | 0.7061835 | NA       |
-| TN.k2so4  | Hydric | 2017 | Late Winter  | 0.4339124 | NA       |
-| TN.k2so4  | Hydric | 2018 | Early Spring | 0.1324980 | NA       |
-| TN.k2so4  | Hydric | 2019 | Early Spring | 0.4933220 | NA       |
-| TN.k2so4  | Mesic  | 2017 | Late Winter  | 0.2813560 | NA       |
-| TN.k2so4  | Mesic  | 2018 | Early Spring | 0.5504293 | NA       |
-| TN.k2so4  | Mesic  | 2019 | Early Spring | 0.3198908 | NA       |
-| TN.k2so4  | Xeric  | 2017 | Late Winter  | 0.1871344 | NA       |
-| TN.k2so4  | Xeric  | 2018 | Early Spring | 0.1557129 | NA       |
-| TN.k2so4  | Xeric  | 2019 | Early Spring | 0.3032183 | NA       |
-| TOC.fum   | Hydric | 2017 | Late Winter  | 0.4751290 | NA       |
-| TOC.fum   | Hydric | 2018 | Early Spring | 0.5239418 | NA       |
-| TOC.fum   | Hydric | 2019 | Early Spring | 0.3488814 | NA       |
-| TOC.fum   | Mesic  | 2017 | Late Winter  | 0.0835000 | NA       |
-| TOC.fum   | Mesic  | 2018 | Early Spring | 0.3804673 | NA       |
-| TOC.fum   | Mesic  | 2019 | Early Spring | 0.3234169 | NA       |
-| TOC.fum   | Xeric  | 2017 | Late Winter  | 0.5379341 | NA       |
-| TOC.fum   | Xeric  | 2018 | Early Spring | 0.1392725 | NA       |
-| TOC.fum   | Xeric  | 2019 | Early Spring | 0.9413714 | NA       |
-| TOC.k2so4 | Hydric | 2017 | Late Winter  | 0.4555155 | NA       |
-| TOC.k2so4 | Hydric | 2018 | Early Spring | 0.1300379 | NA       |
-| TOC.k2so4 | Hydric | 2019 | Early Spring | 0.4229420 | NA       |
-| TOC.k2so4 | Mesic  | 2017 | Late Winter  | 0.1194345 | NA       |
-| TOC.k2so4 | Mesic  | 2018 | Early Spring | 0.4628987 | NA       |
-| TOC.k2so4 | Mesic  | 2019 | Early Spring | 0.3520008 | NA       |
-| TOC.k2so4 | Xeric  | 2017 | Late Winter  | 0.2140845 | NA       |
-| TOC.k2so4 | Xeric  | 2018 | Early Spring | 0.1504672 | NA       |
-| TOC.k2so4 | Xeric  | 2019 | Early Spring | 0.2028911 | NA       |
-| TRS       | Hydric | 2017 | Late Winter  | 0.5977676 | NA       |
-| TRS       | Hydric | 2018 | Early Spring | 0.1616088 | NA       |
-| TRS       | Hydric | 2019 | Early Spring | 0.2283456 | NA       |
-| TRS       | Mesic  | 2017 | Late Winter  | 0.3575127 | NA       |
-| TRS       | Mesic  | 2018 | Early Spring | 0.5151771 | NA       |
-| TRS       | Mesic  | 2019 | Early Spring | 0.6518428 | NA       |
-| TRS       | Xeric  | 2017 | Late Winter  | 0.8898936 | NA       |
-| TRS       | Xeric  | 2018 | Early Spring | 0.0015616 | \*       |
-| TRS       | Xeric  | 2019 | Early Spring | 0.4527488 | NA       |
-| phenolics | Hydric | 2017 | Late Winter  | 0.7061021 | NA       |
-| phenolics | Hydric | 2018 | Early Spring | 0.1059705 | NA       |
-| phenolics | Hydric | 2019 | Early Spring | 0.2626072 | NA       |
-| phenolics | Mesic  | 2017 | Late Winter  | 0.5096703 | NA       |
-| phenolics | Mesic  | 2018 | Early Spring | 0.3014450 | NA       |
-| phenolics | Mesic  | 2019 | Early Spring | 0.0971096 | NA       |
-| phenolics | Xeric  | 2017 | Late Winter  | 0.5109847 | NA       |
-| phenolics | Xeric  | 2018 | Early Spring | 0.8679635 | NA       |
-| phenolics | Xeric  | 2019 | Early Spring | 0.6036452 | NA       |
+| analyte   | Site     | YEAR | TIME         |   p.value | asterisk |
+|:----------|:---------|-----:|:-------------|----------:|:---------|
+| MBC       | East dry | 2017 | Late Winter  | 0.8767061 | NA       |
+| MBC       | East dry | 2018 | Early Spring | 0.0723087 | NA       |
+| MBC       | East dry | 2019 | Early Spring | 0.5367112 | NA       |
+| MBC       | East wet | 2017 | Late Winter  | 0.9242528 | NA       |
+| MBC       | East wet | 2018 | Early Spring | 0.6309733 | NA       |
+| MBC       | East wet | 2019 | Early Spring | 0.1736374 | NA       |
+| MBC       | West wet | 2017 | Late Winter  | 0.2351039 | NA       |
+| MBC       | West wet | 2018 | Early Spring | 0.3767047 | NA       |
+| MBC       | West wet | 2019 | Early Spring | 0.4034522 | NA       |
+| MBN       | East dry | 2017 | Late Winter  | 0.2733834 | NA       |
+| MBN       | East dry | 2018 | Early Spring | 0.0459993 | \*       |
+| MBN       | East dry | 2019 | Early Spring | 0.3603539 | NA       |
+| MBN       | East wet | 2017 | Late Winter  | 0.4577312 | NA       |
+| MBN       | East wet | 2018 | Early Spring | 0.5318262 | NA       |
+| MBN       | East wet | 2019 | Early Spring | 0.1827473 | NA       |
+| MBN       | West wet | 2017 | Late Winter  | 0.4644693 | NA       |
+| MBN       | West wet | 2018 | Early Spring | 0.4257308 | NA       |
+| MBN       | West wet | 2019 | Early Spring | 0.5062197 | NA       |
+| NH4       | East dry | 2017 | Late Winter  | 0.1265287 | NA       |
+| NH4       | East dry | 2018 | Early Spring | 0.1018585 | NA       |
+| NH4       | East dry | 2019 | Early Spring | 0.3190037 | NA       |
+| NH4       | East wet | 2017 | Late Winter  | 0.4228383 | NA       |
+| NH4       | East wet | 2018 | Early Spring | 0.3189400 | NA       |
+| NH4       | East wet | 2019 | Early Spring | 0.2587825 | NA       |
+| NH4       | West wet | 2017 | Late Winter  | 0.6445248 | NA       |
+| NH4       | West wet | 2018 | Early Spring | 0.2476791 | NA       |
+| NH4       | West wet | 2019 | Early Spring | 0.2868158 | NA       |
+| NO3       | East dry | 2017 | Late Winter  | 0.2067186 | NA       |
+| NO3       | East dry | 2018 | Early Spring | 0.5964418 | NA       |
+| NO3       | East dry | 2019 | Early Spring | 0.5464968 | NA       |
+| NO3       | East wet | 2017 | Late Winter  | 0.7447394 | NA       |
+| NO3       | East wet | 2018 | Early Spring | 0.1286781 | NA       |
+| NO3       | East wet | 2019 | Early Spring | 0.3457828 | NA       |
+| NO3       | West wet | 2017 | Late Winter  | 0.4303936 | NA       |
+| NO3       | West wet | 2018 | Early Spring | 0.5627412 | NA       |
+| NO3       | West wet | 2019 | Early Spring | 0.2782300 | NA       |
+| PO4       | East dry | 2017 | Late Winter  | 0.2969134 | NA       |
+| PO4       | East dry | 2018 | Early Spring | 0.1286896 | NA       |
+| PO4       | East dry | 2019 | Early Spring | 0.2288003 | NA       |
+| PO4       | East wet | 2017 | Late Winter  | 0.6219360 | NA       |
+| PO4       | East wet | 2018 | Early Spring | 0.6332027 | NA       |
+| PO4       | East wet | 2019 | Early Spring | 0.9208946 | NA       |
+| PO4       | West wet | 2017 | Late Winter  | 0.0005795 | \*       |
+| PO4       | West wet | 2018 | Early Spring | 0.2821892 | NA       |
+| PO4       | West wet | 2019 | Early Spring |       NaN | NA       |
+| PO4.fum   | East dry | 2017 | Late Winter  | 0.5309334 | NA       |
+| PO4.fum   | East dry | 2018 | Early Spring | 0.3224832 | NA       |
+| PO4.fum   | East dry | 2019 | Early Spring | 0.2023210 | NA       |
+| PO4.fum   | East wet | 2017 | Late Winter  | 0.3946057 | NA       |
+| PO4.fum   | East wet | 2018 | Early Spring | 0.9225939 | NA       |
+| PO4.fum   | East wet | 2019 | Early Spring | 0.8841150 | NA       |
+| PO4.fum   | West wet | 2017 | Late Winter  | 0.0014443 | \*       |
+| PO4.fum   | West wet | 2018 | Early Spring | 0.8352359 | NA       |
+| PO4.fum   | West wet | 2019 | Early Spring | 0.7492556 | NA       |
+| TFPA      | East dry | 2017 | Late Winter  | 0.6976218 | NA       |
+| TFPA      | East dry | 2018 | Early Spring | 0.4146803 | NA       |
+| TFPA      | East dry | 2019 | Early Spring | 0.2464429 | NA       |
+| TFPA      | East wet | 2017 | Late Winter  | 0.5821164 | NA       |
+| TFPA      | East wet | 2018 | Early Spring | 0.0124263 | \*       |
+| TFPA      | East wet | 2019 | Early Spring | 0.4173300 | NA       |
+| TFPA      | West wet | 2017 | Late Winter  | 0.0743117 | NA       |
+| TFPA      | West wet | 2018 | Early Spring | 0.6880129 | NA       |
+| TFPA      | West wet | 2019 | Early Spring | 0.3348522 | NA       |
+| TN.fum    | East dry | 2017 | Late Winter  | 0.2101150 | NA       |
+| TN.fum    | East dry | 2018 | Early Spring | 0.0976950 | NA       |
+| TN.fum    | East dry | 2019 | Early Spring | 0.7061835 | NA       |
+| TN.fum    | East wet | 2017 | Late Winter  | 0.6137744 | NA       |
+| TN.fum    | East wet | 2018 | Early Spring | 0.9945790 | NA       |
+| TN.fum    | East wet | 2019 | Early Spring | 0.3533706 | NA       |
+| TN.fum    | West wet | 2017 | Late Winter  | 0.2196318 | NA       |
+| TN.fum    | West wet | 2018 | Early Spring | 0.4382704 | NA       |
+| TN.fum    | West wet | 2019 | Early Spring | 0.3518988 | NA       |
+| TN.k2so4  | East dry | 2017 | Late Winter  | 0.1871344 | NA       |
+| TN.k2so4  | East dry | 2018 | Early Spring | 0.1557129 | NA       |
+| TN.k2so4  | East dry | 2019 | Early Spring | 0.3032183 | NA       |
+| TN.k2so4  | East wet | 2017 | Late Winter  | 0.4339124 | NA       |
+| TN.k2so4  | East wet | 2018 | Early Spring | 0.1324980 | NA       |
+| TN.k2so4  | East wet | 2019 | Early Spring | 0.4933220 | NA       |
+| TN.k2so4  | West wet | 2017 | Late Winter  | 0.2813560 | NA       |
+| TN.k2so4  | West wet | 2018 | Early Spring | 0.5504293 | NA       |
+| TN.k2so4  | West wet | 2019 | Early Spring | 0.3198908 | NA       |
+| TOC.fum   | East dry | 2017 | Late Winter  | 0.5379341 | NA       |
+| TOC.fum   | East dry | 2018 | Early Spring | 0.1392725 | NA       |
+| TOC.fum   | East dry | 2019 | Early Spring | 0.9413714 | NA       |
+| TOC.fum   | East wet | 2017 | Late Winter  | 0.4751290 | NA       |
+| TOC.fum   | East wet | 2018 | Early Spring | 0.5239418 | NA       |
+| TOC.fum   | East wet | 2019 | Early Spring | 0.3488814 | NA       |
+| TOC.fum   | West wet | 2017 | Late Winter  | 0.0835000 | NA       |
+| TOC.fum   | West wet | 2018 | Early Spring | 0.3804673 | NA       |
+| TOC.fum   | West wet | 2019 | Early Spring | 0.3234169 | NA       |
+| TOC.k2so4 | East dry | 2017 | Late Winter  | 0.2140845 | NA       |
+| TOC.k2so4 | East dry | 2018 | Early Spring | 0.1504672 | NA       |
+| TOC.k2so4 | East dry | 2019 | Early Spring | 0.2028911 | NA       |
+| TOC.k2so4 | East wet | 2017 | Late Winter  | 0.4555155 | NA       |
+| TOC.k2so4 | East wet | 2018 | Early Spring | 0.1300379 | NA       |
+| TOC.k2so4 | East wet | 2019 | Early Spring | 0.4229420 | NA       |
+| TOC.k2so4 | West wet | 2017 | Late Winter  | 0.1194345 | NA       |
+| TOC.k2so4 | West wet | 2018 | Early Spring | 0.4628987 | NA       |
+| TOC.k2so4 | West wet | 2019 | Early Spring | 0.3520008 | NA       |
+| TRS       | East dry | 2017 | Late Winter  | 0.8898936 | NA       |
+| TRS       | East dry | 2018 | Early Spring | 0.0015616 | \*       |
+| TRS       | East dry | 2019 | Early Spring | 0.4527488 | NA       |
+| TRS       | East wet | 2017 | Late Winter  | 0.5977676 | NA       |
+| TRS       | East wet | 2018 | Early Spring | 0.1616088 | NA       |
+| TRS       | East wet | 2019 | Early Spring | 0.2283456 | NA       |
+| TRS       | West wet | 2017 | Late Winter  | 0.3575127 | NA       |
+| TRS       | West wet | 2018 | Early Spring | 0.5151771 | NA       |
+| TRS       | West wet | 2019 | Early Spring | 0.6518428 | NA       |
+| phenolics | East dry | 2017 | Late Winter  | 0.5109847 | NA       |
+| phenolics | East dry | 2018 | Early Spring | 0.8679635 | NA       |
+| phenolics | East dry | 2019 | Early Spring | 0.6036452 | NA       |
+| phenolics | East wet | 2017 | Late Winter  | 0.7061021 | NA       |
+| phenolics | East wet | 2018 | Early Spring | 0.1059705 | NA       |
+| phenolics | East wet | 2019 | Early Spring | 0.2626072 | NA       |
+| phenolics | West wet | 2017 | Late Winter  | 0.5096703 | NA       |
+| phenolics | West wet | 2018 | Early Spring | 0.3014450 | NA       |
+| phenolics | West wet | 2019 | Early Spring | 0.0971096 | NA       |
 
 Significant comparisons
 
@@ -577,12 +577,12 @@ accounted for ~10% of total variation among samples
 
 Unique counts by site:
 
-| Class              | Xeric | Mesic | Hydric |
-|:-------------------|------:|------:|-------:|
-| aliphatic          |   172 |   483 |    294 |
-| aromatic           |    32 |   135 |     22 |
-| condensed aromatic |    10 |    65 |     17 |
-| unsaturated/lignin |   122 |   703 |     47 |
+| Class              | East dry | East wet | West wet |
+|:-------------------|---------:|---------:|---------:|
+| aliphatic          |      172 |      294 |      483 |
+| aromatic           |       32 |       22 |      135 |
+| condensed aromatic |       10 |       17 |       65 |
+| unsaturated/lignin |      122 |       47 |      703 |
 
 </details>
 </details>
@@ -594,7 +594,7 @@ Unique counts by site:
 Session Info
 </summary>
 
-Date run: 2023-09-26
+Date run: 2023-10-05
 
     ## R version 4.2.3 (2023-03-15 ucrt)
     ## Platform: x86_64-w64-mingw32/x64 (64-bit)

@@ -579,7 +579,7 @@ plot_resin_Snowfence = function(Resin_processed){
     mutate(Purpose3=paste(Extract_processed_long$Purpose2,Extract_processed_long$YEAR))%>%
     group_by(analyte,YEAR, Purpose3) %>%
     do(fit_aov2(.)) %>%
-    mutate( Site="Hydric")
+    mutate( Site="East wet")
   
   Resin_processed$Purpose3<- paste(Resin_processed$Purpose2,Resin_processed$YEAR)
   
@@ -722,6 +722,8 @@ plot_inaccess =function(Extract_processed_Seasonal,PoreWater_processed_Seasonal)
     pivot_longer(NH4I:adsorb)%>%
     select(Date:Plot,name,value)
   
+  
+  
   Pore2<-PoreWater_processed_Seasonal %>%
     mutate(NH4IP=(NH4/14.0067)*1000,NO3IP=(NO3/14.0067)*1000, TFPAIP=TFPA,
            NTP=NH4IP+NO3IP+TFPAIP)%>%
@@ -735,6 +737,16 @@ plot_inaccess =function(Extract_processed_Seasonal,PoreWater_processed_Seasonal)
            YEAR=year(Date),
            MONTH=month(Date))%>%
     pivot_wider(names_from = name, values_from = value)
+  
+  N_counts<-comb2%>%
+    filter(Site!="",!is.na(NTP))%>%
+    select(Date,Site,NTP)%>%
+    filter(Site!="")%>%
+    group_by(Date,Site)%>%
+    summarize(N_counts=n())
+  
+  
+  
   
   gg_Pore<- comb2%>%
     filter(Date < as.Date("2019-08-16"))%>%
@@ -752,12 +764,13 @@ plot_inaccess =function(Extract_processed_Seasonal,PoreWater_processed_Seasonal)
     guides(color=guide_legend(title= "Legend"))+
     scale_color_manual(values = cbPalette4, labels= c("Ammonium", "Nitrate", "TFPA"))+
     scale_x_break(breaks=as.Date(c("2017-08-26","2018-06-03","2018-08-24","2019-06-06")))+
-    scale_x_date(labels = date_format("%m-%Y"))+
+    scale_x_date(labels = date_format("%m-%y"))+
     theme_CKM()+
     theme(legend.position = "bottom")+
     labs(x = "Date", 
          y = bquote(''*mu*'Mol N (Ammonium, Nitrate, or TFPA)'))+
-    ggtitle("Pore water")
+    ggtitle("Pore water")+ 
+    theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
   
   Poreavg<- comb2%>%
     filter(Date < as.Date("2019-08-16"))%>%
@@ -790,12 +803,13 @@ plot_inaccess =function(Extract_processed_Seasonal,PoreWater_processed_Seasonal)
     guides(color=guide_legend(title= "Legend"))+
     scale_color_manual(values = cbPalette4, labels= c("Ammonium", "Nitrate", "TFPA"))+
     scale_x_break(breaks=as.Date(c("2017-08-26","2018-06-03","2018-08-24","2019-06-06")))+
-    scale_x_date(labels = date_format("%m-%Y"))+
+    scale_x_date(labels = date_format("%m-%y"))+
     theme_CKM()+
     theme(legend.position = "bottom")+
     labs(x = "Date", 
          y = bquote(''*mu*'Mol N (Ammonium, Nitrate, or TFPA)'))+
-    ggtitle("Water extraction")
+    ggtitle("Water extraction")+ 
+    theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
   
   water2<- comb2%>%
     filter(Date < as.Date("2019-08-16"))%>%
@@ -826,12 +840,13 @@ plot_inaccess =function(Extract_processed_Seasonal,PoreWater_processed_Seasonal)
     guides(color=guide_legend(title= "Legend"))+
     scale_color_manual(values = cbPalette4, labels= c("Ammonium", "Nitrate", "TFPA"))+
     scale_x_break(breaks=as.Date(c("2017-08-26","2018-06-03","2018-08-24","2019-06-06")))+
-    scale_x_date(labels = date_format("%m-%Y"))+
+    scale_x_date(labels = date_format("%m-%y"))+
     theme_CKM()+
     theme(legend.position = "bottom")+
     labs(x = "Date", 
          y = bquote(''*mu*'Mol N (Ammonium, Nitrate, or TFPA)'))+
-    ggtitle("Potassium sulfate extraction")
+    ggtitle("Potassium sulfate extraction")+ 
+    theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
   
   salt2<-comb2%>%
     filter(Date < as.Date("2019-08-16"))%>%
@@ -918,7 +933,9 @@ plot_inaccess =function(Extract_processed_Seasonal,PoreWater_processed_Seasonal)
   
   
   
-  
+  Count<-Inaccess2%>%
+    group_by(Date,Site,treatment,name)%>%
+    summarise(C=n())
   
   
   
@@ -1013,6 +1030,18 @@ plot_inaccess_p =function(Extract_processed_Seasonal,PoreWater_processed_Seasona
     mutate(Date=as.Date(Date, "%m/%d/%Y"), name=as.factor(as.character(name)), value=as.numeric(value),Site=as.factor(as.character(Site)))
   
   
+  
+  P_counts<-comb%>%
+    filter(Site!="", name=="PO4IP",!is.na(value))%>%
+    select(Date,Site,value)%>%
+    group_by(Date,Site)%>%
+    summarize(P_counts=n())
+  
+ # Total_counts<- N_counts%>%
+  #  full_join(P_counts)
+  
+  #write.csv(Total_counts, "Graphs/Total_lysim_counts.csv")
+  
   Inaccess2<- comb %>%
     group_by(Date, Site,treatment, name) %>%
     summarize(mean_value = mean(value, na.rm = TRUE),
@@ -1025,7 +1054,10 @@ plot_inaccess_p =function(Extract_processed_Seasonal,PoreWater_processed_Seasona
               se= sqrt(var(value, na.rm = TRUE) / sum(!is.na(value)))) %>%
     filter(Site != "")
   
-  
+  Overmean2<-comb%>%
+    group_by(name)%>%
+    summarize(mean_value = mean(value, na.rm = TRUE),
+              se= sqrt(var(value, na.rm = TRUE) / sum(!is.na(value))))
   
   
   inaccessible_N<-ggplot(Inaccess2, aes(x = Date, y = mean_value, fill = name)) +
@@ -1066,7 +1098,7 @@ plot_inaccess_p =function(Extract_processed_Seasonal,PoreWater_processed_Seasona
                       labels=c("Adsorbed", "Mobile", "Inaccessible"),values = cbPalette3)+
     theme( axis.text.x.top = element_blank(),
            axis.ticks.x.top = element_blank())+
-    ylab(bquote('Phosphate ('*mu*'g '*PO[4]^"3-"~-P~L^-1 *')'))+
+    ylab(bquote('Phosphate ('*mu*'Mol '*PO[4]^"3-"~-P*')'))+
     xlab("Month")
   
   
@@ -1532,7 +1564,7 @@ plot_Extract_Seasonal = function(Extract_processed_Seasonal){
     mutate(DATE=as.Date(Date, format= "%m/%d/%Y"),
            YEAR=year(DATE),
            MONTH=month(DATE))%>%
-    filter(Site %in% c("Hydric","Mesic","Xeric")) %>%
+    filter(Site %in% c("East wet","West wet","East dry")) %>%
     mutate_at(c('NH4', 'NO3','PO4','TFPA','TRS','MBC','MBN','Mic.PO4'), as.numeric)
   
   Extract_processed_S_long = Extract_processed_S %>%
@@ -2702,9 +2734,18 @@ plot_PoreWater_Fert = function(PoreWater_data){
     mutate(DATE=as.Date(Date, format= "%m/%d/%Y"),
            YEAR=year(DATE),
            MONTH=month(DATE)) %>%
-    filter(YEAR %in% c("2017","2018","2019"))
+    filter(YEAR %in% c("2017","2018","2019"))%>%
+    mutate(across(Site,str_replace,"Hydric", "East wet"))%>%
+    mutate(across(Site,str_replace,"Mesic", "West wet"))%>%
+    mutate(across(Site,str_replace,"Xeric", "East dry"))
   
-  
+  PoreWater_data=PoreWater_data%>%
+    mutate(DATE=as.Date(Date, format= "%m/%d/%Y"),
+           YEAR=year(DATE),
+           MONTH=month(DATE)) %>%
+    mutate(across(Site,str_replace,"Hydric", "East wet"))%>%
+    mutate(across(Site,str_replace,"Mesic", "West wet"))%>%
+    mutate(across(Site,str_replace,"Xeric", "East dry"))
   gg_NH4_PoreWater =
     PoreWater_data %>%
     mutate_at(c('NH4', 'NO3','PO4','TFPA','TRS'), as.numeric) %>%
@@ -2795,7 +2836,7 @@ plot_PoreWater_Fert = function(PoreWater_data){
   gg_NH4_PoreWater2 =
     PoreWater_data2 %>%
     mutate_at(c('NH4', 'NO3','PO4','TFPA','TRS'), as.numeric) %>%
-    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"),Site %in% c("Hydric","Mesic","Xeric"))%>%
+    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"),Site %in% c("East wet","West wet","East dry"))%>%
     mutate(treatment=factor(treatment, levels=c("Ancillary","Control","Snowfence","fertilized")),DATE=as.Date(Date, format= "%m/%d/%Y"),
            YEAR=year(DATE),
            MONTH=month(DATE)) %>%
@@ -2818,7 +2859,7 @@ plot_PoreWater_Fert = function(PoreWater_data){
   gg_NO3_PoreWater2 =
     PoreWater_data2 %>%
     mutate_at(c('NH4', 'NO3','PO4','TFPA','TRS'), as.numeric) %>%
-    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"),Site %in% c("Hydric","Mesic","Xeric"))%>%
+    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"),Site %in% c("East wet","West wet","East dry"))%>%
     mutate(treatment=factor(treatment, levels=c("Ancillary","Control","Snowfence","fertilized")),DATE=as.Date(Date, format= "%m/%d/%Y"),
            YEAR=year(DATE),
            MONTH=month(DATE)) %>%
@@ -2841,7 +2882,7 @@ plot_PoreWater_Fert = function(PoreWater_data){
   gg_PO4_PoreWater2 =
     PoreWater_data2 %>%
     mutate_at(c('NH4', 'NO3','PO4','TFPA','TRS'), as.numeric) %>%
-    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"),Site %in% c("Hydric","Mesic","Xeric"))%>%
+    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"),Site %in% c("East wet","West wet","East dry"))%>%
     mutate(treatment=factor(treatment, levels=c("Ancillary","Control","Snowfence","fertilized")),DATE=as.Date(Date, format= "%m/%d/%Y"),
            YEAR=year(DATE),
            MONTH=month(DATE)) %>%
@@ -2866,7 +2907,7 @@ plot_PoreWater_Fert = function(PoreWater_data){
   gg_TRS_PoreWater2 =
     PoreWater_data2 %>%
     mutate_at(c('NH4', 'NO3','PO4','TFPA','TRS'), as.numeric) %>%
-    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"),Site %in% c("Hydric","Mesic","Xeric"))%>%
+    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"),Site %in% c("East wet","West wet","East dry"))%>%
     mutate(treatment=factor(treatment, levels=c("Ancillary","Control","Snowfence","fertilized")),DATE=as.Date(Date, format= "%m/%d/%Y"),
            YEAR=year(DATE),
            MONTH=month(DATE)) %>%
@@ -2889,7 +2930,7 @@ plot_PoreWater_Fert = function(PoreWater_data){
   gg_TFPA_PoreWater2 =
     PoreWater_data2 %>%
     mutate_at(c('NH4', 'NO3','PO4','TFPA','TRS'), as.numeric) %>%
-    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"),Site %in% c("Hydric","Mesic","Xeric"))%>%
+    filter(treatment %in% c("Snowfence","Control","Ancillary","fertilized"),Site %in% c("East wet","West wet","East dry"))%>%
     mutate(treatment=factor(treatment, levels=c("Ancillary","Control","Snowfence","fertilized")),DATE=as.Date(Date, format= "%m/%d/%Y"),
            YEAR=year(DATE),
            MONTH=month(DATE)) %>%
@@ -2920,15 +2961,15 @@ plot_PoreWater_Fert = function(PoreWater_data){
   
   
   
-  PoreWater_data = PoreWater_data %>%
+  PoreWater_data3 = PoreWater_data %>%
     mutate(DATE=as.Date(Date, format= "%m/%d/%Y"),
            YEAR=year(DATE),
            MONTH=month(DATE))%>%
-    filter(Site %in% c("Hydric","Mesic","Xeric"),
+    filter(Site %in% c("East wet","West wet","East dry"),
            treatment %in% c("Snowfence","Control","Ancillary","fertilized")) %>%
     mutate_at(c('NH4', 'NO3','PO4','TFPA','TRS'), as.numeric)
   
-  PoreWater_processed_long = PoreWater_data %>%
+  PoreWater_processed_long = PoreWater_data3 %>%
     pivot_longer(cols= Mass:TRS,
                  names_to= "analyte",
                  values_to= "conc") 
@@ -3349,7 +3390,7 @@ plot_resin = function(Resin_processed){
     Extract_processed_long %>% 
     group_by(analyte,YEAR, Purpose2) %>%
     do(fit_aov2(.)) %>%
-  mutate( Site="Hydric")
+  mutate( Site="East wet")
   
   Table<-Resin_processed %>%
     group_by(Site,YEAR) %>%
@@ -3574,7 +3615,7 @@ plot_resin_Fert= function(Resin_processed){
     Extract_processed_long %>% 
     group_by(analyte,YEAR, Purpose2) %>%
     do(fit_aov2(.)) 
-    #mutate( Site="Hydric")
+    #mutate( Site="East wet")
   
 
   gg_NH4_Extract2 =
@@ -3700,7 +3741,7 @@ plot_pca_by_site= function(pca_polar){
   
   gg_pca_by_site = 
     ggbiplot(pca_polar$pca_int, obs.scale = 1,var.scale = 1,
-             groups = as.character(pca_polar$grp$Site), 
+             groups = factor(pca_polar$grp$Site, levels=c("Xeric","Hydric","Mesic")), 
              ellipse = TRUE, circle = FALSE, var.axes = TRUE, alpha = 0, varname.size=4,varname.adjust=1) +
     geom_point(size=3,stroke=1, alpha = 0.6,
                aes(#shape = groups,
@@ -3708,7 +3749,7 @@ plot_pca_by_site= function(pca_polar){
     #scale_shape_manual(values = c(21, 22, 19), name = "", guide = "none")+
     xlim(-4,4)+
     ylim(-3.5,3.5)+
-    scale_color_manual(values= cbPalette2)+
+    scale_color_manual(values= cbPalette2, labels=c("East dry","East wet","West wet"))+
     labs(shape="",
          title = "Polar seperation by site")+
     guides(color=guide_legend(title="Site"))+
@@ -3763,11 +3804,11 @@ plot_pca_polar= function(pca_polar){
   
 }
 
-plot_pca_by_site_nonpolar= function(pca_polar){
+plot_pca_by_site_nonpolar= function(pca_nonpolar){
   
   gg_pca_by_site = 
-    ggbiplot(pca_polar$pca_int, obs.scale = 1, var.scale = 1,
-             groups = as.character(pca_polar$grp$Site), 
+    ggbiplot(pca_nonpolar$pca_int, obs.scale = 1, var.scale = 1,
+             groups = factor(pca_nonpolar$grp$Site, levels=c("Xeric","Hydric","Mesic")), 
              ellipse = TRUE, circle = FALSE, var.axes = TRUE, alpha = 0, varname.size=4,varname.adjust=1) +
     geom_point(size=3,stroke=1, alpha = 0.6,
                aes(#shape = groups,
@@ -3775,7 +3816,7 @@ plot_pca_by_site_nonpolar= function(pca_polar){
     #scale_shape_manual(values = c(21, 22, 19), name = "", guide = "none")+
     xlim(-4,4)+
     ylim(-3.5,3.5)+
-    scale_color_manual(values= cbPalette2)+
+    scale_color_manual(values= cbPalette2, labels=c("East dry","East wet","West wet"))+
     guides(color=guide_legend(title="Site"))+
     labs(shape="",
          title = "Non-Polar seperation by site")+
@@ -3929,7 +3970,7 @@ plot_seasonal_Mesic_Hydric_polar= function(fticr_hcoc_polar){
   
   fticr_hcoc_polar_mesic_hydric = 
     fticr_hcoc_polar %>% 
-    filter(Site %in% c("Mesic", "Hydric","Xeric"))
+    filter(Site %in% c("West wet", "East wet","East dry"))
   
   gg_seasonal= fticr_hcoc_polar_mesic_hydric %>% 
     gg_vankrev(aes(x = OC, y = HC, color = Season))+
@@ -4057,20 +4098,20 @@ plot_soilTemp=function(SoilTempHydric_data,SoilTempMesic_data,SoilTempXeric_data
   DF_Daily= Xeric.met.station.daily %>%
     full_join(Mesic.met.station.daily, by="Date")%>%
     full_join(hydric.met.station.daily, by="Date")%>%
-    rename("Xeric"=Control_10.mean.x,"Mesic"=Control_10.mean.y,"Hydric"=Control_10.mean)%>%
-    select(c(Date,Xeric,Mesic,Hydric))%>%
-    pivot_longer(Xeric:Hydric)
+    rename("East dry"=Control_10.mean.x,"West wet"=Control_10.mean.y,"East wet"=Control_10.mean)%>%
+    select(c(Date,"East dry","West wet","East wet"))%>%
+    pivot_longer("East dry":"East wet")
   
   gg_soilTemp= Xeric.met.station.daily %>%
     ggplot(aes(x = as.Date(Date), y = Control_10.mean, color="#009E73")) +
     geom_line(lwd=1)+
-    geom_line(data=Mesic.met.station.daily,aes(x = as.Date(Date), y = Control_10.mean, color="#56B4E9"),lwd=1) +
-    geom_line(data=hydric.met.station.daily,aes(x = as.Date(Date), y = Control_10.mean, color="#E69F00" ),lwd=1) +
+    geom_line(data=Mesic.met.station.daily,aes(x = as.Date(Date), y = Control_10.mean, color="#E69F00"),lwd=1) +
+    geom_line(data=hydric.met.station.daily,aes(x = as.Date(Date), y = Control_10.mean, color="#56B4E9"),lwd=1) +
     guides(fill=guide_legend(title= "Site"))+
     scale_color_manual(name="Site",
                        values = c("#009E73", "#56B4E9", "#E69F00" ),
-                         breaks=c("#009E73", "#56B4E9", "#E69F00" ),
-                      labels=c("Xeric", "Mesic", "Hydric"))+
+                      breaks=c("#009E73", "#56B4E9", "#E69F00" ),
+                      labels=c("East dry", "East wet", "West wet"))+
     xlab("Year")+
     ylab("°C")+
     ggtitle("Soil temperature at 10 cm")+
@@ -4105,7 +4146,7 @@ plot_soilTemp=function(SoilTempHydric_data,SoilTempMesic_data,SoilTempXeric_data
       scale_color_manual(name="Legend",
                          values = c("#009E73", "#56B4E9", "#E69F00" ),
                          breaks=c("#009E73", "#56B4E9", "#E69F00" ),
-                         labels=c("Xeric", "Mesic", "Hydric"))+
+                         labels=c("East dry", "West wet", "East wet"))+
       xlab("Year")+
       ylab("Soil temperature at 10 cm")+
     theme( axis.text.x.top = element_blank(),
@@ -4164,9 +4205,9 @@ plot_soilwater=function(SoilTempHydric_data,SoilTempMesic_data,SoilTempXeric_dat
   DF_Daily= Xeric.met.station.daily %>%
     full_join(Mesic.met.station.daily, by="Date")%>%
     full_join(hydric.met.station.daily, by="Date")%>%
-    rename("Xeric"=Control_10_sw.mean.x,"Mesic"=Control_10_sw.mean.y,"Hydric"=Control_10_sw.mean)%>%
-    select(c(Date,Xeric,Mesic,Hydric))%>%
-    pivot_longer(Xeric:Hydric)
+    rename("East dry"=Control_10_sw.mean.x,"West wet"=Control_10_sw.mean.y,"East wet"=Control_10_sw.mean)%>%
+    select(c(Date,"East dry","West wet","East wet"))%>%
+    pivot_longer("East dry":"East wet")
   
   gg_soilwater= Xeric.met.station.daily %>%
     ggplot(aes(x = as.Date(Date), y = Control_10_sw.mean, color="#009E73")) +
@@ -4177,7 +4218,7 @@ plot_soilwater=function(SoilTempHydric_data,SoilTempMesic_data,SoilTempXeric_dat
     scale_color_manual(name="Site",
                        values = c("#009E73", "#56B4E9", "#E69F00" ),
                        breaks=c("#009E73", "#56B4E9", "#E69F00" ),
-                       labels=c("Xeric", "Mesic", "Hydric"))+
+                       labels=c("East dry", "West wet", "East wet"))+
     xlab("Year")+
     ylab("Soil water content (v/v)")+
     ggtitle("Soil moisture at 10 cm")+
@@ -4211,7 +4252,7 @@ plot_soilwater=function(SoilTempHydric_data,SoilTempMesic_data,SoilTempXeric_dat
     scale_color_manual(name="Legend",
                        values = c("#009E73", "#56B4E9", "#E69F00" ),
                        breaks=c("#009E73", "#56B4E9", "#E69F00" ),
-                       labels=c("Xeric", "Mesic", "Hydric"))+
+                       labels=c("East dry", "West wet", "East wet"))+
     xlab("Year")+
     ylab("Soil water content (v/v)")+
     theme( axis.text.x.top = element_blank(),
@@ -4314,10 +4355,20 @@ plot_ph = function(ph_data){
   
   ph_data%>%
     group_by(Site)%>%
-    summarise(mean=mean(pH, na.rm=T))
+    summarize(mean = mean(pH, na.rm = TRUE),
+            se= sqrt(var(pH, na.rm = TRUE) / sum(!is.na(pH))))
+  
+  
+  
+  ph_data2=ph_data%>%
+    mutate(across(Site,str_replace,"Hydric", "East wet"))%>%
+    mutate(across(Site,str_replace,"Mesic", "West wet"))%>%
+    mutate(across(Site,str_replace,"Xeric", "East dry"))
+  ph_data2$Site<-as.factor(ph_data2$Site)
+  
   
   gg_ph =
-    ph_data %>%
+    ph_data2 %>%
     ggplot(aes(x=Site, y=pH, color=Site))+
     geom_boxplot(show.legend = F, 
                  outlier.colour = NULL,
@@ -4328,7 +4379,7 @@ plot_ph = function(ph_data){
                  width=0.7)+
     geom_point(position = position_dodge(width = 1), size = 2)+
     theme_light()+
-    scale_colour_manual(values=cbPalette2)+
+    scale_color_manual(values= cbPalette2, labels=c("East dry","East wet","West wet"))+
     scale_fill_manual(values=cbPalette2)+
     ggtitle("pH")+
     theme_CKM()+

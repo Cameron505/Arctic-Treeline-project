@@ -8,7 +8,10 @@ process_PoreWater =function(PoreWater_data){
            MONTH=month(DATE)) %>%
     mutate_at(c('NH4', 'NO3','PO4','TFPA','TRS'), as.numeric) %>%
     filter(treatment %in% c("Snowfence","Control"))%>%
-    drop_na(YEAR)
+    drop_na(YEAR)%>%
+    mutate(across(Site,str_replace,"Hydric", "East wet"))%>%
+    mutate(across(Site,str_replace,"Mesic", "West wet"))%>%
+    mutate(across(Site,str_replace,"Xeric", "East dry"))
 }
 
 process_Lysim_Destruct =function(PoreWater_data){
@@ -22,7 +25,10 @@ process_Lysim_Destruct =function(PoreWater_data){
             NO3_2= NO3*14.0067,
             PO4_2= PO4*30.973762,
             NC= NH4_2+NO3_2+TFPA)%>%
-    filter(YEAR %in% "2017")
+    filter(YEAR %in% "2017")%>%
+    mutate(across(Site,str_replace,"Hydric", "East wet"))%>%
+    mutate(across(Site,str_replace,"Mesic", "West wet"))%>%
+    mutate(across(Site,str_replace,"Xeric", "East dry"))
 
   
   
@@ -44,7 +50,11 @@ process_Extract =function(Extract_data){
     mutate (TIME= ifelse(TIME == 5, "Early Spring", as.character(TIME)))%>%
     mutate (TIME= ifelse(TIME == 6, "Early Spring", as.character(TIME)))%>%
     mutate (TIME= ifelse(TIME == 9, "Late Summer", as.character(TIME))) %>%
-    mutate(TIME = factor(TIME, levels=c("Late Winter","Early Spring","Late Summer")))
+    mutate(TIME = factor(TIME, levels=c("Late Winter","Early Spring","Late Summer")))%>%
+    mutate(across(Site,str_replace,"Hydric", "East wet"))%>%
+    mutate(across(Site,str_replace,"Mesic", "West wet"))%>%
+    mutate(across(Site,str_replace,"Xeric", "East dry"))
+    
     
 }
 
@@ -64,7 +74,10 @@ process_Extract_H2O =function(Extract_data){
     mutate (TIME= ifelse(TIME == 5, "Early Spring", as.character(TIME)))%>%
     mutate (TIME= ifelse(TIME == 6, "Early Spring", as.character(TIME)))%>%
     mutate (TIME= ifelse(TIME == 9, "Late Summer", as.character(TIME))) %>%
-    mutate(TIME = factor(TIME, levels=c("Late Winter","Early Spring","Late Summer")))
+    mutate(TIME = factor(TIME, levels=c("Late Winter","Early Spring","Late Summer")))%>%
+    mutate(across(Site,str_replace,"Hydric", "East wet"))%>%
+    mutate(across(Site,str_replace,"Mesic", "West wet"))%>%
+    mutate(across(Site,str_replace,"Xeric", "East dry"))
 }
 
 
@@ -73,7 +86,10 @@ process_Resin =function(Resin_data){
   processed_Resin = Resin_data %>%
     mutate(DATE=as.Date(Date, format= "%m/%d/%Y"),
            YEAR=year(DATE),
-           MONTH=month(DATE))
+           MONTH=month(DATE))%>%
+    mutate(across(Site,str_replace,"Hydric", "East wet"))%>%
+    mutate(across(Site,str_replace,"Mesic", "West wet"))%>%
+    mutate(across(Site,str_replace,"Xeric", "East dry"))
 }
 
 
@@ -84,7 +100,10 @@ process_PoreWater_Seasonal =function(PoreWater_data){
            YEAR=year(DATE),
            MONTH=month(DATE)) %>%
     mutate_at(c('NH4', 'NO3','PO4','TFPA','TRS'), as.numeric) %>%
-    filter(treatment %in% c("Snowfence","Control","Ancillary"))
+    filter(treatment %in% c("Snowfence","Control","Ancillary"))%>%
+    mutate(across(Site,str_replace,"Hydric", "East wet"))%>%
+    mutate(across(Site,str_replace,"Mesic", "West wet"))%>%
+    mutate(across(Site,str_replace,"Xeric", "East dry"))
 }
 
 process_Extract_Seasonal =function(Extract_data){
@@ -94,7 +113,10 @@ process_Extract_Seasonal =function(Extract_data){
            YEAR=year(DATE),
            MONTH=month(DATE)) %>%
     mutate_at(c('NH4', 'NO3','PO4','TFPA','phenolics','TRS','MBC','MBN','Mic.PO4'), as.numeric) %>%
-    filter(treatment %in% c("Ancillary"))
+    filter(treatment %in% c("Ancillary"))%>%
+    mutate(across(Site,str_replace,"Hydric", "East wet"))%>%
+    mutate(across(Site,str_replace,"Mesic", "West wet"))%>%
+    mutate(across(Site,str_replace,"Xeric", "East dry"))
   
 }
 
@@ -106,7 +128,10 @@ process_Extract_Seasonal_H2O =function(Extract_data){
            YEAR=year(DATE),
            MONTH=month(DATE)) %>%
     mutate_at(c('NH4.H2O', 'NO3.H2O','PO4.H2O','TFPA.H2O','TRS.H2O'), as.numeric) %>%
-    filter(treatment %in% c("Ancillary"))
+    filter(treatment %in% c("Ancillary"))%>%
+    mutate(across(Site,str_replace,"Hydric", "East wet"))%>%
+    mutate(across(Site,str_replace,"Mesic", "West wet"))%>%
+    mutate(across(Site,str_replace,"Xeric", "East dry"))
   
 }
 
@@ -117,7 +142,10 @@ process_PoreWater_all =function(PoreWater_data){
            YEAR=year(DATE),
            MONTH=month(DATE)) %>%
     mutate_at(c('NH4', 'NO3','PO4','TFPA','TRS'), as.numeric) %>%
-    filter(treatment %in% c("Snowfence","Control","Ancillary"))
+    filter(treatment %in% c("Snowfence","Control","Ancillary"))%>%
+    mutate(across(Site,str_replace,"Hydric", "East wet"))%>%
+    mutate(across(Site,str_replace,"Mesic", "West wet"))%>%
+    mutate(across(Site,str_replace,"Xeric", "East dry"))
 }
 
 process_Extract_all =function(Extract_data){
@@ -127,7 +155,10 @@ process_Extract_all =function(Extract_data){
            YEAR=year(DATE),
            MONTH=month(DATE)) %>%
     mutate_at(c('NH4', 'NO3','PO4','TFPA','phenolics','TRS','MBC','MBN','Mic.PO4'), as.numeric) %>%
-    filter(treatment %in% c("Snowfence","Control","Ancillary"))
+    filter(treatment %in% c("Snowfence","Control","Ancillary"))%>%
+    mutate(across(Site,str_replace,"Hydric", "East wet"))%>%
+    mutate(across(Site,str_replace,"Mesic", "West wet"))%>%
+    mutate(across(Site,str_replace,"Xeric", "East dry"))
   
 }
 
@@ -139,7 +170,10 @@ process_Extract_all_H2O =function(Extract_data){
            YEAR=year(DATE),
            MONTH=month(DATE)) %>%
     mutate_at(c('NH4.H2O', 'NO3.H2O','PO4.H2O','TFPA.H2O','TRS.H2O'), as.numeric) %>%
-    filter(treatment %in% c("Snowfence","Control","Ancillary"))
+    filter(treatment %in% c("Snowfence","Control","Ancillary"))%>%
+    mutate(across(Site,str_replace,"Hydric", "East wet"))%>%
+    mutate(across(Site,str_replace,"Mesic", "West wet"))%>%
+    mutate(across(Site,str_replace,"Xeric", "East dry"))
   
 }
 
@@ -160,7 +194,10 @@ process_resin =function(Resin_data){
     mutate(DATE=as.Date(Date, format= "%m/%d/%Y"),
            YEAR=year(DATE),
            MONTH=month(DATE)) %>%
-    mutate_at(c('Ammonium', 'Nitrate','Phosphate'), as.numeric)
+    mutate_at(c('Ammonium', 'Nitrate','Phosphate'), as.numeric)%>%
+    mutate(across(Site,str_replace,"Hydric", "East wet"))%>%
+    mutate(across(Site,str_replace,"Mesic", "West wet"))%>%
+    mutate(across(Site,str_replace,"Xeric", "East dry"))
     
   
 }
@@ -175,7 +212,10 @@ process_fticr_hcoc =function(fticr_data_trt,fticr_meta){
   fticr_hcoc = 
     fticr_data_trt %>% 
     reorder_seasons() %>% reorder_sites() %>% 
-    left_join(dplyr::select(fticr_meta, formula, HC, OC), by = "formula")
+    left_join(dplyr::select(fticr_meta, formula, HC, OC), by = "formula")%>%
+    mutate(across(Site,str_replace,"Hydric", "East wet"))%>%
+    mutate(across(Site,str_replace,"Mesic", "West wet"))%>%
+    mutate(across(Site,str_replace,"Xeric", "East dry"))
   
 }
 
