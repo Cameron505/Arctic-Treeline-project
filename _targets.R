@@ -71,6 +71,15 @@ list(
   tar_target(Ibutton_data_read,"Data/Temp/ibuttons.csv", format="file"),
   tar_target(Ibutton_data, read.csv(Ibutton_data_read)),
   
+  
+  tar_target(Precip_data_read,"Data/Precip_Kotz_2016_2022.csv", format="file"),
+  tar_target(Precip_data, read.csv(Precip_data_read)),
+  tar_target(gg_Precip, plot_Precip(Precip_data)),
+  
+  tar_target(Daily_Precip_data_read,"Data/Daily_Precip_Kotz_2016_2022.csv", format="file"),
+  tar_target(Daily_Precip_data, read.csv(Daily_Precip_data_read)),
+  tar_target(gg_Daily_Precip, plot_Daily_Precip(Daily_Precip_data)),
+  
   #Merging and predicting soil temperatures based on air temps
   tar_target(Kotz_proccessed_HMX, process_SoilTemp(SoilTempHydric_data,SoilTempMesic_data,SoilTempXeric_data,Kotz_proccessed)),
   

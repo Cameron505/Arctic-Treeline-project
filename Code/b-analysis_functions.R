@@ -4392,4 +4392,67 @@ plot_ph = function(ph_data){
   
 }
 
+#Precip
+plot_Precip = function(Precip_data){
+  
 
+  
+  Precip_data2<- Precip_data%>%
+    pivot_longer(cols=Jan:Dec)%>%
+    mutate(value2=value*25.4)
+    
+  
+ 
+  
+  
+  gg_Precip =
+    Precip_data2 %>%
+    ggplot(aes(x=name, y=value2))+
+    geom_point()+
+    theme_light()+
+    facet_wrap(~Year)+
+    ggtitle("Precip monthly accumulation at Kotz")+
+    ylab("Precip (mm)")+
+    xlab("Month")+
+    theme_CKM()+
+    theme(legend.position = "none",
+          axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+  
+  
+  
+  list(gg_Precip
+  )
+  
+}
+
+
+plot_Daily_Precip = function(Daily_Precip_data){
+  
+
+  
+  Precip_data2<- Daily_Precip_data%>%
+    mutate(value2=as.numeric(Precip)*25.4,Date2=mdy(paste(Month,Day,Year)))
+  
+  
+  
+  
+  
+  gg_Daily_Precip =
+    Precip_data2 %>%
+    ggplot(aes(x=Date2, y=value2))+
+    geom_col()+
+    theme_light()+
+    scale_y_continuous(expand=c(0,0),limits=c(0,39),oob=rescale_none)+
+    #facet_wrap(~Year, scales="free")+
+    ggtitle("Precip at Kotz")+
+    ylab("Precip (mm)")+
+    xlab("Year")+
+    theme_CKM()+
+    theme(legend.position = "none")
+  
+  
+  
+  list(gg_Daily_Precip
+  )
+  
+}

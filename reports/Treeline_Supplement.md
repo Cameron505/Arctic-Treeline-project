@@ -80,6 +80,17 @@ click to open
 
 </details>
 
+## Soil Precip
+
+<details>
+<summary>
+click to open
+</summary>
+
+<img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-5-1.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-5-2.png" width="100%" />
+
+</details>
+
 ## Snowfence Vs. Control
 
 <details>
@@ -95,7 +106,7 @@ K2SO4 No variation in extractable nutrients from snow fence treatment.
 click to open
 </summary>
 
-<img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-5-1.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-5-2.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-5-3.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-5-4.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-5-5.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-5-6.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-5-7.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-5-8.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-5-9.png" width="100%" />
+<img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-6-1.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-6-2.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-6-3.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-6-4.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-6-5.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-6-6.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-6-7.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-6-8.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-6-9.png" width="100%" />
 
 </details>
 
@@ -255,7 +266,7 @@ click to open
 click to open
 </summary>
 
-<img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-7-1.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-7-2.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-7-3.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-7-4.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-7-5.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-7-6.png" width="100%" />
+<img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-8-1.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-8-2.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-8-3.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-8-4.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-8-5.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-8-6.png" width="100%" />
 
 </details>
 
@@ -326,7 +337,7 @@ click to open
 click to open
 </summary>
 
-<img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-9-1.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-9-2.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-9-3.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-9-4.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-9-5.png" width="100%" />
+<img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-10-1.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-10-2.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-10-3.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-10-4.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-10-5.png" width="100%" />
 
 </details>
 
@@ -389,7 +400,7 @@ click to open
 click to open
 </summary>
 
-<img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-11-1.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-11-2.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-11-3.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-11-4.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-11-5.png" width="100%" />
+<img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-12-1.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-12-2.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-12-3.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-12-4.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-12-5.png" width="100%" />
 
 </details>
 
@@ -437,7 +448,7 @@ click to open
 click to open
 </summary>
 
-<img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-13-1.png" width="100%" />
+<img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-14-1.png" width="100%" />
 
 </details>
 
@@ -449,7 +460,7 @@ click to open
 </summary>
 
 The inaccessible TRS compiled the same way as N and P.
-<img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-14-1.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-14-2.png" width="100%" />
+<img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-15-1.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-15-2.png" width="100%" />
 
 </details>
 
@@ -469,7 +480,7 @@ increasing again until the end of 2019.
 <summary>
 click to open
 </summary>
-<img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-15-1.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-15-2.png" width="100%" />
+<img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-16-1.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-16-2.png" width="100%" />
 </details>
 
 #### Ancillary extraction ANOVA results
@@ -532,7 +543,7 @@ the interaction between Site:year explained ~10% of the variation.
 click to open
 </summary>
 
-<img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-17-1.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-17-2.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-17-3.png" width="100%" />
+<img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-18-1.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-18-2.png" width="100%" /><img src="Treeline_Supplement_files/figure-gfm/unnamed-chunk-18-3.png" width="100%" />
 
 </details>
 
@@ -594,7 +605,7 @@ Unique counts by site:
 Session Info
 </summary>
 
-Date run: 2023-10-05
+Date run: 2023-10-06
 
     ## R version 4.2.3 (2023-03-15 ucrt)
     ## Platform: x86_64-w64-mingw32/x64 (64-bit)
