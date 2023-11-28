@@ -746,7 +746,7 @@ Unique counts by site:
 Session Info
 </summary>
 
-Date run: 2023-10-06
+Date run: 2023-10-31
 
     ## R version 4.2.3 (2023-03-15 ucrt)
     ## Platform: x86_64-w64-mingw32/x64 (64-bit)
@@ -789,21 +789,22 @@ Date run: 2023-10-06
     ## [34] xfun_0.39             globals_0.16.2        ps_1.7.5             
     ## [37] timechange_0.2.0      mime_0.12             miniUI_0.1.1.1       
     ## [40] lifecycle_1.0.3       rstatix_0.7.2         future_1.33.0        
-    ## [43] MASS_7.3-58.2         microbenchmark_1.4.10 hms_1.1.3            
-    ## [46] promises_1.2.0.1      parallel_4.2.3        yaml_2.3.7           
-    ## [49] memoise_2.0.1         ggfun_0.1.2           yulab.utils_0.0.7    
-    ## [52] labelled_2.12.0       stringi_1.7.12        highr_0.10           
-    ## [55] klaR_1.7-2            AlgDesign_1.2.1       PNWColors_0.1.0      
-    ## [58] rlang_1.1.1           pkgconfig_2.0.3       evaluate_0.21        
-    ## [61] labeling_0.4.2        patchwork_1.1.2       processx_3.8.2       
-    ## [64] tidyselect_1.2.0      parallelly_1.36.0     magrittr_2.0.3       
-    ## [67] R6_2.5.1              generics_0.1.3        base64url_1.4        
-    ## [70] combinat_0.0-8        pillar_1.9.0          haven_2.5.3          
-    ## [73] withr_2.5.0           mgcv_1.8-42           abind_1.4-5          
-    ## [76] car_3.1-2             questionr_0.7.8       utf8_1.2.3           
-    ## [79] rmarkdown_2.23        tzdb_0.4.0            future.callr_0.8.1   
-    ## [82] data.table_1.14.8     callr_3.7.3           digest_0.6.33        
-    ## [85] xtable_1.8-4          httpuv_1.6.11         gridGraphics_0.5-1   
-    ## [88] munsell_0.5.0         ggplotify_0.1.2
+    ## [43] MASS_7.3-58.2         microbenchmark_1.4.10 ragg_1.2.5           
+    ## [46] hms_1.1.3             promises_1.2.0.1      parallel_4.2.3       
+    ## [49] yaml_2.3.7            memoise_2.0.1         ggfun_0.1.2          
+    ## [52] yulab.utils_0.0.7     labelled_2.12.0       stringi_1.7.12       
+    ## [55] highr_0.10            klaR_1.7-2            AlgDesign_1.2.1      
+    ## [58] PNWColors_0.1.0       systemfonts_1.0.4     rlang_1.1.1          
+    ## [61] pkgconfig_2.0.3       evaluate_0.21         labeling_0.4.2       
+    ## [64] patchwork_1.1.2       processx_3.8.2        tidyselect_1.2.0     
+    ## [67] parallelly_1.36.0     magrittr_2.0.3        R6_2.5.1             
+    ## [70] generics_0.1.3        base64url_1.4         combinat_0.0-8       
+    ## [73] pillar_1.9.0          haven_2.5.3           withr_2.5.0          
+    ## [76] mgcv_1.8-42           abind_1.4-5           car_3.1-2            
+    ## [79] questionr_0.7.8       utf8_1.2.3            rmarkdown_2.23       
+    ## [82] tzdb_0.4.0            future.callr_0.8.1    data.table_1.14.8    
+    ## [85] callr_3.7.3           digest_0.6.33         xtable_1.8-4         
+    ## [88] httpuv_1.6.11         textshaping_0.3.6     gridGraphics_0.5-1   
+    ## [91] munsell_0.5.0         ggplotify_0.1.2
 
 </details>

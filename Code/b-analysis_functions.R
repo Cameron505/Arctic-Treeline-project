@@ -1500,7 +1500,10 @@ plot_Extract_Seasonal = function(Extract_processed_Seasonal){
     scale_y_continuous(limits=c(0,25000),oob=rescale_none,expand = c(0, 0))+
     theme( axis.text.x.top = element_blank(),
            axis.ticks.x.top = element_blank())+
-    scale_colour_manual(values=cbPalette2)+
+    scale_color_manual(name="Site",
+                       values = c("#009E73", "#56B4E9", "#E69F00" ),
+                      breaks=c("#009E73", "#56B4E9", "#E69F00" ),
+                      labels=c("East dry", "East wet", "West wet"))+
     scale_fill_manual(values=cbPalette2)+
     scale_x_break(breaks=as.Date(c("2017-08-26","2018-06-03","2018-08-24","2019-06-06","2019-08-16","2020-08-30","2020-09-06","2021-06-04")))+
     scale_x_date(labels = date_format("%m-%Y"))+
@@ -2148,7 +2151,7 @@ plot_Extract_all = function(Extract_processed_all){
     scale_y_continuous(oob=rescale_none,expand = c(0, 0))+
     facet_wrap(~YEAR, scale="free_x", nrow=1)+
     scale_x_date(labels = date_format("%m"))+
-    scale_colour_manual(values=cbPalette2)+
+    scale_colour_manual(values= c("#009E73","#E69F00", "#56B4E9"))+
     scale_fill_manual(values=cbPalette2)+
     labs(x = "Month", 
          y = bquote('Microbial biomass ('*mu*'g C'~g^-1 ~ dry ~ soil*')'))+
@@ -2202,21 +2205,23 @@ plot_Extract_all = function(Extract_processed_all){
     filter(YEAR %in% c("2017","2018","2019") )%>%
     ggplot(aes(x=DATE, y=MBC, color=Site))+
     stat_summary(fun="mean",geom = "line",size = 1.3) +
-    stat_summary(fun="mean",geom = "point",size = 5) +
-    stat_summary(fun.data = mean_se, geom = "errorbar", size=0.8, color="black")+
+    stat_summary(fun="mean",geom = "point",size = 1.9) +
+    stat_summary(fun.data = mean_se, geom = "errorbar", size=0.8)+
     facet_wrap(~YEAR, scale="free_x")+
     theme_light()+
     theme(title = element_blank(),strip.text.x = element_blank(),
           axis.text.x = element_text(angle=90),
-          axis.text=element_text(size=20),
-          axis.title=element_text(size=25,face="bold"),
+          axis.text=element_text(size=18),
+          axis.title=element_text(size=20,face="bold"),
           legend.text = element_text(size=20))+
-    scale_x_date(date_labels = "%b/%d")+
-    scale_colour_manual(values= cbPalette2)+
+    scale_x_date(date_labels = "%m/%Y")+
+    scale_colour_manual(values= c("#009E73","#E69F00", "#56B4E9"))+
     labs(x = "Date", 
-         y = bquote('Microbial biomass ('*mu*'g C'~g^-1 ~ dry ~ soil*')'))+
-    ggtitle("MBC")
-  ggsave(gg_MBC_3year,filename="MBC_3year.png","Graphs/", device= "png" ,width = 18, height = 12 , units = "in")
+         y = expression(atop('Microbial biomass',paste('('*mu*'g C'~g^-1 ~ dry ~ soil*')'))))+
+    ggtitle("Microbial biomass carbon")+
+    theme(legend.position = "bottom")
+  
+  ggsave(gg_MBC_3year,filename="MBC_3year.png","Graphs/", device= "png" ,width = 18, height = 8 , units = "in")
   
   list("all NH4"= gg_NH4_Extract,
        "all NO3"= gg_NO3_Extract,
@@ -4109,8 +4114,8 @@ plot_soilTemp=function(SoilTempHydric_data,SoilTempMesic_data,SoilTempXeric_data
     geom_line(data=hydric.met.station.daily,aes(x = as.Date(Date), y = Control_10.mean, color="#56B4E9"),lwd=1) +
     guides(fill=guide_legend(title= "Site"))+
     scale_color_manual(name="Site",
-                       values = c("#009E73", "#56B4E9", "#E69F00" ),
-                      breaks=c("#009E73", "#56B4E9", "#E69F00" ),
+                       values = c("#009E73", "#E69F00", "#56B4E9" ),
+                      breaks=c("#009E73", "#E69F00", "#56B4E9" ),
                       labels=c("East dry", "East wet", "West wet"))+
     xlab("Year")+
     ylab("°C")+
@@ -4132,7 +4137,8 @@ plot_soilTemp=function(SoilTempHydric_data,SoilTempMesic_data,SoilTempXeric_data
     theme( axis.text.x.top = element_blank(),
            axis.ticks.x.top = element_blank(),
            legend.position = "none"
-           )
+           )+
+      theme_CKM2()
     
     gg_soilTemp3= Xeric.met.station.daily %>%
       filter(Date < '2020-01-01')%>%
@@ -4143,14 +4149,15 @@ plot_soilTemp=function(SoilTempHydric_data,SoilTempMesic_data,SoilTempXeric_data
       geom_line(data=hydric.met.station.daily%>%
                   filter(Date < '2020-01-01'),aes(x = as.Date(Date), y = Control_10.mean, color="#E69F00" )) +
       guides(fill=guide_legend(title= "Legend"))+
-      scale_color_manual(name="Legend",
-                         values = c("#009E73", "#56B4E9", "#E69F00" ),
-                         breaks=c("#009E73", "#56B4E9", "#E69F00" ),
-                         labels=c("East dry", "West wet", "East wet"))+
+      scale_color_manual(name="Site",
+                         values = c("#009E73", "#E69F00", "#56B4E9" ),
+                         breaks=c("#009E73", "#E69F00", "#56B4E9" ),
+                         labels=c("East dry", "East wet", "West wet"))+
       xlab("Year")+
       ylab("Soil temperature at 10 cm")+
     theme( axis.text.x.top = element_blank(),
-           axis.ticks.x.top = element_blank())
+           axis.ticks.x.top = element_blank())+
+      theme_CKM2()
   
   list(gg_soilTemp=gg_soilTemp,
        gg_soilTemp2=gg_soilTemp2,
@@ -4216,9 +4223,9 @@ plot_soilwater=function(SoilTempHydric_data,SoilTempMesic_data,SoilTempXeric_dat
     geom_line(data=hydric.met.station.daily,aes(x = as.Date(Date), y = Control_10_sw.mean, color="#E69F00" ),lwd=1) +
     guides(fill=guide_legend(title= "Site"))+
     scale_color_manual(name="Site",
-                       values = c("#009E73", "#56B4E9", "#E69F00" ),
-                       breaks=c("#009E73", "#56B4E9", "#E69F00" ),
-                       labels=c("East dry", "West wet", "East wet"))+
+                       values = c("#009E73", "#E69F00", "#56B4E9" ),
+                       breaks=c("#009E73", "#E69F00", "#56B4E9" ),
+                       labels=c("East dry", "East wet", "West wet"))+
     xlab("Year")+
     ylab("Soil water content (v/v)")+
     ggtitle("Soil moisture at 10 cm")+
@@ -4238,7 +4245,8 @@ plot_soilwater=function(SoilTempHydric_data,SoilTempMesic_data,SoilTempXeric_dat
     theme( axis.text.x.top = element_blank(),
            axis.ticks.x.top = element_blank(),
            legend.position = "none"
-    )
+    )+
+    theme_CKM2()
   
   gg_soilwater3= Xeric.met.station.daily %>%
     filter(Date < '2020-01-01')%>%
@@ -4249,14 +4257,15 @@ plot_soilwater=function(SoilTempHydric_data,SoilTempMesic_data,SoilTempXeric_dat
     geom_line(data=hydric.met.station.daily%>%
                 filter(Date < '2020-01-01'),aes(x = as.Date(Date), y = Control_10_sw.mean, color="#E69F00" )) +
     guides(fill=guide_legend(title= "Legend"))+
-    scale_color_manual(name="Legend",
-                       values = c("#009E73", "#56B4E9", "#E69F00" ),
-                       breaks=c("#009E73", "#56B4E9", "#E69F00" ),
-                       labels=c("East dry", "West wet", "East wet"))+
+    scale_color_manual(name="Site",
+                       values = c("#009E73", "#E69F00", "#56B4E9" ),
+                       breaks=c("#009E73", "#E69F00", "#56B4E9" ),
+                       labels=c("East dry", "East wet", "West wet"))+
     xlab("Year")+
     ylab("Soil water content (v/v)")+
     theme( axis.text.x.top = element_blank(),
-           axis.ticks.x.top = element_blank())
+           axis.ticks.x.top = element_blank())+
+    theme_CKM2()
   
   list(gg_soilwater=gg_soilwater,
        gg_soilwater2=gg_soilwater2,

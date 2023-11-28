@@ -1,5 +1,5 @@
 name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
-.Random.seed|object|59f75b45a021c483|||||||||||||||
+.Random.seed|object|c78bda81a143104a|||||||||||||||
 AggieBranch_data|stem|12d4c7929160c6de|bfd62e854877adef|4a387ba4dd249977|937008251||t19592.7899317894s|4675da1dfefe1690|723|rds|local|vector|||0||
 AggieBranch_data_read|stem|89dabe2c7d5b3257|1608936b3c10e1a9|ef46db3751d8e999|-1220160640|Data/tree/snowfence.branch.primary.growth.csv|t19592.7881879366s|78a7bfd1e2391d56|3654|file|local|vector|||0||
 AggieNNeedle_data|stem|265128cc75b6b480|09f540269ff96343|e97f36d983470c83|1321343072||t19593.5337842168s|ad449b3d431fb011|683|rds|local|vector|||0||
@@ -41,12 +41,12 @@ gg_aggie_PoreWater_Lysim|stem|96d56723460c60ae|edced9c5b9a65be0|43e356a4f22cb55c
 gg_aggie_PoreWater_Seasonal|stem|88d83e3324043184|7fd3533eb2ff79ef|6b1b641dc5f88084|2145608582||t19629.5623318623s|ab397b2101dbf482|2598781|rds|local|vector|||1.07||
 gg_aggie_PoreWater_Snowfence_Control|stem|ed0f5aa9f0d37170|11aa4d53abf3770f|e0ee2c10f43f515d|-1957749862||t19629.5623428458s|5919895324907b0a|1017402|rds|local|vector|||0.7||
 gg_Daily_Precip|stem|76751b6507772cb9|34e3aeaa1f664ccf|9491a4513bd095f1|1105758512||t19637.0344619895s|4239c64c667b6f74|84245|rds|local|vector|||0.39|1m22mThere were 2 warnings in mutate.The first warning was1m22m36mℹ39m In argument value2  as.numericPrecip  25.4.Caused by warning33m39m NAs introduced by coercion1m22m36mℹ39m Run dplyrlast_dplyr_warnings to see the 1 remaining warning.|
-gg_Extract_all|stem|fe5ddba303062b23|2ca0735015e07a33|7be56fcbf2467783|1884533364||t19629.5626187803s|424b2beb8f0584a1|2357592|rds|local|vector|||6.4|1m22mRemoved 83 rows containing nonfinite values stat_summary.. 1m22mRemoved 83 rows containing nonfinite values stat_summary.. 1m22mRemoved 83 rows containing nonfinite values stat_summary.. 1m22mRemoved 83 rows containing nonfinite values stat_summary.. 1m22mRemoved 83 rows containing nonfinite values stat_summary.. 1m22mRemoved 83 rows containing nonfinite values stat_summary.. 1m22mRemoved 83 rows containing nonfinite values stat_summary.. 1m22mRemoved 83 rows containing nonfinite values stat_summary.. 1m22mRemoved 83 rows containing nonfinite values stat_summary.. 1m22mRemoved 83 rows containing nonfinite values stat_summary.. 1m22mRemoved 83 rows containing nonfinite values stat_summary.. 1m22mRemoved 83 rows containing nonfinite values stat_summary.|
+gg_Extract_all|stem|422878201329e194|2ca0735015e07a33|d513117524c59802|1884533364||t19661.6572374617s|089e0327ebbd50a7|2357668|rds|local|vector|||4.8|1m22mRemoved 83 rows containing nonfinite values stat_summary.. 1m22mRemoved 83 rows containing nonfinite values stat_summary.. 1m22mRemoved 83 rows containing nonfinite values stat_summary.. 1m22mRemoved 83 rows containing nonfinite values stat_summary.. 1m22mRemoved 83 rows containing nonfinite values stat_summary.. 1m22mRemoved 83 rows containing nonfinite values stat_summary.. 1m22mRemoved 83 rows containing nonfinite values stat_summary.. 1m22mRemoved 83 rows containing nonfinite values stat_summary.. 1m22mRemoved 83 rows containing nonfinite values stat_summary.. 1m22mRemoved 83 rows containing nonfinite values stat_summary.. 1m22mRemoved 83 rows containing nonfinite values stat_summary.. 1m22mRemoved 83 rows containing nonfinite values stat_summary.|
 gg_Extract_all_H2O|stem|5cdc852eaea18ece|98c10f951670f616|46ae1fe1dd7a5234|1967568377||t19629.5623648561s|9e692f625809b962|876482|rds|local|vector|||0.36|1m22mUsing size aesthetic for lines was deprecated in ggplot2 3.4.0.36mℹ39m Please use linewidth instead.|
 gg_Extract_Fert|stem|70a22424fc309c85|c8330b6f89c09bf5|d8b10a339060408f|1214916318||t19599.6422841654s|d5bdf05b7d7f2784|1475684|rds|local|vector|||2.03|1m22mThere were 2 warnings in mutate.The first warning was1m22m36mℹ39m In argument NH4  .Primitiveas.doubleNH4.Caused by warning33m39m NAs introduced by coercion1m22m36mℹ39m Run dplyrlast_dplyr_warnings to see the 1 remaining warning.. 1m22mThere were 2 warnings in mutate.The first warning was1m22m36mℹ39m In argument NH4  .Primitiveas.doubleNH4.Caused by warning33m39m NAs introduced by coercion1m22m36mℹ39m Run dplyrlast_dplyr_warnings to see the 1 remaining warning.. 1m22mThere were 2 warnings in mutate.The first warning was1m22m36mℹ39m In argument NH4  .Primitiveas.doubleNH4.Caused by warning33m39m NAs introduced by coercion1m22m36mℹ39m Run dplyrlast_dplyr_warnings to see the 1 remaining warning.. 1m22mThere were 2 warnings in mutate.The first warning was1m22m36mℹ39m In argument NH4  .Primitiveas.doubleNH4.Caused by warning33m39m NAs introduced by coercion1m22m36mℹ39m Run dplyrlast_dplyr_warnings to see the 1 remaining warning.. 1m22mThere were 2 warnings in mutate.The first warning was1m22m36mℹ39m In argument NH4  .Primitiveas.doubleNH4.Caused by warning33m39m NAs introduced by coercion1m22m36mℹ39m Run dplyrlast_dplyr_warnings to see the 1 remaining warning.. 1m22mThere were 2 warnings in mutate.The first warning was1m22m36mℹ39m In argument NH4  .Primitiveas.doubleNH4.Caused by warning33m39m NAs introduced by coercion1m22m36mℹ39m Run dplyrlast_dplyr_warnings to see the 1 remaining warning.. 1m22mThere were 2 warnings in mutate.The first warning was1m22m36mℹ39m In argument NH4  .Primitiveas.doubleNH4.Caused by warning33m39m NAs introduced by coercion1m22m36mℹ39m Run dplyrlast_dplyr_warnings to see the 1 remaining warning.. 1m22mThere were 2 warnings i|
 gg_Extract_H2O_Fert|stem|124cf602ba684e9f|59c60757d8834bde|dd3b0e856ca8700c|806351818||t19599.6422975555s|9678349ad361e3dc|892585|rds|local|vector|||0.82|1m22mThere was 1 warning in mutate.1m22m36mℹ39m In argument TRS.H2O  .Primitiveas.doubleTRS.H2O.Caused by warning33m39m NAs introduced by coercion. 1m22mThere was 1 warning in mutate.1m22m36mℹ39m In argument TRS.H2O  .Primitiveas.doubleTRS.H2O.Caused by warning33m39m NAs introduced by coercion. 1m22mThere was 1 warning in mutate.1m22m36mℹ39m In argument TRS.H2O  .Primitiveas.doubleTRS.H2O.Caused by warning33m39m NAs introduced by coercion. 1m22mThere was 1 warning in mutate.1m22m36mℹ39m In argument TRS.H2O  .Primitiveas.doubleTRS.H2O.Caused by warning33m39m NAs introduced by coercion. 1m22mThere was 1 warning in mutate.1m22m36mℹ39m In argument TRS.H2O  .Primitiveas.doubleTRS.H2O.Caused by warning33m39m NAs introduced by coercion|
 gg_Extract_lysim|stem|b236344668b991a4|2db63df9e72a8c6e|e9a21344a3f7e0bd|-520152490||t19599.6427400844s|5232bedde87a43b9|250177|rds|local|vector|||1.14||
-gg_Extract_Seasonal|stem|5760995d6654f874|2f0509d693760f64|4ac584788796ecb9|423898810||t19629.5623919831s|5f5f98f6d82bee39|1816331|rds|local|vector|||1.8||
+gg_Extract_Seasonal|stem|706a0e8d7f286003|2f0509d693760f64|89fdf9aba54b9ac0|423898810||t19661.6571704398s|93b2731e8132b8f1|1816441|rds|local|vector|||2.2|1m22mUsing size aesthetic for lines was deprecated in ggplot2 3.4.0.36mℹ39m Please use linewidth instead.|
 gg_Extract_Seasonal_H2O|stem|08a011d36dc88141|dff3316bd8e12fe6|b020174bd460dde8|-608167118||t19629.5624355215s|4729a365bd457e46|562741|rds|local|vector|||0.53||
 gg_fticr_Domains|stem|3b3810ebf5d8a8ee|f102f5c50923e278|7e1289d3e7638bdb|-885151625||t19604.7931940486s|fc8e72761a714e6e|1176876|rds|local|vector|||0.17||
 gg_pca_by_site|stem|dc120201f998987d|ee3fd7dafe965951|5a7493af98881076|-2097505288||t19629.6685476415s|8877e3038e3e0a53|114611|rds|local|vector|||0.07||
@@ -93,12 +93,12 @@ ph_data_read|stem|9bb1aa7c7eedafc8|113f4ea2895ceca4|ef46db3751d8e999|-514991616|
 plot_AggieNNeedle|function|93183ed73ebf45d4|||||||||||||||
 plot_BranchExtension|function|495b850ae989155a|||||||||||||||
 plot_Daily_Precip|function|d7a02a092a665c65|||||||||||||||
-plot_Extract_all|function|fa8da4c10de9608d|||||||||||||||
+plot_Extract_all|function|492fbdfccd1fe210|||||||||||||||
 plot_Extract_all_H2O|function|235c6430db253f21|||||||||||||||
 plot_Extract_Fert|function|bab2fdb49e87c3d0|||||||||||||||
 plot_Extract_Fert_H2O|function|2ac5f895d01302cf|||||||||||||||
 plot_Extract_lysim|function|907bd4f613717dc8|||||||||||||||
-plot_Extract_Seasonal|function|489c3c5b5a0cd5c5|||||||||||||||
+plot_Extract_Seasonal|function|8eaec1fc1139ecb9|||||||||||||||
 plot_Extract_Seasonal_H2O|function|1340a550c5a7e0c7|||||||||||||||
 plot_Extract_Snowfence|function|abab911cce274af4|||||||||||||||
 plot_Extract_Snowfence_H2O|function|c78689319b3013ee|||||||||||||||
@@ -129,9 +129,9 @@ plot_resin_Ancillary|function|52f3aa435bb9117e|||||||||||||||
 plot_resin_Fert|function|923d336568b902f5|||||||||||||||
 plot_resin_Snowfence|function|de173e4aa430832c|||||||||||||||
 plot_seasonal_Mesic_Hydric_polar|function|4aa8047a3c25bde6|||||||||||||||
-plot_soilTemp|function|409698e19ef3337c|||||||||||||||
+plot_soilTemp|function|e2d9749379488b17|||||||||||||||
 plot_soilTempwater|function|1e78fcf95e6cd191|||||||||||||||
-plot_soilwater|function|bdd625c6e972dfe7|||||||||||||||
+plot_soilwater|function|ec6f2fae49b48ea2|||||||||||||||
 plot_Tree|function|31ff7f18c14340b8|||||||||||||||
 plot_unique|function|164c6dcd8e25c3a3|||||||||||||||
 plot_unique2|function|eb1edb3e97db85dd|||||||||||||||
@@ -175,16 +175,16 @@ relabund_cores_nonpolar|stem|e629b5ae5fa42c39|3f4b0d37f6463632|21425b89bf604030|
 relabund_cores_polar|stem|7f71e46ecf266658|d0e345c965f3794b|19c04be309805cbd|-1229788809||t19579.6241252205s|36806297027e0d4f|3933|rds|local|vector|||0.02||
 reorder_seasons|function|0e9a5772fbdce6bb|||||||||||||||
 reorder_sites|function|9feeff82bcccca8d|||||||||||||||
-report|stem|81174c688681e488|3a1fc72a4f953c29|eecd3b0128e98ff4|-237041703|reports/Aggie_report.md*reports/Aggie_report.Rmd*reports/Aggie_report_files|t19629.6793824773s|d4372c9807a7bdb0|60272|file|local|vector|||774.33||
-report2|stem|3c45e208f4651395|aa593c9134eb9646|c073e86fb4abce71|-1253350427|reports/Aggie_Short_report.md*reports/Aggie_Short_report.Rmd*reports/Aggie_Short_report_files|t19636.5356152464s|343923ce39fad97b|63798|file|local|vector|||237.2|font family not found in Windows font database|
-report3|stem|b572f6b613ad62ef|2b0336f2e8ed44c6|c428bc86d1f1ae62|2107602062|reports/Aggie_Seasonal.md*reports/Aggie_Seasonal.Rmd*reports/Aggie_Seasonal_files|t19629.6703844332s|20d817cbb11c07d1|51256|file|local|vector|||142.78||
-report4|stem|8a06cb5454c1f3fe|4aef1a2b6665f71e|8c47b0f8521b4856|1475291438|reports/Treeline_Supplement.md*reports/Treeline_Supplement.Rmd*reports/Treeline_Supplement_files|t19637.0365029185s|2ff06d56c06efd28|1470090|file|local|vector|||169.49|font family not found in Windows font database|
+report|stem|f0ee6e8aac807cd0|3a1fc72a4f953c29|f1ccd9c7587cfbce|-237041703|reports/Aggie_report.md*reports/Aggie_report.Rmd*reports/Aggie_report_files|t19661.6669084101s|4a8ff00ed7eb5aa1|7041891|file|local|vector|||714.2||
+report2|stem|601c24070dbfb6df|aa593c9134eb9646|6f59716d6cae1a5a|-1253350427|reports/Aggie_Short_report.md*reports/Aggie_Short_report.Rmd*reports/Aggie_Short_report_files|t19661.6694134568s|c0f8613efe91386b|1970354|file|local|vector|||214.74|font family not found in Windows font database|
+report3|stem|362033845b6838f9|2b0336f2e8ed44c6|059b5c65a2fe9ac3|2107602062|reports/Aggie_Seasonal.md*reports/Aggie_Seasonal.Rmd*reports/Aggie_Seasonal_files|t19661.6586193169s|5e96b306447ff935|548138|file|local|vector|||108.55||
+report4|stem|0add65602c67c7c3|4aef1a2b6665f71e|69ff437ab8fa70c0|1475291438|reports/Treeline_Supplement.md*reports/Treeline_Supplement.Rmd*reports/Treeline_Supplement_files|t19661.6711565721s|289380a5a1dc37f1|1471890|file|local|vector|||150.09|font family not found in Windows font database|
 Resin_data|stem|8af8b2cfe6518f42|81922cd386115565|99bf62ff8fe0f311|736601963||t19579.6237611038s|d3d4b9edfd4d4573|12511|rds|local|vector|||0||
 Resin_data_read|stem|839712328f6f99dc|e10d3fd426b3ece2|ef46db3751d8e999|-1045475728|Data/Resin.csv|t19530.5708798384s|b59cf481f092d4e4|49828|file|local|vector|||0||
 Resin_processed|stem|a6a024761ba64276|7831cfc8de3e0329|15a698bccfdd9e60|1865690580||t19629.5536897374s|2fd6dc80b2d96f65|12731|rds|local|vector|||0.4|1m22mThere was 1 warning in mutate.1m22m36mℹ39m In argument acrossSite, str_replace, Hydric, East wet.Caused by warning1m22m33m39m The ... argument of across is deprecated as of dplyr 1.1.0.Supply arguments directly to .fns through an anonymous function instead.   Previously  acrossab, mean, na.rm  TRUE   Now  acrossab, \x meanx, na.rm  TRUE|
-Soil_Temp|stem|b98da08e1311bd93|468a9f44831adfc0|b20a4e19e5317ba1|848823142||t19629.6685429518s|c7965c8c619266fb|11541615|rds|local|vector|||0.74||
-Soil_Water|stem|51f4c50cc64e7e2e|979aa51b60b43bef|8ee740c26949a2ec|1842849616||t19629.5654146059s|e2a8bc080bde84fb|11467435|rds|local|vector|||0.61||
-Soil_WaterTemp|stem|0080db3d55c671c4|ea85226e5ea6b00c|95242d0dd6e27d5b|51041755||t19629.6686813084s|068af999e287a48f|25676869|rds|local|vector|||0.87|1m22mRemoved 4 rows containing missing values geom_line.. 1m22mRemoved 4 rows containing missing values geom_line.|
+Soil_Temp|stem|4079743bec1edc5f|468a9f44831adfc0|097ebe49dce29742|848823142||t19661.6570867263s|50c27486eb6d2fcf|11553066|rds|local|vector|||0.7||
+Soil_Water|stem|f6f550d7b8842250|979aa51b60b43bef|83ca6f83949597ad|1842849616||t19661.6571367532s|1f2b522f54c3570e|11477229|rds|local|vector|||0.7||
+Soil_WaterTemp|stem|64f5b5a1130afa46|ea85226e5ea6b00c|3c4c06d5f2220bca|51041755||t19661.6573347338s|dddb24a10232e3ee|25671866|rds|local|vector|||0.65|1m22mRemoved 4 rows containing missing values geom_line.. 1m22mRemoved 4 rows containing missing values geom_line.|
 SoilTempHydric_data|stem|149512df9df8a0a9|33588cf9d29ea4a4|4417306b884caa45|-624821501||t19592.7851714987s|4600180130a5303a|1976822|rds|local|vector|||1.22||
 SoilTempHydric_data_read|stem|6d5877d65892dadb|4a8c624dec8bda66|ef46db3751d8e999|569305951|Data/Temp/Hydric Met Station.csv|t19157.7760310372s|f48e8e2d27903e55|9077655|file|local|vector|||0||
 SoilTempMesic_data|stem|3be677b38204ce78|4e9c80b4fb170667|c5c15032ad3f5def|-148513562||t19592.7851311338s|fff3289012ad2621|1843018|rds|local|vector|||0.94||
