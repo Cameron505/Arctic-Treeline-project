@@ -238,10 +238,10 @@ click to open
 | NH4       | MONTH:Site      |     2 |   299 |   3.1565002 | 0.0439968 | FALSE                        | \*       |
 | NH4       | YEAR:Site       |     2 |   299 |   0.1679324 | 0.8454906 | FALSE                        | NA       |
 | NH4       | MONTH:YEAR:Site |     2 |   299 |   9.9729752 | 0.0000641 | FALSE                        | \*       |
-| NO3       | MONTH           |     1 |   299 |  15.8736992 | 0.0000851 | FALSE                        | \*       |
-| NO3       | YEAR            |     1 |   299 | 191.6510913 | 0.0000000 | TRUE                         | \*       |
-| NO3       | Site            |     2 |   299 |   5.4194677 | 0.0048754 | FALSE                        | \*       |
-| NO3       | MONTH:YEAR      |     1 |   299 |  79.7173905 | 0.0000000 | TRUE                         | \*       |
+| NO3       | MONTH           |     1 |   299 |  15.8736994 | 0.0000851 | FALSE                        | \*       |
+| NO3       | YEAR            |     1 |   299 | 191.6510926 | 0.0000000 | TRUE                         | \*       |
+| NO3       | Site            |     2 |   299 |   5.4194678 | 0.0048754 | FALSE                        | \*       |
+| NO3       | MONTH:YEAR      |     1 |   299 |  79.7173910 | 0.0000000 | TRUE                         | \*       |
 | NO3       | MONTH:Site      |     2 |   299 |   2.7517372 | 0.0654336 | FALSE                        | NA       |
 | NO3       | YEAR:Site       |     2 |   299 |   0.7235968 | 0.4858520 | FALSE                        | NA       |
 | NO3       | MONTH:YEAR:Site |     2 |   299 |   0.5220105 | 0.5938662 | FALSE                        | NA       |
@@ -267,8 +267,8 @@ click to open
 | TRS       | YEAR:Site       |     2 |   299 |   0.7870434 | 0.4561293 | FALSE                        | NA       |
 | TRS       | MONTH:YEAR:Site |     2 |   299 |   1.3061226 | 0.2724092 | FALSE                        | NA       |
 | phenolics | MONTH           |     1 |   300 |   7.9247530 | 0.0051990 | FALSE                        | \*       |
-| phenolics | YEAR            |     1 |   300 |  19.5917324 | 0.0000134 | FALSE                        | \*       |
-| phenolics | Site            |     2 |   300 |   2.2015022 | 0.1124212 | FALSE                        | NA       |
+| phenolics | YEAR            |     1 |   300 |  19.5917326 | 0.0000134 | FALSE                        | \*       |
+| phenolics | Site            |     2 |   300 |   2.2015022 | 0.1124211 | FALSE                        | NA       |
 | phenolics | MONTH:YEAR      |     1 |   300 |   3.4818756 | 0.0630201 | FALSE                        | NA       |
 | phenolics | MONTH:Site      |     2 |   300 |   0.9607031 | 0.3837977 | FALSE                        | NA       |
 | phenolics | YEAR:Site       |     2 |   300 |   1.8956076 | 0.1520220 | FALSE                        | NA       |
@@ -389,14 +389,14 @@ Biomass LME significant comparisons
 | MBC     | YEAR:Site       |     2 |   266 |  5.8348642 | 0.0033110 | FALSE                        | \*       |
 | MBC     | MONTH:YEAR:Site |     2 |   266 |  4.3318485 | 0.0140828 | FALSE                        | \*       |
 | MBN     | MONTH           |     1 |   266 |  3.4767076 | 0.0633397 | FALSE                        | NA       |
-| MBN     | YEAR            |     1 |   266 | 83.9213198 | 0.0000000 | TRUE                         | \*       |
-| MBN     | Site            |     2 |   266 |  1.9146197 | 0.1494237 | FALSE                        | NA       |
+| MBN     | YEAR            |     1 |   266 | 83.9213197 | 0.0000000 | TRUE                         | \*       |
+| MBN     | Site            |     2 |   266 |  1.9146196 | 0.1494237 | FALSE                        | NA       |
 | MBN     | MONTH:YEAR      |     1 |   266 |  0.8526888 | 0.3566297 | FALSE                        | NA       |
 | MBN     | MONTH:Site      |     2 |   266 | 12.7077452 | 0.0000054 | FALSE                        | \*       |
 | MBN     | YEAR:Site       |     2 |   266 |  5.6809231 | 0.0038375 | FALSE                        | \*       |
 | MBN     | MONTH:YEAR:Site |     2 |   266 |  9.5344615 | 0.0001002 | FALSE                        | \*       |
 | Mic.PO4 | MONTH           |     1 |   269 |  1.1502124 | 0.2844659 | FALSE                        | NA       |
-| Mic.PO4 | YEAR            |     1 |   269 | 20.7016330 | 0.0000081 | FALSE                        | \*       |
+| Mic.PO4 | YEAR            |     1 |   269 | 20.7016329 | 0.0000081 | FALSE                        | \*       |
 | Mic.PO4 | Site            |     2 |   269 |  1.0203188 | 0.3618707 | FALSE                        | NA       |
 | Mic.PO4 | MONTH:YEAR      |     1 |   269 |  3.4249215 | 0.0653156 | FALSE                        | NA       |
 | Mic.PO4 | MONTH:Site      |     2 |   269 |  2.1748958 | 0.1156139 | FALSE                        | NA       |
@@ -514,31 +514,31 @@ click to open LME results
 
 | analyte | variable                  | numDF | denDF |    F-value |   p_value | p_value == round(p_value, 3) | asterisk |
 |:--------|:--------------------------|------:|------:|-----------:|----------:|:-----------------------------|:---------|
-| NH4     | MONTH                     |     1 |  2519 |  23.613547 | 0.0000012 | FALSE                        | \*       |
-| NH4     | YEAR                      |     1 |  2519 | 222.858138 | 0.0000000 | TRUE                         | \*       |
+| NH4     | MONTH                     |     1 |  2519 |  23.613546 | 0.0000012 | FALSE                        | \*       |
+| NH4     | YEAR                      |     1 |  2519 | 222.858136 | 0.0000000 | TRUE                         | \*       |
 | NH4     | MONTH:YEAR                |     1 |  2519 |  26.076260 | 0.0000004 | FALSE                        | \*       |
 | NH4     | YEAR:treatment            |     3 |  2519 |  17.072934 | 0.0000000 | FALSE                        | \*       |
 | NH4     | MONTH:YEAR:treatment      |     3 |  2519 |   6.656544 | 0.0001785 | FALSE                        | \*       |
 | NH4     | YEAR:Site:treatment       |     6 |  2519 |   2.142476 | 0.0457770 | FALSE                        | \*       |
-| NH4     | MONTH:YEAR:Site:treatment |     6 |  2519 |   3.822831 | 0.0008478 | FALSE                        | \*       |
-| NO3     | YEAR                      |     1 |  2451 |  71.195558 | 0.0000000 | TRUE                         | \*       |
-| NO3     | Site                      |     2 |  2451 |  37.262320 | 0.0000000 | FALSE                        | \*       |
+| NH4     | MONTH:YEAR:Site:treatment |     6 |  2519 |   3.822830 | 0.0008478 | FALSE                        | \*       |
+| NO3     | YEAR                      |     1 |  2451 |  71.195557 | 0.0000000 | TRUE                         | \*       |
+| NO3     | Site                      |     2 |  2451 |  37.262321 | 0.0000000 | FALSE                        | \*       |
 | NO3     | treatment                 |     3 |  2451 |   3.078040 | 0.0265207 | FALSE                        | \*       |
-| NO3     | MONTH:Site                |     2 |  2451 |  15.651052 | 0.0000002 | FALSE                        | \*       |
+| NO3     | MONTH:Site                |     2 |  2451 |  15.651053 | 0.0000002 | FALSE                        | \*       |
 | NO3     | MONTH:treatment           |     3 |  2451 |   3.621275 | 0.0126115 | FALSE                        | \*       |
-| NO3     | YEAR:treatment            |     3 |  2451 |   8.385542 | 0.0000152 | FALSE                        | \*       |
-| NO3     | Site:treatment            |     6 |  2451 |   6.335395 | 0.0000013 | FALSE                        | \*       |
+| NO3     | YEAR:treatment            |     3 |  2451 |   8.385543 | 0.0000152 | FALSE                        | \*       |
+| NO3     | Site:treatment            |     6 |  2451 |   6.335394 | 0.0000013 | FALSE                        | \*       |
 | NO3     | MONTH:YEAR:treatment      |     3 |  2451 |   5.301887 | 0.0012129 | FALSE                        | \*       |
-| NO3     | MONTH:Site:treatment      |     6 |  2451 |   4.869738 | 0.0000590 | FALSE                        | \*       |
+| NO3     | MONTH:Site:treatment      |     6 |  2451 |   4.869739 | 0.0000590 | FALSE                        | \*       |
 | NO3     | YEAR:Site:treatment       |     6 |  2451 |   2.188305 | 0.0413914 | FALSE                        | \*       |
 | NO3     | MONTH:YEAR:Site:treatment |     6 |  2451 |   7.250415 | 0.0000001 | FALSE                        | \*       |
 | PO4     | MONTH                     |     1 |  2399 |  12.714676 | 0.0003699 | FALSE                        | \*       |
-| PO4     | YEAR                      |     1 |  2399 |  36.907406 | 0.0000000 | FALSE                        | \*       |
+| PO4     | YEAR                      |     1 |  2399 |  36.907405 | 0.0000000 | FALSE                        | \*       |
 | PO4     | Site                      |     2 |  2399 |   4.591018 | 0.0102318 | FALSE                        | \*       |
-| PO4     | treatment                 |     3 |  2399 |  32.581066 | 0.0000000 | TRUE                         | \*       |
-| PO4     | MONTH:treatment           |     3 |  2399 |  16.607893 | 0.0000000 | FALSE                        | \*       |
+| PO4     | treatment                 |     3 |  2399 |  32.581071 | 0.0000000 | TRUE                         | \*       |
+| PO4     | MONTH:treatment           |     3 |  2399 |  16.607892 | 0.0000000 | FALSE                        | \*       |
 | PO4     | YEAR:treatment            |     3 |  2399 |   7.921766 | 0.0000295 | FALSE                        | \*       |
-| PO4     | Site:treatment            |     6 |  2399 |  10.502743 | 0.0000000 | FALSE                        | \*       |
+| PO4     | Site:treatment            |     6 |  2399 |  10.502744 | 0.0000000 | FALSE                        | \*       |
 | PO4     | MONTH:YEAR:treatment      |     3 |  2399 |  21.929755 | 0.0000000 | FALSE                        | \*       |
 | PO4     | MONTH:Site:treatment      |     6 |  2399 |   3.880165 | 0.0007359 | FALSE                        | \*       |
 | PO4     | YEAR:Site:treatment       |     6 |  2399 |   3.614009 | 0.0014277 | FALSE                        | \*       |
@@ -560,9 +560,9 @@ Significant LME comparisons
 | analyte | variable                  | numDF | denDF |     F-value |   p_value | p_value == round(p_value, 3) | asterisk |
 |:--------|:--------------------------|------:|------:|------------:|----------:|:-----------------------------|:---------|
 | Mass    | MONTH                     |     1 |  2486 |   0.0989833 | 0.7530795 | FALSE                        | NA       |
-| Mass    | YEAR                      |     1 |  2486 |   1.4667719 | 0.2259708 | FALSE                        | NA       |
-| Mass    | Site                      |     2 |  2486 |   1.1171260 | 0.3273831 | FALSE                        | NA       |
-| Mass    | treatment                 |     3 |  2486 |   1.1074983 | 0.3447382 | FALSE                        | NA       |
+| Mass    | YEAR                      |     1 |  2486 |   1.4667718 | 0.2259708 | FALSE                        | NA       |
+| Mass    | Site                      |     2 |  2486 |   1.1171259 | 0.3273831 | FALSE                        | NA       |
+| Mass    | treatment                 |     3 |  2486 |   1.1074985 | 0.3447381 | FALSE                        | NA       |
 | Mass    | MONTH:YEAR                |     1 |  2486 |   0.0951064 | 0.7578090 | FALSE                        | NA       |
 | Mass    | MONTH:Site                |     2 |  2486 |   0.0119858 | 0.9880858 | FALSE                        | NA       |
 | Mass    | YEAR:Site                 |     2 |  2486 |   0.9708923 | 0.3788885 | FALSE                        | NA       |
@@ -574,49 +574,49 @@ Significant LME comparisons
 | Mass    | MONTH:Site:treatment      |     6 |  2486 |   0.0151719 | 0.9999848 | FALSE                        | NA       |
 | Mass    | YEAR:Site:treatment       |     6 |  2486 |   0.7238450 | 0.6303962 | FALSE                        | NA       |
 | Mass    | MONTH:YEAR:Site:treatment |     6 |  2486 |   0.0284329 | 0.9999027 | FALSE                        | NA       |
-| NH4     | MONTH                     |     1 |  2519 |  23.6135468 | 0.0000012 | FALSE                        | \*       |
-| NH4     | YEAR                      |     1 |  2519 | 222.8581385 | 0.0000000 | TRUE                         | \*       |
-| NH4     | Site                      |     2 |  2519 |   0.1199802 | 0.8869431 | FALSE                        | NA       |
+| NH4     | MONTH                     |     1 |  2519 |  23.6135464 | 0.0000012 | FALSE                        | \*       |
+| NH4     | YEAR                      |     1 |  2519 | 222.8581360 | 0.0000000 | TRUE                         | \*       |
+| NH4     | Site                      |     2 |  2519 |   0.1199801 | 0.8869431 | FALSE                        | NA       |
 | NH4     | treatment                 |     3 |  2519 |   0.8359364 | 0.4740167 | FALSE                        | NA       |
-| NH4     | MONTH:YEAR                |     1 |  2519 |  26.0762600 | 0.0000004 | FALSE                        | \*       |
+| NH4     | MONTH:YEAR                |     1 |  2519 |  26.0762602 | 0.0000004 | FALSE                        | \*       |
 | NH4     | MONTH:Site                |     2 |  2519 |   1.1138621 | 0.3284503 | FALSE                        | NA       |
 | NH4     | YEAR:Site                 |     2 |  2519 |   0.0851350 | 0.9183909 | FALSE                        | NA       |
-| NH4     | MONTH:treatment           |     3 |  2519 |   0.7678538 | 0.5119530 | FALSE                        | NA       |
+| NH4     | MONTH:treatment           |     3 |  2519 |   0.7678539 | 0.5119530 | FALSE                        | NA       |
 | NH4     | YEAR:treatment            |     3 |  2519 |  17.0729338 | 0.0000000 | FALSE                        | \*       |
 | NH4     | Site:treatment            |     6 |  2519 |   1.3180046 | 0.2453784 | FALSE                        | NA       |
 | NH4     | MONTH:YEAR:Site           |     2 |  2519 |   1.8076051 | 0.1642593 | FALSE                        | NA       |
-| NH4     | MONTH:YEAR:treatment      |     3 |  2519 |   6.6565440 | 0.0001785 | FALSE                        | \*       |
-| NH4     | MONTH:Site:treatment      |     6 |  2519 |   1.3995448 | 0.2109031 | FALSE                        | NA       |
-| NH4     | YEAR:Site:treatment       |     6 |  2519 |   2.1424763 | 0.0457770 | FALSE                        | \*       |
-| NH4     | MONTH:YEAR:Site:treatment |     6 |  2519 |   3.8228306 | 0.0008478 | FALSE                        | \*       |
-| NO3     | MONTH                     |     1 |  2451 |   0.2084545 | 0.6480219 | FALSE                        | NA       |
-| NO3     | YEAR                      |     1 |  2451 |  71.1955580 | 0.0000000 | TRUE                         | \*       |
-| NO3     | Site                      |     2 |  2451 |  37.2623198 | 0.0000000 | FALSE                        | \*       |
-| NO3     | treatment                 |     3 |  2451 |   3.0780403 | 0.0265207 | FALSE                        | \*       |
-| NO3     | MONTH:YEAR                |     1 |  2451 |   1.3242788 | 0.2499378 | FALSE                        | NA       |
-| NO3     | MONTH:Site                |     2 |  2451 |  15.6510521 | 0.0000002 | FALSE                        | \*       |
+| NH4     | MONTH:YEAR:treatment      |     3 |  2519 |   6.6565439 | 0.0001785 | FALSE                        | \*       |
+| NH4     | MONTH:Site:treatment      |     6 |  2519 |   1.3995449 | 0.2109031 | FALSE                        | NA       |
+| NH4     | YEAR:Site:treatment       |     6 |  2519 |   2.1424762 | 0.0457770 | FALSE                        | \*       |
+| NH4     | MONTH:YEAR:Site:treatment |     6 |  2519 |   3.8228304 | 0.0008478 | FALSE                        | \*       |
+| NO3     | MONTH                     |     1 |  2451 |   0.2084544 | 0.6480220 | FALSE                        | NA       |
+| NO3     | YEAR                      |     1 |  2451 |  71.1955572 | 0.0000000 | TRUE                         | \*       |
+| NO3     | Site                      |     2 |  2451 |  37.2623213 | 0.0000000 | FALSE                        | \*       |
+| NO3     | treatment                 |     3 |  2451 |   3.0780404 | 0.0265207 | FALSE                        | \*       |
+| NO3     | MONTH:YEAR                |     1 |  2451 |   1.3242786 | 0.2499379 | FALSE                        | NA       |
+| NO3     | MONTH:Site                |     2 |  2451 |  15.6510527 | 0.0000002 | FALSE                        | \*       |
 | NO3     | YEAR:Site                 |     2 |  2451 |   0.7696518 | 0.4632862 | FALSE                        | NA       |
-| NO3     | MONTH:treatment           |     3 |  2451 |   3.6212749 | 0.0126115 | FALSE                        | \*       |
-| NO3     | YEAR:treatment            |     3 |  2451 |   8.3855422 | 0.0000152 | FALSE                        | \*       |
-| NO3     | Site:treatment            |     6 |  2451 |   6.3353949 | 0.0000013 | FALSE                        | \*       |
-| NO3     | MONTH:YEAR:Site           |     2 |  2451 |   1.5630874 | 0.2096971 | FALSE                        | NA       |
-| NO3     | MONTH:YEAR:treatment      |     3 |  2451 |   5.3018874 | 0.0012129 | FALSE                        | \*       |
-| NO3     | MONTH:Site:treatment      |     6 |  2451 |   4.8697383 | 0.0000590 | FALSE                        | \*       |
-| NO3     | YEAR:Site:treatment       |     6 |  2451 |   2.1883048 | 0.0413914 | FALSE                        | \*       |
-| NO3     | MONTH:YEAR:Site:treatment |     6 |  2451 |   7.2504148 | 0.0000001 | FALSE                        | \*       |
+| NO3     | MONTH:treatment           |     3 |  2451 |   3.6212750 | 0.0126115 | FALSE                        | \*       |
+| NO3     | YEAR:treatment            |     3 |  2451 |   8.3855426 | 0.0000152 | FALSE                        | \*       |
+| NO3     | Site:treatment            |     6 |  2451 |   6.3353942 | 0.0000013 | FALSE                        | \*       |
+| NO3     | MONTH:YEAR:Site           |     2 |  2451 |   1.5630874 | 0.2096970 | FALSE                        | NA       |
+| NO3     | MONTH:YEAR:treatment      |     3 |  2451 |   5.3018872 | 0.0012129 | FALSE                        | \*       |
+| NO3     | MONTH:Site:treatment      |     6 |  2451 |   4.8697385 | 0.0000590 | FALSE                        | \*       |
+| NO3     | YEAR:Site:treatment       |     6 |  2451 |   2.1883047 | 0.0413914 | FALSE                        | \*       |
+| NO3     | MONTH:YEAR:Site:treatment |     6 |  2451 |   7.2504149 | 0.0000001 | FALSE                        | \*       |
 | PO4     | MONTH                     |     1 |  2399 |  12.7146760 | 0.0003699 | FALSE                        | \*       |
-| PO4     | YEAR                      |     1 |  2399 |  36.9074062 | 0.0000000 | FALSE                        | \*       |
+| PO4     | YEAR                      |     1 |  2399 |  36.9074048 | 0.0000000 | FALSE                        | \*       |
 | PO4     | Site                      |     2 |  2399 |   4.5910184 | 0.0102318 | FALSE                        | \*       |
-| PO4     | treatment                 |     3 |  2399 |  32.5810658 | 0.0000000 | TRUE                         | \*       |
-| PO4     | MONTH:YEAR                |     1 |  2399 |   2.0825605 | 0.1491206 | FALSE                        | NA       |
-| PO4     | MONTH:Site                |     2 |  2399 |   1.4489144 | 0.2350305 | FALSE                        | NA       |
-| PO4     | YEAR:Site                 |     2 |  2399 |   2.9589484 | 0.0520628 | FALSE                        | NA       |
-| PO4     | MONTH:treatment           |     3 |  2399 |  16.6078930 | 0.0000000 | FALSE                        | \*       |
-| PO4     | YEAR:treatment            |     3 |  2399 |   7.9217664 | 0.0000295 | FALSE                        | \*       |
-| PO4     | Site:treatment            |     6 |  2399 |  10.5027432 | 0.0000000 | FALSE                        | \*       |
+| PO4     | treatment                 |     3 |  2399 |  32.5810708 | 0.0000000 | TRUE                         | \*       |
+| PO4     | MONTH:YEAR                |     1 |  2399 |   2.0825604 | 0.1491206 | FALSE                        | NA       |
+| PO4     | MONTH:Site                |     2 |  2399 |   1.4489143 | 0.2350305 | FALSE                        | NA       |
+| PO4     | YEAR:Site                 |     2 |  2399 |   2.9589483 | 0.0520628 | FALSE                        | NA       |
+| PO4     | MONTH:treatment           |     3 |  2399 |  16.6078925 | 0.0000000 | FALSE                        | \*       |
+| PO4     | YEAR:treatment            |     3 |  2399 |   7.9217658 | 0.0000295 | FALSE                        | \*       |
+| PO4     | Site:treatment            |     6 |  2399 |  10.5027438 | 0.0000000 | FALSE                        | \*       |
 | PO4     | MONTH:YEAR:Site           |     2 |  2399 |   1.2369215 | 0.2904615 | FALSE                        | NA       |
-| PO4     | MONTH:YEAR:treatment      |     3 |  2399 |  21.9297549 | 0.0000000 | FALSE                        | \*       |
-| PO4     | MONTH:Site:treatment      |     6 |  2399 |   3.8801652 | 0.0007359 | FALSE                        | \*       |
+| PO4     | MONTH:YEAR:treatment      |     3 |  2399 |  21.9297546 | 0.0000000 | FALSE                        | \*       |
+| PO4     | MONTH:Site:treatment      |     6 |  2399 |   3.8801649 | 0.0007359 | FALSE                        | \*       |
 | PO4     | YEAR:Site:treatment       |     6 |  2399 |   3.6140094 | 0.0014277 | FALSE                        | \*       |
 | PO4     | MONTH:YEAR:Site:treatment |     6 |  2399 |   8.3232641 | 0.0000000 | FALSE                        | \*       |
 | TFPA    | MONTH                     |     1 |  2346 |   4.3648813 | 0.0367945 | FALSE                        | \*       |
@@ -746,13 +746,14 @@ Unique counts by site:
 Session Info
 </summary>
 
-Date run: 2023-10-31
+Date run: 2023-12-01
 
-    ## R version 4.2.3 (2023-03-15 ucrt)
+    ## R version 4.3.2 (2023-10-31 ucrt)
     ## Platform: x86_64-w64-mingw32/x64 (64-bit)
     ## Running under: Windows 10 x64 (build 19045)
     ## 
     ## Matrix products: default
+    ## 
     ## 
     ## locale:
     ## [1] LC_COLLATE=English_United States.utf8 
@@ -761,50 +762,49 @@ Date run: 2023-10-31
     ## [4] LC_NUMERIC=C                          
     ## [5] LC_TIME=English_United States.utf8    
     ## 
+    ## time zone: America/Los_Angeles
+    ## tzcode source: internal
+    ## 
     ## attached base packages:
     ## [1] grid      stats     graphics  grDevices utils     datasets  methods  
     ## [8] base     
     ## 
     ## other attached packages:
-    ##  [1] cowplot_1.1.1     agricolae_1.3-6   doBy_4.6.17       ggpubr_0.6.0     
-    ##  [5] pracma_2.4.2      reshape2_1.4.4    ggbreak_0.1.2     ggExtra_0.10.0   
-    ##  [9] lubridate_1.9.2   forcats_1.0.0     stringr_1.5.0     dplyr_1.1.2      
-    ## [13] purrr_1.0.1       readr_2.1.4       tidyr_1.3.0       tibble_3.2.1     
-    ## [17] tidyverse_2.0.0   ggbiplot_0.55     scales_1.2.1      plyr_1.8.8       
-    ## [21] ggplot2_3.4.1     vegan_2.6-4       lattice_0.20-45   permute_0.9-7    
-    ## [25] tarchetypes_0.7.7 targets_1.2.0    
+    ##  [1] cowplot_1.1.1     agricolae_1.3-7   doBy_4.6.20       ggpubr_0.6.0     
+    ##  [5] pracma_2.4.4      reshape2_1.4.4    ggbreak_0.1.2     ggExtra_0.10.1   
+    ##  [9] lubridate_1.9.3   forcats_1.0.0     stringr_1.5.1     dplyr_1.1.4      
+    ## [13] purrr_1.0.2       readr_2.1.4       tidyr_1.3.0       tibble_3.2.1     
+    ## [17] tidyverse_2.0.0   ggbiplot_0.55     scales_1.3.0      plyr_1.8.9       
+    ## [21] ggplot2_3.4.4     vegan_2.6-4       lattice_0.21-9    permute_0.9-7    
+    ## [25] tarchetypes_0.7.9 targets_1.3.2    
     ## 
     ## loaded via a namespace (and not attached):
-    ##  [1] colorspace_2.1-0      ggsignif_0.6.4        ellipsis_0.3.2       
-    ##  [4] fs_1.6.2              aplot_0.2.0           rstudioapi_0.15.0    
-    ##  [7] farver_2.1.1          listenv_0.9.0         furrr_0.3.1          
-    ## [10] Deriv_4.1.3           fansi_1.0.4           codetools_0.2-19     
-    ## [13] splines_4.2.3         cachem_1.0.8          knitr_1.43           
-    ## [16] broom_1.0.5           cluster_2.1.4         shiny_1.7.4.1        
-    ## [19] compiler_4.2.3        backports_1.4.1       Matrix_1.6-0         
-    ## [22] fastmap_1.1.1         cli_3.6.1             later_1.3.1          
-    ## [25] htmltools_0.5.5       tools_4.2.3           igraph_1.5.0         
-    ## [28] gtable_0.3.3          glue_1.6.2            Rcpp_1.0.11          
-    ## [31] carData_3.0-5         vctrs_0.6.3           nlme_3.1-162         
-    ## [34] xfun_0.39             globals_0.16.2        ps_1.7.5             
-    ## [37] timechange_0.2.0      mime_0.12             miniUI_0.1.1.1       
-    ## [40] lifecycle_1.0.3       rstatix_0.7.2         future_1.33.0        
-    ## [43] MASS_7.3-58.2         microbenchmark_1.4.10 ragg_1.2.5           
-    ## [46] hms_1.1.3             promises_1.2.0.1      parallel_4.2.3       
-    ## [49] yaml_2.3.7            memoise_2.0.1         ggfun_0.1.2          
-    ## [52] yulab.utils_0.0.7     labelled_2.12.0       stringi_1.7.12       
-    ## [55] highr_0.10            klaR_1.7-2            AlgDesign_1.2.1      
-    ## [58] PNWColors_0.1.0       systemfonts_1.0.4     rlang_1.1.1          
-    ## [61] pkgconfig_2.0.3       evaluate_0.21         labeling_0.4.2       
-    ## [64] patchwork_1.1.2       processx_3.8.2        tidyselect_1.2.0     
-    ## [67] parallelly_1.36.0     magrittr_2.0.3        R6_2.5.1             
-    ## [70] generics_0.1.3        base64url_1.4         combinat_0.0-8       
-    ## [73] pillar_1.9.0          haven_2.5.3           withr_2.5.0          
-    ## [76] mgcv_1.8-42           abind_1.4-5           car_3.1-2            
-    ## [79] questionr_0.7.8       utf8_1.2.3            rmarkdown_2.23       
-    ## [82] tzdb_0.4.0            future.callr_0.8.1    data.table_1.14.8    
-    ## [85] callr_3.7.3           digest_0.6.33         xtable_1.8-4         
-    ## [88] httpuv_1.6.11         textshaping_0.3.6     gridGraphics_0.5-1   
-    ## [91] munsell_0.5.0         ggplotify_0.1.2
+    ##  [1] rlang_1.1.2           magrittr_2.0.3        compiler_4.3.2       
+    ##  [4] mgcv_1.9-0            systemfonts_1.0.5     callr_3.7.3          
+    ##  [7] vctrs_0.6.4           pkgconfig_2.0.3       fastmap_1.1.1        
+    ## [10] backports_1.4.1       ellipsis_0.3.2        labeling_0.4.3       
+    ## [13] utf8_1.2.4            promises_1.2.1        rmarkdown_2.25       
+    ## [16] tzdb_0.4.0            ps_1.7.5              ragg_1.2.6           
+    ## [19] xfun_0.41             cachem_1.0.8          aplot_0.2.2          
+    ## [22] highr_0.10            later_1.3.1           Deriv_4.1.3          
+    ## [25] broom_1.0.5           parallel_4.3.2        cluster_2.1.4        
+    ## [28] R6_2.5.1              stringi_1.8.2         car_3.1-2            
+    ## [31] Rcpp_1.0.11           knitr_1.45            PNWColors_0.1.0      
+    ## [34] httpuv_1.6.12         Matrix_1.6-1.1        splines_4.3.2        
+    ## [37] igraph_1.5.1          timechange_0.2.0      tidyselect_1.2.0     
+    ## [40] rstudioapi_0.15.0     abind_1.4-5           yaml_2.3.7           
+    ## [43] AlgDesign_1.2.1       codetools_0.2-19      miniUI_0.1.1.1       
+    ## [46] processx_3.8.2        shiny_1.8.0           withr_2.5.2          
+    ## [49] evaluate_0.23         gridGraphics_0.5-1    pillar_1.9.0         
+    ## [52] carData_3.0-5         ggfun_0.1.3           generics_0.1.3       
+    ## [55] hms_1.1.3             munsell_0.5.0         xtable_1.8-4         
+    ## [58] base64url_1.4         glue_1.6.2            tools_4.3.2          
+    ## [61] data.table_1.14.8     ggsignif_0.6.4        fs_1.6.3             
+    ## [64] colorspace_2.1-0      nlme_3.1-163          patchwork_1.1.3      
+    ## [67] cli_3.6.1             textshaping_0.3.7     fansi_1.0.5          
+    ## [70] gtable_0.3.4          rstatix_0.7.2         yulab.utils_0.1.0    
+    ## [73] digest_0.6.33         ggplotify_0.1.2       farver_2.1.1         
+    ## [76] memoise_2.0.1         htmltools_0.5.7       lifecycle_1.0.4      
+    ## [79] mime_0.12             microbenchmark_1.4.10 MASS_7.3-60
 
 </details>
