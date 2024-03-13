@@ -1,5 +1,5 @@
 name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
-.Random.seed|object|489bacf4850c7fab|||||||||||||||
+.Random.seed|object|a0996c41747515ea|||||||||||||||
 AggieBranch_data|stem|572ebdfb0902f917|bfd62e854877adef|2aac9173a8f17422|937008251||t19692.7908869894s|4675da1dfefe1690|723|rds|local|vector|||0||
 AggieBranch_data_read|stem|89dabe2c7d5b3257|1608936b3c10e1a9|ef46db3751d8e999|-1220160640|Data/tree/snowfence.branch.primary.growth.csv|t19691.9708947354s|78a7bfd1e2391d56|3654|file|local|vector|||0||
 AggieNNeedle_data|stem|db7733e04f72e719|09f540269ff96343|07f34f81eaaf8a8c|1321343072||t19692.7908865923s|ad449b3d431fb011|683|rds|local|vector|||0||
@@ -129,7 +129,8 @@ plot_resin_Ancillary|function|52f3aa435bb9117e|||||||||||||||
 plot_resin_Fert|function|923d336568b902f5|||||||||||||||
 plot_resin_Snowfence|function|6be3aaf987cbfa8d|||||||||||||||
 plot_seasonal_Mesic_Hydric_polar|function|4aa8047a3c25bde6|||||||||||||||
-plot_soilTemp|function|e2d9749379488b17|||||||||||||||
+plot_soilTemp|function|b2b02ad05a6090a0|||||||||||||||
+plot_soilTemp2|function|cb809657c2c6c336|||||||||||||||
 plot_soilTempwater|function|1e78fcf95e6cd191|||||||||||||||
 plot_soilwater|function|ec6f2fae49b48ea2|||||||||||||||
 plot_Tree|function|31ff7f18c14340b8|||||||||||||||
@@ -175,16 +176,18 @@ relabund_cores_nonpolar|stem|79e938a1f96fdd6e|3f4b0d37f6463632|d50665ad3238d8e2|
 relabund_cores_polar|stem|1d229502038c1edc|d0e345c965f3794b|0508360f140a7977|-1229788809||t19692.7911135647s|36806297027e0d4f|3933|rds|local|vector|||0||
 reorder_seasons|function|0e9a5772fbdce6bb|||||||||||||||
 reorder_sites|function|9feeff82bcccca8d|||||||||||||||
-report|stem|43442108ed280531|3a1fc72a4f953c29|4371386a980cbc09|-237041703|reports/Aggie_report.md*reports/Aggie_report.Rmd*reports/Aggie_report_files|t19692.7940215042s|22fcb27967cfb661|7041682|file|local|vector|||188.2||
-report2|stem|ec50d9e978cf0031|aa593c9134eb9646|116430685df1db4b|-1253350427|reports/Aggie_Short_report.md*reports/Aggie_Short_report.Rmd*reports/Aggie_Short_report_files|t19692.7947880376s|ebd1208d5e8d2b0e|1970145|file|local|vector|||65.78|font family not found in Windows font database|
-report3|stem|ee761021a305be57|2b0336f2e8ed44c6|fc7fa977d14225d2|2107602062|reports/Aggie_Seasonal.md*reports/Aggie_Seasonal.Rmd*reports/Aggie_Seasonal_files|t19692.7918473836s|d4ab26c579c321a6|547929|file|local|vector|||43.13||
-report4|stem|a30294d0807820d2|4aef1a2b6665f71e|f178eab5eb19505b|1475291438|reports/Treeline_Supplement.md*reports/Treeline_Supplement.Rmd*reports/Treeline_Supplement_files|t19692.7953363291s|8d96db8baa166a8a|1471681|file|local|vector|||47.37|font family not found in Windows font database|
+report|stem|43442108ed280531|3a1fc72a4f953c29|4371386a980cbc09|-237041703|reports/Aggie_report.md*reports/Aggie_report.Rmd*reports/Aggie_report_files|t19692.7940215042s|5fb8a0ea65b6e3e5|60142|file|local|vector|||188.2||
+report2|stem|af81c216133f9e19|aa593c9134eb9646|e08464a9886e7e1b|-1253350427|reports/Aggie_Short_report.md*reports/Aggie_Short_report.Rmd*reports/Aggie_Short_report_files|t19792.9059610695s|0d70b2d361b17ca7|63589|file|local|vector|||88.85|font family not found in Windows font database|
+report3|stem|ee761021a305be57|2b0336f2e8ed44c6|fc7fa977d14225d2|2107602062|reports/Aggie_Seasonal.md*reports/Aggie_Seasonal.Rmd*reports/Aggie_Seasonal_files|t19692.7918473836s|422d35859bc2f464|51126|file|local|vector|||43.13||
+report4|stem|2d2ca6357dfac346|4aef1a2b6665f71e|cf325d024a2214fe|1475291438|reports/Treeline_Supplement.md*reports/Treeline_Supplement.Rmd*reports/Treeline_Supplement_files|t19792.9066644609s|15e35d198d8629e3|45911|file|local|vector|||59.85|font family not found in Windows font database|
+report5|stem|a92314766dd04f61|94c2835ad737be87|f11a4e21482d130d|-2108097027|reports/Treeline_March2024_SoilTemp.md*reports/Treeline_March2024_SoilTemp.Rmd*reports/Treeline_March2024_SoilTemp_files|t19792.9268335084s|3f3c1c516be809b4|43764|file|local|vector|||2.72||
 Resin_data|stem|cdb8c59992e22853|81922cd386115565|44f71743c5dbbe91|736601963||t19692.7908541239s|d3d4b9edfd4d4573|12511|rds|local|vector|||0.01||
 Resin_data_read|stem|839712328f6f99dc|e10d3fd426b3ece2|ef46db3751d8e999|-1045475728|Data/Resin.csv|t19691.9708881857s|b59cf481f092d4e4|49828|file|local|vector|||0||
 Resin_processed|stem|29ca6032a7a3b440|7831cfc8de3e0329|8e718fe2423432c4|1865690580||t19692.7908931118s|2fd6dc80b2d96f65|12731|rds|local|vector|||0.01||
-Soil_Temp|stem|3e3b723e97003529|468a9f44831adfc0|94da131fba132ff6|848823142||t19692.7910125536s|874206f80e24df0f|11621240|rds|local|vector|||0.32||
+Soil_Temp|stem|acdc5dc0e08293f0|468a9f44831adfc0|1d55129416b5c099|848823142||t19792.9046788556s|c2225cbe0db72dc1|11604289|rds|local|vector|||0.78||
+Soil_Temp2|stem|8d044d3a55d5e4f5|9159e11682045447|db7d70b1d05196b0|976214029||t19792.9268024439s|ec42877d9afbcc76|12654603|rds|local|vector|||5.03|1m22mUsing size aesthetic for lines was deprecated in ggplot2 3.4.0.36mℹ39m Please use linewidth instead.|
 Soil_Water|stem|efafb42945adea95|979aa51b60b43bef|77b35b4ee4662391|1842849616||t19692.790987338s|62f8b8500c046b1d|11470154|rds|local|vector|||0.31||
-Soil_WaterTemp|stem|4f9eb58cb038ef09|ea85226e5ea6b00c|73462c9b636ce4c2|51041755||t19692.7913158084s|27d29594dae9dea2|25786781|rds|local|vector|||0.35|1m22mRemoved 4 rows containing missing values geom_line.. 1m22mRemoved 4 rows containing missing values geom_line.|
+Soil_WaterTemp|stem|2ce0e83c34279870|ea85226e5ea6b00c|583d655d5e3bf4a3|51041755||t19792.9048413305s|9a9d5fe56889afa4|25804119|rds|local|vector|||0.7|1m22mRemoved 4 rows containing missing values geom_line.. 1m22mRemoved 4 rows containing missing values geom_line.|
 SoilTempHydric_data|stem|d599d89d92c82f95|33588cf9d29ea4a4|8dd3f1a10acf6ba6|-624821501||t19692.7908764099s|4600180130a5303a|1976822|rds|local|vector|||0.42||
 SoilTempHydric_data_read|stem|6d5877d65892dadb|4a8c624dec8bda66|ef46db3751d8e999|569305951|Data/Temp/Hydric Met Station.csv|t19691.970888961s|f48e8e2d27903e55|9077655|file|local|vector|||0||
 SoilTempMesic_data|stem|8c5c2e64f0168ad1|4e9c80b4fb170667|a6be1126b69d935b|-148513562||t19692.7908464325s|fff3289012ad2621|1843018|rds|local|vector|||0.36||

@@ -84,6 +84,7 @@ list(
   tar_target(Kotz_proccessed_HMX, process_SoilTemp(SoilTempHydric_data,SoilTempMesic_data,SoilTempXeric_data,Kotz_proccessed)),
   
   tar_target(Soil_Temp, plot_soilTemp(SoilTempHydric_data,SoilTempMesic_data,SoilTempXeric_data,Kotz_proccessed)),
+  tar_target(Soil_Temp2, plot_soilTemp2(SoilTempHydric_data,SoilTempMesic_data,SoilTempXeric_data,Kotz_proccessed)),
   tar_target(Soil_Water, plot_soilwater(SoilTempHydric_data,SoilTempMesic_data,SoilTempXeric_data,Kotz_proccessed)),
   tar_target(Soil_WaterTemp, plot_soilTempwater(Soil_Water,Soil_Temp)),
   
@@ -180,6 +181,7 @@ list(
   tar_render(report, path = "reports/Aggie_report.Rmd"),
   tar_render(report2, path = "reports/Aggie_Short_report.Rmd"),
   tar_render(report3, path = "reports/Aggie_Seasonal.Rmd"),
-  tar_render(report4, path = "reports/Treeline_Supplement.Rmd")
+  tar_render(report4, path = "reports/Treeline_Supplement.Rmd"),
+  tar_render(report5, path = "reports/Treeline_March2024_SoilTemp.Rmd")
   
 )

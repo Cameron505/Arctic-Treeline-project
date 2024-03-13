@@ -4159,9 +4159,161 @@ plot_soilTemp=function(SoilTempHydric_data,SoilTempMesic_data,SoilTempXeric_data
            axis.ticks.x.top = element_blank())+
       theme_CKM2()
   
+    
+    
+    
+    
+    gg_soil2022= Xeric.met.station.daily %>%
+      filter(Date > '2022-01-01')%>%
+      ggplot(aes(x = as.Date(Date), y = Control_10.mean, color="#009E73")) +
+      geom_line()+
+      geom_line(data=Mesic.met.station.daily%>%
+                  filter(Date > '2022-01-01'),aes(x = as.Date(Date), y = Control_10.mean, color="#56B4E9" )) +
+      geom_line(data=hydric.met.station.daily%>%
+                  filter(Date > '2022-01-01'),aes(x = as.Date(Date), y = Control_10.mean, color="#E69F00" )) +
+      guides(fill=guide_legend(title= "Legend"))+
+      scale_color_manual(name="Site",
+                         values = c("#009E73", "#E69F00", "#56B4E9" ),
+                         breaks=c("#009E73", "#E69F00", "#56B4E9" ),
+                         labels=c("East dry", "East wet", "West wet"))+
+      xlab("Year")+
+      ylab("Soil temperature at 10 cm")+
+      theme( axis.text.x.top = element_blank(),
+             axis.ticks.x.top = element_blank())+
+      theme_CKM2()
+    
+    
   list(gg_soilTemp=gg_soilTemp,
        gg_soilTemp2=gg_soilTemp2,
        gg_soilTemp3=gg_soilTemp3)
+  
+  
+}
+
+plot_soilTemp2=function(SoilTempHydric_data,SoilTempMesic_data,SoilTempXeric_data,Kotz_proccessed){
+  
+  # Function to summarize data and extract required columns
+  summarize_data <- function(data) {
+    daily_summary <- summary_by(data = data, . ~ Date, FUN = function(x) c(length(x), mean(x)))
+    data2 <- daily_summary %>%
+      mutate(
+        DATE = as.Date(Date),
+        YEAR = year(Date),
+        MONTH = month(Date),
+        WEEK = week(Date)
+      )
+    monthly_summary <- summary_by(data = data2, . ~ YEAR + MONTH + WEEK, FUN = function(x) c(length(x), mean(x)))
+    #processed_data <- subset(monthly_summary, . > 27)  # Adjust as needed
+    return(data2)
+  }
+  
+  # Summarize and process Hydric data
+  HydricSoilDaily_Processed <- summarize_data(SoilTempHydric_data)%>%
+    mutate(Site="Hydric")
+  # Summarize and process Mesic data
+  MesicSoilDaily_Processed <- summarize_data(SoilTempMesic_data)%>%
+    mutate(Site="Mesic")
+  
+  # Summarize and process Xeric data
+  XericSoilDaily_Processed <- summarize_data(SoilTempXeric_data) %>%
+    mutate(Site="Xeric")
+  
+  # Combine processed data into final data frame
+  merged_data <- bind_rows(
+    transform(HydricSoilDaily_Processed, Date = as.Date(Date)),
+    transform(MesicSoilDaily_Processed, Date = as.Date(Date)),
+    transform(XericSoilDaily_Processed, Date = as.Date(Date))
+  )
+  
+  
+  
+  
+  
+  # ggplot
+  gg_soil2022_Hydric <- merged_data %>%
+    filter(Date > '2022-01-01', Site=="Hydric") %>%
+    ggplot(aes(x = Date)) +
+    geom_line(aes(y = Control_10.FUN2, color = "Control_10"), size = 1) +
+    geom_line(aes(y = Fence_10.FUN2, color = "Fence_10"), size = 1) +
+    geom_bar(aes(y = Fence_Snow_Depth.FUN2/100, fill = "Fence_Snow_Depth"), stat = "identity", alpha = 0.5) +
+    geom_bar(aes(y = Control_Snow_Depth.FUN2/100, fill = "Control_Snow_Depth"), stat = "identity", alpha = 0.5) +
+    scale_color_manual(name = "Variables", 
+                       values = c('Control_10' = "#000080", 'Fence_10' = "#008000")) +
+    scale_fill_manual(name = "Variables", 
+                      values = c('Fence_Snow_Depth' = "#90EE90", 'Control_Snow_Depth' = "#ADD8E6")) +
+    xlab("Date") +
+    ylab("Temperature(°C)") +
+    guides(color = guide_legend(title = "Temperature"),
+           fill = guide_legend(title = "Snow Depth")) +
+    scale_y_continuous(sec.axis = sec_axis(~.*100, name = "Snow Depth"))
+  
+  
+  
+  
+  
+  # Filter data
+  soil_data <- merged_data %>%
+    filter(Date > '2022-01-01')
+  air_data <- merged_data %>%
+    filter(Date > '2022-01-01' & Site == "Hydric")
+  
+  # Create Soil Temperature Plot
+  gg_soil2022_Soil_Temp <- ggplot(soil_data, aes(x = Date)) +
+    geom_line(aes(y = Control_10.FUN2, color = "Control at 10 cm"), size = 1) +
+    geom_line(aes(y = Fence_10.FUN2, color = "Fence at 10 cm"), size = 1) +
+    scale_color_manual(name = "Temperature", 
+                       values = c('Control at 10 cm' = "#000080", 'Fence at 10 cm' = "#008000")) +
+    xlab("Date") +
+    ylab("Temperature(°C)") +
+    facet_wrap(~Site) +
+    theme(legend.position = "none",
+          axis.title.x = element_blank())
+  
+  # Create Air Temperature Plot
+  gg_soil2022_Air_Temp <- ggplot(air_data, aes(x = Date)) +
+    geom_line(aes(y = Air_Temp.FUN2, color = "Air_Temp"), size = 1) +
+    scale_color_manual(name = "Temperature", 
+                       values = c(Air_Temp = "black")) +
+    xlab("Date") +
+    ylab("Temperature(°C)") +
+    theme(legend.position = "none")
+  
+  # Combine the plots
+  combined_plot <- plot_grid(gg_soil2022_Soil_Temp, gg_soil2022_Air_Temp, nrow = 2, rel_heights = c(2,1))
+  
+  # Create a custom legend
+  
+  legend_plot <- ggplot() +
+    geom_point(aes(x = 1, y = 1, color = "Control at 10 cm"), fill = "#000080", size = 4, shape = 16) +
+    geom_point(aes(x = 1, y = 0, color = "Fence at 10 cm"), fill = "#008000", size = 4, shape = 16) +
+    geom_point(aes(x = c(1, 1), y = c(1, 0), color = "Air_Temp"), fill = "black", size = 4, shape = 16) +
+    scale_fill_manual(name = "Temperature", 
+                      values = c('Control at 10 cm' = "#000080", 'Fence at 10 cm' = "#008000", 'Air_Temp' = "black"),
+                      labels = c('Control at 10 cm', 'Fence at 10 cm', 'Air_Temp'),
+                      guide = "legend") +
+    scale_color_manual(name = "Temperature", 
+                       values = c('Control at 10 cm' = "#008000", 'Fence at 10 cm' = "black" , 'Air_Temp' = "#000080"),
+                       labels = c('Control at 10 cm', 'Fence at 10 cm', 'Air_Temp'),
+                       guide = "legend") +
+    theme_void() +
+    theme(legend.position = "bottom",
+          legend.title = element_blank(),
+          legend.key.size = unit(0.5, "cm"))
+  
+  
+  # Get the legend
+  legend_grob <- cowplot::get_legend(legend_plot)
+  
+  # Combine the plots and legend
+  combined_plot2 <- plot_grid(combined_plot, legend_grob, ncol = 1, rel_heights = c(10, 1))
+  
+  # Display the combined plot with the custom legend
+  print(combined_plot2)
+  
+  
+  
+  list(gg_soil2022_Hydric=gg_soil2022_Hydric,
+       combined_plot2=combined_plot2)
   
   
 }
