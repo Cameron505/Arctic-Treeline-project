@@ -4242,7 +4242,7 @@ plot_soilTemp2=function(SoilTempHydric_data,SoilTempMesic_data,SoilTempXeric_dat
     scale_fill_manual(name = "Variables", 
                       values = c('Fence_Snow_Depth' = "#90EE90", 'Control_Snow_Depth' = "#ADD8E6")) +
     xlab("Date") +
-    ylab("Temperature(°C)") +
+    ylab("Soil Temperature at 10 cm (°C)") +
     guides(color = guide_legend(title = "Temperature"),
            fill = guide_legend(title = "Snow Depth")) +
     scale_y_continuous(sec.axis = sec_axis(~.*100, name = "Snow Depth"))
@@ -4256,7 +4256,46 @@ plot_soilTemp2=function(SoilTempHydric_data,SoilTempMesic_data,SoilTempXeric_dat
     filter(Date > '2022-01-01')
   air_data <- merged_data %>%
     filter(Date > '2022-01-01' & Site == "Hydric")
+  March_data<- merged_data %>%
+    filter(MONTH %in% c(1,2,3,4))%>%
+    group_by(YEAR, Site,MONTH)%>%
+    summarise(across(.cols = where(is.numeric), .fns = list(mean), na.rm = TRUE))
+  March_long<- March_data %>%
+    pivot_longer(cols = "Control_10.FUN2_1", names_to = "variable")
   
+
+  anova_result1 <- aov(value ~ YEAR + MONTH, data = March_long)
+  anova_summary1 <- summary(anova_result1)
+  p_value <- summary(anova_result1)[[1]]$`Pr(>F)`[1]
+  
+  cb_pal <- c("#E41A1C", "#377EB8", "#4DAF4A", "#984EA3")
+  month_labels <- c("Jan" = 1, "Feb" = 2, "Mar" = 3, "Apr" = 4)
+    
+    ggJan_April_soil<-ggplot(March_long, aes(x = factor(YEAR), y = value, fill = as.factor(MONTH))) +
+      geom_bar(stat = "identity", position = "dodge") +
+      facet_wrap(~Site) +
+      scale_fill_manual(values = cb_pal,labels = month_labels) +
+      labs(x = "Year", y = "Average Soil Temperature at 10 cm (°C)", fill = "Variable") +
+      theme_CKM2()
+      
+
+    March_Air_data<- merged_data %>%
+      filter(MONTH %in% c(1,2,3,4), Site== "Hydric")%>%
+      group_by(YEAR, Site,MONTH)%>%
+      summarise(across(.cols = where(is.numeric), .fns = list(mean), na.rm = TRUE))
+    
+    March_Air_long<- March_Air_data%>%
+      pivot_longer(cols = "Air_Temp.FUN2_1", names_to = "variable")
+    anova_result <- aov(value ~ YEAR + MONTH, data = March_Air_long)
+    anova_summary <- summary(anova_result)
+    p_value <- summary(anova_result)[[1]]$`Pr(>F)`[1]
+    
+    ggJan_April_Air<-ggplot(March_Air_long, aes(x = factor(YEAR), y = value, fill = as.factor(MONTH))) +
+      geom_bar(stat = "identity", position = "dodge") +
+      labs(x = "Year", y = "Average Air Temperature (°C)", fill = "Variable") +
+      scale_fill_manual(values = cb_pal,labels = month_labels) +
+      theme_minimal()
+    
   # Create Soil Temperature Plot
   gg_soil2022_Soil_Temp <- ggplot(soil_data, aes(x = Date)) +
     geom_line(aes(y = Control_10.FUN2, color = "Control at 10 cm"), size = 1) +
@@ -4264,7 +4303,7 @@ plot_soilTemp2=function(SoilTempHydric_data,SoilTempMesic_data,SoilTempXeric_dat
     scale_color_manual(name = "Temperature", 
                        values = c('Control at 10 cm' = "#000080", 'Fence at 10 cm' = "#008000")) +
     xlab("Date") +
-    ylab("Temperature(°C)") +
+    ylab("Soil Temperature at 10 cm (°C)") +
     facet_wrap(~Site) +
     theme(legend.position = "none",
           axis.title.x = element_blank())
@@ -4311,9 +4350,59 @@ plot_soilTemp2=function(SoilTempHydric_data,SoilTempMesic_data,SoilTempXeric_dat
   print(combined_plot2)
   
   
+  ##CONTROL
+  merged_data$MONTH <- factor(merged_data$MONTH, levels = 1:12)
+  mean_data <- merged_data %>%
+    group_by(Site, YEAR, MONTH) %>%
+    summarise(mean_temp = mean(Control_10.FUN2))
+  
+  
+  gg_soil2022_Soil_Temp <- ggplot(mean_data, aes(x = as.factor(MONTH), y = mean_temp, group = as.factor(YEAR), color = as.factor(YEAR))) +
+    geom_line(size = 1) +
+    xlab("Month") +
+    ylab("Soil Temperature at 10 cm (°C)") +
+    ggtitle("Control soil temperuature")+
+    facet_wrap(~Site) +
+    theme_minimal()
+  
+  
+  ##snow fence
+  merged_data$MONTH <- factor(merged_data$MONTH, levels = 1:12)
+  mean_data <- merged_data %>%
+    group_by(Site, YEAR, MONTH) %>%
+    summarise(mean_temp = mean(Fence_10.FUN2))
+  
+  
+  gg_soil2022_Soil_Temp_fence <- ggplot(mean_data, aes(x = as.factor(MONTH), y = mean_temp, group = as.factor(YEAR), color = as.factor(YEAR))) +
+    geom_line(size = 1) +
+    xlab("Month") +
+    ylab("Soil Temperature at 10 cm (°C)") +
+    ggtitle("Fence soil temperuature")+
+    facet_wrap(~Site) +
+    theme_minimal()
+  
+  
+  ##snow fence
+  mean_air_data <- merged_data %>%
+    filter(Site=="Hydric")%>%
+    group_by(YEAR, MONTH) %>%
+    summarise(mean_temp = mean(Air_Temp.FUN2))
+  
+  
+  gg_soil2022_Air <- ggplot(mean_air_data, aes(x = as.factor(MONTH), y = mean_temp, group = as.factor(YEAR), color = as.factor(YEAR))) +
+    geom_line(size = 1) +
+    xlab("Month") +
+    ylab("Temperature(°C)") +
+    ggtitle("air temperuature")+
+    theme_minimal()
+  
   
   list(gg_soil2022_Hydric=gg_soil2022_Hydric,
-       combined_plot2=combined_plot2)
+       combined_plot2=combined_plot2,
+       ggJan_April_Air=ggJan_April_Air,
+       ggJan_April_soil=ggJan_April_soil,
+       gg_soil2022_Soil_Temp=gg_soil2022_Soil_Temp,
+       gg_soil2022_Air= gg_soil2022_Air)
   
   
 }

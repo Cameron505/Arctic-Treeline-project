@@ -9,7 +9,7 @@ Aggie subset data
 click to open
 </summary>
 
-<img src="Treeline_March2024_SoilTemp_files/figure-gfm/unnamed-chunk-1-1.png" width="100%" /><img src="Treeline_March2024_SoilTemp_files/figure-gfm/unnamed-chunk-1-2.png" width="100%" />
+<img src="Treeline_March2024_SoilTemp_files/figure-gfm/unnamed-chunk-1-1.png" width="100%" /><img src="Treeline_March2024_SoilTemp_files/figure-gfm/unnamed-chunk-1-2.png" width="100%" /><img src="Treeline_March2024_SoilTemp_files/figure-gfm/unnamed-chunk-1-3.png" width="100%" /><img src="Treeline_March2024_SoilTemp_files/figure-gfm/unnamed-chunk-1-4.png" width="100%" /><img src="Treeline_March2024_SoilTemp_files/figure-gfm/unnamed-chunk-1-5.png" width="100%" /><img src="Treeline_March2024_SoilTemp_files/figure-gfm/unnamed-chunk-1-6.png" width="100%" />
 
 </details>
 
@@ -20,7 +20,7 @@ click to open
 Session Info
 </summary>
 
-Date run: 2024-03-10
+Date run: 2024-03-19
 
     ## R version 4.3.2 (2023-10-31 ucrt)
     ## Platform: x86_64-w64-mingw32/x64 (64-bit)
