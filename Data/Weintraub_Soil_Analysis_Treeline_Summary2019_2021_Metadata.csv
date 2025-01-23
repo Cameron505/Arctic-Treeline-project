@@ -1,0 +1,80 @@
+,For all sample types
+,"A  5cm diameter soil corer was used to collect soil cores down to 15 cm from around the trees listed on the tree data sheet. A single core down to 15 cm was taken and homogenized. A sub sample of homogenized soil cores (5g wet soil) was placed in a tube with 25mL 0.5 M potassium sulfate or water, shaken, then filtered. "
+Date,Day/Month/year format
+Site,"Site (Main: Mesic, Hydric, or Xeric). All three sites are located on relatively close arctic treelines in the foothills of the western Brooks Range where similar white spruce trees were selected to study the effect of snowpack on soil nutrients and how that effects tree growth. The data in this sheet contains information about the tree locations where soils were sampled and the analytical results from testing the various soil samples taken.  "
+treatment,"Treatment (Main: Ancillary, Snowfence, Control, fertilized.) The main treatment of this experiment are snowfences built around trees at an arctic treeline (to induce larger snowdrifts). Similar trees were also selected for the control plots which have no fence. To reduce the impact of soil sampling on these trees over the course of four years an additional set of controls named the Ancillary plots were set up. The fertilized treatment NPK fertilizer containing 10 g/m2 nitrogen (N), 5 g/m2 phosphorus (P) and 10 g/m2 potassium (K) was evenly applied 1.5 m away from the main stem of each tree. N from: (NH4)2SO4, P from: P2O5, and K from: KCl. Fertilizer was applied early June of 2015 and 2016 (Methods and more information about these trees see: Ellison, S.B., et al., Poor nutrition as a potential cause of divergent tree growth near the Arctic treeline in northern Alaska. Ecology, 2019. 100(12): p. e02878.)."
+Plot,"N from: (NH4)2SO4, P from: P2O5, and K from: KCl. Fertilizer was applied early June of 2015 and 2016 (Methods and more information about these trees see: Ellison, S.B., et al., Poor nutrition as a potential cause of divergent tree growth near the Arctic treeline in northern Alaska. Ecology, 2019. 100(12): p. e02878.)."
+Data.Type,"Soil extract (K2SO4 or water), soil pore water, resin strip, pH, or tree location"
+X_decimal.degree,"X coordinate, decimal degrees"
+Y_decimal.degree,"Y coordinate, decimal degrees"
+DBH (cm),Diameter at breast height for each tree in centimeters
+Height (m),Height of each tree in meters
+Dry.weight,the dry mass in 5g wet soil (applies to both extractions)
+Depth,The depth measured in the hole from coring (This data applys to H2O as well) in cm
+Core length,Length of the core in cm
+Core mass,Mass of core in g
+Homogenized mass,Mass of total homogenized soil from core in g
+Core Notes,"rough proportion of clay, based on a physical inspection of the core"
+NO3,Nitrate in 痢 NO3-N g-1 dry soil
+NH4,Ammonium in 痢 NH4-N g-1 dry soil
+PO4,Phosphate in 痢 PO4-P g-1 dry soil
+TFPA,Total free primary amines in nmol Leu equiv. g-1 dry soil (Run against a leucine curve)
+TRS,Total reducing sugars in mg sugar equivalents g-1 dry soil (Run against a glucose curve)
+TOC,Total organic carbon in 痢 C g-1 dry soil
+TN,Total nitrogen in 痢 N g-1 dry soil
+FUM TOC,Total organic carbon in 痢 C g-1 dry soil
+FUM TN,Total nitrogen in 痢 N g-1 dry soil
+MBC,This is the FUM TOC - TOC in 痢 C g-1 dry soil
+MBN,This is the FUM TN - TN in  痢 N g-1 dry soil
+PO4.FUM,Phosphate in fumigated sample 痢 PO4-P g-1 dry soil
+phenolics,phenolics measured using a prussian blue assay. Reported in 痢 gallic acid equiv. g-1 dry soil
+,
+Water extractions:,Soil extractions performed with 25 mL nanopure H2O to 5 g soil
+NH4.H2O,Ammonium in 痢 NH4-N g-1 dry soil
+NO3.H2O,Nitrate in 痢 NO3-N g-1 dry soil
+PO4.H2O,Phosphate in 痢 PO4-P g-1 dry soil
+TFPA.H2O,Total free primary amines in nmol Leu equiv. g-1 dry soil (Run against a leucine curve)
+TRS.H2O,Total reducing sugars in mg sugar equivalents g-1 dry soil (Run against a glucose curve)
+,
+Resin extract:,"Resin strips (GE Power and Water, via Maltz sales (http://www.maltzsales.com/): anion model #3009749; cation model #3009753; Qian and Schoenau 2005), 2x6 cm were inserted into the ground, removed at a later date, and extracted using 35 mL 2 M KCl combined with the strips in a 50 mL falcon tube. The extractant was then filtered using a Whatman #1 filter paper. "
+Purpose,This will tell you if the resin strip was in the ground for the summer or winter months
+NH4,Ammonium in 痢 NH4-N cm-2 d-1 (Area is the area of the given resin strip)
+NO3,Nitrate in 痢 NO3-N cm-2 d-1 (Area is the area of the given resin strip)
+PO4,Phosphate in 痢 PO4-P cm-2 d-1 (Area is the area of the given resin strip)
+Due to resin stip cutting issues each strip was individually measured for these sample sets. ,
+Cat-L,Cation strip dimension 1 in cm
+Cat-W,Cation strip dimension 2 in cm
+An-L,Anion strip dimension 1 in cm
+An-W,Anion strip dimension 2 in cm
+Cation Area,Area of Cation strip in cm^2
+Anion Area,Area of anion strip in cm^2
+days in ground,This is the number of days the strips were in the ground
+,
+Data.Type,"This column tells you the type of sample, soil extraction, pore water, resin strip, soil ph, tree location"
+,
+Pore water:,Pore water samples are collected using microlysimetry. This process includes using an evacuated tube and using a preinstalled (installed Fall 2016 for this project) lysimeter which is a porous piece of pvc reinforced with a wire to suck water non-destructively out of soils. 
+fill,"This is a rough metric for how fast the vacutainers are filling (S-Slow (Indicates no sign of filling before leaving plot), D-Drip (This indicates a drop), M-medium (Filling consistently), F-Fast (rapid consistent), S-Spit (Fast, but so much air it looks like the needle is spitting), VF-very fast (This indicated the water is entering the vacutainer as a projectile, constant stream entering vacutainer). "
+mass,The mass of the vacutainer plus liquid in g
+Time,time to collect pore water sample
+Average.vacutainer.7.176g,This is the average mass of vacutainers (n=50)
+Bubles/sediment,"B-Bubbles identified in the lysimeter tube (Not the vacutainer) and are somewhat large, tb- tiny bubbles identified in the lysimeter tube. Sediment- indicated sediment in the vacutainer. "
+NO3,Nitrate in 痢 NO3-N mL-1 pore water
+NH4,Ammonium in 痢 NH4-N mL-1 pore water
+PO4,Phosphate in 痢 PO4-P mL-1 pore water
+TFPA,Total free primary amines in 痠ol Leu equiv. L-1 pore water
+purpose 2,this is an abreviation of purpose column
+X.1 ,days spent in the ground
+Matrix,a column that tells you if KCl was used as a matrix for extraction. 
+,
+Soil Temperature:,Soil temperatures were measured frequently through the summer months using a thermometer at 5 and 10 cm soil depths. 
+Purpose for Measurement,"Weather the temperature was taken during soil sampling, pore water collection or resin strip collection. "
+Temp. @  5 cm Deg. C,Temperature at 5 cm in degrees C
+Temp. @ 10 cm Deg. C,Temperature at 10 cm in degrees C
+,
+,"Analytical methods: All analytical methods use standard curves with the same matrix as the samples they are being compared against (Either water, 0.5 M potassium sulfate, or 2 M potassium chloride). All curves are made starting with HPLC water. All wavelengths are read on the Bio-Tek Synergy HT microplate reader (Bio-Tek Inc., Winooski, VT, USA) using the software package GEN5. "
+Nitrate,"Nitrate concentrations were determined in all extractions and pore water using a colorimetric based microplate assay. In short, 100 無 of sample was pipetted in triplicate with 100 無 working reagent (combination of sulfanilamide,N-(1-naphthyl)-ethylenediamine dihydrochloride, and Vanadium (III) Chloride) , incubated for 4 hours, and then read on the plate reader at a wavelength of 540nm. Two main curves are used in this assay a high curve 0-5 ppm-N and a low curve 0-2 ppm-N. (Doane, T.A. and W.R. Horw嫢h, Spectrophotometric determination of nitrate with a single reagent. Analytical Letters, 2003. 36(12): p. 2713-2722.)"
+Ammonium,"Ammonium concentrations were determined in all extractions and pore water using a colorimetric based microplate assay. In short, 70 無 of sample was pipetted in triplicate with 50 無 trisodium citrate ,then after a minute add 50 無 2-hydroxybiphenyl sodium tetrahydrate + sodium nitroprusside dihydrate  ,25 無 tribasic sodium phosphate + sodium hypochlorite + sodium hydroxide, and then 50 無 water  , incubated for 2 hours, and then read on the plate reader at a wavelength of 660nm. Two main curves are used in this assay a high curve 0-5 ppm-N and a low curve 0-2 ppm-N. (Rhine, E., et al., Improving the Berthelot reaction for determining ammonium in soil extracts and water. Soil Science Society of America Journal, 1998. 62(2): p. 473-480.)"
+Phosphate,"Phosphate concentrations were determined in all extractions and pore water using a colorimetric based microplate assay. In short, 150 無 of sample was pipetted in triplicate with 30 無 acidic ammonium para-molybdate, then after 10 minutes add 30 無 Malachite green +polyvinyl alcohol , incubated for 0.5 hours, and then read on the plate reader at a wavelength of 630nm. The curve ranges from 0-1 ppm-P. (D'Angelo, E., J. Crutchfield, and M. Vandiviere, Rapid, sensitive, microscale determination of phosphate in water and soil. Journal of environmental quality, 2001. 30(6): p. 2206-2209.)"
+Total free primary amine (TFPA),"TFPA concentrations were determined in all extractions and pore water using a Fluorometric based microplate assay. In short, 50 無 of sample was pipetted in triplicate with 100 無 working reagent (potassium tetraborate + sodium hydroxide, o-phthaldialdehyde + ?-mercaptoethanol ), incubated for 1 hours, and then read on the plate reader at excitation 360 nm and emission of 460 nm. The curve ranges from 0-20 然 leucine. (Jones, D.L., A.G. Owen, and J.F. Farrar, Simple method to enable the high resolution determination of total free amino acids in soil solutions and soil extracts. Soil Biology and Biochemistry, 2002. 34(12): p. 1893-1902.;Darrouzet-Nardi, A., M.P. Ladd, and M.N. Weintraub, Fluorescent microplate analysis of amino acids and other primary amines in soils. Soil Biology and Biochemistry, 2013. 57: p. 78-82.)"
+Total reducing sugars (TRS),"Total reducing sugar concentrations were determined in all extractions and pore water using a colorimetric based microplate assay. In short, 25 無 of sample was pipetted in quadruplicate with 125無 working reagent (para-hydroxybenzoic acid hydrazide dissolved in hydrochloric acid and trisodium citrate + calcium chloride + Sodium hydroxide) , incubated at 100 蚓  for 5 minutes, and then in an ice bath for another 5 minutes. Then read on  the plate reader at a wavelength of 410 nm. Two main curves are used in this assay a high curve 0-200 ppm glucose and a low curve 0-35 ppm glucose. (Lever, M., Colorimetric and fluorometric carbohydrate determination with p-hydroxybenzoic acid hydrazide. Biochemical Medicine, 1973. 7(2): p. 274-281.;Fursova, O., G. Pogorelko, and O.A. Zabotina, An efficient method for transient gene expression in monocots applied to modify the Brachypodium distachyon cell wall. Annals of botany, 2012: p. mcs103.)"
+TOC/TN,"The K2SO4 extracts from chloroform fumigated and unfumigated samples were analyzed for dissolved organic C (DOC, using the N-POC method)) and total dissolved nitrogen (TDN) using a Shimadzu total organic C (TOC-VCPN) analyzer with a total nitrogen (TN) analyzer (Shimadzu Scientific Instruments Inc., Columbia, MD, USA). DOC and TDN concentrations in the unfumigated K2SO4 extracts were subtracted from the fumigated extracts, yielding an estimate of extractable microbial biomass C and N. Three chloroform fumigated and extracted blanks were used to account for any possible C or N contamination. Extractable microbial biomass is expressed as ?g (C or N) g dry soil-1 and is not corrected for extraction efficiency, which has not been determined in these soils. (Brookes, P.C., et al., Chloroform fumigation and the release of soil nitrogen: A rapid direct extraction method to measure microbial biomass nitrogen in soil. Soil Biology and Biochemistry, 1985. 17(6): p. 837-842.)"
